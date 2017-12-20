@@ -1,0 +1,33 @@
+<?php 
+return 
+[
+	'index' => 
+		[
+			'path' => '/',
+			'controller' => 'Main',
+			'action' => 'index'
+		],
+	'article' => 
+		[
+			'path' => '/article/edit/{id}',
+			'controller' => 'Main',
+			'action' => 'index',
+			'params' => 
+			[
+				'id' => ['pattern' => '\d+']
+			]
+		],		
+	'contact' =>
+		[
+			'path' => '/contact',
+			'controller' => 'Main',
+			'action' => 'alex'
+		],
+	'erreur' =>
+		[
+			'path' => '/erreur',
+			'controller' => 'Main',
+			'action' => 'erreur'
+		]
+];
+?>
