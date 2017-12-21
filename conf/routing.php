@@ -26,8 +26,8 @@ return
 	'erreur' =>
 		[
 			'path' => '/erreur',
-			'controller' => 'Main',
-			'action' => 'erreur'
+			'controller' => 'Error',
+			'action' => 'error404'
 		]
 ];
 ?>

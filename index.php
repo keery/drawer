@@ -1,14 +1,13 @@
 <?php 
 namespace Drawer;
 
-require('conf/config.php');
-require(MODULE."View/View.php");
-require(MODULE."Erreur/Erreur.php");
-// require(MODULE."Router/Router.php");
-
-
 use Drawer\Conf\Autoloader;
 use Drawer\Module\Router\Router;
+
+require('conf/config.php');
+require(MODULE."View/View.php");
+include(MODULE."Erreur/Erreur.php");
+
 
 $loader = require(CONF.'autoload.php');
 Autoloader::register();
@@ -17,7 +16,6 @@ $router = new Router();
 
 $URI = explode("?", $_SERVER["REQUEST_URI"]);
 $URI = str_ireplace(DIRNAME, "", urldecode($URI[0]));
-var_dump($URI);
 $router->urlMatcher($URI);
 
 // $router->getRouteByName('erreur');

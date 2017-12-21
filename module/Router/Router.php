@@ -1,8 +1,7 @@
 <?php 
 
 namespace Drawer\Module\Router;
-
-use Drawer\Controllers\MainController;
+use Drawer\Module\Erreur\Erreur;
 
 class Router
 {
@@ -56,7 +55,6 @@ class Router
 			}
 
 		}
-
 		throw new Erreur('Aucune route ne correspond à "'.$path.'"');
 		return false;
 	}
@@ -66,7 +64,7 @@ class Router
 		echo $this->routeHandler($routeName, $params);
 	}
 
-	public function redirectTo($route)
+	public function redirectTo($route, $params=null)
 	{
 		$cName = $route['controller']."Controller";
 		if(file_exists(CTRL.$cName.".php"))
@@ -76,7 +74,12 @@ class Router
 				$namespace = "\Drawer\Controllers\\".$cName;
 				$ctrl = new $namespace();
 				$action = $route['action']."Action";
-				$ctrl->$action();
+				if(method_exists($ctrl, $action)) $ctrl->$action();
+				else
+				{
+					throw new Erreur("L'action [".$action."] n'existe pas dans le controlleur [".$namespace."]");
+					return false;
+				}
 			}
 			else
 			{

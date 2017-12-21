@@ -1,6 +1,7 @@
 <?php
 
 namespace Drawer\Conf;
+use Drawer\Module\Erreur\Erreur;
 
 class Autoloader{
 
@@ -9,12 +10,10 @@ class Autoloader{
     }
 
     public static function autoload($class){
-        //Je découpe les valeurs du namespace
+
         $parts = explode('\\', $class);
-        //Je crée le nom du fichier à l'aide de la dernière partie
         $className = array_pop($parts);
         $file = $className.'.php';
-        //Création du chemin avec les bons separateurs
         $path = strtolower(implode(DS, $parts));
 
         $filepath = $path.DS.$file;
