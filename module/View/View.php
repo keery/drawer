@@ -3,12 +3,28 @@ namespace Drawer\Module\View;
 
 class View
 {
-	private $params;
+	private $v;
+	private $t;
+	private $data = [];
 
-	public static function render($tpl, $params=null)
+	public static function render($tpl, $data, $layout=LAYOUT."layout.php")
 	{
-		// $this->params = $params;
-		include(TPL.$tpl);
+		if (file_exists(LAYOUT.$layout)) 
+		{
+			if (file_exists(TPL.$tpl)) 
+			{
+				extract($this->data);
+				include($layout);
+			}
+			else
+			{
+				return new Erreur("Le template [".$tpl."] n'éxiste pas");
+			}			
+		}
+		else
+		{
+			return new Erreur("Le layout [".$layout."] n'éxiste pas");
+		}
 	}
 }
 ?>

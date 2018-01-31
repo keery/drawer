@@ -4,24 +4,20 @@
 // 		PDO::ATTR_DEFAULT_FETCH_MODE => PDO:: FETCH_ASSOC,
 // 		PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8" ));
 
-define("USER", 				"Biscotto");
-define("PREFIXE_TABLE", 	"bs_");
+define("USER", 				"");
+define("PREFIXE_TABLE", 	"");
 
 //Informations sur le site
-define("SITE", 				"Biscotto | Sandwicherie italienne");
-define("NOM_SITE", 			"Biscotto");
-define("ADRESSE", 			"10 Rue Saint-Epvre");
-define("CODE_POSTAL", 		"54000");
-define("VILLE", 			"Nancy");
+define("SITE", 				"");
+define("NOM_SITE", 			"");
+define("ADRESSE", 			"");
+define("CODE_POSTAL", 		"");
+define("VILLE", 			"");
 
 //Réseaux Sociaux
 define("FACEBOOK", 			"#");
 define("TWITTER", 			"#");
 define("INSTAGRAM", 		"#");
-
-define("TABLE_USER", 		PREFIXE_TABLE."utilisateur");
-define("TABLE_SLIDER", 		PREFIXE_TABLE."slider");
-define("TABLE_MENU", 		PREFIXE_TABLE."menu");
 
 
 
@@ -42,4 +38,5 @@ define('JS', PROJECT_LINK."js".DS);
 define('IMG', PROJECT_LINK."img".DS);
 define('CTRL', PROJECT_LINK."controllers".DS);
 define('TPL', PROJECT_LINK."tpl".DS);
+define('LAYOUT', PROJECT_LINK."layout".DS);
 define('ROOT', dirname(__FILE__).DS);

@@ -6,7 +6,7 @@ use Drawer\Module\Router\Router;
 
 require('conf/config.php');
 require(MODULE."View/View.php");
-include(MODULE."Erreur/Erreur.php");
+// include(MODULE."Erreur/Erreur.php");
 
 
 $loader = require(CONF.'autoload.php');

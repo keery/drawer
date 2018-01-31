@@ -19,6 +19,9 @@ class Autoloader{
         $filepath = $path.DS.$file;
         $filepath = trim(str_replace(DIRNAME, '', DS.$filepath),DS);
 
+        var_dump($filepath);
+        var_dump(file_exists($filepath));
+
         if(file_exists($filepath)) include $filepath;
         else
         {

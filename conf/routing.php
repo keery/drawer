@@ -21,7 +21,7 @@ return
 		[
 			'path' => '/contact',
 			'controller' => 'Main',
-			'action' => 'alex'
+			'action' => 'test'
 		],
 	'erreur' =>
 		[
