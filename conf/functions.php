@@ -1,5 +1,5 @@
 <?php
-	use Drawer\Module\Router\Router;
+	use Module\Router\Router;
 
 	function path($routeName, $params=null)
 	{

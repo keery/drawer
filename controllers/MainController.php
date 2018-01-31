@@ -1,7 +1,7 @@
 <?php
-namespace Drawer\Controllers;
+namespace Controllers;
 
-use Drawer\Module\View\View;
+use Module\View\View;
 
 class MainController {
 	

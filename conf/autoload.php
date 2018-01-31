@@ -1,7 +1,7 @@
 <?php
 
-namespace Drawer\Conf;
-use Drawer\Module\Erreur\Erreur;
+namespace Conf;
+use Module\Erreur\Erreur;
 
 class Autoloader{
 

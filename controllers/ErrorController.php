@@ -1,5 +1,5 @@
 <?php
-namespace Drawer\Controllers;
+namespace Controllers;
 
 class ErrorController {
 	

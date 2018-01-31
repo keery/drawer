@@ -4,7 +4,7 @@
 		<base href="<?php echo DIRNAME.DS; ?>" />
 		<link rel="stylesheet" href="css/style.css">
 		<meta charset="UTF-8">
-		<title>Creative drawer</title>		
+		<title>Creative </title>		
 	</head>
 	<body>
 		<header>

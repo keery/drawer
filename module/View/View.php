@@ -1,7 +1,7 @@
 <?php 
-namespace Drawer\Module\View;
+namespace Module\View;
 
-use Drawer\Module\Erreur\Erreur;
+use Module\Erreur\Erreur;
 
 class View
 {

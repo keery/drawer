@@ -1,8 +1,8 @@
 <?php 
-namespace Drawer;
+// namespace ;
 
-use Drawer\Conf\Autoloader;
-use Drawer\Module\Router\Router;
+use Conf\Autoloader;
+use Module\Router\Router;
 
 require('conf/config.php');
 require(CONF.'functions.php');

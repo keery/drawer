@@ -1,8 +1,8 @@
 <?php
 
-namespace Drawer\Module\Erreur;
+namespace Module\Erreur;
 use ErrorException;
-use Drawer\Module\Router\Router;
+use Module\Router\Router;
 
 class Erreur extends ErrorException
 {

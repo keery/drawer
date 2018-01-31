@@ -1,7 +1,7 @@
 <?php 
 
-namespace Drawer\Module\Router;
-use Drawer\Module\Erreur\Erreur;
+namespace Module\Router;
+use Module\Erreur\Erreur;
 
 class Router
 {
@@ -73,7 +73,7 @@ class Router
 		{
 			if(isset($route['action']))
 			{
-				$namespace = "\Drawer\Controllers\\".$cName;
+				$namespace = "\\Controllers\\".$cName;
 				$ctrl = new $namespace();
 				$action = $route['action']."Action";
 				if(method_exists($ctrl, $action)) $ctrl->$action();
