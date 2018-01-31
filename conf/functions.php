@@ -4,6 +4,6 @@
 	function path($routeName, $params=null)
 	{
 		$router = new Router();
-		echo $router->route($routeName, $params);
+		echo $this->routeHandler($routeName, $params);
 	}
  ?>

@@ -47,11 +47,6 @@ class Router
 								return $route;
 							}
 						}
-						// if(strpos($segment, '{') !== false)
-						// {
-						// 	$indexParam = trim($segment, '{}');
-						// 	if(isset($route['params'][$indexParam]['pattern']) && preg_match('/'.$route['params'][$indexParam]['pattern'].'/', $findPathExploded[$key])) return $route;
-						// }
 					}
 				}
 			}
@@ -59,11 +54,6 @@ class Router
 		}
 		throw new Erreur('Aucune route ne correspond à "'.$path.'"');
 		return false;
-	}
-
-	public function route($routeName, $params=null)
-	{
-		return $this->routeHandler($routeName, $params);
 	}
 
 	public function redirectTo($route, $params=null)

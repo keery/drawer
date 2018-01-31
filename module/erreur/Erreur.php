@@ -6,9 +6,6 @@ use Module\Router\Router;
 
 class Erreur extends ErrorException
 {
-  //   public function __construct(){
-  //     parent::__construct(); #you are forcing a construct call, it is not required if the parent constructor has no args.
-  // }
   public function __toString()
   {
     switch ($this->severity)
@@ -70,9 +67,9 @@ set_error_handler(function ($code, $message, $fichier, $ligne) {
   }
 });
 set_exception_handler(function ($e) {
-  // ob_end_clean();
-    // header('HTTP/1.1 500 Internal Server Error');
-    echo $e;
-    $router = new Router();
-    $router->redirectTo($router->getRouteByName('erreur'));
+  ob_end_clean();
+  header('HTTP/1.1 500 Internal Server Error');
+  echo $e;
+  $router = new Router();
+  $router->redirectTo($router->getRouteByName('erreur'));
 });
