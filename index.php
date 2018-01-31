@@ -16,7 +16,11 @@ Autoloader::register();
 $router = new Router();
 
 $URI = explode("?", $_SERVER["REQUEST_URI"]);
-$URI = str_ireplace(DIRNAME, "", urldecode($URI[0]));
+if ($URI[0] != DS) {
+  $URI = str_ireplace(DIRNAME, "", urldecode($URI[0]));
+} else {
+  $URI = $URI[0];
+}
 $router->urlMatcher($URI);
 
 // $router->getRouteByName('erreur');
