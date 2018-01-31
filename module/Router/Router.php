@@ -17,6 +17,7 @@ class Router
 			throw new Erreur('Le fichier "'.$routes.'" n\'existe pas');
 			return false;
 		}
+
 	}
 
 	public function urlMatcher($path)
@@ -24,6 +25,7 @@ class Router
 		$routes = $this->getRoutes();
 		foreach ($routes as $route) 
 		{
+
 			if($route['path'] == $path) 
 			{
 				$this->redirectTo($route);
@@ -61,7 +63,7 @@ class Router
 
 	public function route($routeName, $params=null)
 	{
-		echo $this->routeHandler($routeName, $params);
+		return $this->routeHandler($routeName, $params);
 	}
 
 	public function redirectTo($route, $params=null)

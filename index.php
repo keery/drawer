@@ -5,6 +5,7 @@ use Drawer\Conf\Autoloader;
 use Drawer\Module\Router\Router;
 
 require('conf/config.php');
+require(CONF.'functions.php');
 require(MODULE."View/View.php");
 // include(MODULE."Erreur/Erreur.php");
 
@@ -41,23 +42,3 @@ $router->urlMatcher($URI);
 // 	}
 // }
 ?>
-<head>
-	<base href="<?php echo DIRNAME.DS; ?>" />
-	<link rel="stylesheet" href="css/style.css">
-</head>
-
-<nav class="container">
-
-	<div class="row">
-		<div class="blue col-xs-6 col-sm-8"></div>
-		<div class="red col-xs-6 col-sm-4"></div>
-	</div>
-	<ul>
-		<li>
-			<a href="<?php echo $router->route('contact') ?>">test</a>
-		</li>
-		<li>
-			<a href="<?php echo $router->route('article', ['id' => 1]) ?>">Article numero 1</a>	
-		</li>
-	</ul>
-</nav>

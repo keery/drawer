@@ -19,13 +19,10 @@ class Autoloader{
         $filepath = $path.DS.$file;
         $filepath = trim(str_replace(DIRNAME, '', DS.$filepath),DS);
 
-        var_dump($filepath);
-        var_dump(file_exists($filepath));
-
         if(file_exists($filepath)) include $filepath;
         else
         {
-            throw new Erreur("Impossible d'inclure fichier [".$filepath."] n'éxiste pas");
+            throw new Erreur("Impossible d'inclure le fichier [".$filepath."] n'existe pas");
             return false;
         }
     }

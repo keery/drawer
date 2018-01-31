@@ -1,20 +1,25 @@
 <?php 
 namespace Drawer\Module\View;
 
+use Drawer\Module\Erreur\Erreur;
+
 class View
 {
-	private $v;
-	private $t;
-	private $data = [];
+	private static $v;
+	private static $t;
+	private static $data = ["test"];
 
-	public static function render($tpl, $data, $layout=LAYOUT."layout.php")
+	//Affiche un template
+	public static function render($tpl, $data=[], $layout="layout.php")
 	{
+		self::assignData($data);
+
 		if (file_exists(LAYOUT.$layout)) 
 		{
 			if (file_exists(TPL.$tpl)) 
 			{
-				extract($this->data);
-				include($layout);
+				extract(self::$data);
+				include(LAYOUT.$layout);
 			}
 			else
 			{
@@ -24,6 +29,15 @@ class View
 		else
 		{
 			return new Erreur("Le layout [".$layout."] n'éxiste pas");
+		}
+	}
+
+	//Assigne les datas à la classe (les datas sont les variables que l'on passe à notre template)
+	private static function assignData($data)
+	{
+		if(count($data) > 0)
+		{
+			self::$data = $data;
 		}
 	}
 }
