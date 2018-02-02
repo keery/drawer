@@ -1,0 +1,87 @@
+// colors
+$dark: #304A52;
+$dark2: #379085;
+$highlight: #77D3C8;
+$highlight2: #49C5B6;
+$grey: #EBF2F9;
+$grey2: #D5DCE3;
+
+// radius
+$radius: .4em;
+
+
+@import 'dist/normalize';
+@import url('https://fonts.googleapis.com/css?family=Cantarell');
+@import 'grid';
+@import 'sideNav';
+@import 'landing'; 
+
+body {
+	font-family: 'Cantarell', sans-serif;
+	font-family: serif;
+	margin: 0;
+	padding: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+	font-weight: normal;
+	margin: 1em;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	li {
+		list-style: none;
+		padding: 0;
+	}
+}
+
+h1 {
+	color: #304A52;
+}
+
+.wrapper {
+	height: 100vh;
+	margin: 0 auto;
+}
+
+.button {
+	border: 1px solid $grey;
+	background: white;
+	color: $dark;
+	font-size: .8em;
+	border-radius: $radius;
+	padding: .8em 2em;
+}
+
+.input {
+	padding: 1.2em 1.5em;
+	border: 1px solid $grey;
+	background: white;
+	color: $dark;
+	border-radius: $radius;
+}
+
+.btn-validate {
+	color: white;
+	background: $highlight2;
+}
+
+.container {
+	padding: 2em;
+	box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.11);
+}
+
+.content {
+
+}

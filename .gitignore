@@ -1,2 +1,5 @@
 # Dependency directories
 node_modules/
+
+# compiled csss
+css/dist/style.css
