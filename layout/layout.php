@@ -2,7 +2,7 @@
 <html>
 	<head lang="fr">
 		<base href="<?php echo DIRNAME.DS; ?>" />
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/dist/style.css">
 		<meta charset="UTF-8">
 		<title>Creative </title>		
 	</head>

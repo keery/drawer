@@ -3,4 +3,4 @@ docker-bash:
 
 docker-up:
 	cd docker && docker-compose up -d;
-	node-sass /home/alex/labs/drawer/css/style.scss ./css/style.css -w --output-style compressed --error-bell
+	node-sass /home/alex/labs/drawer/css/style.scss ./css/dist/style.css -w --output-style compressed --error-bell
