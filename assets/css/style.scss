@@ -14,30 +14,30 @@ $radius: .4em;
 	box-shadow: 0px 0px 45px rgba($color, $opacity);
 }
 
-@mixin underline($position, $width, $color: $highlight) {
+@mixin underline($position, $width, $padding: 0px, $color: $highlight) {
 	&:before {
 		position: absolute;
 		content: '';
 		background: $highlight;	
 		@if $position == 'bottom' {
 			left: 0px;
-			bottom: 0px;
+			bottom: $padding;
 			height: $width;
 			width: 100%;
 		} @else if $position == 'top' {
 			left: 0px;
-			top: 0px;
+			top: $padding;
 			height: $width;
 			width: 100%;
 		} @else if $position == 'left' {
-			left: 0px;
+			left: $padding;
 			width: $width;
 			top: 0px;
 			height: 100%;
 		} @else if $position == 'right' {
 			top: 0px;
 			width: $width;
-			right: 0px;
+			right: $padding;
 			height: 100%;
 		}
 	}
@@ -122,7 +122,8 @@ ul {
 
 .container {
 	display: flex;
-	padding: 2em;
+	//padding: 1.5em;
+	align-items: center;
 	border-radius: $radius;
 	justify-content: space-between;
 	@include box-shadow();

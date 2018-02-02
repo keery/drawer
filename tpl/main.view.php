@@ -5,9 +5,9 @@
     <a href="">Insights</a>
   </div>
   <div class="nav-options .cf">
-    <a href="">Days</a>
-    <a href="">Week</a>
-    <a href="">Mounths</a>
-    <a href="">Years</a>
+    <div><a href="" class="selected"><span class="element">Days</span></a></div>
+    <div><a href=""><span class="elementspanWeek">Weeks</span></a></div>
+    <div><a href=""><span class="elementspanMounths">Months</span></a></div>
+    <div><a href=""><span class="element">Years</span></a></div>
   </div>
 </nav>
