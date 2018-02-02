@@ -15,44 +15,26 @@
   .nav-options {
     margin-right: 1.5em;
 
-    // ugly fix here first-child doesnt work on <a> links
-
     div {
       float: left;
       margin: 0;
       padding: 0;
 
-      a.selected {
-        span {
+      a {
+        padding: .5em 1em;
+        float: left;
+        border: 2px solid $grey2;
+
+        &.selected {
           border: 2px solid transparent;
           background: $highlight2;
           color: white
         }
       }
 
-      span {
-        padding: .5em 1em;
-        float: left;
-        border: 2px solid $grey2;
-      }
-
-      &:not(:first-child) {
-        span {
-          border-left: 0;
-        }
-      }
-
-      &:first-child {
-        span {
-          border-radius: $radius 0 0 $radius;
-        }
-      }
-
-      &:last-child {
-        span {
-          border-radius: 0 $radius $radius 0;
-        }
-      }
+      &:not(:first-child) a { border-left: 0; }
+      &:first-child a { border-radius: $radius 0 0 $radius; }
+      &:last-child a { border-radius: 0 $radius $radius 0; }
     }
   }
 }
