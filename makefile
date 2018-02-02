@@ -1,5 +1,6 @@
 docker-bash:
 	@docker exec -ti project bash
 
-docker-run:
+docker-up:
 	cd docker && docker-compose up -d;
+	node-sass /home/alex/labs/drawer/css/style.scss ./css/style.css -w --output-style compressed --error-bell

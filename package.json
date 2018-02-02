@@ -1,0 +1,23 @@
+{
+  "name": "drawer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keery/drawer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keery/drawer/issues"
+  },
+  "homepage": "https://github.com/keery/drawer#readme",
+  "dependencies": {
+    "sass": "^1.0.0-beta.4"
+  }
+}
