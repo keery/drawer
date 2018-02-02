@@ -1,0 +1,24 @@
+.content {
+  .nav-links {
+    a {
+      padding: 2em 3em;
+      position: relative;
+      &.selected {
+        @include underline('bottom', 3px);
+      }
+    }
+  }
+
+  .nav-options {
+    a {
+      margin: 0;
+      float: left;
+      padding: 0;
+      white-space: nowrap;
+      border: 2px solid $grey2;
+    }
+    &:last-child, :first-child {
+      border-radius: $radius 0 0 $radius;
+    }
+  }
+}

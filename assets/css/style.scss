@@ -9,16 +9,49 @@ $grey2: #D5DCE3;
 // radius
 $radius: .4em;
 
+//mixins
+@mixin box-shadow($color: black, $opacity: 0.11) {
+	box-shadow: 0px 0px 45px rgba($color, $opacity);
+}
+
+@mixin underline($position, $width, $color: $highlight) {
+	&:before {
+		position: absolute;
+		content: '';
+		background: $highlight;	
+		@if $position == 'bottom' {
+			left: 0px;
+			bottom: 0px;
+			height: $width;
+			width: 100%;
+		} @else if $position == 'top' {
+			left: 0px;
+			top: 0px;
+			height: $width;
+			width: 100%;
+		} @else if $position == 'left' {
+			left: 0px;
+			width: $width;
+			top: 0px;
+			height: 100%;
+		} @else if $position == 'right' {
+			top: 0px;
+			width: $width;
+			right: 0px;
+			height: 100%;
+		}
+	}
+}
 
 @import 'dist/normalize';
 @import url('https://fonts.googleapis.com/css?family=Cantarell');
 @import 'grid';
+@import 'landing';
 @import 'sideNav';
-@import 'landing'; 
+@import 'backContent';
 
 body {
 	font-family: 'Cantarell', sans-serif;
-	font-family: serif;
 	margin: 0;
 	padding: 0;
 }
@@ -33,7 +66,12 @@ h1, h2, h3, h4 {
 	padding: 0;
 }
 
+h1 {
+	color: #304A52;
+}
+
 a {
+	color: $dark;
 	text-decoration: none;
 }
 
@@ -46,8 +84,13 @@ ul {
 	}
 }
 
-h1 {
-	color: #304A52;
+.cf:before, .cf:after {
+	content: '';
+	display: table-cell;
+}
+
+.cf:after {
+	clear: both;
 }
 
 .wrapper {
@@ -78,10 +121,13 @@ h1 {
 }
 
 .container {
+	display: flex;
 	padding: 2em;
-	box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.11);
+	border-radius: $radius;
+	justify-content: space-between;
+	@include box-shadow();
 }
 
-.content {
-
+.ctn-nav {
+	padding-left: 0;
 }

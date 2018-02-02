@@ -20,9 +20,12 @@
 			</header>
 			<nav class="nav">
 				<ul>
-					<li><a href="<?php path('contact') ?>">test</a></li>
-					<li class="selected"><a href="<?php path('article', ['id' => 1]) ?>">Article numero 1</a></li>
-					<li><a href="<?php path('article', ['id' => 1]) ?>">Article numero 1</a></li>
+					<a href="<?php path('contact') ?>"><li class="selected">dashboard</li></a>
+					<a href="<?php path('contact') ?>"><li>statistiques</li></a>
+					<a href="<?php path('contact') ?>"><li>mes pages</li></a>
+					<a href="<?php path('contact') ?>"><li>mes articles</li></a>
+					<a href="<?php path('contact') ?>"><li>mes medias</li></a>
+					<a href="<?php path('contact') ?>"><li>mon compte</li></a>
 				</ul>
 			</nav>
 		</aside>
