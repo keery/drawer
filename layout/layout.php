@@ -7,7 +7,7 @@
 		<title>Creative </title>		
 	</head>
 	<body>
-		<header>
+		<!-- <header>
 			<nav class="container">
 				<div class="row">
 					<div class="blue col-xs-6 col-sm-8"></div>
@@ -22,7 +22,7 @@
 					</li>
 				</ul>
 			</nav>
-		</header>
+		</header> -->
 		<?php include(TPL.$tpl); ?>
 		<footer>
 			

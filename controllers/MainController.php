@@ -9,7 +9,7 @@ class MainController {
 	{
 		echo "Ma first action";
 
-		View::render("main.php");
+		View::render("main.view.php");
 	}
 	public function testAction()
 	{
