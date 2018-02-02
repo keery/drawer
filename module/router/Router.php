@@ -87,7 +87,7 @@ class Router
 
 	}
 
-	private function routeHandler($routeName, $params=null)
+	public function routeHandler($routeName, $params=null)
 	{
 		if($route = $this->routeExist($routeName))
 		{
