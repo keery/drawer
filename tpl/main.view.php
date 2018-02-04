@@ -4,7 +4,7 @@
     <a href="" class="selected">Traffic</a>
     <a href="">Insights</a>
   </div>
-  <div class="nav-options .cf">
+  <div class="nav-options cf">
     <div><a href="" class="selected">Days</a></div>
     <div><a href="">Weeks</a></div>
     <div><a href="">Months</a></div>
