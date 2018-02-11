@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<head lang="fr">
-		<base href="<?php echo DIRNAME.DS; ?>" />
 		<link rel="stylesheet" href="assets/css/dist/style.css">
 		<meta charset="UTF-8">
 		<title>Creative </title>		
