@@ -2,7 +2,6 @@ FROM php:7.2-apache
 
 # Install PDO MySQL driver
 # See https://github.com/docker-library/php/issues/62
-RUN apt-get install fish && apt-get install vim
 
 RUN docker-php-ext-install pdo mysqli pdo_mysql
 
