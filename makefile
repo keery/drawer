@@ -3,4 +3,4 @@ docker-bash:
 
 docker-up:
 	cd docker && docker-compose up -d;
-	node-sass ./assets/css/style.scss ./assets/css/dist/style.css -w -r --output-style compressed --error-bell
+	npm run sass
