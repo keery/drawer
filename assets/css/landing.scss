@@ -1,4 +1,36 @@
 #landing {
+  #burger {
+      display: none;
+      cursor: pointer;
+      z-index: 1300;
+      position: absolute;
+      top: 8%;
+      right: 5%;
+      width: 38px;
+      height: 26px;
+      .line {
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: #fff;
+          transition: .3s all ease-in-out;
+          top: 0;
+
+          &.l2 { top: 8px; }
+          &.l3 { top: 16px;width: 1.5vw; }
+      }
+
+      &:hover {
+        .line {
+            &.l1, &.l3 {
+                transform: translateX(8px);
+                width: 100%;
+            }
+            &.l2 { transform: translateX(-5px);width: 50%; }
+        }
+      }
+  }
   ul {
     padding-left: 0;
     list-style: none;
@@ -10,9 +42,9 @@
     font-size: 64px;
     color: white;
     margin: 5px 0;
-  }
+  } 
 
-  h2 {
+  h2 { 
     margin: 0;
     font-size: 48px;
     color: white;
@@ -107,7 +139,6 @@
     color: white;
     padding: 20px 40px;
     border: none;
-    font-family: Lato;
     text-decoration: none;
     transition: all ease-in-out 0.25s;
   }
@@ -162,7 +193,10 @@
     right: 0;
     bottom: 0;
     width: 80%;
-    background-image: url('../../img/background-vector.png')
+    background-image: url('../../img/background-vector.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size:cover;
   }
 
   #slider-home .chevron-down {
@@ -247,7 +281,7 @@
   .creation,
   .community {
     color: #379085;
-    padding: 100px 0;
+    padding: 100px 15px;
   }
 
   .creation .img-box:before {
@@ -298,6 +332,7 @@
     background-color: #379085;
     padding: 25px 5%;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     color: white;
   }
@@ -329,6 +364,8 @@
     margin-right: 5%;
   }
 
+  .contact { background-color: #304a52; }
+
   @media screen and (max-width: 1600px) {
     h1 {
       font-size: 45px;
@@ -339,5 +376,42 @@
     p {
       font-size: 16px;
     }
+  }
+
+  @media screen and (max-width: 1199px) {
+    #slider-home .bloc-slider {
+      width: 90%;left: 50%;right: auto;transform: translateY(-50%) translateX(-50%);text-align: center;background-color: rgba(55, 144, 133, 0.65);padding: 19px 13px; border-radius: 10px;
+      .btn { background-color: white; color: #379085; 
+        &:hover { opacity: 0.5;}
+      }
+    }
+    .border-landing { border-top: 10px solid #304A52; }
+    .creation, .community { padding: 40px 15px; }
+    #band {
+      .text-band { width: 95%; }
+    }
+    #burger {display: block;}
+    
+    footer { justify-content: center;
+      .mention {flex-basis: 100%;margin: 20px 0 0 0;}
+    }
+
+    nav.nav-top  { padding-top: 45px;z-index: 999;display:block;margin:0;position: fixed; left:100%;top: 0;bottom: 0; transition: left ease-in-out 0.4s;width: 100%;background-color: rgba(73, 197, 182, 0.83);
+      > .main-menu
+      {
+        > li { display: block;margin-left: 15px;
+          > a { display: block;font-size: 40px;}
+        }
+      }
+      .connect-option { justify-content: center; position: absolute; top: 5px; left: 0; right: 0;
+        a { display: inline-block;padding: 10px 20px;}
+       }
+      &.open { left: 0; }
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    .img-box { width: 70%;padding-top: 45%;margin: 0 auto; }
+    .creation .img-box { margin-top: 15px; }
   }
 }

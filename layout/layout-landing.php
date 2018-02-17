@@ -29,6 +29,11 @@
             <li><a href="#">S'inscrire</a></li>
           </ul>
         </nav>
+        <div id="burger" title="Afficher le menu">
+          <div class="line l1"></div>
+          <div class="line l2"></div>
+          <div class="line l3"></div>
+        </div>        
       </header>
       
       <div id="slider-home">
@@ -52,33 +57,53 @@
         </div>
       </div>
 
-      <section class="creation container">
-        <div class="row">
-          <div class="col-xs-5">
-            <h2>Création assistée de site</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam vero ab neque, eligendi minus perferendis iusto, nemo qui voluptatibus maiores tempora id distinctio labore magnam, nesciunt. Eaque, maxime. Beatae, consequatur.</p>
-            <button class="btn op">Voir plus</button>
-          </div>
-          <div class="col-xs-1"></div>
-          <div class="col-xs-6">
-            <div class="img-box overlay"></div>
+      <section class="creation">
+        <div class="container-grid">
+          <div class="row">
+            <div class="col-md-5 col-xs-12">
+              <h2>Création assistée de site</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam vero ab neque, eligendi minus perferendis iusto, nemo qui voluptatibus maiores tempora id distinctio labore magnam, nesciunt. Eaque, maxime. Beatae, consequatur.</p>
+              <div class="text-center-xs"><button class="btn op">Voir plus</button></div>
+            </div>
+            <div class="col-xs-1"></div>
+            <div class="col-md-6 col-xs-12">
+              <div class="img-box overlay"></div>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="community border-landing">
-        <div class="container">
+        <div class="container-grid">
           <div class="row">
-            <div class="col-xs-6">
+            <div class="col-md-6 col-xs-12">
               <div class="img-box overlay"></div>
             </div>
             <div class="col-xs-1"></div>
-            <div class="col-xs-5">
+            <div class="col-md-5 col-xs-12">
               <h2>Une communauté</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam vero ab neque, eligendi minus perferendis iusto, nemo qui voluptatibus maiores tempora id distinctio labore magnam, nesciunt. Eaque, maxime. Beatae, consequatur.</p>
-              <button class="btn op">Voir plus</button>
+              <div class="text-center-xs"><button class="btn op">Voir plus</button></div>
             </div>
           </div>
+        </div>
+      </section>
+      <section class="contact">
+        <div class="container-grid">
+          <h2>Contactez-nous</h2>
+          <form action="" method="POST">
+            <div>
+              <label for="titre-contact">Titre</label>
+              <input type="text" id="titre-contact">
+            </div>
+           <div>
+              <label for="message-contact">Message</label>
+              <textarea id="message-contact"></textarea>
+            </div> 
+            <div>
+              <input type="submit" value="Envoyer">
+            </div>         
+          </form>
         </div>
       </section>
 
@@ -86,7 +111,7 @@
       <div id="community"></div>
       <footer>
         <img src="assets/img/logo-creative-drawer.png" alt="Logo Creative Drawer" height="64" id="logo-footer">	
-        <nav id="menu-footer">
+        <nav id="menu-footer" class="hidden-xs hidden-sm">
           <ul>
             <li>
               <a href="#">Fonctionnalités</a>
@@ -105,5 +130,7 @@
         <div class="mention text-center">Marques déposées Copyright © Creative Drawer - Tous droits réservés</div>
       </footer>
     </div>
+    <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script src="js/index.landing.js"></script>
 	</body>
 </html>
