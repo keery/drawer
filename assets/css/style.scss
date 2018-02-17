@@ -18,7 +18,7 @@ $radius: .4em;
 	&:before {
 		position: absolute;
 		content: '';
-		background: $highlight;	
+		background: $color;	
 		@if $position == 'bottom' {
 			left: 0px;
 			bottom: $padding;
@@ -49,6 +49,7 @@ $radius: .4em;
 @import 'landing';
 @import 'sideNav';
 @import 'backContent';
+@import 'dashboard';
 
 body {
 	font-family: 'Cantarell', sans-serif;
