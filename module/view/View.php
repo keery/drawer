@@ -10,7 +10,7 @@ class View
 	private static $data = ["test"];
 
 	//Affiche un template
-	public static function render($tpl, $data=[], $layout="layout.php")
+	public static function render($tpl, $layout="layout.php", $data=[])
 	{
 		self::assignData($data);
 
