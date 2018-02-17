@@ -8,7 +8,7 @@
 	<body>
     <div id="landing">
       <header>
-        <img src="img/logo-creative-drawer.png" alt="Logo Creative Drawer" id="logo">		
+        <img src="assets/img/logo-creative-drawer.png" alt="Logo Creative Drawer" id="logo">		
         <nav class="nav-top row">
           <ul class="main-menu">
             <li>
@@ -32,7 +32,7 @@
       </header>
       
       <div id="slider-home">
-       <img src="img/logo-creative-drawer.png" alt="Logo Creative Drawer" id="logo">
+       <img src="assets/img/logo-creative-drawer.png" alt="Logo Creative Drawer" id="logo">
         <div class="skew-right">
           <div class="bloc-slider">
             <h1>Ma grosse baseline</h1>
@@ -85,7 +85,7 @@
       <div id="creation"></div>
       <div id="community"></div>
       <footer>
-        <img src="img/logo-creative-drawer.png" alt="Logo Creative Drawer" height="64" id="logo-footer">	
+        <img src="assets/img/logo-creative-drawer.png" alt="Logo Creative Drawer" height="64" id="logo-footer">	
         <nav id="menu-footer">
           <ul>
             <li>

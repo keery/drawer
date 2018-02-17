@@ -138,7 +138,7 @@
   #slider-home {
     height: 100vh;
     width: 100%;
-    background-image: url(../img/background-home.png);
+    background-image: url('../../img/background-home.png');
     background-size: cover;
     position: relative;
     overflow: hidden;
@@ -162,7 +162,7 @@
     right: 0;
     bottom: 0;
     width: 80%;
-    background-image: url(../img/background-vector.png)
+    background-image: url('../../img/background-vector.png')
   }
 
   #slider-home .chevron-down {
@@ -183,7 +183,7 @@
     animation-iteration-count: infinite;
     width: 84px;
     height: 40px;
-    background-image: url(../img/chevron-down.png);
+    background-image: url('../../img/chevron-down.png');
     background-repeat: no-repeat;
     background-position: 50%;
   }
@@ -219,7 +219,7 @@
 
   #band:before {
     content: '';
-    background-image: url(../img/background-band.png);
+    background-image: url('../../img/background-band.png');
     background-size: cover;
     background-attachment: fixed;
     position: absolute;
@@ -251,11 +251,11 @@
   }
 
   .creation .img-box:before {
-    background-image: url(../img/creation.png);
+    background-image: url('../../img/creation.png');
   }
 
   .community .img-box:before {
-    background-image: url(../img/community.png);
+    background-image: url('../../img/community.png');
   }
 
   .creation p,
