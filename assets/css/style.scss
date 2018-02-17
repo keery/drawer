@@ -1,0 +1,134 @@
+// colors
+$dark: #304A52;
+$dark2: #379085;
+$highlight: #77D3C8;
+$highlight2: #49C5B6;
+$grey: #EBF2F9;
+$grey2: #D5DCE3;
+
+// radius
+$radius: .4em;
+
+//mixins
+@mixin box-shadow($color: black, $opacity: 0.11) {
+	box-shadow: 0px 0px 45px rgba($color, $opacity);
+}
+
+@mixin underline($position, $width, $padding: 0px, $color: $highlight) {
+	&:before {
+		position: absolute;
+		content: '';
+		background: $highlight;	
+		@if $position == 'bottom' {
+			left: 0px;
+			bottom: $padding;
+			height: $width;
+			width: 100%;
+		} @else if $position == 'top' {
+			left: 0px;
+			top: $padding;
+			height: $width;
+			width: 100%;
+		} @else if $position == 'left' {
+			left: $padding;
+			width: $width;
+			top: 0px;
+			height: 100%;
+		} @else if $position == 'right' {
+			top: 0px;
+			width: $width;
+			right: $padding;
+			height: 100%;
+		}
+	}
+}
+
+@import 'dist/normalize';
+@import url('https://fonts.googleapis.com/css?family=Cantarell');
+@import 'grid';
+@import 'landing';
+@import 'sideNav';
+@import 'backContent';
+
+body {
+	font-family: 'Cantarell', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+	font-weight: normal;
+	margin: 1em;
+	padding: 0;
+}
+
+h1 {
+	color: #304A52;
+}
+
+a {
+	color: $dark;
+	text-decoration: none;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	li {
+		list-style: none;
+		padding: 0;
+	}
+}
+
+.cf:before, .cf:after {
+	content: '';
+	display: table-cell;
+}
+
+.cf:after {
+	clear: both;
+}
+
+.wrapper {
+	height: 100vh;
+	margin: 0 auto;
+}
+
+.button {
+	border: 1px solid $grey;
+	background: white;
+	color: $dark;
+	font-size: .8em;
+	border-radius: $radius;
+	padding: .8em 2em;
+}
+
+.input {
+	padding: 1.2em 1.5em;
+	border: 1px solid $grey;
+	background: white;
+	color: $dark;
+	border-radius: $radius;
+}
+
+.btn-validate {
+	color: white;
+	background: $highlight2;
+}
+
+.container {
+	display: flex;
+	//padding: 1.5em;
+	align-items: center;
+	border-radius: $radius;
+	justify-content: space-between;
+	@include box-shadow();
+}
+
+.ctn-nav {
+	padding-left: 0;
+}

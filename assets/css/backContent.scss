@@ -1,0 +1,40 @@
+.content {
+  .nav-links, .nav-options {
+    padding: 1.5em 0;
+  }
+  .nav-links {
+    a {
+      padding: 0 3em;
+      position: relative;
+      &.selected {
+        @include underline('bottom', 3px, -32px);
+      }
+    }
+  }
+
+  .nav-options {
+    margin-right: 1.5em;
+
+    div {
+      float: left;
+      margin: 0;
+      padding: 0;
+
+      a {
+        padding: .5em 1em;
+        float: left;
+        border: 2px solid $grey2;
+
+        &.selected {
+          border: 2px solid transparent;
+          background: $highlight2;
+          color: white
+        }
+      }
+
+      &:not(:first-child) a { border-left: 0; }
+      &:first-child a { border-radius: $radius 0 0 $radius; }
+      &:last-child a { border-radius: 0 $radius $radius 0; }
+    }
+  }
+}

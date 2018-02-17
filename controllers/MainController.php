@@ -7,9 +7,7 @@ class MainController {
 	
 	public function indexAction()
 	{
-		echo "Ma first action";
-
-		View::render("main.php");
+		View::render("main.view.php");
 	}
 	public function testAction()
 	{
