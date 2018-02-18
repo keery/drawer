@@ -7,8 +7,8 @@ services:
      - "3300:80"
     volumes:
      - ..:/var/www/html/
-     - ${PWD}/apache2config/000-default.conf:/etc/apache2/sites-available/000-default.conf
-     - ${PWD}/apache2config/apache2.conf:/etc/apache2/apache2.conf
+     - ./apache2config/000-default.conf:/etc/apache2/sites-available/000-default.conf
+     - ./apache2config/apache2.conf:/etc/apache2/apache2.conf
     depends_on:
      - database
 
