@@ -46,12 +46,20 @@
           text-transform: uppercase;
           position: relative;
 
-          &.selected {
+          &.selected, &:hover {
             @include box-shadow(black, 0.25);
             @include underline('left', 5px);
           }
         }
       }
     }
+  }
+}
+
+@media (max-width: 1199px) {
+  .sideNav {
+    width: 250px;
+
+    .header { padding: 1.5em; }
   }
 }
