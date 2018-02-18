@@ -7,7 +7,7 @@ class MainController {
 	
 	public function indexAction()
 	{
-		View::render("main.view.php");
+		View::render("dashboard.view.php");
 	}
 
 	public function articlesAction()

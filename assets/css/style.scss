@@ -7,7 +7,7 @@ $grey: #EBF2F9;
 $grey2: #D5DCE3;
 
 // radius
-$radius: .4em;
+$radius: .4em; 
 
 //mixins
 @mixin box-shadow($color: black, $opacity: 0.11) {
@@ -18,7 +18,7 @@ $radius: .4em;
 	&:before {
 		position: absolute;
 		content: '';
-		background: $highlight;	
+		background: $color;	
 		@if $position == 'bottom' {
 			left: 0px;
 			bottom: $padding;
@@ -50,6 +50,7 @@ $radius: .4em;
 @import 'sideNav';
 @import 'backContent';
 @import 'parametres';
+@import 'dashboard';
 
 body { 
 	font-family: 'Cantarell', sans-serif;
