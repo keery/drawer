@@ -278,28 +278,28 @@
     border-top: 40px solid #304A52;
   }
 
-  .creation,
-  .community {
+  #creation,
+  #community {
     color: #379085;
     padding: 100px 15px;
   }
 
-  .creation .img-box:before {
+  #creation .img-box:before {
     background-image: url('../../img/creation.png');
   }
 
-  .community .img-box:before {
+  #community .img-box:before {
     background-image: url('../../img/community.png');
   }
 
-  .creation p,
-  .community p {
+  #creation p,
+  #community p {
     color: #379085;
     margin: 30px 0;
   }
 
-  .creation h2,
-  .community h2 {
+  #creation h2,
+  #community h2 {
     color: #379085;
   }
 
@@ -364,7 +364,15 @@
     margin-right: 5%;
   }
 
-  .contact { background-color: #304a52; }
+  #contact { background-color: #304a52;padding: 40px 0px;
+    input[type="text"], textarea { box-sizing: border_box; border: none; border-radius: 4px;width: 100%;}
+    input[type="text"] { height: 25px; }
+    textarea { height: 100px; max-height: 150px;max-width: 100%;}
+    label {color: white;display: block;margin-bottom: 10px;font-size: 16px;}
+    form { width: 60%;margin: 0 auto;
+      > div { margin: 10px 0;}
+    }
+  }
 
   @media screen and (max-width: 1600px) {
     h1 {
@@ -386,7 +394,7 @@
       }
     }
     .border-landing { border-top: 10px solid #304A52; }
-    .creation, .community { padding: 40px 15px; }
+    #creation, #community { padding: 40px 15px; }
     #band {
       .text-band { width: 95%; }
     }
@@ -412,6 +420,21 @@
 
   @media screen and (max-width: 991px) {
     .img-box { width: 70%;padding-top: 45%;margin: 0 auto; }
-    .creation .img-box { margin-top: 15px; }
+    #creation .img-box { margin-top: 15px; }
   }
+
+  @media screen and (max-width: 767px) {
+    h1 {font-size: 30px;}
+    h2 {font-size: 30px;}
+    p {font-size: 14px;}
+    .btn { padding: 15px 40px; }
+    .subtitle { font-size: 21px;}
+    #contact form {width: 80%;}
+  }
+  @media screen and (max-width: 400px) {
+    nav.nav-top>.main-menu>li>a {font-size: 30px;}
+    #contact form {width: 95%;}
+    .img-box {width: 100%;padding-top: 70%;}
+    #slider-home .bloc-slider { top: 55%; }
+  }  
 }
