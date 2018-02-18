@@ -13,6 +13,15 @@ return
 			'controller' => 'Landing',
 			'action' => 'index'
 		],
+	
+	
+	'statistic' => 
+		[
+			'path' => '/statistic',
+			'controller' => 'Statistic',
+			'action' => 'index'
+		],
+
 	'article' => 
 		[
 			'path' => '/article/edit/{id}',

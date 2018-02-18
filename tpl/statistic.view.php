@@ -11,3 +11,4 @@
     <div><a href="">Years</a></div>
   </div>
 </nav>
+<img src="assets/img/Group.png" alt="fg" title="statistic">sg
