@@ -1,0 +1,14 @@
+#settings {	
+	label {
+		font-size: 18px;
+		margin-bottom: 10px;
+		color: #304A52;
+		display: block;
+	}
+
+	.preview-icon {
+		border-radius: 10px; background-color: rgba(48, 74, 82, 0.5); background-image: url(../../img/globe.png); background-repeat: no-repeat;background-position: center;width: 144px;height: 144px;
+		margin-bottom: 10px;
+	}  
+	.container + .container { margin-top: 25px; }
+} 

@@ -6,8 +6,8 @@
 		<title>Creative </title>		
 	</head>
 	<body>	
-	<div class="flex-wrapper row">
-		<aside class="sideNav col-lg-3">
+	<div class="flex-wrapper">
+		<aside class="sideNav">
 			<header class="header">
 				<img src="assets/img/Group.png" alt="">
 				<h2>Jean Louis laperche</h2>
@@ -28,7 +28,7 @@
 				</ul>
 			</nav>
 		</aside>
-		<div class="wrapper content col-lg-8">
+		<div class="body-wrapper content">
 			<?php include(TPL.$tpl); ?>
 		</div>
 	</div>
