@@ -1,4 +1,4 @@
-<h1>Statistiques</h1>
+<h1>Stats</h1>
 <nav class="container ctn-nav">
   <div class="nav-links">
     <a href="" class="selected">Traffic</a>
