@@ -54,5 +54,21 @@
   .bottom {
     display: flex;
     justify-content: space-between;
+
+    .left {
+      text-align: center;
+      
+      span {
+        display: inline-block;
+        margin-top: 2em;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $dark;
+        border-radius: 2em;
+        padding: 1em;
+        border: 2px solid $grey2;
+      }
+    }
   }
 }

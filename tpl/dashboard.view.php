@@ -48,8 +48,11 @@
   </div>
   <hr class="lineSeparator">
   <div class="bottom">
-    <img src="assets/img/stats.svg" alt="">
+    <div class="left">
+      <img src="assets/img/stats.svg" alt="">
+      <span>TOTAL - 12 300 views</span>
+    </div>
     <img src="assets/img/stats2.svg" alt="">
-    <span>TOTAL - 12 300 views</span>
+   
   </div>
 </div>
