@@ -1,4 +1,4 @@
-<h1><img src="assets/img/speedometer.svg" alt="speed">Statistiques</h1>
+<h1><img src="assets/img/speedometer.svg" alt="speed"><b>STATISTIQUES</b></h1>
 
 <nav class="container ctn-nav">
   <div class="nav-links">
@@ -15,9 +15,23 @@
   </div>
   
 </nav>
+<br>
+<br>
 <header> 
-<img src="assets/img/statistic.svg" width="850" height="475" alt="">
+<img src="assets/img/statistics.png" width="100%" alt="">
 </header>
+<footer>
+  <div>
+  <img src="assets/img/leftArrow.svg"alt="">
+  </div>
+ <div>
+  Texte....
+</div>
+<div>
+<img src="assets/img/rightArrow.svg"alt="">
+  </div>
+</footer>
+  
 
 
 
