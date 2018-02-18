@@ -3,7 +3,8 @@
 	<head lang="fr">
 		<link rel="stylesheet" href="assets/css/dist/style.css">
 		<meta charset="UTF-8">
-		<title>Creative </title>		
+		<title>Creative </title>	
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	</head>
 	<body>	
 	<div class="flex-wrapper">
