@@ -19,12 +19,12 @@
 			</header>
 			<nav class="nav">
 				<ul>
-					<a href="<?php path('landing') ?>"><li class="selected">dashboard</li></a>
+					<a href="<?php path('index') ?>"><li class="selected">dashboard</li></a>
 					<a href="<?php path('contact') ?>"><li>statistiques</li></a>
-					<a href="<?php path('contact') ?>"><li>mes pages</li></a>
-					<a href="<?php path('contact') ?>"><li>mes articles</li></a>
+					<a href="<?php path('pages') ?>"><li>mes pages</li></a>
+					<a href="<?php path('articles') ?>"><li>mes articles</li></a>
 					<a href="<?php path('contact') ?>"><li>mes medias</li></a>
-					<a href="<?php path('contact') ?>"><li>mon compte</li></a>
+					<a href="<?php path('parametres') ?>"><li>Paramètres</li></a>
 				</ul>
 			</nav>
 		</aside>

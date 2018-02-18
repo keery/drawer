@@ -9,19 +9,19 @@ return
 		],
 	'landing' => 
 		[
-			'path' => '/landing',
+			'path' => 'landing',
 			'controller' => 'Landing',
 			'action' => 'index'
 		],
 	'articles' => 
 		[
-			'path' => '/articles',
+			'path' => 'articles',
 			'controller' => 'Main',
 			'action' => 'articles'
 		],		
 	'article_edit' => 
 		[
-			'path' => '/article/{id}',
+			'path' => 'article/{id}',
 			'controller' => 'Main',
 			'action' => 'index',
 			'params' => 
@@ -31,25 +31,25 @@ return
 		],	
 	'pages' => 
 		[
-			'path' => '/pages',
+			'path' => 'pages',
 			'controller' => 'Main',
 			'action' => 'pages'
 		],
 	'parametres' => 
 		[
-			'path' => '/parametres',
+			'path' => 'parametres',
 			'controller' => 'Main',
 			'action' => 'parametres'
 		],						
 	'contact' =>
 		[
-			'path' => '/contact',
+			'path' => 'contact',
 			'controller' => 'Main',
 			'action' => 'test'
 		],
 	'erreur' =>
 		[
-			'path' => '/erreur',
+			'path' => 'erreur',
 			'controller' => 'Error',
 			'action' => 'error404'
 		]
