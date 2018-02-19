@@ -142,3 +142,22 @@ ul {
 .text-center { text-align: center; }
 .text-right { text-align: right; }
 .bloc-center { margin-left: auto; margin-right: auto;}
+
+.img{
+	display: inline-block;vertical-align: middle;
+}
+.img:before{
+	content: "";
+	background: url("../img/leftArrow.svg");
+	display: inline-block;vertical-align: middle;
+	width: 15px;
+	height: 15px;
+}
+.img:after{
+	content:"";
+	background: url("../img/rightArrow.svg");
+	display: inline-block;vertical-align: middle;
+	width: 15px;
+	height: 15px;
+}
+
