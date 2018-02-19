@@ -4,7 +4,7 @@
 <nav class="container ctn-nav">
   <div class="nav-links">
     <a href="" class="selected">Traffic</a>
-    <a href="">Insights</a> 
+    <a href="">Insights</a>
   </div>
   <div class="nav-options cf">
     <div><a href="" class="selected">Days</a></div>
@@ -15,16 +15,15 @@
 </nav>
 <br>
 <br>
-<header> 
+<header>
 <img src="assets/img/statistics.png" width="100%" alt="">
 </header>
 
-<div class="text-center">
-    <div class="img">
-fg
+<div class="text-center switch-date">
+  <img class="chevron-gauche" src="assets/img/leftArrow.svg" alt="">
+    <div class="stat-date">
+<p id="upper-text">Stats for January 27, 2018</p>
+<p id="bottom-text">Last update: 8:14 PM</p>
     </div>
+    <img class="chevron-droit" src="assets/img/rightArrow.svg" alt="">
 </div>
-
-
-
-

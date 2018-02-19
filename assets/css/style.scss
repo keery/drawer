@@ -7,7 +7,7 @@ $grey: #EBF2F9;
 $grey2: #D5DCE3;
 
 // radius
-$radius: .4em; 
+$radius: .4em;
 
 //mixins
 @mixin box-shadow($color: black, $opacity: 0.11) {
@@ -51,8 +51,9 @@ $radius: .4em;
 @import 'backContent';
 @import 'parametres';
 @import 'dashboard';
+@import 'statistique';
 
-body { 
+body {
 	font-family: 'Cantarell', sans-serif;
 	margin: 0;
 	padding: 0;
@@ -63,7 +64,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-	font-weight: normal; 
+	font-weight: normal;
 	margin: 1em;
 	padding: 0;
 }
@@ -150,23 +151,7 @@ img { max-width: 100%; }
 .text-right { text-align: right; }
 .bloc-center { margin-left: auto; margin-right: auto;}
 
-.img{
-	display: inline-block;vertical-align: middle;
-}
-.img:before{
-	content: "";
-	background: url("../img/leftArrow.svg");
-	display: inline-block;vertical-align: middle;
-	width: 15px;
-	height: 15px;
-}
-.img:after{
-	content:"";
-	background: url("../img/rightArrow.svg");
-	display: inline-block;vertical-align: middle;
-	width: 15px;
-	height: 15px;
-}
+
 
 .spacing { padding-left: 15px;padding-right: 15px; }
 .spacing-left { padding-left: 15px; }
@@ -183,8 +168,7 @@ img { max-width: 100%; }
 	h1 {font-size: 1.5em; margin: 10px 2px 10px 5px; }
     .padding-box {padding: 20px 10px;}
 	.input { width: 100%; }
-	.body-wrapper { 
+	.body-wrapper {
 		padding:10px 15px 20px 15px;
 	}
 }
- 
