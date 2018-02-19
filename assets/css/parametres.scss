@@ -13,3 +13,9 @@
 	.picture-circle { display: inline-block;width: 100px;height: 100px;margin-bottom: 10px; }
 	.container + .container { margin-top: 25px; }
 } 
+
+@media (max-width: 767px) {
+  	#settings {	
+		label { font-size: 16px; }
+	}
+}

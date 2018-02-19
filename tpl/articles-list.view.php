@@ -1,4 +1,4 @@
-<img src="assets/img/article-picto.png" alt="" class="picto-page">
+<img src="assets/img/article-picto.svg" alt="" class="picto-page">
 <h1>Articles</h1>
 <nav class="container ctn-nav">
   <div class="nav-links">

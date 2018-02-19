@@ -90,4 +90,10 @@
     margin-left: 75px;
     width: calc(100% - 75px);
   }
+  .list {
+    > .list-item { padding: 18px 38px 18px 15px;
+      .text-list { font-size: 16px; }
+      .btn-edit-item { right: 5px; }
+    }
+  }
 }
