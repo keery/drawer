@@ -14,7 +14,8 @@
 
   .header {
     padding: 3em;
-    text-align: center;
+
+    .picture-circle { width: 115px;height: 115px;}
 
     h2 {
       color: white;
@@ -46,8 +47,11 @@
           text-transform: uppercase;
           position: relative;
 
-          &.selected, &:hover {
+          &.selected {
             @include box-shadow(black, 0.25);
+            @include underline('left', 5px);            
+          }
+          &:hover {
             @include underline('left', 5px);
           }
         }
@@ -61,5 +65,15 @@
     width: 250px;
 
     .header { padding: 1.5em; }
+  }
+}
+
+@media (max-width: 767px) {
+  .sideNav {
+    width: 75px;border-right: 5px solid rgb(119, 211, 200);
+
+    .header { padding: 6px; 
+      .picture-circle { width: 53px;height: 53px; }
+    }
   }
 }

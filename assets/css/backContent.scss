@@ -49,7 +49,7 @@
     padding: 20px 35px;
     .text-list { font-size: 20px; color: $dark;margin-bottom: 5px;}
     .details-list { font-size: 10px; color: $dark;opacity: 0.6;
-      .date-details-list { background-image: url();background-repeat: no-repeat;background-image: url(); }
+      .date-details-list { background-image: url(../../img/clock.png);background-repeat: no-repeat;background-position: left 50%; padding-left: 12px;}
     }
     + .list-item { border-top: 2px solid #ECF2F9;}
     .btn-edit-item { right:30px;position: absolute;top: 50%;transform: translateY(-50%);padding: 5px 15px;cursor: pointer;
@@ -77,9 +77,17 @@
   }
 }
 
+.group { margin-bottom: 15px; }
 @media (max-width: 1199px) {
   .body-wrapper {
     margin-left: 250px;
     width: calc(100% - 250px);
+  }
+}
+
+@media (max-width: 767px) {
+  .body-wrapper {
+    margin-left: 75px;
+    width: calc(100% - 75px);
   }
 }

@@ -69,9 +69,9 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-	color: #304A52;
+	color: #304A52;display: inline-block;vertical-align: middle; margin-left: 15px;
 }
-
+.picto-page { display: inline-block;vertical-align: middle; }
 a {
 	color: $dark;
 	text-decoration: none;
@@ -137,4 +137,9 @@ ul {
 	margin-bottom: 40px;
 }
 
+.picture-circle { background-size: cover; background-position: 50% 50%; border-radius: 100%; }
+
 .padding-box { padding: 40px 30px; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.bloc-center { margin-left: auto; margin-right: auto;}

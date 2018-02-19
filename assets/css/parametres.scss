@@ -7,8 +7,9 @@
 	}
 
 	.preview-icon {
-		border-radius: 10px; background-color: rgba(48, 74, 82, 0.5); background-image: url(../../img/globe.png); background-repeat: no-repeat;background-position: center;width: 144px;height: 144px;
-		margin-bottom: 10px;
+		border-radius: 10px; background-color: rgba(48, 74, 82, 0.5); background-image: url(../../img/globe.png); background-repeat: no-repeat;background-position: center;width: 144px;height: 144px;margin-bottom: 10px;
 	}  
+
+	.picture-circle { background-size: cover; background-position: 50% 50%; border-radius: 100%;display: inline-block;width: 100px;height: 100px;margin-bottom: 10px;}
 	.container + .container { margin-top: 25px; }
 } 

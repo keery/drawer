@@ -1,3 +1,4 @@
+<img src="assets/img/page-picto.svg" alt="" class="picto-page">
 <h1>Mes pages</h1>
 <nav class="container ctn-nav">
   <div class="nav-links">

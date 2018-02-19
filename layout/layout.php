@@ -9,13 +9,15 @@
 	<body>	
 	<div class="flex-wrapper">
 		<aside class="sideNav">
-			<header class="header">
-				<img src="assets/img/Group.png" alt="">
-				<h2>Jean Louis laperche</h2>
-				<span>Dessinateur</span>
-				<div>
-					<a href="">Jean-louis.creative.fr</a>
-					<img src="" alt="">
+			<header class="header text-center">
+				<div class="picture-circle bloc-center" style="background-image: url(assets/img/Group.png);"></div>
+				<div class="hidden-xs">
+					<h2>Jean Louis laperche</h2>
+					<span>Dessinateur</span>
+					<div>
+						<a href="">Jean-louis.creative.fr</a>
+						<img src="" alt="">
+					</div>
 				</div>
 			</header>
 			<nav class="nav">
