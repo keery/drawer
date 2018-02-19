@@ -1,7 +1,7 @@
 <img src="assets/img/article-picto.svg" alt="" class="picto-page">
 <h1>Articles</h1>
-<nav class="container ctn-nav">
-  <div class="nav-links">
+<nav class="container ctn-nav small-xs">
+  <div class="nav-links" data-selected-filter="Published">
     <a href="" class="selected">Published</a>
     <a href="">Drafts</a>
   </div>
