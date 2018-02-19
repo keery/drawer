@@ -37,15 +37,19 @@
 
     ul {
       
-      a {
-        text-decoration: none;
-        font-weight: 500;
+      li {
 
-        li {
+
+        a {
+          text-decoration: none;
+          font-weight: 500;
           color: white;
+          display: inline-block;
           padding: 1.1em 1.5em;
           text-transform: uppercase;
           position: relative;
+          img { width: 18px; margin-right: 7px;}
+          > span, img { display: inline-block;vertical-align: middle; }
 
           &.selected {
             @include box-shadow(black, 0.25);
@@ -68,9 +72,17 @@
   }
 }
 
+
+@media (max-width: 992px) {
+  .picto-page { width: 32px; }
+
+}
 @media (max-width: 767px) {
+  .picto-page { width: 24px; }
   .sideNav {
     width: 75px;border-right: 5px solid rgb(119, 211, 200);
+
+    .nav {padding:0;}
 
     .header { padding: 6px; 
       .picture-circle { width: 53px;height: 53px; }

@@ -1,3 +1,4 @@
+<img src="assets/img/speed-picto.svg" alt="" class="picto-page">
 <h1>Dashboard</h1>
 <div id="dashboard">
   <div class="top">

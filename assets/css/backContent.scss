@@ -4,21 +4,19 @@
   padding: 20px 40px 40px 40px;
 }
 .content {
-  .nav-links, .nav-options {
-    padding: 1.5em 0;
-  }
   .nav-links {
     a {
-      padding: 0 3em;
+      padding: 1.5em 3em;
+      display: inline-block;
       position: relative;
       &.selected {
-        @include underline('bottom', 3px, -32px);
+        @include underline('bottom', 3px, 0);
       }
     }
   }
 
   .nav-options {
-    margin-right: 1.5em;
+    padding:  1.5em 0;position: absolute;right: 1.5em;
 
     div {
       float: left;
@@ -89,5 +87,11 @@
   .body-wrapper {
     margin-left: 75px;
     width: calc(100% - 75px);
+  }
+  .list {
+    > .list-item { padding: 18px 38px 18px 15px;
+      .text-list { font-size: 16px; }
+      .btn-edit-item { right: 5px; }
+    }
   }
 }

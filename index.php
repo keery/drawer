@@ -12,7 +12,6 @@ $router = new Router();
 
 $URI = explode("?", $_SERVER["REQUEST_URI"]);
 $URI = $URI[0];
-
 if ($URI != DS) $URI = str_ireplace(DIRNAME, "", urldecode(substr($URI, 1)));
 
 $router->urlMatcher($URI);
