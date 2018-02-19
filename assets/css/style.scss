@@ -18,7 +18,7 @@ $radius: .4em;
 	&:before {
 		position: absolute;
 		content: '';
-		background: $color;	
+		background: $color;
 		@if $position == 'bottom' {
 			left: 0px;
 			bottom: $padding;
@@ -136,5 +136,6 @@ ul {
 	padding-left: 0;
 	margin-bottom: 40px;
 }
+
 
 .padding-box { padding: 40px 30px; }

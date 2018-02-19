@@ -21,6 +21,7 @@
 			<nav class="nav">
 				<ul>
 					<a href="<?php path('index') ?>"><li class="selected">dashboard</li></a>
+          <a href="<?php path('statistic') ?>"><li>statistiques</li></a>        
 					<a href="<?php path('contact') ?>"><li>statistiques</li></a>
 					<a href="<?php path('pages') ?>"><li>mes pages</li></a>
 					<a href="<?php path('articles') ?>"><li>mes articles</li></a>

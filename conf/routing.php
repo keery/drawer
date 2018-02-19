@@ -13,6 +13,13 @@ return
 			'controller' => 'Landing',
 			'action' => 'index'
 		],
+
+	'statistic' => 
+		[
+			'path' => 'statistic',
+			'controller' => 'Statistic',
+			'action' => 'index'
+		],
 	'articles' => 
 		[
 			'path' => 'articles',
