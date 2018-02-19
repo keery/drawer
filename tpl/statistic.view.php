@@ -1,7 +1,7 @@
 <img src="assets/img/stat-picto.svg" alt="speed" class="picto-page">
 <h1>Statistiques</h1>
 
-<nav class="container ctn-nav small-xs">
+<nav class="container ctn-nav">
   <div class="nav-links" data-selected-filter="Traffic">
     <a href="" class="selected">Traffic</a>
     <a href="">Insights</a>
