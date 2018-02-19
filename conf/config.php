@@ -25,7 +25,7 @@ define("INSTAGRAM", 		"#");
 
 
 // define("DS", DIRECTORY_SEPARATOR);
-define("DS", "\\");
+define("DS", "/");
 define("DIRNAME", dirname($_SERVER["SCRIPT_NAME"]));
 define("PROJECT_LINK", substr($_SERVER['DOCUMENT_ROOT'].DIRNAME.DS, 0, -1));
 
