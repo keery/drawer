@@ -18,15 +18,13 @@
 <header> 
 <img src="assets/img/statistics.png" width="100%" alt="">
 </header>
-<footer>
-  <div>
-  <img src="assets/img/leftArrow.svg"alt="">
-  </div>
- <div>
-  Texte....
+
+<div class="text-center">
+    <div class="img">
+fg
+    </div>
 </div>
-<div>
-<img src="assets/img/rightArrow.svg"alt="">
-  </div>
-</footer>
+
+
+
 

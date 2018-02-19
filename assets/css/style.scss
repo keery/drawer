@@ -149,6 +149,25 @@ img { max-width: 100%; }
 .text-center { text-align: center; }
 .text-right { text-align: right; }
 .bloc-center { margin-left: auto; margin-right: auto;}
+
+.img{
+	display: inline-block;vertical-align: middle;
+}
+.img:before{
+	content: "";
+	background: url("../img/leftArrow.svg");
+	display: inline-block;vertical-align: middle;
+	width: 15px;
+	height: 15px;
+}
+.img:after{
+	content:"";
+	background: url("../img/rightArrow.svg");
+	display: inline-block;vertical-align: middle;
+	width: 15px;
+	height: 15px;
+}
+
 .spacing { padding-left: 15px;padding-right: 15px; }
 .spacing-left { padding-left: 15px; }
 .spacing-right { padding-right: 15px; }
@@ -168,3 +187,4 @@ img { max-width: 100%; }
 		padding:10px 15px 20px 15px;
 	}
 }
+ 
