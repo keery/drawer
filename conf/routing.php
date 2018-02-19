@@ -13,7 +13,6 @@ return
 			'controller' => 'Landing',
 			'action' => 'index'
 		],
-
 	'statistic' => 
 		[
 			'path' => 'statistic',
@@ -28,13 +27,13 @@ return
 		],		
 	'article_edit' => 
 		[
-			'path' => 'article/{id}',
+			'path' => 'article3',
 			'controller' => 'Main',
-			'action' => 'index',
-			'params' => 
-			[
-				'id' => ['pattern' => '\d+']
-			]
+			'action' => 'editArticle',
+			// 'params' => 
+			// [
+			// 	'id' => ['pattern' => '\d+']
+			// ]
 		],	
 	'pages' => 
 		[

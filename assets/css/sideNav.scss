@@ -30,6 +30,7 @@
 
     a {
       color: $highlight;
+      &:hover { text-decoration: underline; }
     }
   }
   .nav {

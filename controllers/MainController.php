@@ -14,6 +14,10 @@ class MainController {
 	{
 		View::render("articles-list.view.php");
 	}
+	public function editArticleAction()
+	{
+		View::render("article-detail.view.php");
+	}
 
 	public function pagesAction()
 	{

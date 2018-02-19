@@ -1,0 +1,86 @@
+.dropzone
+{
+    position: relative;
+    min-height: 150px;
+    max-height: 300px;
+    border: 2px dashed #CCCCCC;
+    border-radius: 5px;
+    overflow: auto;
+    margin: 17px auto;
+    display: block;
+
+    &:after {
+        content: attr(data-message);
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 20px;
+        margin-top: -10px;
+        text-align: center;
+        color: #005885;
+    }
+}
+
+.input-form 
+{
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    margin: 10px -0.15em 10px 0px;
+}
+
+.bloc
+{
+    background-color: white;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: $radius;
+
+    textarea { height: 500px; width: 100%;}
+
+    label {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #304A52;
+        display: block;
+    }
+}
+.bloc-titre
+{
+    display: block;
+    padding: 20px;
+    background-color: $highlight;
+    color: white;
+    font-size: 20px;
+}
+.bloc-content
+{
+    padding: 25px 20px;
+    word-break: break-word;
+}
+
+.input-file
+{
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+input[type="file"]
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 23px;
+    cursor: pointer;
+    opacity: 0;
+}
+input[type="file"]:hover + .boutonImg
+{
+    background-color: #007FC0;
+}
