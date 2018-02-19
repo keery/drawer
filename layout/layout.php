@@ -33,6 +33,7 @@
 			</nav>
 		</aside>
 		<div class="body-wrapper content">
+			<div class="notif-clock"><span>2</span></div>
 			<?php include(TPL.$tpl); ?>
 		</div>
 	</div>

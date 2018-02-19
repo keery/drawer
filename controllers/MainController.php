@@ -14,6 +14,7 @@ class MainController {
 	{
 		View::render("articles-list.view.php");
 	}
+
 	public function editArticleAction()
 	{
 		View::render("article-detail.view.php");
@@ -22,6 +23,11 @@ class MainController {
 	public function pagesAction()
 	{
 		View::render("pages-list.view.php");
+	}
+
+	public function editPageAction()
+	{
+		View::render("page-detail.view.php");
 	}
 
 	public function parametresAction()

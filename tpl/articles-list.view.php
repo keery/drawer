@@ -5,6 +5,7 @@
     <a href="" class="selected">Published</a>
     <a href="">Drafts</a>
   </div>
+  <a href="article" class="btn-add" title="Ajouter un élément"></a>
 </nav>
 <section class="container">
   <ul class="list">

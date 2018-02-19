@@ -7,13 +7,15 @@
     </div>
     <div class="bloc-content">
       <div class="row spacing">
-        <div class="group col-xs-6">
+        <div class="group col-sm-6 col-xs-12">
           <label>Titre</label>
           <input type="text" class="input">
         </div>
-        <div class="col-xs-6">
+        <div class="col-sm-6 col-xs-12">
           <label>Catégorie</label>
-          <input type="text" class="input">
+          <select name="" class="select">
+            <option value="">Choisir une catégorie</option>
+          </select>
         </div>
       </div>
     </div>

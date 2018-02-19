@@ -27,7 +27,7 @@ return
 		],		
 	'article_edit' => 
 		[
-			'path' => 'article3',
+			'path' => 'article',
 			'controller' => 'Main',
 			'action' => 'editArticle',
 			// 'params' => 
@@ -41,6 +41,16 @@ return
 			'controller' => 'Main',
 			'action' => 'pages'
 		],
+	'page_edit' => 
+		[
+			'path' => 'page',
+			'controller' => 'Main',
+			'action' => 'editPage',
+			// 'params' => 
+			// [
+			// 	'id' => ['pattern' => '\d+']
+			// ]
+		],			
 	'parametres' => 
 		[
 			'path' => 'parametres',
