@@ -16,7 +16,7 @@
 <br>
 <br>
 <header>
-<img src="assets/img/statistic-picto.png" width="100%" alt="">
+<img src="assets/img/statistic-picto.svg" width="100%" alt="">
 </header>
 
 <div class="text-center switch-date">
