@@ -85,7 +85,7 @@ ul {
 		padding: 0;
 	}
 }
-
+img { max-width: 100%; }
 .cf:before, .cf:after {
 	content: '';
 	display: table-cell;
@@ -150,6 +150,9 @@ ul {
 .text-right { text-align: right; }
 .bloc-center { margin-left: auto; margin-right: auto;}
 .spacing { padding-left: 15px;padding-right: 15px; }
+.spacing-left { padding-left: 15px; }
+.spacing-right { padding-right: 15px; }
+
 @media (max-width: 1199px) {
     .padding-box {padding: 30px 20px;}
 }

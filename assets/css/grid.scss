@@ -26,21 +26,45 @@
   .hidden-xs { display: none !important; }
   .text-center-xs { text-align: center!important; }
   .group-xs { margin-bottom: 15px!important; }
+  .spacing-xs { padding-left:15px;padding-right:15px; }
+  .no-spacing-xs { padding: 0!important; }
+  .no-spacing-left-xs { padding-left: 0!important; }
+  .no-spacing-top-xs { padding-top: 0!important; }
+  .no-spacing-right-xs { padding-right: 0!important; }
+  .no-spacing-bottom-xs { padding-bottom: 0!important; }
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .hidden-sm { display: none !important; }
   .text-center-sm { text-align: center!important; }  
-  .group-xs { margin-bottom: 15px!important; }  
+  .group-sm { margin-bottom: 15px!important; }  
+  .spacing-sm { padding-left:15px;padding-right:15px; }
+  .no-spacing-sm { padding: 0!important; }  
+  .no-spacing-left-sm { padding-left: 0!important; }
+  .no-spacing-top-sm { padding-top: 0!important; }
+  .no-spacing-right-sm { padding-right: 0!important; }
+  .no-spacing-bottom-sm { padding-bottom: 0!important; }  
 }
 @media (min-width: 992px) and (max-width: 1199px) {
   .hidden-md { display: none !important; }
   .text-center-md { text-align: center!important; }  
-  .group-xs { margin-bottom: 15px!important; }  
+  .group-md { margin-bottom: 15px!important; }  
+  .spacing-md { padding-left:15px;padding-right:15px; }
+  .no-spacing-md { padding: 0!important; }
+  .no-spacing-left-md { padding-left: 0!important; }
+  .no-spacing-top-md { padding-top: 0!important; }
+  .no-spacing-right-md { padding-right: 0!important; }
+  .no-spacing-bottom-md { padding-bottom: 0!important; }
 }
 @media (min-width: 1200px) {
   .hidden-lg { display: none !important; }
   .text-center-lg { text-align: center!important; }
-  .group-xs { margin-bottom: 15px!important; }  
+  .group-lg { margin-bottom: 15px!important; }  
+  .spacing-lg { padding-left:15px;padding-right:15px; }
+  .no-spacing-lg { padding: 0!important; }  
+  .no-spacing-left-lg { padding-left: 0!important; }
+  .no-spacing-top-lg { padding-top: 0!important; }
+  .no-spacing-right-lg { padding-right: 0!important; }
+  .no-spacing-bottom-lg { padding-bottom: 0!important; }  
 } 
 
 .col-xs-1,

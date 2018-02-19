@@ -5,9 +5,11 @@
     justify-content: space-between;
 
     section {
-      border-radius: $radius;
-      width: 47%;
-      @include box-shadow();
+      > div {
+        border-radius: $radius;
+        overflow: hidden;
+        @include box-shadow();
+      }
 
       header {
         color: white;
@@ -50,7 +52,6 @@
   }
 
   .bottom {
-    display: flex;
     justify-content: space-between;
 
     .left {
