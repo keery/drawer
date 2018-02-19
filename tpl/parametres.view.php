@@ -11,7 +11,7 @@
             <a href="" class="button">Ajouter</a>
           </div>
         </div>
-        <div class="col-md-6 col-xs-12 group">
+        <div class="col-md-6 col-xs-12 group spacing-left">
           <label>Titre du site</label>
           <input type="text" class="input">
         </div>
