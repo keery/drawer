@@ -9,9 +9,19 @@ class MainController {
 	{
 		View::render("dashboard.view.php");
 	}
-	public function testAction()
+
+	public function articlesAction()
 	{
-		echo "Ma deuxième action";
-		View::render("main.php");
-	}			
+		View::render("articles-list.view.php");
+	}
+
+	public function pagesAction()
+	{
+		View::render("pages-list.view.php");
+	}
+
+	public function parametresAction()
+	{
+		View::render("parametres.view.php");
+	}	
 }

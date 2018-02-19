@@ -3,11 +3,12 @@
 	<head lang="fr">
 		<link rel="stylesheet" href="assets/css/dist/style.css">
 		<meta charset="UTF-8">
-		<title>Creative </title>		
+		<title>Creative </title>	
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	</head>
 	<body>	
-	<div class="flex-wrapper row">
-		<aside class="sideNav col-lg-3">
+	<div class="flex-wrapper">
+		<aside class="sideNav">
 			<header class="header">
 				<img src="assets/img/Group.png" alt="">
 				<h2>Jean Louis laperche</h2>
@@ -19,21 +20,24 @@
 			</header>
 			<nav class="nav">
 				<ul>
-					<a href="<?php path('landing') ?>"><li class="selected">dashboard</li></a>
-					<a href="<?php path('statistic') ?>"><li>statistiques</li></a>
-					<a href="<?php path('contact') ?>"><li>mes pages</li></a>
-					<a href="<?php path('contact') ?>"><li>mes articles</li></a>
+					<a href="<?php path('index') ?>"><li class="selected">dashboard</li></a>
+          <a href="<?php path('statistic') ?>"><li>statistiques</li></a>        
+					<a href="<?php path('contact') ?>"><li>statistiques</li></a>
+					<a href="<?php path('pages') ?>"><li>mes pages</li></a>
+					<a href="<?php path('articles') ?>"><li>mes articles</li></a>
 					<a href="<?php path('contact') ?>"><li>mes medias</li></a>
-					<a href="<?php path('contact') ?>"><li>mon compte</li></a>
+					<a href="<?php path('parametres') ?>"><li>Paramètres</li></a>
 				</ul>
 			</nav>
 		</aside>
-		<div class="wrapper content col-lg-8">
+		<div class="body-wrapper content">
 			<?php include(TPL.$tpl); ?>
 		</div>
 	</div>
 	<footer>
 		
 	</footer>
+    <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>	
 	</body>
 </html>

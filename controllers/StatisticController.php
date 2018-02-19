@@ -9,5 +9,4 @@ class StatisticController {
 	{
 		View::render("statistic.view.php");
 	}
-				
 }

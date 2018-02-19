@@ -7,7 +7,7 @@ $grey: #EBF2F9;
 $grey2: #D5DCE3;
 
 // radius
-$radius: .4em;
+$radius: .4em; 
 
 //mixins
 @mixin box-shadow($color: black, $opacity: 0.11) {
@@ -49,9 +49,10 @@ $radius: .4em;
 @import 'landing';
 @import 'sideNav';
 @import 'backContent';
+@import 'parametres';
 @import 'dashboard';
 
-body {
+body { 
 	font-family: 'Cantarell', sans-serif;
 	margin: 0;
 	padding: 0;
@@ -106,6 +107,7 @@ ul {
 	font-size: .8em;
 	border-radius: $radius;
 	padding: .8em 2em;
+	display: inline-block;
 }
 
 .input {
@@ -132,5 +134,8 @@ ul {
 
 .ctn-nav {
 	padding-left: 0;
+	margin-bottom: 40px;
 }
 
+
+.padding-box { padding: 40px 30px; }

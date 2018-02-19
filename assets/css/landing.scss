@@ -1,4 +1,6 @@
 #landing {
+  .container { max-width: 1160px; }
+  .row { flex-wrap: wrap; }
   #burger {
       display: none;
       cursor: pointer;

@@ -9,38 +9,54 @@ return
 		],
 	'landing' => 
 		[
-			'path' => '/landing',
+			'path' => 'landing',
 			'controller' => 'Landing',
 			'action' => 'index'
 		],
-	
-	
+
 	'statistic' => 
 		[
-			'path' => '/statistic',
+			'path' => 'statistic',
 			'controller' => 'Statistic',
 			'action' => 'index'
 		],
-
-	'article' => 
+	'articles' => 
 		[
-			'path' => '/article/edit/{id}',
+			'path' => 'articles',
+			'controller' => 'Main',
+			'action' => 'articles'
+		],		
+	'article_edit' => 
+		[
+			'path' => 'article/{id}',
 			'controller' => 'Main',
 			'action' => 'index',
 			'params' => 
 			[
 				'id' => ['pattern' => '\d+']
 			]
-		],		
+		],	
+	'pages' => 
+		[
+			'path' => 'pages',
+			'controller' => 'Main',
+			'action' => 'pages'
+		],
+	'parametres' => 
+		[
+			'path' => 'parametres',
+			'controller' => 'Main',
+			'action' => 'parametres'
+		],						
 	'contact' =>
 		[
-			'path' => '/contact',
+			'path' => 'contact',
 			'controller' => 'Main',
 			'action' => 'test'
 		],
 	'erreur' =>
 		[
-			'path' => '/erreur',
+			'path' => 'erreur',
 			'controller' => 'Error',
 			'action' => 'error404'
 		]
