@@ -4,21 +4,19 @@
   padding: 20px 40px 40px 40px;
 }
 .content {
-  .nav-links, .nav-options {
-    padding: 1.5em 0;
-  }
   .nav-links {
     a {
-      padding: 0 3em;
+      padding: 1.5em 3em;
+      display: inline-block;
       position: relative;
       &.selected {
-        @include underline('bottom', 3px, -32px);
+        @include underline('bottom', 3px, 0);
       }
     }
   }
 
   .nav-options {
-    margin-right: 1.5em;
+    padding:  1.5em 0;position: absolute;right: 1.5em;
 
     div {
       float: left;

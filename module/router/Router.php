@@ -93,7 +93,7 @@ class Router
 		{
 			$path = $route['path'];
 			if($params) $path = $this->convertParams($route, $params);
-			return DIRNAME.$path;
+			return $path;
 		}
 	}
 
