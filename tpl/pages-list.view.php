@@ -7,6 +7,7 @@
     <a href="">Scheduled</a>
     <a href="">Trashed</a>
   </div>
+  <a href="page" class="btn-add" title="Ajouter un élément"></a>
 </nav>
 <section class="container">
   <ul class="list">

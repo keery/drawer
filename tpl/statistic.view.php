@@ -1,5 +1,5 @@
 <img src="assets/img/stat-picto.svg" alt="speed" class="picto-page">
-<h1>STATISTIQUES</h1>
+<h1>Statistiques</h1>
 
 <nav class="container ctn-nav">
   <div class="nav-links">

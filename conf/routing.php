@@ -13,7 +13,6 @@ return
 			'controller' => 'Landing',
 			'action' => 'index'
 		],
-
 	'statistic' => 
 		[
 			'path' => 'statistic',
@@ -28,13 +27,13 @@ return
 		],		
 	'article_edit' => 
 		[
-			'path' => 'article/{id}',
+			'path' => 'article',
 			'controller' => 'Main',
-			'action' => 'index',
-			'params' => 
-			[
-				'id' => ['pattern' => '\d+']
-			]
+			'action' => 'editArticle',
+			// 'params' => 
+			// [
+			// 	'id' => ['pattern' => '\d+']
+			// ]
 		],	
 	'pages' => 
 		[
@@ -42,6 +41,16 @@ return
 			'controller' => 'Main',
 			'action' => 'pages'
 		],
+	'page_edit' => 
+		[
+			'path' => 'page',
+			'controller' => 'Main',
+			'action' => 'editPage',
+			// 'params' => 
+			// [
+			// 	'id' => ['pattern' => '\d+']
+			// ]
+		],			
 	'parametres' => 
 		[
 			'path' => 'parametres',
