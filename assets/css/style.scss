@@ -51,6 +51,7 @@ $radius: .4em;
 @import 'backContent';
 @import 'parametres';
 @import 'dashboard';
+@import 'site';
 
 body { 
 	font-family: 'Cantarell', sans-serif;
@@ -96,7 +97,6 @@ img { max-width: 100%; }
 }
 
 .wrapper {
-	height: 100vh;
 	margin: 0 auto;
 }
 
