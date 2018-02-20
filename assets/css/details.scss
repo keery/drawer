@@ -20,6 +20,11 @@
         text-align: center;
         color: #005885;
     }
+    
+    &.dropOver
+    {
+        border: 2px dashed $highlight; 
+    }
 }
 
 .input-form 

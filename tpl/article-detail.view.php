@@ -42,10 +42,10 @@
       <input type="hidden" name="id_entity" value="">
       <input type="hidden" name="id_files" id="id_files">
       <div class="input-form">
-        <input type="file" id="actualite_image_image" name="actualite[image][image]" class="input-file">
+        <input type="file" id="actualite_image_image" name="actualite[image][image]" class="input-file article">
         <button class="btn-validate button" type="button">Choisir un fichier</button>
       </div>
-      <div class="dropzone" data-message="Déposer votre fichier ici"></div>
+      <div class="dropzone" id="dz-article" data-message="Déposer votre fichier ici"></div>
       <ul class="img-list">      
         <li style="display: none">
           <div class="col-2 photo"></div>

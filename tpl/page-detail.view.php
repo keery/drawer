@@ -28,7 +28,7 @@
       <span>Description</span>
     </div>
     <div class="bloc-content">
-      <textarea class="small"></textarea>
+      <textarea class="small editor"></textarea>
     </div>
   </div>
 </section>  

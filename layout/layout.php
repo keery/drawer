@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head lang="fr">
-		<link rel="stylesheet" href="assets/css/dist/style.css">
+		<link rel="stylesheet" href="/assets/css/dist/style.css">
 		<meta charset="UTF-8">
 		<title>Creative </title>	
 		<base href="/">
@@ -40,8 +40,9 @@
 		
 	</footer>
     <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
-    <script type="text/javascript" src="js/tinymce/langs/fr.js"></script>
+    <script type="text/javascript" src="js/plugin/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript" src="js/plugin/tinymce/langs/fr.js"></script>
+    <script type="text/javascript" src="js/plugin/GEUploader.js"></script>
     <script src="js/index.js"></script>	
 	</body>
 </html>

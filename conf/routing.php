@@ -33,13 +33,13 @@ return
 		],		
 	'article_edit' => 
 		[
-			'path' => 'article',
+			'path' => 'article/{id}',
 			'controller' => 'Main',
 			'action' => 'editArticle',
-			// 'params' => 
-			// [
-			// 	'id' => ['pattern' => '\d+']
-			// ]
+			'params' => 
+			[
+				'id' => ['pattern' => '\d+']
+			]
 		],	
 	'pages' => 
 		[

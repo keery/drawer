@@ -1,4 +1,8 @@
 $(document).ready(function(){	
+
+	$("#dz-article, .input-file.article").GEUploader({ entity : "AdminBundle:Actualite"});
+
+
 	$(document).on("click", ".btn-edit-item", function(){
 		var hasClass = $(this).hasClass('open');
 		$(".btn-edit-item").removeClass('open');
