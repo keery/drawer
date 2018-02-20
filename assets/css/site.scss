@@ -1,0 +1,60 @@
+#site {
+  $red: #D66363;
+
+  .headline {
+    text-align: center;
+    display: block !important;
+  }
+
+  header {
+    background: $red;
+    padding: 1.8em 2em;
+    color: white;
+    width: 100%;
+
+    a {
+      color: white;
+      padding: .8em 1em;
+
+      &.selected {
+        border-radius: $radius;
+        background: rgba(black, 0.3);
+      }
+    }
+
+    .right {
+      float: right;
+    }
+  }
+
+  nav {
+    display: inline-block;
+  }
+
+  .article {
+    @include box-shadow();
+    border-radius: $radius;
+    overflow: hidden;
+    display: inline-block;
+    width: 60%;
+
+    .header {
+      background: $red;
+
+      h2 {
+        margin: 0;
+        padding: 1em;
+        color: white;
+      }
+    }
+
+    .content {
+      padding: 1em;
+    }
+  }
+
+  .description {
+    float: right;
+    width: 30%;
+  }
+}

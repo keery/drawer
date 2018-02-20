@@ -24,6 +24,12 @@ return
 			'path' => 'articles',
 			'controller' => 'Main',
 			'action' => 'articles'
+		],	
+	'site' => 
+		[
+			'path' => 'site',
+			'controller' => 'Site',
+			'action' => 'index'
 		],		
 	'article_edit' => 
 		[
