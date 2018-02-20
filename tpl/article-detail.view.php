@@ -28,7 +28,7 @@
       <span>Contenu</span>
     </div>
     <div class="bloc-content">
-      <textarea></textarea>
+      <textarea class="editor-img"></textarea>
     </div>
   </div>
 </section>  

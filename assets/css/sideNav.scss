@@ -50,16 +50,21 @@
           text-transform: uppercase;
           position: relative;
           img { width: 18px; margin-right: 7px;}
-          > span, img { display: inline-block;vertical-align: middle; }
+          > span, img { display: inline-block;vertical-align: middle; }   
+        }
 
-          &.selected {
-            @include box-shadow(black, 0.25);
-            @include underline('left', 5px);            
-          }
-          &:hover {
+        &.selected {
+          @include box-shadow(black, 0.25);
+
+          > a {
             @include underline('left', 5px);
           }
         }
+       &:hover {
+          > a {
+            @include underline('left', 5px);
+          }
+        }        
       }
     }
   }
