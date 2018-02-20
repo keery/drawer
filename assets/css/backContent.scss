@@ -4,19 +4,23 @@
   padding: 20px 40px 40px 40px;
 }
 .content {
-  .nav-links {
+  .nav-links { 
+    border-radius: .4em;
     a {
       padding: 1.5em 3em;
       display: inline-block;
       position: relative;
-      &.selected {
+      &.selected, &:hover {
         @include underline('bottom', 3px, 0);
       }
     }
   }
 
   .nav-options {
-    padding:  1.5em 0;position: absolute;right: 1.5em;
+    position: absolute;
+    right: 1.5em;
+    top: 50%;
+    transform: translateY(-50%);
 
     div {
       float: left;
@@ -33,6 +37,11 @@
           background: $highlight2;
           color: white
         }
+        &:hover:not(.selected) {
+          border: 2px solid transparent;
+          background: $dark;
+          color: white
+        }        
       }
 
       &:not(:first-child) a { border-left: 0; }
@@ -81,6 +90,28 @@
     margin-left: 250px;
     width: calc(100% - 250px);
   }
+  .content .nav-links {
+    a { padding: 1.5em 2em; }
+  }    
+}
+
+@media (max-width: 991px) {
+  .content {
+
+    .nav-options {
+      position: static;
+      display: flex;
+      transform: translateY(0);
+      padding: 10px;
+
+      > div { width: 25%;
+        > a { width: 100%; text-align: center; }
+      }
+    }
+    .nav-links {
+      a { padding: 15px; }
+    }    
+  }    
 }
 
 @media (max-width: 767px) {
@@ -93,5 +124,29 @@
       .text-list { font-size: 16px; }
       .btn-edit-item { right: 5px; }
     }
+  }
+
+  .content {
+    .nav-options {
+      font-size: 9px;
+
+      > div { 
+        > a { padding: .5em 0.2em; }
+      }
+    } 
+    .nav-links { overflow: hidden;max-height: 49px;transition:max-height ease-in-out 0.4s;cursor: pointer;
+
+      &.open { max-height: 500px; }
+      &:before { content: attr(data-selected-filter); display: block;padding: 15px;background-color: $dark;color:white;}
+      &:after { content: '>'; color: white; position: absolute;right: 10px; transform: rotate(90deg);top:15px;}
+      a { padding: 15px; width: 100%; }
+    }       
+  }  
+
+  .ctn-nav {
+      &.small-xs {
+        width: calc(100% - 50px);
+        .btn-add {right: -45px;top: 25px;}
+      }
   }
 }

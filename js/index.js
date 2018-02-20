@@ -5,4 +5,9 @@ $(document).ready(function(){
 		if(hasClass) $(this).removeClass('open');
 		else $(this).addClass('open');
 	});
+
+	$(document).on("click", ".nav-links", function(){
+		if($(this).hasClass('open')) $(this).removeClass('open');
+		else $(this).addClass('open');
+	});	
 });
