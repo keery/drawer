@@ -49,13 +49,13 @@ return
 		],
 	'page_edit' => 
 		[
-			'path' => 'page',
+			'path' => 'page/{id}',
 			'controller' => 'Main',
 			'action' => 'editPage',
-			// 'params' => 
-			// [
-			// 	'id' => ['pattern' => '\d+']
-			// ]
+			'params' => 
+			[
+				'id' => ['pattern' => '\d+']
+			]
 		],			
 	'parametres' => 
 		[

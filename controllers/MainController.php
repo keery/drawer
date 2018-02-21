@@ -1,6 +1,7 @@
 <?php
 namespace Controllers;
 
+use Module\Entity\Article;
 use Module\View\View;
 
 class MainController {
@@ -18,6 +19,10 @@ class MainController {
 	public function editArticleAction()
 	{
 		View::render("article-detail.view.php");
+		$article = new Article();
+		$article->setTitre("Mon premier dessin");
+		$article->setDescription("Lorem ipsum");
+		$article->save();
 	}
 
 	public function pagesAction()

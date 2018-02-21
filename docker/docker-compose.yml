@@ -17,7 +17,7 @@ services:
     container_name: projectdb
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: project_mvc
+      MYSQL_DATABASE: project_mvc    
     volumes:
       - db_data_mvc:/var/lib/mysql
     restart: always
