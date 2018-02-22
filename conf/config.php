@@ -22,7 +22,7 @@ define("INSTAGRAM", 		"#");
 
 //BDD
 // define("HOST", "localhost");
-define("HOST", "localhost:3306");
+define("HOST", "projectdb");
 define("DB_NAME", "drawer");
 define("USER", "root");
 define("PASS", "password");
