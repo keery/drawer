@@ -19,7 +19,7 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: drawer
     ports:
-      - 3400:8080    
+      - 3400:3400    
     volumes:
       - db_data_mvc:/var/lib/mysql
     restart: always

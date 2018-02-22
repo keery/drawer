@@ -13,7 +13,7 @@ class BaseSql{
 
 	public function connectBDD() {
 		try {
-			$this->bdd = new \PDO('mysql:host='.HOST.';dbname='.DB_NAME.';port=3400', USER, PASS);
+			$this->bdd = new \PDO('mysql:host='.HOST.';dbname='.DB_NAME, 'root', PASS);
 		}
 		catch(PDOException $e) {
 			// throw new Erreur("Connexion à la base de donnée impossible");
