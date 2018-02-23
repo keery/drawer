@@ -47,13 +47,14 @@ $radius: .4em;
 @import url('https://fonts.googleapis.com/css?family=Cantarell');
 @import 'framework';
 @import 'landing';
-@import 'sideNav';
-@import 'backContent';
-@import 'parametres';
-@import 'dashboard';
 @import 'site';
-@import 'statistique';
-@import 'details';
+
+@import 'backoffice/sideNav';
+@import 'backoffice/backContent';
+@import 'backoffice/parametres';
+@import 'backoffice/dashboard';
+@import 'backoffice/statistique';
+@import 'backoffice/details';
 
 body {
 	font-family: 'Cantarell', sans-serif;
