@@ -2,7 +2,7 @@
 <h1>Dashboard</h1>
 <div id="dashboard" class="container-grid">
   <div class="top row group">
-    <section class="col-md-6 col-xs-12 spacing-right no-spacing-right-sm no-spacing-right-xs group">
+    <section class="col-md-6 col-xs-12 u-pd--m no-spacing-right-sm no-spacing-right-xs group">
       <div>
         <header>
           <span>derniers articles</span>
@@ -26,7 +26,7 @@
         </div>
       </div>
     </section>
-    <section class="col-md-6 col-xs-12 spacing-left no-spacing-left-sm no-spacing-left-xs group">
+    <section class="col-md-6 col-xs-12 u-pd--m no-spacing-left-sm no-spacing-left-xs group">
       <div>
         <header>
           <span>derniers commentaires</span>

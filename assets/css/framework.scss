@@ -22,6 +22,196 @@
   flex:0 1 auto
 }
 
+.picture-circle {
+  background-size: cover;
+  background-position: 50% 50%;
+  border-radius: 100%;
+}
+
+.padding-box {
+  padding: 40px 30px;
+}
+
+// text align
+
+.u-tac {
+  text-align: center;
+}
+
+.u-tal {
+  text-align: left;
+}
+
+.u-tar {
+  text-align: right;
+}
+
+// center block
+
+.u-block--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// padding left
+
+.u-pdl--xs {
+  padding-left: 5px;
+}
+
+.u-pdl--s {
+  padding-left: 10px;
+}
+
+.u-pdl--m {
+  padding-left: 20px;
+}
+
+.u-pdl--l {
+  padding-left: 30px;
+}
+
+// padding 
+
+.u-pd--xs {
+  padding: 5px;
+}
+
+.u-pd--s {
+  padding: 10px;
+}
+
+.u-pd--m {
+  padding: 20px;
+}
+
+.u-pd--l {
+  padding: 30px;
+}
+
+// padding right
+
+.u-pdr--xs {
+  padding-right: 5px;
+}
+
+.u-pdr--s {
+  padding-right: 10px;
+}
+
+.u-pdr--m {
+  padding-right: 20px;
+}
+
+.u-pdr--l {
+  padding-right: 30px;
+}
+
+// margin left
+.u-mgl--xs {
+  margin-left: 5px;
+}
+
+.u-mgl--s {
+  margin-left: 10px;
+}
+
+.u-mgl--m {
+  margin-left: 20px;
+}
+
+.u-mgl--l {
+  margin-left: 30px;
+}
+
+// margin
+.u-mg--xs {
+  margin: 5px;
+}
+
+.u-mg--s {
+  margin: 10px;
+}
+
+.u-mg--m {
+  margin: 20px;
+}
+
+.u-mg--l {
+  margin: 30px;
+}
+
+// margin right
+.u-mgr--xs {
+  margin-right: 5px;
+}
+
+.u-mgr--s {
+  margin-right: 10px;
+}
+
+.u-mgr--m {
+  margin-right: 20px;
+}
+
+.u-mgr--l {
+  margin-right: 30px;
+}
+
+@media (max-width: 1199px) {
+  .padding-box {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  h1 {
+    font-size: 1.7em;
+  }
+  .padding-box {
+    padding: 30px 10px;
+  }
+  .picto-page {
+    display: inline-block;
+    vertical-align: middle;
+    +h1 {
+      width: calc(100% - 80px);
+    }
+  }
+  .notif-clock {
+    top: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 1.5em;
+    margin: 10px 2px 10px 5px;
+  }
+  .padding-box {
+    padding: 20px 10px;
+  }
+  .input,
+  .select {
+    width: 100%;
+  }
+  .body-wrapper {
+    padding: 10px 15px 20px 15px;
+  }
+  .picto-page {
+    display: inline-block;
+    vertical-align: middle;
+    +h1 {
+      width: calc(100% - 40px);
+    }
+  }
+  .notif-clock {
+    top: 8px;
+    right: 15px;
+  }
+}
+
+
 @media (max-width: 767px) {
   .hidden-xs { display: none !important; }
   .text-center-xs { text-align: center!important; }
