@@ -25,10 +25,7 @@
               <a href="#contact">Contact</a>
             </li>
           </ul>
-          <ul class="connect-option">
-            <li><a href="#" class="btn tiny">Se connecter</a></li>
-            <li><a href="#">S'inscrire</a></li>
-          </ul>
+
         </nav>
         <div id="burger" title="Afficher le menu">
           <div class="line l1"></div>
@@ -44,14 +41,14 @@
             <h1>CMS Creative Drawer</h1>
             <div class="subtitle">Sous titre</div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis tempore pariatur ipsum earum, aperiam cupiditate recusandae, quae debitis animi, optio nulla dolores. A molestiae tempora, assumenda asperiores itaque, officiis sint.</p>
-            <a class="btn" href="/index.rar" download>Débuter</a>
+            <a class="btn u-mgt--s" href="/index.rar" download>Débuter</a>
           </div>
         </div>
         <a href="#band" class="chevron-down" title="Descendre à la partie inférieur"></a>
       </div>
 
       <div id="band" class="border-landing overlay">
-        <div class="text-center text-band">
+        <div class="u-tac text-band">
           <h2>Ma grosse baseline</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore facilis quae, optio, soluta eligendi nostrum, eveniet doloremque, asperiores tempora est deserunt delectus placeat. Voluptatibus eaque officia dolore, quidem rerum dolorem.</p>
           <button class="btn op">Débuter</button>
