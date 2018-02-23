@@ -4,9 +4,9 @@
   <section class="container padding-box">
     <div class="container-grid">
       <div class="row">
-        <div class="col-md-3 col-xs-12 text-center group-xs">
+        <div class="col-md-3 col-xs-12 u-tac group-xs">
           <label>Icône du site</label>
-          <div class="preview-icon bloc-center"></div>
+          <div class="preview-icon u-block--center"></div>
           <div class="text-center">
             <a href="" class="button">Ajouter</a>
           </div>
@@ -25,7 +25,7 @@
   <section class="container padding-box">
     <div class="container-grid">
       <div class="row">
-        <div class="col-md-2 col-xs-12 text-center group">
+        <div class="col-md-2 col-xs-12 u-tac group">
           <label>Icône profil</label>
           <div class="picture-circle" style="background-image: url(assets/img/Group.png);"></div>
           <div class="text-center">
@@ -56,7 +56,7 @@
             </div>
           </div>
         </div>
-        <div class="text-right text-center-xs col-xs-12">
+        <div class="text-right u-tac col-xs-12">
           <input type="submit" value="Enregistrer" class="button btn-validate">          
         </div>
       </div>
