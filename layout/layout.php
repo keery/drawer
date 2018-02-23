@@ -10,8 +10,8 @@
 	<body>	
 	<div class="flex-wrapper">
 		<aside class="sideNav">
-			<header class="header text-center">
-				<div class="picture-circle bloc-center" style="background-image: url(assets/img/Group.png);"></div>
+			<header class="header u-tac">
+				<div class="picture-circle u-block--center" style="background-image: url(assets/img/Group.png);"></div>
 				<div class="hidden-xs">
 					<h2>Jean Louis laperche</h2>
 					<span>Dessinateur</span>
