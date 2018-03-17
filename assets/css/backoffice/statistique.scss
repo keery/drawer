@@ -1,48 +1,59 @@
+#stats {
+  .calendar {
+    max-width: 100% !important;
 
-.switch-date{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
+    .stats-info {
+      display: inline-block;
+      text-align: center;
+      padding: 3em 1em;
 
-  .img{
-  	display: inline-block;
-    vertical-align: middle;
-
-
-  }
-  #upper-text{
-    opacity: 0.6;
-    color: $dark;
-  }
-  #bottom-text{
-    opacity: 0.3;
-    color: $dark2;
-  }
-  .chevron-gauche {
-    margin-right: 10%;
-    width: 40px;
-  	height: 40px;
-  }
-  .chevron-droit {
-    margin-left: 10%;
-    width: 40px;
-  	height: 40px;
+      .title {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $dark;
+        font-size: 1.2em;
+      }
+      .content {
+        padding: .8em;
+        display: block;
+        font-size: 1.2em;
+        color: $highlight;
+      }
+    }
   }
 
+  .switch-date--content {
+    display: inline-block;
+    position: relative;
+
+    .date {
+      opacity: 0.6;
+      color: $dark;
+    }
+
+    .date-update {
+      opacity: 0.3;
+      color: $dark2;
+    }
+
+    &:before, &:after {
+      content: "";
+      background-position: cover;
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:before {
+      background: url("/assets/img/leftArrow.svg") no-repeat;
+      left: -100px;
+      
+    }
+    &:after {
+      background: url("/assets/img/rightArrow.svg") no-repeat;
+      right: -125px;
+    }
+  }
 }
-
-.img:before{
-	content: "";
-	background: url("../img/leftArrow.svg");
-	display: inline-block;vertical-align: middle;
-	width: 15px;
-	height: 15px;
-}
-.img:after{
-	content:"";
-	background: url("../img/rightArrow.svg");
-	display: inline-block;vertical-align: middle;
-	width: 15px;
-	height: 15px;
- }
