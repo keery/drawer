@@ -1,24 +1,4 @@
-<?php session_start();
-// $dbh = new PDO('mysql:host=localhost;dbname=biscotto', 'root', '', array(
-// 		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-// 		PDO::ATTR_DEFAULT_FETCH_MODE => PDO:: FETCH_ASSOC,
-// 		PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8" ));
-
-define("PREFIXE_TABLE", 	"");
-
-//Informations sur le site
-define("SITE", 				"");
-define("NOM_SITE", 			"");
-define("ADRESSE", 			"");
-define("CODE_POSTAL", 		"");
-define("VILLE", 			"");
-
-//Réseaux Sociaux
-define("FACEBOOK", 			"#");
-define("TWITTER", 			"#");
-define("INSTAGRAM", 		"#");
-
-
+<?php 
 //BDD
 // define("HOST", "localhost");
 define("HOST", "projectdb");
@@ -30,7 +10,7 @@ define("PASS", "password");
 
 /*******/
 
-
+session_start();
 // define("DS", DIRECTORY_SEPARATOR);
 define("DS", "/");
 define("DIRNAME", dirname($_SERVER["SCRIPT_NAME"]));

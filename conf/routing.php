@@ -1,18 +1,30 @@
 <?php 
 return 
 [
+	'admin' => [
+		'prefix' => 'admin/',
+		'accessibility' => ['ADMINISTRATEUR', 'MODERATEUR'],
+		'routes' => [
+			'landing' => 
+			[
+				'path' => 'landing',
+				'controller' => 'Landing',
+				'action' => 'index'
+			]
+		]
+	],
 	'index' => 
 		[
 			'path' => '/',
 			'controller' => 'Main',
 			'action' => 'index'
 		],
-	'landing' => 
-		[
-			'path' => 'landing',
-			'controller' => 'Landing',
-			'action' => 'index'
-		],
+	// 'landing' => 
+	// 	[
+	// 		'path' => 'landing',
+	// 		'controller' => 'Landing',
+	// 		'action' => 'index'
+	// 	],
 	'statistic' => 
 		[
 			'path' => 'statistic',
