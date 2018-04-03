@@ -6,4 +6,8 @@
 		$router = new Router();
 		echo $router->routeHandler($routeName, $params);
 	}
+
+	function isGranted(array $role) {
+		return $user->hasRole($role);
+	}
  ?>
