@@ -5,13 +5,24 @@ use Module\Erreur\Erreur;
 
 class Router
 {
-	private $routes;
+	private $routes = [];
 
 	public function __construct()
 	{
 		$routes = CONF."routing.php";
 		if (file_exists($routes)) {
-			$this->routes = include($routes);
+			$routes = include($routes);
+			foreach ($routes as $routeName => $route) {
+				//Si c'est un groupe de route
+				if(isset($route['routes'])) {
+					foreach ($route['routes'] as $childRouteName => $childRoute) {
+						$childRoute['accessibility'] = $route['accessibility'];
+						if(isset($route['prefix'])) $childRoute['path'] = $route['prefix'].DS.$childRoute['path'];
+						$this->routes[$childRouteName] = $childRoute;
+					}
+				}
+				else $this->routes[$routeName] = $route;
+			}
 		}
 		else {
 			throw new Erreur('Le fichier "'.$routes.'" n\'existe pas');
@@ -42,6 +53,8 @@ class Router
 							$indexParam = trim($segment, '{}');
 							if(isset($route['params'][$indexParam]['pattern']) && preg_match('/'.$route['params'][$indexParam]['pattern'].'/', $findPathExploded[$key])) 
 							{
+								//TO DO a enlever de commentaire quand la session d'utilisateur sera prete
+								// if(isset($route['accessibility'])) hasRole($route['accessibility'])
 								$this->redirectTo($route);
 								return $route;
 							}
@@ -51,7 +64,7 @@ class Router
 			}
 
 		}
-		// throw new Erreur('Aucune route ne correspond à "'.$path.'"');
+		throw new Erreur('Aucune route ne correspond à "'.$path.'"');
 		return false;
 	}
 
