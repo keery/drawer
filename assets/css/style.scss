@@ -47,6 +47,7 @@ $radius: .4em;
 @import url('https://fonts.googleapis.com/css?family=Cantarell');
 @import 'framework';
 @import 'landing';
+@import 'installer';
 @import 'site';
 
 @import 'backoffice/sideNav';
@@ -208,7 +209,6 @@ img { max-width: 100%; }
 	    text-align: center;
 	    line-height: 20px;
     }	
-<<<<<<< HEAD
 }
 
 .picture-circle { background-size: cover; background-position: 50% 50%; border-radius: 100%; }
@@ -247,7 +247,3 @@ img { max-width: 100%; }
 	}  
 	.notif-clock { top: 8px;right: 15px; }    
 }
-
-=======
-}
->>>>>>> 223adc133c8e9aac61e7f8289ea89d0777b80add
