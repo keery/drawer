@@ -5,13 +5,24 @@ use Module\Erreur\Erreur;
 
 class Router
 {
-	private $routes;
+	private $routes = [];
 
 	public function __construct()
 	{
 		$routes = CONF."routing.php";
 		if (file_exists($routes)) {
-			$this->routes = include($routes);
+			$routes = include($routes);
+			foreach ($routes as $route) {
+				//Si c'est un groupe de route
+				if(isset($route['routes'])) {
+					foreach ($route['routes'] as $childRoute) {
+						$childRoute['accessibility'] = $route['accessibility'];
+						if(isset($route['prefix'])) $childRoute['path'] = $route['prefix'];
+						$this->routes[] = $route;
+					}
+				}
+				else $this->routes[] = $route;
+			}
 		}
 		else {
 			throw new Erreur('Le fichier "'.$routes.'" n\'existe pas');
