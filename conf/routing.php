@@ -13,6 +13,12 @@ return
 			]
 		]
 	],
+	'installer' => 
+		[
+			'path' => 'installer',
+			'controller' => 'Installer',
+			'action' => 'index'
+		],	
 	'index' => 
 		[
 			'path' => '/',
