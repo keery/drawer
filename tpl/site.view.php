@@ -3,7 +3,7 @@
   <div class="row">
     <article class="article col-sm-8">
       <div class="header">
-        <h2>Mon dernier dessin</h1>
+        <h1>Mon dernier dessin</h1>
       </div>
       <div class="u-pd--m">
         <p>
