@@ -122,6 +122,10 @@
 }
 
 // margin left
+.u-mgl--0 {
+  margin-left: 0px;
+}
+
 .u-mgl--xs {
   margin-left: 5px;
 }
@@ -139,6 +143,10 @@
 }
 
 // margin
+.u-mg--0 {
+  margin: 0px;
+}
+
 .u-mg--xs {
   margin: 5px;
 }
@@ -156,6 +164,10 @@
 }
 
 // margin right
+.u-mgr--0 {
+  margin-right: 0px;
+}
+
 .u-mgr--xs {
   margin-right: 5px;
 }
@@ -173,6 +185,10 @@
 }
 
 // margin top
+.u-mgt--0 {
+  margin-top: 0px;
+}
+
 .u-mgt--xs {
   margin-top: 5px;
 }
@@ -188,7 +204,12 @@
 .u-mgt--l {
   margin-top: 30px;
 }
+
 // margin bottom
+.u-mgb--0 {
+  margin-bottom: 0px;
+}
+
 .u-mgb--xs {
   margin-bottom: 5px;
 }
