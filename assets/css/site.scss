@@ -35,8 +35,6 @@
     @include box-shadow();
     border-radius: $radius;
     overflow: hidden;
-    display: inline-block;
-    width: 60%;
 
     .header {
       background: $red;
@@ -47,14 +45,5 @@
         color: white;
       }
     }
-
-    .content {
-      padding: 1em;
-    }
-  }
-
-  .description {
-    float: right;
-    width: 30%;
   }
 }
