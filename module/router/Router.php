@@ -36,10 +36,6 @@ class Router
 		$routes = $this->getRoutes();
 		foreach ($routes as $route) 
 		{
-			echo "<pre>";
-			var_dump($route);
-			echo "</pre>";
-
 			if($route['path'] == $path) 
 			{
 				$this->redirectTo($route);
