@@ -1,6 +1,7 @@
 <?php
 namespace Module\Entity;
 use Module\Bdd\BaseSql;
+use Module\Bdd\SqlManager;
 
 class Article extends BaseSql {
 	protected $titre;
@@ -30,5 +31,7 @@ class Article extends BaseSql {
 	}
 	public function setCategorie($categorie) {
 		$this->categorie = $categorie;
-	}				
+	}
+
+	public function get_table_class() { return "cd_article"; }		
 } 

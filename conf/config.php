@@ -36,7 +36,8 @@ define("DS", "/");
 define("DIRNAME", dirname($_SERVER["SCRIPT_NAME"]));
 define("PROJECT_LINK", substr($_SERVER['DOCUMENT_ROOT'].DIRNAME.DS, 0, -1));
 
-//FOLDER PATH //////////////.DS avant ""
+//FOLDER PATH 
+define('PREFIX', 'cd_');
 define('CONF', PROJECT_LINK.DS."conf".DS);
 define('MODULE', PROJECT_LINK.DS."module".DS);
 define('CSS', PROJECT_LINK.DS."assets/css".DS);
@@ -48,3 +49,8 @@ define('TPL', PROJECT_LINK.DS."tpl".DS);
 define('LAYOUT', PROJECT_LINK.DS."layout".DS);
 define('ASSETS', PROJECT_LINK.DS."assets".DS);
 define('ROOT', DS.dirname(__FILE__).DS);
+
+//Constante SQL
+define('UPDATE', 'update');
+define('INSERT', 'insert');
+define('DELETE', 'delete');
