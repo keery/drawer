@@ -21,7 +21,7 @@ class UserController {
 	public function editAction()
     {
         View::render("user/user-edit.view.php");
-        $article = new Article();
+        
 
     }
 
