@@ -21,6 +21,12 @@ return
 					'controller' => 'Main',
 					'action' => 'pages'
 				],
+            'user_list' =>
+                [
+                    'path' => 'users',
+                    'controller' => 'User',
+                    'action' => 'index'
+                ],
 			'page_edit' => 
 				[
 					'path' => 'page/{id}',
