@@ -18,6 +18,6 @@ else {
 	$URI = $URI[0];
 	$URI = str_replace(DIRECTORY, '', $URI);
 	if ($URI != DS) $URI = urldecode(substr($URI, 1));
-// }
+ }
 $router->urlMatcher($URI);
 ?>
