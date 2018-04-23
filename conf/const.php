@@ -1,10 +1,11 @@
 <?php 
 //BDD
-// define("HOST", "localhost");
-define("HOST", "projectdb");
+define("HOST", "localhost");
+// define("HOST", "projectdb");
 define("DB_NAME", "drawer");
 define("USER", "root");
-define("PASS", "password");
+define("PASS", "");
+// define("PASS", "password");
 
 
 
@@ -14,6 +15,8 @@ session_start();
 // define("DS", DIRECTORY_SEPARATOR);
 define("DS", "/");
 define("DIRNAME", dirname($_SERVER["SCRIPT_NAME"]));
+define("DIRECTORY", str_replace($_SERVER['CONTEXT_DOCUMENT_ROOT'], '', pathinfo($_SERVER['SCRIPT_FILENAME'])['dirname']) );
+
 define("PROJECT_LINK", substr($_SERVER['DOCUMENT_ROOT'].DIRNAME.DS, 0, -1));
 
 //FOLDER PATH 
