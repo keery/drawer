@@ -29,7 +29,7 @@ class MainController {
 
 		$article->setCategorie($cat);
 		
-		$article->save();
+		$article->delete();
 
 		View::render("article-detail.view.php");
 	}

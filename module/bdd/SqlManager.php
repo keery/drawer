@@ -76,7 +76,8 @@ var_dump($this->properties);
 	}
 
 	public function deleteQueryBuilder() {
-		
+		$this->query = $this->pdo->prepare("DELETE FROM ".$this->table." WHERE id = :id");
+		return $this->query->execute(array('id' => $this->properties['id']));
 	}		
 
 	public function query($query) {
