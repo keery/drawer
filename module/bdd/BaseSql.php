@@ -6,9 +6,11 @@ class BaseSql{
 	private $table;
 	private $pdo;
 	private $properties;
+	private $manager;
 
 	public function __construct(){
-		$this->table = get_called_class();		
+		$this->table = get_called_class();	
+		$this->manager = new SqlManager();	
 	}
 
 	public function getProperties() {
@@ -20,12 +22,19 @@ class BaseSql{
 	}
 
 	public function save(){
-		$manager = new SqlManager();
-		return $manager->exec(INSERT, $this->getProperties(), $this->get_table_class());
+		$action = (empty($this->getId()) ? INSERT : UPDATE);
+		return $this->manager->exec($action, $this->getProperties(), $this->get_table_class());
+	}
+
+	public function delete(){
+		return $this->manager->exec(DELETE, $this->getProperties(), $this->get_table_class());
 	}
 
 	public function toArray() {
 		return (array) $this;
 	}
+
+	public static function findAll() {}
+	public static function find() {}
 
 }

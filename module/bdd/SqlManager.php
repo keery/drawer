@@ -18,24 +18,28 @@ class SqlManager{
 		$this->properties = $properties;
 		$this->table = $table;
 
+var_dump($this->properties);
+		//Gestion des relations
 		if(isset($properties['mapping'])){
 			foreach ($properties['mapping'] as $key => $mapping) {
-				switch ($mapping['relation']) {
-					case ONE_TO_ONE:
-						var_dump("1 to 1");
-					break;
-					case ONE_TO_MANY:
+
+				if(isset($mapping['relation'])) {
+					if(in_array($mapping['relation'], array(ONE_TO_ONE, ONE_TO_MANY))) {
 						if(!isset($mapping['column'])) {
-							throw new Erreur('Champ "column" manquant pour le mapping "'.ONE_TO_MANY.'" dans "'.$this->table.'"');
+							throw new Erreur('Champ "column" manquant pour "'.$this->table.'"');
 							return false;
 						}
+
 						$insertId = $this->properties[$key]->save();
 						unset($this->properties[$key]);
 						$this->properties[$mapping['column']] = $insertId;
-					break;
-					case MANY_TO_MANY:
-						var_dump("Many to many");
-					break;												
+
+					}elseif($mapping['relation'] == MANY_TO_MANY){
+						
+					}				
+				}else{
+					throw new Erreur('Champ "relation" manquant pour "'.$this->table.'"');
+					return false;
 				}
 			}
 			unset($this->properties['mapping']);
@@ -54,6 +58,15 @@ class SqlManager{
 	}
 
 	public function updateQueryBuilder() {
+		$properties = $this->properties;
+		unset($properties['id']);
+		$props = [];
+
+		foreach (array_keys($properties) as $properties) {
+			$props[] = $properties."=:".$properties;
+		}
+		$this->query = $this->pdo->prepare("UPDATE ".$this->table." SET ".implode(",",$props)." WHERE id = :id");
+		return $this->query->execute($this->properties);
 	}
 
 	public function insertQueryBuilder() {

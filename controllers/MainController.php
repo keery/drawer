@@ -20,11 +20,12 @@ class MainController {
 	public function editArticleAction()
 	{
 		$article = new Article();
-		$article->setTitre("Mon premier dessin");
+		$article->setId(3);
+		$article->setTitre("Mon deuxieme dessin");
 		$article->setDescription("Lorem ipsum");
 
 		$cat = new Categorie();
-		$cat->setNom("Ma categ");
+		$cat->setNom("Ma categ numero 2");
 
 		$article->setCategorie($cat);
 		

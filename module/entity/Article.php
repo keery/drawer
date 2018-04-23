@@ -5,20 +5,28 @@ use Module\Bdd\SqlManager;
 use Module\Entity\Categorie;
 
 class Article extends BaseSql {
+	protected $id;
 	protected $titre;
 	protected $description;
 	protected $categorie;
+
 	public $mapping = [
 		"categorie" => [
 			"relation" => ONE_TO_MANY,
 			"target" => "Categorie",
 			"column" => "id_categorie"
 		]
-
 	];
 
 	public function __construct() {
 		parent::__construct();
+	}
+
+	public function getId() {
+		return $this->id;
+	}
+	public function setId($id) {
+		$this->id = $id;
 	}
 
 	public function getTitre() {

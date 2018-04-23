@@ -1,7 +1,5 @@
 <?php 
 //BDD
-<<<<<<< HEAD
-
 if($_SERVER['HTTP_HOST'] == "localhost") {
 
 	define("HOST", "localhost");
@@ -13,14 +11,7 @@ if($_SERVER['HTTP_HOST'] == "localhost") {
 }
 define("DB_NAME", "drawer");
 define("USER", "root");
-=======
-define("HOST", "localhost");
-// define("HOST", "projectdb");
-define("DB_NAME", "drawer");
-define("USER", "root");
-define("PASS", "");
-// define("PASS", "password");
->>>>>>> 64fd5164ef6901e42ffb1ae453dc79bf55e5af9c
+
 
 
 
