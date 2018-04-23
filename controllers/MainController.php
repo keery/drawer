@@ -2,6 +2,7 @@
 namespace Controllers;
 
 use Module\Entity\Article;
+use Module\Entity\Categorie;
 use Module\View\View;
 
 class MainController {
@@ -18,11 +19,18 @@ class MainController {
 
 	public function editArticleAction()
 	{
-		View::render("article-detail.view.php");
 		$article = new Article();
 		$article->setTitre("Mon premier dessin");
 		$article->setDescription("Lorem ipsum");
+
+		$cat = new Categorie();
+		$cat->setNom("Ma categ");
+
+		$article->setCategorie($cat);
+		
 		$article->save();
+
+		View::render("article-detail.view.php");
 	}
 
 	public function pagesAction()

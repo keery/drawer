@@ -1,30 +1,51 @@
 <?php
 namespace Module\Bdd;
+use Module\Erreur\Erreur;
 
 class SqlManager{
 
 	private $table;
 	private $pdo;
+	private $query;
 	private $properties;
 
 	public function __construct(){
 		$this->connectBDD();
-		var_dump($this->pdo);
 	}
 
-	public function exec($action, $properties) {
+	public function exec($action, $properties, $table) {
 		$qb = $action."QueryBuilder";
 		$this->properties = $properties;
-		unset($this->properties['categorie']);
-		echo "<pre>";
-		var_dump($this->properties);
-		echo "</pre>";
+		$this->table = $table;
 
-
-		// var_dump($object);
+		if(isset($properties['mapping'])){
+			foreach ($properties['mapping'] as $key => $mapping) {
+				switch ($mapping['relation']) {
+					case ONE_TO_ONE:
+						var_dump("1 to 1");
+					break;
+					case ONE_TO_MANY:
+						if(!isset($mapping['column'])) {
+							throw new Erreur('Champ "column" manquant pour le mapping "'.ONE_TO_MANY.'" dans "'.$this->table.'"');
+							return false;
+						}
+						$insertId = $this->properties[$key]->save();
+						unset($this->properties[$key]);
+						$this->properties[$mapping['column']] = $insertId;
+					break;
+					case MANY_TO_MANY:
+						var_dump("Many to many");
+					break;												
+				}
+			}
+			unset($this->properties['mapping']);
+		}
 
 		if(in_array($action, array(UPDATE, DELETE, INSERT))) {
-			$this->$qb();
+			$res = $this->$qb();
+
+			if(!$res) $this->printError();
+			else return $this->pdo->lastInsertId();
 		}
 		else {
 			throw new Erreur('Type de requête invalide');
@@ -36,14 +57,9 @@ class SqlManager{
 	}
 
 	public function insertQueryBuilder() {
-		// var_dump($this->properties);
-		// var_dump(implode(',', $properties));
 		$keys = array_keys($this->properties);
-		var_dump("INSERT INTO ".$this->table." (".implode(',', $keys).") VALUES (:".implode(',:', $keys).")");
-		$query = $this->pdo->prepare("INSERT INTO ".$this->table." (".implode(',', $keys).") VALUES (:".implode(',:', $keys).")");
-		$res = $query->execute($this->properties);
-		var_dump($res);
-		// var_dump("INSERT INTO ".$this->table." (".implode(',', $this->properties).") VALUES (".implode(',:', $this->properties).")");		
+		$this->query = $this->pdo->prepare("INSERT INTO ".$this->table." (".implode(',', $keys).") VALUES (:".implode(',:', $keys).")");
+		return $this->query->execute($this->properties);
 	}
 
 	public function deleteQueryBuilder() {
@@ -54,14 +70,20 @@ class SqlManager{
 
 	}
 
+	public function printError() {
+		$infos = $this->query->errorInfo();
+		throw new Erreur('SQL : ' . $infos[1] . ' - '. $infos[2]);
+		return false;
+	} 
+
 
 	public function connectBDD() {
 		try {
-			$this->pdo = new \PDO('mysql:host='.HOST.';dbname='.DB_NAME, 'root', PASS);
+			$this->pdo = new \PDO('mysql:host='.HOST.';dbname='.DB_NAME, USER, '');
 		}
 		catch(PDOException $e) {
-			var_dump($e);
-			// throw new Erreur("Connexion à la base de donnée impossible");
+			throw new Erreur("Connexion à la base de donnée impossible");
+			return false;
 		}
 	}
 

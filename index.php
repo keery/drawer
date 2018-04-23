@@ -14,6 +14,7 @@ $router = new Router();
 // else {
 	$URI = explode("?", $_SERVER["REQUEST_URI"]);
 	$URI = $URI[0];
+	$URI = str_replace(DIRECTORY, '', $URI);
 	if ($URI != DS) $URI = urldecode(substr($URI, 1));
 // }
 $router->urlMatcher($URI);

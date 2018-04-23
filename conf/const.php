@@ -1,19 +1,28 @@
 <?php 
 //BDD
-// define("HOST", "localhost");
-define("HOST", "projectdb");
+
+if($_SERVER['HTTP_HOST'] == "localhost") {
+
+	define("HOST", "localhost");
+	define("PASS", "");
+} else {
+
+	define("HOST", "projectdb");
+	define("PASS", "password");
+}
 define("DB_NAME", "drawer");
 define("USER", "root");
-define("PASS", "password");
+
 
 
 
 /*******/
-
 session_start();
 // define("DS", DIRECTORY_SEPARATOR);
 define("DS", "/");
 define("DIRNAME", dirname($_SERVER["SCRIPT_NAME"]));
+define("DIRECTORY", str_replace($_SERVER['CONTEXT_DOCUMENT_ROOT'], '', pathinfo($_SERVER['SCRIPT_FILENAME'])['dirname']) );
+
 define("PROJECT_LINK", substr($_SERVER['DOCUMENT_ROOT'].DIRNAME.DS, 0, -1));
 
 //FOLDER PATH 
@@ -34,3 +43,8 @@ define('ROOT', DS.dirname(__FILE__).DS);
 define('UPDATE', 'update');
 define('INSERT', 'insert');
 define('DELETE', 'delete');
+
+//Relations entités
+define('ONE_TO_ONE', "11");
+define('ONE_TO_MANY', "1n");
+define('MANY_TO_MANY', "nn");

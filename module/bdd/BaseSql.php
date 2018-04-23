@@ -21,7 +21,7 @@ class BaseSql{
 
 	public function save(){
 		$manager = new SqlManager();
-		$manager->exec(INSERT, $this->getProperties());
+		return $manager->exec(INSERT, $this->getProperties(), $this->get_table_class());
 	}
 
 	public function toArray() {

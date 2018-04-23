@@ -13,7 +13,7 @@
         </div>
         <div class="col-sm-6 col-xs-12">
           <label>Catégorie</label>
-          <select name="" class="select">
+          <select name="id_categorie" class="select">
             <option value="">Choisir une catégorie</option>
           </select>
         </div>
