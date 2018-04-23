@@ -1,0 +1,1 @@
+<h3>Détail d'un cms</h3>
