@@ -27,6 +27,7 @@
          			 <li><a class="u-mw" href="<?php path('statistic') ?>"><img src="assets/img/stat-picto-white.svg" alt=""><span class="hidden-xs">Statistiques</span></a></li>
 					<li><a class="u-mw" href="<?php path('pages') ?>"><img src="assets/img/page-picto-white.svg" alt=""><span class="hidden-xs">Mes pages</span></a></li>
 					<li><a class="u-mw" href="<?php path('articles') ?>"><img src="assets/img/article-picto-white.svg" alt=""><span class="hidden-xs">Mes articles</span></a></li>
+                    <li><a class="u-mw" href="<?php path('user_list') ?>"><img src="assets/img/article-picto-white.svg" alt=""><span class="hidden-xs">Les utilisateurs</span></a></li>
 					<li><a class="u-mw" href="<?php path('parametres') ?>"><img src="assets/img/settings-picto-white.svg" alt=""><span class="hidden-xs">Paramètres</span></a></li>
 				</ul>
 			</nav>
