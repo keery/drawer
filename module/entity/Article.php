@@ -29,6 +29,7 @@ class Article extends BaseSql {
 
 	public function __construct() {
 		parent::__construct();
+		$this->date_creation = date("Y-m-d G:h:i");
 	}
 
 	public function getTitre() {
