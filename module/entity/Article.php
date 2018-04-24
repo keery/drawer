@@ -9,24 +9,26 @@ class Article extends BaseSql {
 	protected $titre;
 	protected $description;
 	protected $categorie;
+	protected $date_creation;
+	protected $date_update;
 
 	public $mapping = [
-		"categorie" => [
+		"id_categorie" => [
 			"relation" => ONE_TO_MANY,
-			"target" => "Categorie",
-			"column" => "id_categorie"
+			"target" => "Module\Entity\Categorie",
+			"property" => "categorie"
 		]
 	];
+	// public $mapping = [
+	// 	"categorie" => [
+	// 		"relation" => ONE_TO_MANY,
+	// 		"target" => "Categorie",
+	// 		"column" => "id_categorie"
+	// 	]
+	// ];
 
 	public function __construct() {
 		parent::__construct();
-	}
-
-	public function getId() {
-		return $this->id;
-	}
-	public function setId($id) {
-		$this->id = $id;
 	}
 
 	public function getTitre() {
@@ -50,5 +52,14 @@ class Article extends BaseSql {
 		$this->categorie = $categorie;
 	}
 
+	// public function () {
+	// 	return $this->titre;
+	// }
+	public function setDate_creation($date) {
+		$this->date_creation = $date;
+	}
+	public function setDate_update($date) {
+		$this->date_update = $date;
+	}
 	public static function get_table_class() { return "cd_article"; }		
 } 
