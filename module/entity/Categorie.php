@@ -25,5 +25,5 @@ class Categorie extends BaseSql {
 		$this->nom = $nom;
 	}
 
-	public function get_table_class() { return "cd_categorie_article"; }		
+	public static function get_table_class() { return "cd_categorie_article"; }		
 } 

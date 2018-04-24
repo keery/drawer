@@ -1,6 +1,7 @@
 <?php
 namespace Module\Bdd;
 use Module\Erreur\Erreur;
+use PDO;
 
 class SqlManager{
 
@@ -18,7 +19,6 @@ class SqlManager{
 		$this->properties = $properties;
 		$this->table = $table;
 
-var_dump($this->properties);
 		//Gestion des relations
 		if(isset($properties['mapping'])){
 			foreach ($properties['mapping'] as $key => $mapping) {
@@ -79,6 +79,11 @@ var_dump($this->properties);
 		$this->query = $this->pdo->prepare("DELETE FROM ".$this->table." WHERE id = :id");
 		return $this->query->execute(array('id' => $this->properties['id']));
 	}		
+
+	public function select($table, $fields) {
+		$req = $this->pdo->query("SELECT ".$fields." FROM ".$table);
+		$res = $req->fetchAll(PDO::FETCH_ASSOC);
+	}
 
 	public function query($query) {
 

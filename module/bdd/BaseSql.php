@@ -3,14 +3,13 @@ namespace Module\Bdd;
 
 class BaseSql{
 
-	private $table;
+	private static $table;
+	private static $manager;
 	private $pdo;
 	private $properties;
-	private $manager;
 
 	public function __construct(){
-		$this->table = get_called_class();	
-		$this->manager = new SqlManager();	
+		self::$table = get_called_class();	
 	}
 
 	public function getProperties() {
@@ -23,18 +22,25 @@ class BaseSql{
 
 	public function save(){
 		$action = (empty($this->getId()) ? INSERT : UPDATE);
-		return $this->manager->exec($action, $this->getProperties(), $this->get_table_class());
+		return self::getManager()->exec($action, $this->getProperties(), self::$table::get_table_class());
 	}
 
 	public function delete(){
-		return $this->manager->exec(DELETE, $this->getProperties(), $this->get_table_class());
+		return self::getManager()->exec(DELETE, $this->getProperties(), self::$table::get_table_class());
 	}
 
 	public function toArray() {
 		return (array) $this;
 	}
 
-	public static function findAll() {}
+	public static function all() {
+		return self::getManager()->select(self::$table::get_table_class(),'*');
+	}
+
 	public static function find() {}
 
+	public static function getManager() {
+		if(empty(self::$manager)) self::$manager = new SqlManager();
+		return self::$manager;
+	}
 }

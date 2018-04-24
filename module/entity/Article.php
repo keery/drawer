@@ -50,5 +50,5 @@ class Article extends BaseSql {
 		$this->categorie = $categorie;
 	}
 
-	public function get_table_class() { return "cd_article"; }		
+	public static function get_table_class() { return "cd_article"; }		
 } 
