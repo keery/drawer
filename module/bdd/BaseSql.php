@@ -25,7 +25,6 @@ class BaseSql{
 
 	public function save(){
 		$action = (empty($this->getId()) ? INSERT : UPDATE);
-		var_dump($this->table::get_table_class());
 		return self::getManager()->exec($action, $this->getProperties(), $this->table::get_table_class());
 	}
 

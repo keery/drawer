@@ -16,6 +16,8 @@ class SqlManager{
 
 	public function exec($action, $properties, $table) {
 		$qb = $action."QueryBuilder";
+
+		var_dump($properties);
 	
 
 		//Gestion des relations
@@ -66,7 +68,7 @@ class SqlManager{
 		unset($props['id']);
 		$iProps = $this->prepareInlineKeys($props);
 
-		$this->query = $this->pdo->prepare("UPDATE ".$table." SET ".implode(",",$iProps)." WHERE id = :id");
+		$this->query = $this->pdo->prepare("UPDATE ".$table." SET ".$iProps." WHERE id = :id");
 		return $this->query->execute($properties);
 	}
 
@@ -135,10 +137,11 @@ class SqlManager{
 					$func = 'set'.ucfirst($mapping['property']);
 					$jointedElement = $mapping['target']::findOneBy(array('id' => $data[$key]));
 					$t->$func($jointedElement);
-					unset($data[$key]);
 				}
+				unset($data[$key]);
 			}
 		}
+
 		$t->fromArray($data);
 		return $t;
 	}

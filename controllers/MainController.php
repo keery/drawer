@@ -20,7 +20,7 @@ class MainController {
 	public function editArticleAction()
 	{
 		$article = new Article();
-		$article->setId(3);
+		$article->setId(1);
 		// $article->setTitre("Mon deuxieme dessin");
 		// $article->setDescription("Lorem ipsum");
 		$article->fromArray(array(
@@ -28,14 +28,14 @@ class MainController {
 			'description' => 'Lorem Ipsum'
 		));
 
-		$articles = Article::all();
+		// $articles = Article::all();
 
 		$cat = new Categorie();
 		$cat->setNom("Ma categ numero 2");
 
 		$article->setCategorie($cat);
 		
-		// $article->save();
+		$article->save();
 
 		View::render("article-detail.view.php");
 	}
