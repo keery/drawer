@@ -21,16 +21,21 @@ class MainController {
 	{
 		$article = new Article();
 		$article->setId(3);
-		$article->setTitre("Mon deuxieme dessin");
-		$article->setDescription("Lorem ipsum");
-		Article::all();
+		// $article->setTitre("Mon deuxieme dessin");
+		// $article->setDescription("Lorem ipsum");
+		$article->fromArray(array(
+			'titre' => 'Mon 19men dessin',
+			'description' => 'Lorem Ipsum'
+		));
+
+		$articles = Article::all();
 
 		$cat = new Categorie();
 		$cat->setNom("Ma categ numero 2");
 
 		$article->setCategorie($cat);
 		
-		$article->delete();
+		// $article->save();
 
 		View::render("article-detail.view.php");
 	}
