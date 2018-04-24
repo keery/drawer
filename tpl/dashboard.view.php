@@ -55,7 +55,25 @@
   <div class="bottom row">
     <div class="left group col-md-7 col-xs-12 spacing-right">
       <div>
-        <img src="assets/img/stats.svg" alt="">
+        <canvas id="myChart" width="400" height="400"></canvas>
+        <script>
+          var ctx = document.getElementById("myChart").getContext('2d');
+          var myDoughnutChart = new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                datasets: [{
+                    data: [90, 10],
+                    borderWidth: [10],
+                    borderColor: ['#304A52'],
+                    backgroundColor: [
+                      '#49C5B6',
+                      '#fefefe'
+                    ]
+                }],
+              },
+          });
+        </script>
+        <!-- <img src="assets/img/stats.svg" alt=""> -->
       </div>
       <span>TOTAL - 12 300 views</span>
     </div>
