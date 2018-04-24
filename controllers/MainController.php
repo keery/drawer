@@ -23,6 +23,7 @@ class MainController {
 		$article->setId(3);
 		$article->setTitre("Mon deuxieme dessin");
 		$article->setDescription("Lorem ipsum");
+		Article::all();
 
 		$cat = new Categorie();
 		$cat->setNom("Ma categ numero 2");
