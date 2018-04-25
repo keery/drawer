@@ -15,13 +15,17 @@ use Module\Bdd\SqlManager;
 
 class User extends BaseSql
 {
-    protected $id;
+    protected $id = null;
     protected $firstName;
     protected $lastName;
     protected $email;
     protected $role;
     protected $password;
     protected $token;
+    protected $dateInserted;
+    protected $dateUpdated;
+    protected $status;
+
 
     public function __construct()
     {
@@ -83,6 +87,19 @@ class User extends BaseSql
     {
         return $this->token;
     }
+    public function getDateupdated()
+    {
+        return $this->dateUpdated;
+    }
+    public function getDateinserted()
+    {
+        return $this->dateInserted;
+    }
+
+    public function getStatus()
+    {
+        return $this->status;
+    }
 
     /**
      * @param mixed $id
@@ -91,6 +108,18 @@ class User extends BaseSql
     {
         $this->id = $id;
     }
+
+    public function setStatus($status)
+    {
+        $this->status = trim(($status));
+    }
+    public function setDateInserted(){
+        $this->dateInserted = date("Ymd");
+    }
+    public function setDateUpdated(){
+        $this->dateUpdated = date("Ymd");
+    }
+
 
     /**
      * @param mixed $name
@@ -142,6 +171,7 @@ class User extends BaseSql
     {
         $this->token = $token;
     }
+
 
 
 }
