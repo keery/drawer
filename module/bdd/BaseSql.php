@@ -40,7 +40,9 @@ class BaseSql{
 		return self::getManager()->select(get_called_class());
 	}
 
-	public static function find() {}
+	public static function find($where, $fields = array("*")) {
+		return self::getManager()->select(get_called_class(), $fields, $where);
+	}
 
 	public static function findOneBy($where, $fields = array("*")) {
 		return self::getManager()->select(get_called_class(), $fields, $where, true);
