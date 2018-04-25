@@ -27,6 +27,30 @@ return
                     'controller' => 'User',
                     'action' => 'index'
                 ],
+            'user_edit' =>
+                [
+                    'path' => 'user/{id}/edit',
+                    'controller' => 'User',
+                    'action' => 'edit'
+                ],
+            'user_new' =>
+                [
+                    'path' => 'user/new',
+                    'controller' => 'User',
+                    'action' => 'new'
+                ],
+            'user_show' =>
+                [
+                    'path' => 'user/{id}/show',
+                    'controller' => 'User',
+                    'action' => 'show'
+                ],
+            'user_delete' =>
+                [
+                    'path' => 'user/{id}/delete',
+                    'controller' => 'User',
+                    'action' => 'delete'
+                ],
 			'page_edit' => 
 				[
 					'path' => 'page/{id}',

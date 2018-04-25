@@ -15,13 +15,17 @@ use Module\Bdd\SqlManager;
 
 class User extends BaseSql
 {
-    protected $id;
+    protected $id = null;
     protected $firstName;
     protected $lastName;
     protected $email;
     protected $role;
     protected $password;
     protected $token;
+    protected $dateInserted;
+    protected $dateUpdated;
+    protected $status;
+
 
     public function __construct()
     {
@@ -142,6 +146,7 @@ class User extends BaseSql
     {
         $this->token = $token;
     }
+
 
 
 }

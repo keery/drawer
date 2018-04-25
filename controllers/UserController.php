@@ -12,21 +12,28 @@ class UserController {
         View::render("user/user-list.view.php");
 	}
 
-	public function addAction($params)
+	public function newAction()
 	{
-		var_dump($params);
-		echo "Ajout d'un utilisateur";
+        View::render("user/user-new.view.php");
 	}
 
-	public function editAction()
+	public function editAction($id)
     {
         View::render("user/user-edit.view.php");
 
 
     }
 
-    public function deleteAction()
+    public function showAction($id)
     {
+        View::render("user/user-show.view.php");
+
+
+    }
+
+    public function deleteAction($id)
+    {
+
 
     }
 	
