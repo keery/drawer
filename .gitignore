@@ -3,6 +3,7 @@ node_modules/
 
 # compiled csss
 assets/css/dist/style.css
+assets/img/upload/
 
 .idea
 .vscode
