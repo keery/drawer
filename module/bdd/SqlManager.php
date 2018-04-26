@@ -17,9 +17,6 @@ class SqlManager{
 	public function exec($action, $properties, $table) {
 		$qb = $action."QueryBuilder";
 
-		var_dump($properties);
-	
-
 		//Gestion des relations
 		if(isset($properties['mapping'])){
 			foreach ($properties['mapping'] as $key => $mapping) {
@@ -47,9 +44,6 @@ class SqlManager{
 			}
 			unset($properties['mapping']);
 		}
-
-		// $this->properties = $properties;
-		// $this->table = $table;
 
 
 		if(in_array($action, array(UPDATE, DELETE, INSERT))) {

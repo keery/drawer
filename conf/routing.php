@@ -92,6 +92,17 @@ return
 			'path' => 'erreur',
 			'controller' => 'Error',
 			'action' => 'error404'
+		],
+	'ajax' => [
+		'prefix' => 'ajax',
+		'routes' => [
+			'ajax_files' => 
+			[
+				'path' => 'upload',
+				'controller' => 'Ajax',
+				'action' => 'uploadFiles'
+			]	
 		]
+	]
 ];
 ?>

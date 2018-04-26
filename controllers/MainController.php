@@ -53,5 +53,5 @@ class MainController {
 	public function parametresAction()
 	{
 		View::render("parametres.view.php");
-	}	
+	}
 }

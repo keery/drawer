@@ -46,13 +46,13 @@
         <button class="btn-validate button" type="button">Choisir un fichier</button>
       </div>
       <div class="dropzone" id="dz-article" data-message="Déposer votre fichier ici"></div>
-      <ul class="img-list">      
-        <li style="display: none">
-          <div class="col-2 photo"></div>
+      <ul class="img-list container-grid">      
+        <!-- <li style="display: none" class="row">
+          <div class="col-xs-4 photo"></div>
           <div class="panel-action">
             <button class="delete button btn-icone dial" type="button" title="Supprimer l'image" data-id=""></button>
           </div>
-            <div class="col-2 img-input">
+            <div class="col-xs-8 img-input">
             <div class="input-form">
               <label for="actualite_image_alt">Alt</label>
               <input type="text" id="actualite_image_alt" name="actualite[image][alt]" class="input">
@@ -66,7 +66,7 @@
               <i class="fa fa-sort"></i>
               <input type="text" id="actualite_image_position" name="actualite[image][position]">
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>

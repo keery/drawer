@@ -6,11 +6,11 @@
 	$.fn.GEUploader = function(option)
 	{
 		option = $.extend({
-			route : 'ajax_img',
-			dossier_upload : '',
+			route : 'ajax/upload',
+			dossier_upload : 'assets/img/upload',
 			maxWidth : 1920,
 			maxHeight : 1080,
-			nbFichiersMax : 50
+			nbFichiersMax : 50,
 		}, option);
 
 		//Classe
@@ -26,13 +26,11 @@
 			{
 				entity_name = entity_name[1].toLowerCase();
 			}
-
-			var images_div = "#"+entity_name+"_images";
-
-
+			if(option.idZone != undefined) var images_div = "#"+option.idZone;
+			else console.log("Pas de zone");
+			
 			elem
 			.on('dragenter', function(event){
-
 				event.preventDefault();
 				prev_msg = $(this).attr("data-message");
 				$(this).addClass('dropOver').attr("data-message", "Lachez votre fichier");
@@ -45,11 +43,10 @@
 
 				event.preventDefault();
 
-			}).on('drop, change', function(event){
+			}).on('drop change', function(event){
 
 				event.preventDefault();
 				event.stopPropagation();
-
 
 				if (event.type == "change") 
 				{
@@ -64,7 +61,7 @@
 
 				if (filesList.length > option.nbFichiersMax) 
 				{					
-					alert("La limite est de "+ nbFichiersMax+" fichiers maximum");
+					alert("La limite est de "+ option.nbFichiersMax+" fichier(s) maximum");
 					
 				}
 				else
@@ -73,14 +70,14 @@
 					{
 						for (var i = 0; i < option.nbFichiersMax; i++) 
 						{
-							if (MIMEis(filesList[i], ['img']))
-							{
+							// if (MIMEis(filesList[i], ['img']))
+							// {
 								creerImage(filesList[i], dropzone);
-							}
-							else
-							{
-								console.log('Le fichier '+i+' n\'est pas du bon format');
-							}
+						// 	}
+						// 	else
+						// 	{
+						// 		console.log('Le fichier '+i+' n\'est pas du bon format');
+						// 	}
 						}
 					}
 					else
@@ -118,9 +115,8 @@
 				}
 
 				var loader;
-
 				$.ajax({
-					url: Routing.generate(route),
+					url: route,
 				    type: "POST",
 				    data: dataForm,
 				    contentType: false,
@@ -141,14 +137,16 @@
 						if (option.nbFichiersMax > 1) 
 						{
 							// var proto = '<li><div class="col-2 photo"></div><div class="col-2 img-input"><input type="file" id="'+entity_name+'_images___name___image" name="'+entity_name+'[images][__name__][image]" /><div class="input-form full"><label for="'+entity_name+'_images___name___alt">Alt</label><input type="text" id="'+entity_name+'_images___name___alt" name="'+entity_name+'[images][__name__][alt]" class="input" /></div><div class="input-form full"><label for="'+entity_name+'_images___name___title">Title</label>	<input type="text" id="'+entity_name+'_images___name___title" name="'+entity_name+'[images][__name__][title]"  class="input"/></div></div></li>';
-							if ($(images_div).find("li").length == 0) 
+							if ($(images_div).next('ul').find("li").length == 0) 
 							{
-								var id = addImg($(images_div), 0, entity_name, data_base64);
+								var id = addImg($(images_div), 0, entity_name, data_base64, response.id_file);
 							}
 							else
 							{
-								var id_last_child = ($(images_div+" li:last-child input[type='text']").attr("id"));
-								var split = id_last_child.split(/_([\d]+)_/)[1];
+								var id_last_child = ($(images_div+" + ul li:last-child input[type='text']").attr("id"));
+								var split = id_last_child.split(/_/)[0];
+								console.log(id_last_child);
+								console.log(split);
 
 								if ($.isNumeric(split) && split != undefined) 
 								{
@@ -172,7 +170,7 @@
 						}
 						else
 						{
-							var proto = '<li><div class="col-2 photo"></div><div class="panel-action"><button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id="'+response.id_file+'"></button></div><div class="col-2 img-input"><div class="input-form full"><label for="'+entity_name+'_image_alt">Alt</label><input type="text" id="'+entity_name+'_image_alt" name="'+entity_name+'[image][alt]" class="input"></div><div class="input-form full"><label for="'+entity_name+'_image_title">Title</label><input type="text" id="'+entity_name+'_image_title" name="'+entity_name+'[image][title]" class="input"></div></div></li>';
+							var proto = '<li class="row"><div class="col-xs-4 photo"></div><div class="panel-action"><button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id="'+response.id_file+'"></button></div><div class="col-xs-8 img-input"><div class="input-form full spacing"><label for="'+entity_name+'_image_alt">Alt</label><input type="text" id="'+entity_name+'_image_alt" name="'+entity_name+'[image][alt]" class="input"></div><div class="input-form full spacing"><label for="'+entity_name+'_image_title">Title</label><input type="text" id="'+entity_name+'_image_title" name="'+entity_name+'[image][title]" class="input"></div></div></li>';
 							
 							list.find("li:last-child").find(".photo").append(img);
 
@@ -195,7 +193,10 @@
 			function addImg(container, index, entity_name, imgSRC, value="") 
 		    {
 
-		    	var template = container.attr('data-prototype')
+				var proto = '<li class="row"><div class="col-xs-4 photo"><img src="'+imgSRC+'"></div><div class="panel-action"><button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id="'+value+'"></button></div><div class="col-xs-8 img-input"><div class="input-form full spacing"><label for="'+index+'_image_alt">Alt</label><input type="text" id="'+index+'_image_alt" name="'+entity_name+'['+index+'][image][alt]" class="input"></div><div class="input-form full spacing"><label for="'+index+'_image_title">Title</label><input type="text" id="'+index+'_image_title" name="'+entity_name+'['+index+'][image][title]" class="input"></div></div></li>';
+				
+
+		    	var template = proto
 		    	  .replace(/_entity_name_/g, entity_name)
 		    	  .replace(/__name__/g,        index)
 		    	  .replace(/__value__/g,       value)
@@ -204,7 +205,7 @@
 
 		    	var $prototype = $(template);
 
-		    	container.find("ul").append($prototype);
+		    	container.next("ul").append($prototype);
 		    }
 
 			function creerImage (file, dropzone)
@@ -238,9 +239,9 @@
 
 				reader.onerror = function() {
 			  		alert("Nous avons rencontré un problème lié à votre fichier, il n'a pas pu être chargé");
-			  	}
-
-				reader.readAsDataURL(file);
+				}			
+				
+				if(file != undefined) reader.readAsDataURL(file);
 			}
 			
 			function imageSize(width, height, maxWidth, maxHeight)

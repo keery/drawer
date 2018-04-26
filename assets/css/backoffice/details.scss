@@ -27,6 +27,52 @@
     }
 }
 
+.miniature
+{
+    display: inline-block;
+    vertical-align: top;
+    width: 140px;
+    height: 140px;
+    max-width: 230px;
+    position: relative;
+    background-size: contain;
+    border: 3px solid #e3e3e3;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    margin: 5px;
+    background-color: #e3e3e3; 
+}
+.loader
+{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	background-color: rgba(0, 0, 0, 0.48);
+	background-image: url(../../../assets/img/loader.gif);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: 50px;
+}
+.panel-action
+{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+.action-button
+{
+	background-color: #0175b1;
+	color: white;
+	padding: 5px 7px;
+	display: inline-block;
+}
+.action-button:hover
+{
+	background-color: #005885;
+}
+
 .input-form 
 {
     position: relative;

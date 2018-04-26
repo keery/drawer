@@ -16,7 +16,7 @@ class Router
 				//Si c'est un groupe de route
 				if(isset($route['routes'])) {
 					foreach ($route['routes'] as $childRouteName => $childRoute) {
-						$childRoute['accessibility'] = $route['accessibility'];
+						if( isset($route['accessibility']) ) $childRoute['accessibility'] = $route['accessibility'];
 						if(isset($route['prefix'])) $childRoute['path'] = $route['prefix'].DS.$childRoute['path'];
 						$this->routes[$childRouteName] = $childRoute;
 					}
