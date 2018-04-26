@@ -60,16 +60,22 @@ return
 					'path' => 'articles',
 					'controller' => 'Main',
 					'action' => 'articles'
-				],			
+				],
 		]
 	],
-	'installer' => 
-		[
-			'path' => 'installer',
-			'controller' => 'Installer',
-			'action' => 'index'
-		],	
-	'index' => 
+    'installer-config' =>
+        [
+            'path' => 'installer-config',
+            'controller' => 'InstallerConfig',
+            'action' => 'index'
+        ],
+    'installer-user' =>
+        [
+            'path' => 'installer-user',
+            'controller' => 'InstallerUser',
+            'action' => 'index'
+        ],
+    'index' =>
 		[
 			'path' => '/',
 			'controller' => 'Main',
