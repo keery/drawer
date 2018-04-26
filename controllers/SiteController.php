@@ -7,6 +7,16 @@ class SiteController {
 	
 	public function indexAction()
 	{
-		View::render("site.view.php", "layout-site.php");
+		View::render("frontend/site.view.php", "layout-site.php");
+	}
+
+	public function oeuvreAction()
+	{
+		View::render("frontend/oeuvre.view.php", "layout-site.php");
+	}
+
+	public function contactAction()
+	{
+		View::render("frontend/contact.view.php", "layout-site.php");
 	}
 }

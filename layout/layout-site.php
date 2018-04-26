@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head lang="fr">
+		<base href="<?php echo DIRECTORY; ?>/">
 		<link rel="stylesheet" href="assets/css/dist/style.css">
 		<meta charset="UTF-8">
 		<title>Creative </title>	
@@ -8,18 +9,27 @@
 	</head>
 	<body>	
 	<div id="site" class="flex-wrapper">
-    <header>
-			<figure>
-			</figure>
+    <header class="header">
+			<div class="banner">
+				<div class="banner-content">
+					<h1 class='banner-title'>Hassan akar</h1>
+					<h2 class='banner-subtitle'>Dessinateur amateur</h2>
+					<div class='banner-social'>
+						<img src="assets/img/facebook-logo-button.png" alt="">
+						<img src="assets/img/twitter-logo-button.png" alt="">
+						<img src="assets/img/instagram-logo.png" alt="">
+					</div>
+				</div>
+			</div>
 			<nav class="navbar">
 				<div class="left">
-					<a href="">Accueil</a>
-					<a href="">Mes oeuvres</a>
-					<a href="">Me contacter</a>
+					<a href="<?php path('site') ?>">Accueil</a>
+					<a href="<?php path('oeuvre') ?>">Mes oeuvres</a>
+					<a href="<?php path('contact') ?>">Me contacter</a>
 				</div>
 				<div class="right">
-					<a href="">Sign up</a>
-					<a href="" class="selected">Sign in</a>
+					<a href="#">Sign up</a>
+					<a href="#" class="selected">Sign in</a>
 				</div>
 			</nav>
     </header>

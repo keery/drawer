@@ -1,4 +1,3 @@
-<h1 class="headline">Hassan Akar, dessinateur amateur</h1>
 <div class="container-grid wrapper">
   <div class="row">
     <article class="article col-sm-8">
