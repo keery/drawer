@@ -9,23 +9,26 @@ class UserController {
 
 	public function indexAction()
 	{
-        View::render("user/user-list.view.php");
+	    $user = new User();
+	    $users = $user::all();
+        View::render("user/user-list.view.php","layout.php",array(
+            $users = "users"
+        ));
 	}
 
 	public function addAction($params)
 	{
-		var_dump($params);
-		echo "Ajout d'un utilisateur";
+
 	}
 
 	public function editAction()
     {
-        View::render("user/user-edit.view.php");
+
 
 
     }
 
-    public function deleteAction()
+    public function deleteAction($params)
     {
 
     }
