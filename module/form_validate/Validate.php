@@ -1,4 +1,7 @@
 <?php
+
+namespace Module\form_validate;
+
 class Validate{
 
 

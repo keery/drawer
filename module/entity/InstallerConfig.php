@@ -9,7 +9,6 @@ class InstallerConfig extends \Module\Bdd\BaseSql {
 	protected $pwd;
     protected $websitetitle;
 
-
 	public function __construct(){
 		parent::__construct();
 	}
@@ -31,7 +30,6 @@ class InstallerConfig extends \Module\Bdd\BaseSql {
 	}
 
 	public function configFormAdd(){
-
 		return [
 		            "name"=>"Database",
 					"config"=>["method"=>"POST", "action"=>"", "submit"=>"Envoyer"],
@@ -80,20 +78,14 @@ class InstallerConfig extends \Module\Bdd\BaseSql {
 
 	}
 
-
     public function addConfig($params){
 
-
-        $installerConfig = new \InstallerConfig();
-        $config = $installerConfig->configFormAdd();
+        $config = $this->configFormAdd();
         $errors = [];
 
         if(!empty($params)){
-            $validate = new \Validate();
+            $validate = new \Module\form_validate\Validate();
             $errors = $validate->checkForm($config, $params);
-//            $errors = \Validate::checkForm($config, $params);
-
-
 
             if(empty($errors)){
 
@@ -107,7 +99,6 @@ class InstallerConfig extends \Module\Bdd\BaseSql {
 				';
 
                 file_put_contents(CONF.'config.php', $txtconfi, FILE_APPEND | LOCK_EX);
-                header("refresh:0");
 
             }
             foreach ($errors as $error) {
