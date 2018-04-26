@@ -27,6 +27,12 @@ return
                     'controller' => 'User',
                     'action' => 'index'
                 ],
+            'user_add' =>
+                [
+                    'path' => 'users/add',
+                    'controller' => 'User',
+                    'action' => 'add'
+                ],
 			'page_edit' => 
 				[
 					'path' => 'page/{id}',

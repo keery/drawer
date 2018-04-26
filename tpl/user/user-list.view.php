@@ -1,46 +1,29 @@
-<img src="assets/img/article-picto.svg" alt="" class="picto-page">
-<h1>Listes des utilisateurs</h1>
-<nav class="container ctn-nav small-xs">
-    <div class="nav-links" data-selected-filter="Published">
-        <a href="" class="selected">Published</a>
-        <a href="">Drafts</a>
-    </div>
-    <a href="article" class="btn-add" title="Ajouter un élément"></a>
-</nav>
-<section class="container">
-    <ul class="list">
-        <li class="list-item">
-            <div class="text-list">Comment améliorer son dessin en 3 semaines</div>
-            <div class="details-list"><span class="date-details-list">3 years ago</span></div>
-            <span class="btn-edit-item">
-        <span></span>
-        <ul>
-          <li><a href="<?php path('pages', array('id' => 1)); ?>">Éditer</a></li>
-          <li><a href="">Supprimer</a></li>
-        </ul>
-      </span>
-        </li>
-        <li class="list-item">
-            <div class="text-list">Ma première BD enfin disponible</div>
-            <div class="details-list"><span class="date-details-list">3 years ago</span></div>
-            <span class="btn-edit-item">
-        <span></span>
-        <ul>
-          <li><a href="<?php path('pages', array('id' => 2)); ?>">Éditer</a></li>
-          <li><a href="">Supprimer</a></li>
-        </ul>
-      </span>
-        </li>
-        <li class="list-item">
-            <div class="text-list">Ma présentation</div>
-            <div class="details-list"><span class="date-details-list">3 years ago</span></div>
-            <span class="btn-edit-item">
-        <span></span>
-        <ul>
-          <li><a href="<?php path('article_edit', array('id' => 3)); ?>">Éditer</a></li>
-          <li><a href="">Supprimer</a></li>
-        </ul>
-      </span>
-        </li>
-    </ul>
-</section>
+<h1>la liste des users</h1>
+
+
+
+<div>
+    <?php
+
+    foreach ($users  as $user =>$value)
+    {
+    ?>
+      <ul>
+          <li><?php echo $value->id;?></li>
+          <li><?php echo $value->firstName;?></li>
+          <li><?php echo $value->lastName;?></li>
+          <li><?php echo $value->email;?></li>
+          <li><?php echo $value->password;?></li>
+          <li><?php echo $value->token;?></li>
+          <li><?php echo $value->date_inscription;?></li>
+          <li><?php echo $value->date_edition;?></li>
+          <li><?php echo $value->id_image;?></li>
+          <li><?php echo $value->status;?></li>
+          <li><?php echo $value->age;?></li>
+      </ul>
+
+        <?php
+    }
+    ?>
+
+</div>

@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Module\Entity\User;
 use Module\View\View;
+use Module\bdd\BaseSql;
 
 class UserController {
 
@@ -12,8 +13,10 @@ class UserController {
 	    $user = new User();
 	    $users = $user::all();
         View::render("user/user-list.view.php","layout.php",array(
-            $users = "users"
+           "users" => $users
+
         ));
+
 	}
 
 	public function addAction($params)
