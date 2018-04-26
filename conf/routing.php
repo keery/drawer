@@ -52,24 +52,30 @@ return
 			'statistic' => 
 				[
 					'path' => 'statistic',
-					'controller' => 'Statistic',
-					'action' => 'index'
+					'controller' => 'Main',
+					'action' => 'stats'
 				],
 			'articles' => 
 				[
 					'path' => 'articles',
 					'controller' => 'Main',
 					'action' => 'articles'
-				],			
+				],
 		]
 	],
-	'installer' => 
-		[
-			'path' => 'installer',
-			'controller' => 'Installer',
-			'action' => 'index'
-		],	
-	'index' => 
+    'installer-config' =>
+        [
+            'path' => 'installer-config',
+            'controller' => 'InstallerConfig',
+            'action' => 'index'
+        ],
+    'installer-user' =>
+        [
+            'path' => 'installer-user',
+            'controller' => 'InstallerUser',
+            'action' => 'index'
+        ],
+    'index' =>
 		[
 			'path' => '/',
 			'controller' => 'Main',
@@ -86,7 +92,22 @@ return
 			'path' => 'site',
 			'controller' => 'Site',
 			'action' => 'index'
-		],		
+		],	
+	'oeuvre' => [
+		'prefix' => 'site',
+		'routes' => [
+			'oeuvre' => [
+				'path' => 'oeuvre',
+				'controller' => 'Site',
+				'action' => 'oeuvre'
+			],
+			'contact' => [
+				'path' => 'contact',
+				'controller' => 'Site',
+				'action' => 'contact'
+			]	
+		]
+	],
 	'erreur' =>
 		[
 			'path' => 'erreur',

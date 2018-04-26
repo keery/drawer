@@ -10,8 +10,11 @@ Autoloader::register();
 
 $router = new Router();
 
+//A décommenter si besoin du 1er form de config
+if (!file_exists(CONF.'config.php')) $URI = "installer-config";
 
-if (file_exists(CONF.'config.php')) $URI = "installer";
+// TO DO need SQL get admin user
+//elseif (USERADMINEXISTE?)$URI = "installer-user";
 else {
 
 	$URI = explode("?", $_SERVER["REQUEST_URI"]);

@@ -1,12 +1,10 @@
 <?php
 namespace Controllers;
-
 use Module\View\View;
-
-class StatisticController {
+class InstallerUserController{
 	
 	public function indexAction()
 	{
-		View::render("statistic.view.php");
-	}
+		View::render('', 'layout-installer-user.php');
+	}	
 }

@@ -1,16 +1,52 @@
 #site {
-  $red: #D66363;
+  $color: #473F3F;
+  $opacity: .5;
 
-  .headline {
-    text-align: center;
-    display: block !important;
-  }
-
-  header {
-    background: $red;
-    padding: 1.8em 2em;
+  .header {
+    background: $color;
     color: white;
     width: 100%;
+    margin-bottom: 3em;
+
+    .banner {
+      background: linear-gradient(to left, rgba($color, $opacity), rgba($color, $opacity)), url('../../img/frontHeaderBanner.png');
+      background-size: cover;
+      height: 300px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .banner-content {
+      text-align: center;
+    }
+
+    .banner-title {
+      font-family: 'Rochester', cursive;
+      color: white;
+      font-size: 6em;
+      margin: 0;
+    }
+
+    .banner-subtitle {
+      color: rgba(white, 0.8);
+    }
+
+    .banner-social > img {
+      width: 40px;
+      margin-right: .5em;
+    }
+
+    .navbar {
+      display: flex;
+      padding: 1.8em 2em;
+      width: 100%;
+
+      .right {
+        margin-left: auto;
+      }
+    }
 
     a {
       color: white;
@@ -20,30 +56,42 @@
         border-radius: $radius;
         background: rgba(black, 0.3);
       }
-    }
-
-    .right {
-      float: right;
-    }
+    }    
   }
 
-  nav {
-    display: inline-block;
-  }
+  .content {
+    .article {
+      @include box-shadow();
+      border-radius: $radius;
+      overflow: hidden;
+  
+      .header {
+        background: $color;
 
-  .article {
-    @include box-shadow();
-    border-radius: $radius;
-    overflow: hidden;
-
-    .header {
-      background: $red;
-
-      h2 {
-        margin: 0;
-        padding: 1em;
-        color: white;
+        h1 {
+          color: white;
+        }
+  
+        h2 {
+          margin: 0;
+          padding: 1em;
+          color: white;
+        }
       }
+    }
+
+    .images {
+      display: flex;
+
+      img {
+        margin-right: 2em;
+        height: 300px;
+      }
+    }
+
+    .contact-form {
+      display: block;
+      max-width: 500px;
     }
   }
 }
