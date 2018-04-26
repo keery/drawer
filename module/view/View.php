@@ -7,7 +7,8 @@ class View
 {
 	private static $v;
 	private static $t;
-	private static $data = ["test"];
+	private static $data = [];
+
 
 	//Affiche un template
 	public static function render($tpl, $layout="layout.php", $data=[])
@@ -40,5 +41,9 @@ class View
 			self::$data = $data;
 		}
 	}
+
+    public function addForm($form,$config, $errors=[] ){
+        include "module/view/form/".$form.".frm.php";
+    }
 }
 ?>
