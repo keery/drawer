@@ -24,7 +24,8 @@ class User extends BaseSql
     protected $token;
     protected $dateInserted;
     protected $dateUpdated;
-    protected $status;
+    protected $status = 0;
+    protected $age = 0;
 
 
     public function __construct()
@@ -46,6 +47,12 @@ class User extends BaseSql
     public function getLastName()
     {
         return $this->lastName;
+    }
+
+
+    public function getAge()
+    {
+        return $this->age;
     }
 
     /**
@@ -111,7 +118,7 @@ class User extends BaseSql
 
     public function setStatus($status)
     {
-        $this->status = trim(($status));
+        $this->status = $status;
     }
     public function setDateInserted(){
         $this->dateInserted = date("Ymd");
@@ -120,56 +127,134 @@ class User extends BaseSql
         $this->dateUpdated = date("Ymd");
     }
 
-
-    /**
-     * @param mixed $name
-     */
     public function setFirstName($firstName)
     {
         $this->firstName = ucfirst(strtolower(trim($firstName)));
     }
-
-    /**
-     * @param mixed $fullName
-     */
     public function setLastName($lastName)
     {
         $this->lastName = strtoupper(trim($lastName));
     }
 
-    /**
-     * @param mixed $email
-     */
+
     public function setEmail($email)
     {
         $this->email = strtolower(trim($email));
     }
 
-    /**
-     * @param mixed $password
-     */
-    /**
-     * @param mixed $password
-     */
+
     public function setPassword($pwd)
     {
         $this->password = password_hash($pwd, PASSWORD_DEFAULT);
     }
 
-    /**
-     * @param mixed $role
-     */
     public function setRole($role)
     {
         $this->role = $role;
     }
 
-    /**
-     * @param mixed $token
-     */
+    public function setAge($age){
+        $this->age=$age;
+    }
+
+
     public function setToken($token)
     {
         $this->token = $token;
+    }
+    public function formInscription(){
+
+        return [
+            "config"=>["method"=>"POST", "action"=>"", "submit"=>["text"=> "Inscription"]],
+            "input"=>[
+
+                "firstName"=>[
+                    "type"=>"text",
+                    "placeholder"=>"Votre prénom",
+                    "required"=>true,
+                    "maxString"=>100,
+                    "minString"=>2
+                ],
+                "lastName"=>[
+                    "type"=>"text",
+                    "placeholder"=>"Votre nom",
+                    "required"=>true,
+                    "maxString"=>100,
+                    "minString"=>2
+                ],
+                "email"=>[
+                    "type"=>"email",
+                    "placeholder"=>"Votre email",
+                    "required"=>true],
+                "emailConfirm"=>[
+                    "type"=>"email",
+                    "placeholder"=>"Confirmer votre email",
+                    "required"=>true,
+                    "confirm"=>"email"
+                ],
+                "pwd"=>[
+                    "type"=>"password",
+                    "placeholder"=>"Votre mot de passe",
+                    "required"=>true],
+                "pwdConfirm"=>[
+                    "type"=>"password",
+                    "placeholder"=>"Confirmer votre mot de passe",
+                    "required"=>true,
+                    "confirm"=>"pwd"
+                ],
+                "age"=>[
+                    "type"=>"number",
+                    "placeholder"=>"Votre age",
+                    "required"=>true,
+                    "maxNum"=>100,
+                    "minNum"=>18
+                ]
+
+            ]
+        ];
+
+    }
+
+    public function formAdd(){
+
+        return [
+            "config"=>["method"=>"POST", "action"=>"", "submit"=>['text'=> 'Ajouter']],
+
+            "input"=>[
+                "firstName"=>[
+                    "type"=>"text",
+                    "placeholder"=>"Prénom",
+                    "required"=>true,
+                    "minString"=>2,
+                    "maxString"=>100
+                ],
+
+                "lastName"=>[
+                    "type"=>"text",
+                    "placeholder"=>"Nom",
+                    "required"=>true,
+                    "minString"=>2,
+                    "maxString"=>100
+
+                ],
+
+                "email"=>[
+                    "type"=>"email",
+                    "placeholder"=>"Votre email",
+                    "required"=>true],
+
+                "role"=>[
+                    "type"=>"select",
+                    "options" => [
+                    ["id" => 'visiteur', "name" => "visiteur"],
+                    ["id" => 'moderateur', "name" => "moderateur"],
+                    ["id" => 'admin', "name" => "admin"]
+                ],
+                    "placeholder"=>"Choisir un role",
+
+                ]
+            ]
+        ];
     }
 
 
