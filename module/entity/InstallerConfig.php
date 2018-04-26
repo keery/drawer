@@ -1,4 +1,6 @@
 <?php 
+namespace Module\Entity;
+
 class InstallerConfig extends \Module\Bdd\BaseSql {
 
 	protected $databasename;
