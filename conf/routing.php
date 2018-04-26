@@ -52,8 +52,8 @@ return
 			'statistic' => 
 				[
 					'path' => 'statistic',
-					'controller' => 'Statistic',
-					'action' => 'index'
+					'controller' => 'Main',
+					'action' => 'stats'
 				],
 			'articles' => 
 				[
@@ -86,7 +86,22 @@ return
 			'path' => 'site',
 			'controller' => 'Site',
 			'action' => 'index'
-		],		
+		],	
+	'oeuvre' => [
+		'prefix' => 'site',
+		'routes' => [
+			'oeuvre' => [
+				'path' => 'oeuvre',
+				'controller' => 'Site',
+				'action' => 'oeuvre'
+			],
+			'contact' => [
+				'path' => 'contact',
+				'controller' => 'Site',
+				'action' => 'contact'
+			]	
+		]
+	],
 	'erreur' =>
 		[
 			'path' => 'erreur',
