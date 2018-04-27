@@ -1,16 +1,25 @@
 <?php
 namespace Module\Form;
 
+use Module\Form\FormHTML;
+
 class FormBuilder {
+	private $form;
 
 	public function create($form, $object)
 	{
-		var_dump($form);
-		var_dump($object);
+		$this->form = $form;
 		$HTML_form = '';
-		foreach($form as $field) {
-			$HTML_form .= $field->toHtml();
+		foreach($form->getStructure() as $key => $field) {
+			$HTML_form[$key] = ['HTML' => $field->toHtml(), 'displayed' => false];
 		}
-		return $HTML_form;
+		return new FormHTML($HTML_form, $this->setHeadForm());
+	}
+
+	private function setHeadForm(){
+		$HTML_head = $this->form->getMethod();
+		$HTML_head .= $this->form->getAction();
+		$HTML_head .= $this->form->getEnctype();
+		return $HTML_head;
 	}
 }

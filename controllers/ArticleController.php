@@ -23,7 +23,7 @@ class ArticleController {
 
 		$fb = new FormBuilder();
 		$form = $fb->create(new ArticleForm(), $article);
-		var_dump($form);
+		var_dump($form->print());
 
 		
         // var_dump($params['id']);

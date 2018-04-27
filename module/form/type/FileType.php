@@ -4,7 +4,7 @@ namespace Module\Form\Type;
 
 use Module\Form\FormComponent;
 
-class InputType extends FormComponent
+class FileType extends FormComponent
 {
     public function toHTML() {
         $HTML = '<input type="text"';
