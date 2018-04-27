@@ -8,17 +8,17 @@ use Module\View\View;
 class ArticleController {
 	
 
-	public function editArticleAction()
+	public function editArticleAction($params)
 	{
 
-        // var_dump($_GET);
+        var_dump($params);
 		// $article = new Article();
 		// $article->setId(1);
 		// // $article->setTitre("Mon deuxieme dessin");
 		// // $article->setDescription("Lorem ipsum");
 		// $article->fromArray(array(
 		// 	'titre' => 'Mon 19men dessin',
-		// 	'description' => 'Lorem Ipsum'
+		// 	'description' => 'Lorem Ipsum
 		// ));
 
 		// // $articles = Article::all();

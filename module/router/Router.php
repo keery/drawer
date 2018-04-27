@@ -67,7 +67,9 @@ class Router
 					// 		}
 					// 	}
 					// }
+					
 					$match = true;
+					$getParams = array();
 					foreach ($searchPathExploded as $key => $segment) {
 						if($segment != $findPathExploded[$key])
 						{
@@ -88,6 +90,7 @@ class Router
 									$match = false;
 									break;
 								}
+								else $getParams[$indexParam] = addslashes($findPathExploded[$key]);
 							}
 							else {
 								$match = false;
@@ -99,7 +102,7 @@ class Router
 					if($match) {
 						//TO DO a enlever de commentaire quand la session d'utilisateur sera prete
 						// if(isset($route['accessibility'])) hasRole($route['accessibility'])
-						$this->redirectTo($route);
+						$this->redirectTo($route, $getParams);
 						return $route;
 					}
 				}
@@ -125,7 +128,7 @@ class Router
 				$namespace = "\\Controllers\\".$cName;
 				$ctrl = new $namespace();
 				$action = $route['action']."Action";
-				if(method_exists($ctrl, $action)) $ctrl->$action();
+				if(method_exists($ctrl, $action)) $ctrl->$action($params);
 				else
 				{
 					throw new Erreur("L'action [".$action."] n'existe pas dans le controlleur [".$namespace."]");
