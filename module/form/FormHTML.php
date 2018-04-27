@@ -11,27 +11,31 @@ class FormHTML {
         $this->config = $configHead;
     }
 
-    public function input($id){
+    public function input($id, $options=null){
         if(array_key_exists($id, $this->fields)) {
-            $this->fields[$id]['displayed'] = true;
-            return $this->fields[$id]['HTML'];
+            $field = $this->fields[$id];
+            $field['displayed'] = true;
+            
+            if(isset($options['class'])) $field['field']->setClass($options['class']);
+            return $field['field']->toHtml();
         }
     }
 
-    public function label($id){
+    public function label($id, $tag = true){
         if(array_key_exists($id, $this->fields)) {
-            return '<label>'.$this->fields[$id]['label'].'</label>';
+            $HTML = $this->fields[$id]['label'];
+            if($tag) $HTML = '<label>'.$HTML.'</label>';
+            return $HTML;
         }
     }
 
     public function form_rest() {
         foreach ($this->fields as $field) {
-            if(!$field['displayed']) echo $field['HTML'];
+            if(!$field['displayed']) echo $field['field']->toHtml();
         }
     }
 
     public function form_head() {
-        var_dump($this->config);
         echo '<form '.$this->config.'>';
     } 
 

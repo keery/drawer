@@ -8,8 +8,8 @@
     <div class="bloc-content">
       <div class="row spacing">
         <div class="group col-sm-6 col-xs-12">
-          <label>Titre</label>
-          <input type="text" class="input">
+          <?php echo $form->label('titre'); ?>
+          <?php echo $form->input('titre', ['class' => 'input']); ?>
         </div>
         <div class="col-sm-6 col-xs-12">
           <label>Catégorie</label>

@@ -22,9 +22,7 @@ class ArticleController {
 		}
 
 		$fb = new FormBuilder();
-		$form = $fb->create(new ArticleForm(), $article);
-		$form->render();
-
+		$data['form'] = $fb->create(new ArticleForm(), $article);
 		
         // var_dump($params['id']);
 		// $article = new Article();
@@ -45,7 +43,7 @@ class ArticleController {
 		
 		// $article->save();
 
-		// View::render("backend/article-detail.view.php");
+		View::render("backend/article-detail.view.php", 'layout.php', $data);
 	}
 
 }

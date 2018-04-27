@@ -19,6 +19,9 @@ abstract class FormComponent
         $this->class = isset($options['class']) ? $options['class'] : null;
         $this->label = $options['label'];
     }
+    
+    public function setClass($class) { $this->class = $class; }
+    public function getClass() { return $this->class; }
 
     public function setLabel($label) { $this->label = $label; }
     public function getLabel() { return $this->label; }
