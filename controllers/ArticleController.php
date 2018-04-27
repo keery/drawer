@@ -2,16 +2,28 @@
 namespace Controllers;
 
 use Module\Entity\Article;
-use Module\Entity\Categorie;
 use Module\View\View;
+use Module\Erreur\Erreur;
+use Module\Form\FormBuilder;
 
 class ArticleController {
 	
 
 	public function editArticleAction($params)
 	{
+		if(isset($params['id'])) $article = Article::findOneBy(array('id' => $params['id']));
+		else $article = new Article();
 
-        var_dump($params);
+		if(empty($article)) {
+			throw new Erreur("L'article contenant l'id ".$params['id']." n'existe pas");
+			return false;
+		}
+
+		$fb = new FormBuilder();
+		// var_dump($fb)
+
+		
+        // var_dump($params['id']);
 		// $article = new Article();
 		// $article->setId(1);
 		// // $article->setTitre("Mon deuxieme dessin");
@@ -30,7 +42,7 @@ class ArticleController {
 		
 		// $article->save();
 
-		View::render("backend/article-detail.view.php");
+		// View::render("backend/article-detail.view.php");
 	}
 
 }
