@@ -12,7 +12,8 @@ class ArticleForm extends FormBuilderInterface
     public function __construct()
     {
         $this
-            ->add('titre', new InputType(), ['label' => 'Titre'])
+            ->add('titre', new InputType())
+            // ->add('auteur', new InputType(), ['label' => 'Author'])
         ;
     }
 }

@@ -12,9 +12,15 @@ class FormBuilderInterface
     
     public function add($name, $type, $options=null) {
         $options['name'] = $name;
+        
+        //Si il n'y a pas de label on prend le nom par defaut avec une majuscule
+        if(!isset($options['label']))  $options['label'] = ucfirst($name);
+
         $type->build($options);
         $this->structure[$name] = $type;
-        if( $this->isTypeFile(get_class($type)) ) $this->enctype = " enctype='multipart/form-data'";
+
+        //Attribut pour les formulaires qui contiennent des fichiers
+        if( $this->isTypeFile(get_class($type)) ) $this->enctype = "multipart/form-data";
     }
 
     public function getStructure() {

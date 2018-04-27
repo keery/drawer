@@ -11,10 +11,16 @@ class FormHTML {
         $this->config = $configHead;
     }
 
-    public function render($id){
+    public function input($id){
         if(array_key_exists($id, $this->fields)) {
             $this->fields[$id]['displayed'] = true;
             return $this->fields[$id]['HTML'];
+        }
+    }
+
+    public function label($id){
+        if(array_key_exists($id, $this->fields)) {
+            return '<label>'.$this->fields[$id]['label'].'</label>';
         }
     }
 
@@ -25,6 +31,7 @@ class FormHTML {
     }
 
     public function form_head() {
+        var_dump($this->config);
         echo '<form '.$this->config.'>';
     } 
 
@@ -32,10 +39,13 @@ class FormHTML {
         echo '</form>';
     }    
 
-    public function print($contextBefore="", $contextAfter="") {
+    public function render($contextBefore="", $contextAfter="") {
         echo $this->form_head();
         foreach ($this->fields as $key => $field) {
-            echo $contextBefore.$this->render($key).$contextAfter;
+            echo '<div>';
+            echo $this->label($key);
+            echo $contextBefore.$this->input($key).$contextAfter;
+            echo '</div>';
         }
         echo $this->form_rest();
         echo $this->form_bottom();

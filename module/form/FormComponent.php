@@ -9,6 +9,7 @@ abstract class FormComponent
     public $placeholder;
     public $required;
     public $class;
+    public $label;
 
     public function build($options) {
         $this->name = isset($options['name']) ? $options['name'] : null;
@@ -16,7 +17,11 @@ abstract class FormComponent
         $this->required = isset($options['required']) ? $options['required'] : true;
         $this->placeholder = isset($options['placeholder']) ? $options['placeholder'] : false;
         $this->class = isset($options['class']) ? $options['class'] : null;
+        $this->label = $options['label'];
     }
+
+    public function setLabel($label) { $this->label = $label; }
+    public function getLabel() { return $this->label; }
 
     public function setName($name) { $this->name = $name; }
     public function getName() { return $this->name; }
