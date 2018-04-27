@@ -8,6 +8,7 @@ class FormBuilderInterface
     
     public function add($name, $type, $options=null) {
         $options['name'] = $name;
-        $this->structure[$name] = $type->build($options);
+        $type->build($options);
+        $this->structure[$name] = $type;
     }
 }

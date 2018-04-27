@@ -9,7 +9,7 @@ use Module\Form\Type\InputType;
 class ArticleForm extends FormBuilderInterface
 {
 
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function __construct()
     {
         $this
             ->add('titre', new InputType())

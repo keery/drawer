@@ -4,7 +4,9 @@ namespace Controllers;
 use Module\Entity\Article;
 use Module\View\View;
 use Module\Erreur\Erreur;
+
 use Module\Form\FormBuilder;
+use Module\Entity\Form\ArticleForm;
 
 class ArticleController {
 	
@@ -20,7 +22,8 @@ class ArticleController {
 		}
 
 		$fb = new FormBuilder();
-		// var_dump($fb)
+		$form = $fb->create(new ArticleForm(), $article);
+		var_dump($form);
 
 		
         // var_dump($params['id']);
