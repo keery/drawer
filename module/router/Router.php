@@ -36,36 +36,83 @@ class Router
 		$routes = $this->getRoutes();
 		foreach ($routes as $route) 
 		{
+
+			//Si le nom de la route est exacte au path
 			if($route['path'] == $path) 
 			{
 				$this->redirectTo($route);
 				return $route;
 			}
+			//Si la route contient des params
 			elseif($params = $this->getParamsUrl($route['path']))
 			{
 				$findPathExploded = explode('/', $path);
 				$searchPathExploded = explode('/', $route['path']);
 				if(count($findPathExploded) == count($searchPathExploded))
 				{
+					// foreach ($searchPathExploded as $key => $segment) {
+					// 	var_dump($segment);
+					// 	var_dump($findPathExploded[$key]);
+					// 	if($segment != $findPathExploded[$key])
+					// 	{
+					// 		if(in_array(trim($segment, '{}'), $params)){
+					// 			$indexParam = trim($segment, '{}');
+					// 			if(isset($route['params'][$indexParam]['pattern']) && preg_match('/'.$route['params'][$indexParam]['pattern'].'/', $findPathExploded[$key])) 
+					// 			{
+					// 				//TO DO a enlever de commentaire quand la session d'utilisateur sera prete
+					// 				// if(isset($route['accessibility'])) hasRole($route['accessibility'])
+					// 				$this->redirectTo($route);
+					// 				return $route;
+					// 			}
+					// 		}
+					// 	}
+					// }
+					$match = true;
 					foreach ($searchPathExploded as $key => $segment) {
-						if($segment != $findPathExploded[$key] && in_array(trim($segment, '{}'), $params))
+						if($segment != $findPathExploded[$key])
 						{
-							$indexParam = trim($segment, '{}');
-							if(isset($route['params'][$indexParam]['pattern']) && preg_match('/'.$route['params'][$indexParam]['pattern'].'/', $findPathExploded[$key])) 
-							{
-								//TO DO a enlever de commentaire quand la session d'utilisateur sera prete
-								// if(isset($route['accessibility'])) hasRole($route['accessibility'])
-								$this->redirectTo($route);
-								return $route;
+							if($this->isParam($segment)) {
+								$indexParam = trim($segment, '{}');
+								if(!in_array($indexParam, $params) ) {
+									$match = false;
+									break;
+								}
+								
+								if(!isset($route['params'][$indexParam]['pattern'])) 
+								{
+									$match = false;
+									break;
+								}
+								
+								if(!preg_match('/'.$route['params'][$indexParam]['pattern'].'/', $findPathExploded[$key])) {
+									$match = false;
+									break;
+								}
+							}
+							else {
+								$match = false;
+								break;
 							}
 						}
+						
+					}
+					if($match) {
+						//TO DO a enlever de commentaire quand la session d'utilisateur sera prete
+						// if(isset($route['accessibility'])) hasRole($route['accessibility'])
+						$this->redirectTo($route);
+						return $route;
 					}
 				}
 			}
 
 		}
-		throw new Erreur('Aucune route ne correspond à "'.$path.'"');
+		echo ('Aucune route ne correspond à "'.$path.'"');
+		// throw new Erreur('Aucune route ne correspond à "'.$path.'"');
 		return false;
+	}
+
+	public function isParam($path) {
+		return strpos($path, '{') !== false;
 	}
 
 	public function redirectTo($route, $params=null)

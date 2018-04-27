@@ -17,29 +17,6 @@ class MainController {
 		View::render("backend/articles-list.view.php");
 	}
 
-	public function editArticleAction()
-	{
-		$article = new Article();
-		$article->setId(1);
-		// $article->setTitre("Mon deuxieme dessin");
-		// $article->setDescription("Lorem ipsum");
-		$article->fromArray(array(
-			'titre' => 'Mon 19men dessin',
-			'description' => 'Lorem Ipsum'
-		));
-
-		// $articles = Article::all();
-
-		$cat = new Categorie();
-		$cat->setNom("Ma categ numero 2");
-
-		$article->setCategorie($cat);
-		
-		$article->save();
-
-		View::render("backend/article-detail.view.php");
-	}
-
 	public function pagesAction()
 	{
 		View::render("backend/pages-list.view.php");

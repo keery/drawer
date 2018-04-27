@@ -5,16 +5,6 @@ return
 		'prefix' => 'admin',
 		'accessibility' => ['ADMINISTRATEUR', 'MODERATEUR'],
 		'routes' => [
-			'article_edit' => 
-				[
-					'path' => 'article/{id}',
-					'controller' => 'Main',
-					'action' => 'editArticle',
-					'params' => 
-					[
-						'id' => ['pattern' => '\d+']
-					]
-				],	
 			'pages' => 
 				[
 					'path' => 'pages',
@@ -61,6 +51,16 @@ return
 					'controller' => 'Main',
 					'action' => 'articles'
 				],
+			'article_edit' => 
+				[
+					'path' => 'article/{id}',
+					'controller' => 'Article',
+					'action' => 'editArticle',
+					'params' => 
+					[
+						'id' => ['pattern' => '\d+']
+					]
+				],					
 		]
 	],
     'installer-config' =>

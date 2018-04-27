@@ -82,6 +82,11 @@
     margin: 10px -0.15em 10px 0px;
 }
 
+.img-list {
+    > li.row {
+        align-items: center;
+    }
+}
 .bloc
 {
     background-color: white;
