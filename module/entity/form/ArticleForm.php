@@ -5,6 +5,7 @@ namespace Module\Entity\Form;
 use Module\Form\FormBuilderInterface;
 
 use Module\Form\Type\InputType;
+use Module\Form\Type\TextType;
 
 class ArticleForm extends FormBuilderInterface
 {
@@ -13,7 +14,7 @@ class ArticleForm extends FormBuilderInterface
     {
         $this
             ->add('titre', new InputType())
-            ->add('test', new InputType())
+            ->add('contenu', new TextType())
             // ->add('auteur', new InputType(), ['label' => 'Author'])
         ;
     }

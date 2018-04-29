@@ -38,13 +38,13 @@ abstract class FormComponent
     public function getRequired() { return $this->required; }
     public function setRequired($required) { $this->required = $required; }
     
-    public function defaultFields() {
+    public function defaultFields($isInput=true) {
         $HTML = '';
         if($this->class) $HTML .= ' class="'.$this->class.'"';
         if($this->name) $HTML .= ' name="'.$this->name.'"';
         if($this->placeholder) $HTML .= ' placeholder="'.$this->placeholder.'"';
         if($this->required) $HTML .= ' required="required"';
-        if($this->value) $HTML .= ' value="'.$this->value.'"';
+        if($this->value && $isInput) $HTML .= ' value="'.$this->value.'"';
         return $HTML;
     }
 }

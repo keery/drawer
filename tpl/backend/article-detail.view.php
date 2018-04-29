@@ -28,7 +28,7 @@
       <span>Contenu</span>
     </div>
     <div class="bloc-content">
-      <textarea class="editor-img"></textarea>
+      <?php echo $form->input('contenu', ['class' => 'editor-img']); ?>
     </div>
   </div>
 </section>  
