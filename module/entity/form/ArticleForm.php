@@ -13,6 +13,7 @@ class ArticleForm extends FormBuilderInterface
     {
         $this
             ->add('titre', new InputType())
+            ->add('test', new InputType())
             // ->add('auteur', new InputType(), ['label' => 'Author'])
         ;
     }

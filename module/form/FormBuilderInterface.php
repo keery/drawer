@@ -21,6 +21,7 @@ class FormBuilderInterface
 
         //Attribut pour les formulaires qui contiennent des fichiers
         if( $this->isTypeFile(get_class($type)) ) $this->enctype = "multipart/form-data";
+        return $this;
     }
 
     public function getStructure() {
