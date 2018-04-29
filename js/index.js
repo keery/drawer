@@ -1,6 +1,6 @@
 $(document).ready(function(){	
 
-	$("#dz-article, .input-file.article").GEUploader({ entity : "Module\\Entity\\Article", idZone : "dz-article"});
+	$("#dz_cd_article, .input-file.cd_article").GEUploader({ entity : "Module\\Entity\\Article", idZone : "dz_cd_article"});
 	
 
 

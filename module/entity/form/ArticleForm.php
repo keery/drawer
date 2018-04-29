@@ -6,6 +6,7 @@ use Module\Form\FormBuilderInterface;
 
 use Module\Form\Type\InputType;
 use Module\Form\Type\TextType;
+use Module\Form\Type\FileType;
 use Module\Form\Type\SubmitType;
 
 class ArticleForm extends FormBuilderInterface
@@ -16,8 +17,8 @@ class ArticleForm extends FormBuilderInterface
         $this
             ->add('titre', new InputType())
             ->add('contenu', new TextType())
+            ->add('image', new FileType('Module\Entity\Article'))
             ->add('submit', new SubmitType())
-            // ->add('auteur', new InputType(), ['label' => 'Author'])
         ;
     }
 }

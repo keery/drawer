@@ -22,6 +22,7 @@ class ArticleController {
 		}
 
 		$fb = new FormBuilder();
+		// var_dump('$tfsdf');
 		$data['form'] = $fb->create(new ArticleForm(), $article);
 		
         // var_dump($params['id']);
