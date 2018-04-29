@@ -3,13 +3,33 @@
 namespace Module\Form\Type;
 
 use Module\Form\FormComponent;
+use Module\Erreur\Erreur;
 
 class ChoiceType extends FormComponent
 {
     private $choices;
     private $manyChoices;
 
-    public function __construct($choices, $manyChoices=true) {
+    public function __construct($choices=null, $field=null, $manyChoices=true) {
+
+        if(!is_array($choices)) {
+            throw new Erreur("ChoiceType nécessite un tableau de choix");
+			return false;
+        }
+
+        if(is_object($choices[0])){
+            if(!$field) {
+                throw new Erreur("ChoiceType nécessite le nom de l'attribut à afficher");
+			    return false;
+            }
+
+            $label = [];
+            $getter = 'get'.ucFirst($field);
+            foreach($choices as $choice) {
+                $label[] = $choice->$getter();
+            }
+            $choices = $label;
+        }
         $this->choices = $choices;
         $this->manyChoices = $manyChoices;
     }

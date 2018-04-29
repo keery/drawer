@@ -10,23 +10,20 @@ use Module\Form\Type\FileType;
 use Module\Form\Type\SubmitType;
 use Module\Form\Type\ChoiceType;
 
+use Module\Entity\Article;
+
 class ArticleForm extends FormBuilderInterface
 {
 
     public function __construct()
     {
-        $choices =  [
-            "First",
-            "Secpnd",
-            "Third"
-        ];
-
+        $a = Article::all();
 
         $this
             ->add('titre', new InputType())
             ->add('contenu', new TextType())
             ->add('image', new FileType('Module\Entity\Article'))
-            ->add('choix', new ChoiceType($choices))
+            ->add('choix', new ChoiceType($a, 'titre'))
             ->add('submit', new SubmitType())
         ;
     }
