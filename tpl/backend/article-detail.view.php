@@ -72,6 +72,6 @@
   </div>
 </section>
 <div class="text-right text-center-xs col-xs-12">
-  <a href="" class="button btn-validate">Retour à la liste</a>         
-  <input type="submit" value="Enregistrer" class="button btn-validate">          
+  <a href="" class="button btn-validate">Retour à la liste</a>       
+  <?php echo $form->input('submit', ['class' => 'button btn-validate']); ?>  
 </div>
