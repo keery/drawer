@@ -25,6 +25,7 @@ class ChoiceType extends FormComponent
 
             $HTML .= '<input type="'.$type.'"';
             $HTML .= $this->defaultFields();
+            if($this->getValue() == $choice) $HTML .= " checked";
             $HTML .= '/>';
             $HTML .= '<span>'.$choice.'</span>';
         }

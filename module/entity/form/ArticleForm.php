@@ -22,7 +22,7 @@ class ArticleForm extends FormBuilderInterface
 
         $this
             ->add('titre', new InputType())
-            ->add('contenu', new TextType())
+            ->add('description', new TextType())
             ->add('image', new FileType('Module\Entity\Article'))
             ->add('categorie', new EntityType($listCateg, 'nom'))
             ->add('submit', new SubmitType())

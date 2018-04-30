@@ -40,14 +40,14 @@ class Article extends BaseSql {
 	}
 
 	public function getDescription() {
-		return $this->titre;
+		return $this->description;
 	}
 	public function setDescription($description) {
 		$this->description = $description;
 	}
 
 	public function getCategorie() {
-		return $this->titre;
+		return $this->categorie;
 	}
 	public function setCategorie(Categorie $categorie) {
 		$this->categorie = $categorie;

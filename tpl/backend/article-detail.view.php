@@ -26,7 +26,7 @@
       <span>Contenu</span>
     </div>
     <div class="bloc-content">
-      <?php echo $form->input('contenu', ['class' => 'editor-img']); ?>
+      <?php echo $form->input('description', ['class' => 'editor-img']); ?>
     </div>
   </div>
 </section>  

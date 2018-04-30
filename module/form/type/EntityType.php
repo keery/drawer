@@ -43,7 +43,9 @@ class EntityType extends ChoiceType
         $HTML .= $this->defaultFields(false).'>';
 
         foreach($this->choices as $primaryKey => $choice) {
-            $HTML .= '<option value="'.$primaryKey.'">';
+            $HTML .= '<option value="'.$primaryKey.'"';
+            if($primaryKey == $this->getValue()) $HTML .= " selected";
+            $HTML .= '>';
             $HTML .= $choice;
             $HTML .= '</option>';
         }
