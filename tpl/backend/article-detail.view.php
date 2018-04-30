@@ -13,9 +13,7 @@
         </div>
         <div class="col-sm-6 col-xs-12">
           <label>Catégorie</label>
-          <select name="id_categorie" class="select">
-            <option value="">Choisir une catégorie</option>
-          </select>
+          <?php echo $form->input('categorie', ['class' => 'select']); ?>
         </div>
       </div>
     </div>
@@ -28,8 +26,7 @@
       <span>Contenu</span>
     </div>
     <div class="bloc-content">
-      <?php echo $form->input('choix', ['class' => 'editor-img']); ?>
-      <?php //echo $form->input('contenu', ['class' => 'editor-img']); ?>
+      <?php echo $form->input('contenu', ['class' => 'editor-img']); ?>
     </div>
   </div>
 </section>  

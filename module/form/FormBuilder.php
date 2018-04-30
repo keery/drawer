@@ -9,7 +9,7 @@ class FormBuilder {
 	public function create($form, $object)
 	{
 		$this->form = $form;
-		$HTML_form = '';
+		$HTML_form = [];
 		foreach($form->getStructure() as $key => $field) {
 			$HTML_form[$key] = ['field' => $field, 'displayed' => false, 'label' => $field->getLabel()];
 		}
