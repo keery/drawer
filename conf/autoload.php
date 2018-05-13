@@ -19,11 +19,6 @@ class Autoloader{
         $filepath = $path.DS.$file;
         if(file_exists($filepath)) {
             include $filepath;
-            //TO DO à rendre dynamique
-        }elseif ($filepath == "/InstallerConfig.php"){
-            include "module/entity/installerConfig.php";
-        }elseif ($filepath == "/Validate.php"){
-            include "module/form_validate/Validate.php";
         }
         else
         {

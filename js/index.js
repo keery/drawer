@@ -1,6 +1,7 @@
 $(document).ready(function(){	
 
-	$("#dz-article, .input-file.article").GEUploader({ entity : "AdminBundle:Actualite"});
+	$("#dz_cd_article, .input-file.cd_article").GEUploader({ entity : "Module\\Entity\\Article", idZone : "dz_cd_article"});
+	
 
 
 	$(document).on("click", ".btn-edit-item", function(){

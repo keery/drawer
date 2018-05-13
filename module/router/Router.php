@@ -16,7 +16,7 @@ class Router
 				//Si c'est un groupe de route
 				if(isset($route['routes'])) {
 					foreach ($route['routes'] as $childRouteName => $childRoute) {
-						$childRoute['accessibility'] = $route['accessibility'];
+						if( isset($route['accessibility']) ) $childRoute['accessibility'] = $route['accessibility'];
 						if(isset($route['prefix'])) $childRoute['path'] = $route['prefix'].DS.$childRoute['path'];
 						$this->routes[$childRouteName] = $childRoute;
 					}
@@ -36,36 +36,86 @@ class Router
 		$routes = $this->getRoutes();
 		foreach ($routes as $route) 
 		{
+
+			//Si le nom de la route est exacte au path
 			if($route['path'] == $path) 
 			{
 				$this->redirectTo($route);
 				return $route;
 			}
+			//Si la route contient des params
 			elseif($params = $this->getParamsUrl($route['path']))
 			{
 				$findPathExploded = explode('/', $path);
 				$searchPathExploded = explode('/', $route['path']);
 				if(count($findPathExploded) == count($searchPathExploded))
 				{
+					// foreach ($searchPathExploded as $key => $segment) {
+					// 	var_dump($segment);
+					// 	var_dump($findPathExploded[$key]);
+					// 	if($segment != $findPathExploded[$key])
+					// 	{
+					// 		if(in_array(trim($segment, '{}'), $params)){
+					// 			$indexParam = trim($segment, '{}');
+					// 			if(isset($route['params'][$indexParam]['pattern']) && preg_match('/'.$route['params'][$indexParam]['pattern'].'/', $findPathExploded[$key])) 
+					// 			{
+					// 				//TO DO a enlever de commentaire quand la session d'utilisateur sera prete
+					// 				// if(isset($route['accessibility'])) hasRole($route['accessibility'])
+					// 				$this->redirectTo($route);
+					// 				return $route;
+					// 			}
+					// 		}
+					// 	}
+					// }
+					
+					$match = true;
+					$getParams = array();
 					foreach ($searchPathExploded as $key => $segment) {
-						if($segment != $findPathExploded[$key] && in_array(trim($segment, '{}'), $params))
+						if($segment != $findPathExploded[$key])
 						{
-							$indexParam = trim($segment, '{}');
-							if(isset($route['params'][$indexParam]['pattern']) && preg_match('/'.$route['params'][$indexParam]['pattern'].'/', $findPathExploded[$key])) 
-							{
-								//TO DO a enlever de commentaire quand la session d'utilisateur sera prete
-								// if(isset($route['accessibility'])) hasRole($route['accessibility'])
-								$this->redirectTo($route);
-								return $route;
+							if($this->isParam($segment)) {
+								$indexParam = trim($segment, '{}');
+								if(!in_array($indexParam, $params) ) {
+									$match = false;
+									break;
+								}
+								
+								if(!isset($route['params'][$indexParam]['pattern'])) 
+								{
+									$match = false;
+									break;
+								}
+								
+								if(!preg_match('/'.$route['params'][$indexParam]['pattern'].'/', $findPathExploded[$key])) {
+									$match = false;
+									break;
+								}
+								else $getParams[$indexParam] = addslashes($findPathExploded[$key]);
+							}
+							else {
+								$match = false;
+								break;
 							}
 						}
+						
+					}
+					if($match) {
+						//TO DO a enlever de commentaire quand la session d'utilisateur sera prete
+						// if(isset($route['accessibility'])) hasRole($route['accessibility'])
+						$this->redirectTo($route, $getParams);
+						return $route;
 					}
 				}
 			}
 
 		}
-		throw new Erreur('Aucune route ne correspond à "'.$path.'"');
+		echo ('Aucune route ne correspond à "'.$path.'"');
+		// throw new Erreur('Aucune route ne correspond à "'.$path.'"');
 		return false;
+	}
+
+	public function isParam($path) {
+		return strpos($path, '{') !== false;
 	}
 
 	public function redirectTo($route, $params=null)
@@ -78,7 +128,7 @@ class Router
 				$namespace = "\\Controllers\\".$cName;
 				$ctrl = new $namespace();
 				$action = $route['action']."Action";
-				if(method_exists($ctrl, $action)) $ctrl->$action();
+				if(method_exists($ctrl, $action)) $ctrl->$action($params);
 				else
 				{
 					throw new Erreur("L'action [".$action."] n'existe pas dans le controlleur [".$namespace."]");

@@ -5,16 +5,6 @@ return
 		'prefix' => 'admin',
 		'accessibility' => ['ADMINISTRATEUR', 'MODERATEUR'],
 		'routes' => [
-			'article_edit' => 
-				[
-					'path' => 'article/{id}',
-					'controller' => 'Main',
-					'action' => 'editArticle',
-					'params' => 
-					[
-						'id' => ['pattern' => '\d+']
-					]
-				],	
 			'pages' => 
 				[
 					'path' => 'pages',
@@ -58,8 +48,8 @@ return
 			'statistic' => 
 				[
 					'path' => 'statistic',
-					'controller' => 'Statistic',
-					'action' => 'index'
+					'controller' => 'Main',
+					'action' => 'stats'
 				],
 			'articles' => 
 				[
@@ -67,6 +57,16 @@ return
 					'controller' => 'Main',
 					'action' => 'articles'
 				],
+			'article_edit' => 
+				[
+					'path' => 'article/{id}',
+					'controller' => 'Article',
+					'action' => 'editArticle',
+					'params' => 
+					[
+						'id' => ['pattern' => '\d+']
+					]
+				],					
 		]
 	],
     'installer-config' =>
@@ -98,12 +98,38 @@ return
 			'path' => 'site',
 			'controller' => 'Site',
 			'action' => 'index'
-		],		
+		],	
+	'oeuvre' => [
+		'prefix' => 'site',
+		'routes' => [
+			'oeuvre' => [
+				'path' => 'oeuvre',
+				'controller' => 'Site',
+				'action' => 'oeuvre'
+			],
+			'contact' => [
+				'path' => 'contact',
+				'controller' => 'Site',
+				'action' => 'contact'
+			]	
+		]
+	],
 	'erreur' =>
 		[
 			'path' => 'erreur',
 			'controller' => 'Error',
 			'action' => 'error404'
+		],
+	'ajax' => [
+		'prefix' => 'ajax',
+		'routes' => [
+			'ajax_files' => 
+			[
+				'path' => 'upload',
+				'controller' => 'Ajax',
+				'action' => 'uploadFiles'
+			]	
 		]
+	]
 ];
 ?>

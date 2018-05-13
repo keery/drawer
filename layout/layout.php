@@ -40,10 +40,11 @@
 	<footer>
 
 	</footer>
-    <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/plugin/tinymce/tinymce.min.js"></script>
     <script type="text/javascript" src="js/plugin/tinymce/langs/fr.js"></script>
     <script type="text/javascript" src="js/plugin/GEUploader.js"></script>
     <script src="js/index.js"></script>
 	</body>
 </html>
+
