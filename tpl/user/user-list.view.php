@@ -25,8 +25,8 @@
     <span class="btn-edit-item">
         <span></span>
         <ul>
-          <li><a href="<?php echo "user_edit/".$value->id; ?>">Éditer</a></li>
-          <li><a href="">Supprimer</a></li>
+          <li><a href="<?php echo "admin/user_edit/".$value->id; ?>">Éditer</a></li>
+          <li><a href="<?php echo "admin/user_delete/".$value->id; ?>">Supprimer</a></li>
         </ul>
       </span> 
     </li>

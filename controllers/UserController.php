@@ -33,7 +33,17 @@ class UserController {
 
     public function deleteAction($params)
     {
+		if(isset($params['id'])) $user = User::findOneBy(array('id' => $params['id']));
+		else $user = new User();
 
+		if(empty($user)) {
+			throw new Erreur("L'user contenant l'id ".$params['id']." n'existe pas");
+			return false;
+		}
+
+		View::render("user/user-delete.view.php", 'layout.php',array(
+			"user" => $user
+		 ));
     }
 	
 }

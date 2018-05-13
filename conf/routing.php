@@ -17,11 +17,21 @@ return
                     'controller' => 'User',
                     'action' => 'index'
                 ],
-            'user_add' =>
+			'user_add' =>
                 [
                     'path' => 'users/add',
                     'controller' => 'User',
                     'action' => 'add'
+				],
+			'user_delete' =>
+                [
+                    'path' => 'user_delete/{id}',
+                    'controller' => 'User',
+                    'action' => 'delete',
+					'params' => 
+					[
+						'id' => ['pattern' => '\d+']
+					]
                 ],
 			'page_edit' => 
 				[
