@@ -21,7 +21,7 @@
 
     <li class="list-item">
     <div class="text-list"><?php echo $value->lastName; echo " ".$value->firstName; ?></div>
-    <div class="details-list"><span class="date-details-list"><?php echo date('d/m/Y', $value->date_inscription);?></span></div>
+    <div class="details-list"><span class="date-details-list"><?php echo  $value->date_inscription ;?></span></div>
     <span class="btn-edit-item">
         <span></span>
         <ul>

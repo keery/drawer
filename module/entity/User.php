@@ -126,10 +126,10 @@ class User extends BaseSql
         $this->status = $status;
     }
     public function setDate_Inscription(){
-        $this->date_inscription = date("Ymd");
+        $this->date_inscription = date("Y-m-d");
     }
     public function setDate_Edition(){
-        $this->date_edition = date("Ymd");
+        $this->date_edition = date("Y-m-d");
     }
 
     public function setFirstName($firstName)
