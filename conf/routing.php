@@ -66,7 +66,18 @@ return
 					[
 						'id' => ['pattern' => '\d+']
 					]
-				],					
+				],
+			'delete_entity' => 
+				[
+					'path' => 'delete/{entity}/{id}',
+					'controller' => 'Main',
+					'action' => 'delete',
+					'params' => 
+					[
+						'entity' => ['pattern' => '[a-z]+'],
+						'id' => ['pattern' => '\d+']
+					]
+				]		
 		]
 	],
     'installer-config' =>

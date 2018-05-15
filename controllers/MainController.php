@@ -36,4 +36,25 @@ class MainController {
 	{
 		View::render("backend/parametres.view.php");
 	}	
+
+	public function deleteAction($props)
+	{
+		if(!isset($props['id'])) {
+			throw new Erreur("Le paramètre id est nécessaire à la suppression");
+			return false;
+		}
+		if(!isset($props['entity'])) {
+			throw new Erreur("Le paramètre entity est nécessaire à la suppression");
+			return false;
+		}
+		
+		$class_name = "\Module\Entity\\".ucfirst($props['entity']);
+
+		if(!class_exists($class_name)) {
+			throw new Erreur("La classe ".$class_name." n'éxiste pas [Case sensitive]");
+			return false;
+		}
+
+		call_user_func($class_name."::delete" , $props['id']);
+	}	
 }
