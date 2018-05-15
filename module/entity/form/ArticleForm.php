@@ -21,7 +21,9 @@ class ArticleForm extends FormBuilderInterface
         $listCateg = Categorie::all();
 
         $this
-            ->add('titre', new InputType())
+            ->add('titre', new InputType(), ['rules' => [
+                "minLength" => 10
+            ]])
             ->add('description', new TextType())
             ->add('image', new FileType('Module\Entity\Article'))
             ->add('categorie', new EntityType($listCateg, 'nom'))
