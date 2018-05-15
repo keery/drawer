@@ -15,17 +15,17 @@ use Module\Bdd\SqlManager;
 
 class User extends BaseSql
 {
-    protected $id = null;
-    protected $firstName;
-    protected $lastName;
-    protected $email;
-    protected $role;
-    protected $password;
-    protected $token;
-    protected $dateInserted;
-    protected $dateUpdated;
-    protected $status = 0;
-    protected $age = 0;
+    public $id = null;
+    public $firstName;
+    public $lastName;
+    public $email;
+    public $password;
+    public $token;
+    public $date_inscription;
+    public $date_edition;
+    public $id_image;
+    public $status = 0;
+    public $age = 0;
 
 
     public function __construct()
@@ -94,18 +94,23 @@ class User extends BaseSql
     {
         return $this->token;
     }
-    public function getDateupdated()
+    public function getDate_Inscription()
     {
-        return $this->dateUpdated;
+        return $this->date_inscription;
     }
-    public function getDateinserted()
+    public function getDate_Edition()
     {
-        return $this->dateInserted;
+        return $this->date_edition;
     }
 
     public function getStatus()
     {
         return $this->status;
+    }
+    public function getId_Image()
+    {
+        return $this->id_image;
+
     }
 
     /**
@@ -120,11 +125,11 @@ class User extends BaseSql
     {
         $this->status = $status;
     }
-    public function setDateInserted(){
-        $this->dateInserted = date("Ymd");
+    public function setDate_Inscription(){
+        $this->date_inscription = date("Y-m-d");
     }
-    public function setDateUpdated(){
-        $this->dateUpdated = date("Ymd");
+    public function setDate_Edition(){
+        $this->date_edition = date("Y-m-d");
     }
 
     public function setFirstName($firstName)
@@ -148,13 +153,12 @@ class User extends BaseSql
         $this->password = password_hash($pwd, PASSWORD_DEFAULT);
     }
 
-    public function setRole($role)
-    {
-        $this->role = $role;
-    }
-
     public function setAge($age){
         $this->age=$age;
+    }
+
+    public function setId_Image($id){
+        $this->id=$id;
     }
 
 
@@ -259,4 +263,5 @@ class User extends BaseSql
 
 
 
+    public static function get_table_class() { return "cd_user"; }
 }

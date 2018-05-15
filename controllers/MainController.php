@@ -20,12 +20,14 @@ class MainController {
 	public function pagesAction()
 	{
 		View::render("backend/pages-list.view.php");
+
 	}
 
 	public function statsAction()
 	{
 		View::render("backend/statistic.view.php");
 	}
+
 
 	public function editPageAction()
 	{

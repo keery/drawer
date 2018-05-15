@@ -70,4 +70,13 @@
       }
     }
   }
+
+  .chart-container {
+    display: flex;
+  }
+
+  .chart-item {
+    height: 100px !important;
+    width: calc(100px + 100px) !important;
+  }
 }
