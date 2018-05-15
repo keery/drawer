@@ -53,7 +53,11 @@
     </div>
     <hr class="lineSeparator">
     <div class="bottom row">
+<<<<<<< HEAD
         <div class="left group col-md-7 col-xs-12 spacing-right">
+=======
+        <div class="left group col-lg-5 col-md-12 col-xs-12 spacing-right">
+>>>>>>> 6a90b59204d90f0f822d5fadb6c37c2f93d19e23
             <div class="chart-container">
                 <canvas id="myChart" class="chart-item"></canvas>
                 <script>
@@ -112,7 +116,11 @@
             </div>
             <span>TOTAL - 12 300 views</span>
         </div>
+<<<<<<< HEAD
         <div class="col-md-5 col-xs-12">
+=======
+        <div class="col-lg-5 col-md-12 col-xs-12">
+>>>>>>> 6a90b59204d90f0f822d5fadb6c37c2f93d19e23
             <canvas id="myChart4"></canvas>
             <script>
                 var ctx = document.getElementById("myChart4").getContext('2d');
