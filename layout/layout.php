@@ -23,7 +23,7 @@
 			</header>
 			<nav class="nav">
 				<ul>
-					<li class="selected"><a class="u-mw" href="<?php path('index') ?>"><img src="assets/img/speed-picto-white.svg" alt=""><span class="hidden-xs">Dashboard</span></a></li>
+					<li class="selected"><a class="u-mw" href="<?php path('admin_index') ?>"><img src="assets/img/speed-picto-white.svg" alt=""><span class="hidden-xs">Dashboard</span></a></li>
          			 <li><a class="u-mw" href="<?php path('statistic') ?>"><img src="assets/img/stat-picto-white.svg" alt=""><span class="hidden-xs">Statistiques</span></a></li>
 					<li><a class="u-mw" href="<?php path('pages') ?>"><img src="assets/img/page-picto-white.svg" alt=""><span class="hidden-xs">Mes pages</span></a></li>
 					<li><a class="u-mw" href="<?php path('articles') ?>"><img src="assets/img/article-picto-white.svg" alt=""><span class="hidden-xs">Mes articles</span></a></li>

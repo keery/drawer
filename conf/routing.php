@@ -5,6 +5,12 @@ return
 		'prefix' => 'admin',
 		'accessibility' => ['ADMINISTRATEUR', 'MODERATEUR'],
 		'routes' => [
+			'admin_index' =>
+			[
+				'path' => '/',
+				'controller' => 'Main',
+				'action' => 'index'
+			],
 			'pages' => 
 				[
 					'path' => 'pages',
@@ -75,12 +81,6 @@ return
             'controller' => 'InstallerUser',
             'action' => 'index'
         ],
-    'index' =>
-		[
-			'path' => '/',
-			'controller' => 'Main',
-			'action' => 'index'
-		],
 	'landing' => 
 		[
 			'path' => 'landing',
