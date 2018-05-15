@@ -6,7 +6,7 @@
     <a href="" class="selected">on met des filtre ici</a>
     <a href=""> ou pas?</a>
   </div>
-  <a href="<?php path('user_add') ?>" class="btn-add" title="Ajouter un utilisateur"></a>
+  <a href="<?php echo path('user_add') ?>" class="btn-add" title="Ajouter un utilisateur"></a>
 </nav>
 
 <section class="container">

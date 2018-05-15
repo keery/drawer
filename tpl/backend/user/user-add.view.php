@@ -30,7 +30,7 @@
             <?php echo $form->input('age', ['class' => 'input']); ?>
         </div>
         <div class="text-right text-center-xs col-xs-12">
-            <a href="<?php path('user_list') ?>" class="button btn-validate">Retour à la liste</a>
+            <a href="<?php echo path('user_list') ?>" class="button btn-validate">Retour à la liste</a>
             <?php echo $form->input('submit', ['class' => 'button btn-validate']); ?>
         </div>
 
