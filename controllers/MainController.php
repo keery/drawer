@@ -60,7 +60,6 @@ class MainController {
 
 		call_user_func($class_name."::delete" , $id);
 
-
-		header('Location: '.path(strtolower($props['entity']."s")));
+		redirectToRoute(strtolower($props['entity']."s"));		
 	}	
 }
