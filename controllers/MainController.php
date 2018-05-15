@@ -34,10 +34,15 @@ class MainController {
 		View::render("backend/page-detail.view.php");
 	}
 
-	public function parametresAction()
-	{
-		View::render("backend/parametres.view.php");
-	}	
+    public function parametresAction()
+    {
+        View::render("backend/parametres.view.php");
+    }
+
+    public function templateAction()
+    {
+        View::render("backend/template.view.php");
+    }
 
 	public function deleteAction($props)
 	{

@@ -22,44 +22,45 @@
     </div>
   </section>
 
-  <section class="container padding-box">
-    <div class="container-grid">
-      <div class="row">
-        <div class="col-md-2 col-xs-12 u-tac group">
-          <label>Icône profil</label>
-          <div class="picture-circle" style="background-image: url(assets/img/Group.png);"></div>
-          <div class="text-center">
-            <a href="" class="button">Modifier</a>
-          </div>
-        </div>
-        <div class="col-md-5 col-xs-12">
-          <div class="spacing">
-            <div class="group">
-              <label>Identifiant</label>
-              <input type="text" class="input">
-            </div>          
-            <div class="group">         
-              <label>Email</label>
-              <input type="text" class="input">          
+    <section class="container padding-box">
+        <div class="container-grid">
+            <div class="row">
+                <div class="col-md-2 col-xs-12 u-tac group">
+                    <label>Icône profil</label>
+                    <div class="picture-circle" style="background-image: url(assets/img/Group.png);"></div>
+                    <div class="text-center">
+                        <a href="" class="button">Modifier</a>
+                    </div>
+                </div>
+                <div class="col-md-5 col-xs-12">
+                    <div class="spacing">
+                        <div class="group">
+                            <label>Identifiant</label>
+                            <input type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label>Email</label>
+                            <input type="text" class="input">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-xs-12">
+                    <div class="spacing">
+                        <div class="group">
+                            <label>Password</label>
+                            <input type="password" class="input">
+                        </div>
+                        <div class="group">
+                            <label>Confirmation password</label>
+                            <input type="password" class="input">
+                        </div>
+                    </div>
+                </div>
+                <div class="text-right u-tac col-xs-12">
+                    <input type="submit" value="Enregistrer" class="button btn-validate">
+                </div>
             </div>
-          </div>
         </div>
-        <div class="col-md-5 col-xs-12">
-          <div class="spacing">
-            <div class="group">
-              <label>Password</label>
-              <input type="password" class="input">            
-            </div>
-            <div class="group">       
-              <label>Confirmation password</label>
-              <input type="password" class="input">     
-            </div>
-          </div>
-        </div>
-        <div class="text-right u-tac col-xs-12">
-          <input type="submit" value="Enregistrer" class="button btn-validate">          
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+
 </div>

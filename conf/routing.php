@@ -48,14 +48,20 @@ return
 					[
 						'id' => ['pattern' => '\d+']
 					]
-				],			
-			'parametres' => 
-				[
-					'path' => 'parametres',
-					'controller' => 'Main',
-					'action' => 'parametres'
-				],						
-			'contact' =>
+				],
+            'parametres' =>
+                [
+                    'path' => 'parametres',
+                    'controller' => 'Main',
+                    'action' => 'parametres'
+                ],
+            'template' =>
+                [
+                    'path' => 'template',
+                    'controller' => 'Main',
+                    'action' => 'template'
+                ],
+            'contact' =>
 				[
 					'path' => 'contact',
 					'controller' => 'Main',
