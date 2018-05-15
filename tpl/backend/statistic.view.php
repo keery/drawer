@@ -17,7 +17,23 @@
 
   <div class="calendar container container-grid">
     <div class="row">
-      <img class="u-mw" src="assets/img/statsPicto.svg" alt="">
+      <canvas id="myChart4"></canvas>
+      <script>
+        var ctx = document.getElementById("myChart4").getContext('2d');
+        var myDoughnutChart = new Chart(ctx, {
+          type: 'line',
+          maintainAspectRatio: true,
+          data: {
+            datasets: [
+              {
+                data: [19, 23, 23, 12, 7, 12],
+                borderWidth: [3],
+                borderColor: ['#49C5B6']
+              },
+            ],
+          },
+        });
+      </script>
       <div class="stats-info col-lg-3">
         <img src="assets/img/eye.svg" alt="">
         <span class="title">views</span>
