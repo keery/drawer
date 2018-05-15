@@ -67,7 +67,17 @@
         border-radius: 2em;
         padding: 1em;
         border: 2px solid $grey2;
+        
       }
     }
+  }
+
+  .chart-container {
+    display: flex;
+  }
+
+  .chart-item {
+    height: 100px !important;
+    width: calc(100px + 100px) !important;
   }
 }
