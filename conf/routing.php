@@ -17,7 +17,7 @@ return
 					'controller' => 'Main',
 					'action' => 'pages'
 				],
-            'user_list' =>
+            'users' =>
                 [
                     'path' => 'users',
                     'controller' => 'User',

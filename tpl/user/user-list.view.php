@@ -26,7 +26,7 @@
         <span></span>
         <ul>
           <li><a href="<?php echo "admin/user_edit/".$value->id; ?>">Éditer</a></li>
-          <li><a href="<?php echo "admin/user_delete/".$value->id; ?>">Supprimer</a></li>
+          <li><a href="<?php echo "admin/delete/user/".$value->id; ?>">Supprimer</a></li>
         </ul>
       </span> 
     </li>
