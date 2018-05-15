@@ -158,7 +158,7 @@ class User extends BaseSql
     }
 
     public function setId_Image($id){
-        $this->id²=$id;
+        $this->id=$id;
     }
 
 

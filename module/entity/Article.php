@@ -19,6 +19,13 @@ class Article extends BaseSql {
 			"property" => "categorie"
 		]
 	];
+	// public $mapping = [
+	// 	"categorie" => [
+	// 		"relation" => ONE_TO_MANY,
+	// 		"target" => "Categorie",
+	// 		"column" => "id_categorie"
+	// 	]
+	// ];
 
 	public function __construct() {
 		parent::__construct();
@@ -45,6 +52,7 @@ class Article extends BaseSql {
 	public function setCategorie(Categorie $categorie) {
 		$this->categorie = $categorie;
 	}
+
 
 	public function setDate_creation($date) {
 		$this->date_creation = $date;

@@ -93,7 +93,7 @@ return
 						'entity' => ['pattern' => '[a-z]+'],
 						'id' => ['pattern' => '\d+']
 					]
-				]		
+				]
 		]
 	],
     'installer-config' =>
@@ -108,6 +108,7 @@ return
             'controller' => 'InstallerUser',
             'action' => 'index'
         ],
+
 	'landing' => 
 		[
 			'path' => 'landing',

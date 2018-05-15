@@ -31,6 +31,7 @@ class BaseSql{
 
 	public static function delete($id){
 		return self::getManager()->exec(DELETE, $id, get_called_class()::get_table_class());
+
 	}
 
 	public function toArray() {
