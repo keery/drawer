@@ -4,7 +4,7 @@
 <section class="container group">
     <div class="bloc">
 
-    <a href="<?php path('delete_entity', ['id' => 1, 'entity' => 'article']); ?>">test</a>
+    <a href="<?php echo path('delete_entity', ['id' => 1, 'entity' => 'article']); ?>">test</a>
       <div></div>
       <div class="bloc-titre">
         <span>Informations</span>

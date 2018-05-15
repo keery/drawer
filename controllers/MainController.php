@@ -39,10 +39,13 @@ class MainController {
 
 	public function deleteAction($props)
 	{
-		if(!isset($props['id'])) {
+		$id = $props['id'];
+
+		if(!isset($id)) {
 			throw new Erreur("Le paramètre id est nécessaire à la suppression");
 			return false;
 		}
+		
 		if(!isset($props['entity'])) {
 			throw new Erreur("Le paramètre entity est nécessaire à la suppression");
 			return false;
@@ -55,6 +58,9 @@ class MainController {
 			return false;
 		}
 
-		call_user_func($class_name."::delete" , $props['id']);
+		call_user_func($class_name."::delete" , $id);
+
+
+		header('Location: '.path(strtolower($props['entity']."s")));
 	}	
 }

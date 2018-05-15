@@ -23,9 +23,9 @@
 			</div>
 			<nav class="navbar">
 				<div class="left">
-					<a href="<?php path('site') ?>">Accueil</a>
-					<a href="<?php path('oeuvre') ?>">Mes oeuvres</a>
-					<a href="<?php path('contact') ?>">Me contacter</a>
+					<a href="<?php echo path('site') ?>">Accueil</a>
+					<a href="<?php echo path('oeuvre') ?>">Mes oeuvres</a>
+					<a href="<?php echo path('contact') ?>">Me contacter</a>
 				</div>
 				<div class="right">
 					<a href="#">Sign up</a>

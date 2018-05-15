@@ -4,7 +4,7 @@
 	function path($routeName, $params=null)
 	{
 		$router = new Router();
-		echo $router->routeHandler($routeName, $params);
+		return $router->routeHandler($routeName, $params);
 	}
 
 	function isGranted(array $role) {

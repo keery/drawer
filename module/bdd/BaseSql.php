@@ -29,9 +29,7 @@ class BaseSql{
 	}
 
 	public static function delete($id){
-		var_dump($id);
-		die($id);
-		// return self::getManager()->exec(DELETE, $this->getProperties(), $this->table::get_table_class());
+		return self::getManager()->exec(DELETE, $id, get_called_class()::get_table_class());
 	}
 
 	public function toArray() {
