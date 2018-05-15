@@ -19,7 +19,7 @@ return
                 ],
             'user_add' =>
                 [
-                    'path' => 'users/add',
+                    'path' => 'user/add',
                     'controller' => 'User',
                     'action' => 'add'
                 ],

@@ -1,4 +1,4 @@
-<img src="assets/img/man-user.svg" alt="" class="picto-page picto-user">
+<img src="../../../assets/img/man-user.svg" alt="" class="picto-page picto-user">
 <h1>Utilisateurs</h1>
 
 <nav class="container ctn-nav small-xs">
@@ -6,7 +6,7 @@
     <a href="" class="selected">on met des filtre ici</a>
     <a href=""> ou pas?</a>
   </div>
-  <a href="article" class="btn-add" title="Ajouter un élément"></a>
+  <a href="<?php path('user_add') ?>" class="btn-add" title="Ajouter un utilisateur"></a>
 </nav>
 
 <section class="container">
