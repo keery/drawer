@@ -5,12 +5,12 @@ use Module\Bdd\SqlManager;
 use Module\Entity\Article;
 
 class Image extends BaseSql {
-	protected $id;
-	protected $src;
-	protected $alt;
-	protected $title;
-    protected $position;
-    protected $article;
+	public $id;
+	public $src;
+    public $alt;
+    public $title;
+    public $position;
+    public $article;
     public $mapping = [
 		"id_article" => [
 			"relation" => ONE_TO_MANY,

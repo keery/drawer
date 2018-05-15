@@ -29,16 +29,6 @@ return
                     'controller' => 'User',
                     'action' => 'add'
 				],
-			'user_delete' =>
-                [
-                    'path' => 'user_delete/{id}',
-                    'controller' => 'User',
-                    'action' => 'delete',
-					'params' => 
-					[
-						'id' => ['pattern' => '\d+']
-					]
-                ],
 			'page_edit' => 
 				[
 					'path' => 'page/{id}',
@@ -83,6 +73,12 @@ return
 						'id' => ['pattern' => '\d+']
 					]
 				],
+            'images' =>
+                [
+                    'path' => 'images',
+                    'controller' => 'Image',
+                    'action' => 'index'
+                ],
 			'delete_entity' => 
 				[
 					'path' => 'delete/{entity}/{id}',
