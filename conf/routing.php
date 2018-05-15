@@ -5,6 +5,12 @@ return
 		'prefix' => 'admin',
 		'accessibility' => ['ADMINISTRATEUR', 'MODERATEUR'],
 		'routes' => [
+			'admin_index' =>
+			[
+				'path' => '/',
+				'controller' => 'Main',
+				'action' => 'index'
+			],
 			'pages' => 
 				[
 					'path' => 'pages',
@@ -66,7 +72,18 @@ return
 					[
 						'id' => ['pattern' => '\d+']
 					]
-				],					
+				],
+			'delete_entity' => 
+				[
+					'path' => 'delete/{entity}/{id}',
+					'controller' => 'Main',
+					'action' => 'delete',
+					'params' => 
+					[
+						'entity' => ['pattern' => '[a-z]+'],
+						'id' => ['pattern' => '\d+']
+					]
+				]		
 		]
 	],
     'installer-config' =>
@@ -81,12 +98,6 @@ return
             'controller' => 'InstallerUser',
             'action' => 'index'
         ],
-    'index' =>
-		[
-			'path' => '/',
-			'controller' => 'Main',
-			'action' => 'index'
-		],
 	'landing' => 
 		[
 			'path' => 'landing',

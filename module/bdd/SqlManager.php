@@ -72,9 +72,9 @@ class SqlManager{
 		return $this->query->execute($properties);
 	}
 
-	public function deleteQueryBuilder() {
-		$this->query = $this->pdo->prepare("DELETE FROM ".$this->table." WHERE id = :id");
-		return $this->query->execute(array('id' => $this->properties['id']));
+	public function deleteQueryBuilder($id, $table) {
+		$this->query = $this->pdo->prepare("DELETE FROM ".$table." WHERE id = :id");
+		return $this->query->execute(['id' => $id]);
 	}		
 
 	public function select(

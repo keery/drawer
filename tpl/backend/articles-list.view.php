@@ -15,7 +15,7 @@
       <span class="btn-edit-item">
         <span></span>
         <ul>
-          <li><a href="<?php path('article_edit', array('id' => 1)); ?>">Éditer</a></li>
+          <li><a href="<?php echo path('article_edit', array('id' => 1)); ?>">Éditer</a></li>
           <li><a href="">Supprimer</a></li>
         </ul>
       </span>      
@@ -26,7 +26,7 @@
       <span class="btn-edit-item">
         <span></span>
         <ul>
-          <li><a href="<?php path('article_edit', array('id' => 2)); ?>">Éditer</a></li>
+          <li><a href="<?php echo path('article_edit', array('id' => 2)); ?>">Éditer</a></li>
           <li><a href="">Supprimer</a></li>
         </ul>
       </span>      
@@ -37,7 +37,7 @@
       <span class="btn-edit-item">
         <span></span>
         <ul>
-          <li><a href="<?php path('article_edit', array('id' => 3)); ?>">Éditer</a></li>
+          <li><a href="<?php echo path('article_edit', array('id' => 3)); ?>">Éditer</a></li>
           <li><a href="">Supprimer</a></li>
         </ul>
       </span>      
