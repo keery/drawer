@@ -2,20 +2,23 @@
 
 namespace Module\Form;
 
+use Module\Form\Type\HiddenType;
+
 class FormBuilderInterface
 {
     private $structure = [];
+    public $key_form;
     public $method = "POST";
     public $action;
     public $enctype;
+
+    public function generateFieldKey($options) {
+        $this->add('key', $this->key_form = new \Module\Form\Type\HiddenType(), $options);
+    }
     
     
     public function add($name, $type, $options=null) {
         $options['name'] = $name;
-        
-        //Si il n'y a pas de label on prend le nom par defaut avec une majuscule
-        if(!isset($options['label']))  $options['label'] = ucfirst($name);
-
         $type->build($options);
         $this->structure[$name] = $type;
 
@@ -51,5 +54,29 @@ class FormBuilderInterface
     }   
     public function setEnctype($enctype) {
         $this->enctype = $enctype;
-    }      
+    }     
+
+    private function setHeadForm(){
+		$HTML_head = ' method="'.$this->getMethod().'"';
+		if($action = $this->getAction()) $HTML_head .= ' action="'.$action.'"';
+		if($enctype = $this->getEnctype()) $HTML_head .= ' enctype="'.$enctype.'"';
+		return $HTML_head;
+	}
+    
+    public function createView() {
+        foreach($this->structure as $key => $field) {
+			$HTML_form[$key] = ['field' => $field, 'displayed' => false, 'label' => $field->getLabel()];
+        }
+        
+        return new FormHTML($HTML_form, $this->setHeadForm());
+    }
+
+    public function handleRequest() {
+        $key = $this->key_form->getValue();
+        if(isset($_POST[$key])) {
+            foreach($_POST[$key] as $value) {
+
+            }
+        }
+	}
 }

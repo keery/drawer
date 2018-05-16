@@ -10,6 +10,7 @@ abstract class FormComponent
     public $required;
     public $class;
     public $label;
+    public $key;
 
     public function build($options) {
         $this->name = isset($options['name']) ? $options['name'] : null;
@@ -17,7 +18,7 @@ abstract class FormComponent
         $this->required = isset($options['required']) ? $options['required'] : true;
         $this->placeholder = isset($options['placeholder']) ? $options['placeholder'] : false;
         $this->class = isset($options['class']) ? $options['class'] : null;
-        $this->label = $options['label'];
+        $this->label = (isset($options['label'])) ? $options['label'] : ucfirst($options['name']);
     }
     
     public function setClass($class) { $this->class = $class; }
@@ -37,11 +38,14 @@ abstract class FormComponent
     
     public function getRequired() { return $this->required; }
     public function setRequired($required) { $this->required = $required; }
+
+    public function getKey() { return $this->key; }
+    public function setKey($key) { $this->key = $key; }
     
     public function defaultFields($isInput=true) {
         $HTML = '';
         if($this->class) $HTML .= ' class="'.$this->class.'"';
-        if($this->name) $HTML .= ' name="'.$this->name.'"';
+        if($this->name) $HTML .= ' name="'.$this->key.'['.$this->name.']"';
         if($this->placeholder) $HTML .= ' placeholder="'.$this->placeholder.'"';
         if($this->required) $HTML .= ' required="required"';
         if($this->value && $isInput) $HTML .= ' value="'.$this->value.'"';

@@ -20,30 +20,14 @@ class ArticleController {
 			throw new Erreur("L'article contenant l'id ".$params['id']." n'existe pas");
 			return false;
 		}
-
 		$fb = new FormBuilder();
-		// var_dump('$tfsdf');
-		$data['form'] = $fb->create(new ArticleForm(), $article);
+		$form = $fb->create(new ArticleForm(), $article);
 		
-        // var_dump($params['id']);
-		// $article = new Article();
-		// $article->setId(1);
-		// // $article->setTitre("Mon deuxieme dessin");
-		// // $article->setDescription("Lorem ipsum");
-		// $article->fromArray(array(
-		// 	'titre' => 'Mon 19men dessin',
-		// 	'description' => 'Lorem Ipsum
-		// ));
+		if(request_is("POST")) {
+			$form->handleRequest();
+		}
 
-		// // $articles = Article::all();
-
-		// $cat = new Categorie();
-		// $cat->setNom("Ma categ numero 2");
-
-		// $article->setCategorie($cat);
-		
-		// $article->save();
-
+		$data['form'] = $form->createView();
 		View::render("backend/article-detail.view.php", 'layout.php', $data);
 	}
 
