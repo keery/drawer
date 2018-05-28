@@ -14,7 +14,6 @@ class Validator {
 
     public function verify() {
         $object = $this->object;
-        $state = true;
         foreach ($this->rules as $key => $rule) {
 
             $f = 'get'.ucfirst(strtolower($key));
@@ -23,9 +22,10 @@ class Validator {
                 $this->$keyRule($value, $critere);
             }
         }
+        return sizeof($this->errors) > 0 ? $this->errors : true;
     }
 
-    public static function maxLength($string, $length){
+    public function maxLength($string, $length){
         if(strlen(trim($string))<=$length) {            
             return true;
         }
@@ -33,7 +33,7 @@ class Validator {
         return false;
 	}
 
-	public static function minLength($string, $length){
+	public function minLength($string, $length){
         if(strlen($string)>=$length) {
             return true;
         }

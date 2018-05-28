@@ -14,6 +14,7 @@ class FormBuilderInterface
     public $enctype;
     public $object;
     public $rules;
+    public $errors;
 
     public function generateFieldKey($options) {
         $this->add('key', $this->key_form = new \Module\Form\Type\HiddenType(), $options);
@@ -79,6 +80,13 @@ class FormBuilderInterface
         $this->rules = $rules;
     }      
 
+    public function getErrors() {
+        return $this->errors;
+    }   
+    public function setErrors($errors) {
+        $this->errors = $errors;
+    } 
+
     private function setHeadForm(){
 		$HTML_head = ' method="'.$this->getMethod().'"';
 		if($action = $this->getAction()) $HTML_head .= ' action="'.$action.'"';
@@ -107,8 +115,12 @@ class FormBuilderInterface
     }
 
     public function validate() {
-        var_dump($this->rules);
         $validator = new Validator($this->rules, $this->object);
-        return $validator->verify();
+        $result = $validator->verify();
+        if( is_array($result) ) {
+            $this->errors = $result;
+            return false;
+        }
+        return true;
     }
 }

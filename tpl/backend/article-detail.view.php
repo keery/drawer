@@ -3,14 +3,20 @@
 <?php $form->form_head(); ?>
 <section class="container group">
     <div class="bloc">
-
-        <img src="module/captcha/Captcha.php" />
-        <a href="<?php echo path('delete_entity', ['id' => 1, 'entity' => 'article']); ?>">test</a>
-        <div></div>
+        <!-- <img src="module/captcha/Captcha.php" /> -->
         <div class="bloc-titre">
             <span>Informations</span>
         </div>
         <div class="bloc-content">
+            <?php if(isset($errors) && sizeof($errors) > 0) : ?>
+                <?php foreach ($errors as $key => $error) : ?>
+                    <div class="notif valid">
+                        <span class="notif-icone"></span>
+                        <div class="notif-titre">Erreur:</div>
+                        <?php echo $error; ?>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
             <div class="row spacing">
                 <div class="group col-sm-6 col-xs-12">
                     <?php echo $form->label('titre'); ?>

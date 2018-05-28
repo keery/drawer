@@ -26,8 +26,14 @@ class ArticleController {
 
 		if(request_is("POST")) {
 			$article = $form->handleRequest($_POST);
-			
-			if($form->validate()) $article->save();
+
+			if($form->validate())  {
+				$article->save();
+				redirectToRoute('articles');		
+			}
+			else {
+				$data['errors'] = $form->getErrors();
+			}
 		}
 
 		$data['form'] = $form->createView();
