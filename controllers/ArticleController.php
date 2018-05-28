@@ -20,11 +20,14 @@ class ArticleController {
 			throw new Erreur("L'article contenant l'id ".$params['id']." n'existe pas");
 			return false;
 		}
+		
 		$fb = new FormBuilder();
 		$form = $fb->create(new ArticleForm(), $article);
-		
+
 		if(request_is("POST")) {
-			$form->handleRequest();
+			$article = $form->handleRequest($_POST);
+			
+			if($form->validate()) $article->save();
 		}
 
 		$data['form'] = $form->createView();

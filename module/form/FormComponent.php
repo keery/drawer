@@ -11,6 +11,7 @@ abstract class FormComponent
     public $class;
     public $label;
     public $key;
+    public $rules;
 
     public function build($options) {
         $this->name = isset($options['name']) ? $options['name'] : null;
@@ -19,6 +20,7 @@ abstract class FormComponent
         $this->placeholder = isset($options['placeholder']) ? $options['placeholder'] : false;
         $this->class = isset($options['class']) ? $options['class'] : null;
         $this->label = (isset($options['label'])) ? $options['label'] : ucfirst($options['name']);
+        $this->rules = isset($options['rules']) ? $options['rules'] : null;
     }
     
     public function setClass($class) { $this->class = $class; }
@@ -41,6 +43,9 @@ abstract class FormComponent
 
     public function getKey() { return $this->key; }
     public function setKey($key) { $this->key = $key; }
+
+    public function getRules() { return $this->rules; }
+    public function setRules($rules) { $this->rules = $rules; }
     
     public function defaultFields($isInput=true) {
         $HTML = '';

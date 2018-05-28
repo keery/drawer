@@ -18,14 +18,17 @@ class BaseSql{
 
 	public function fromArray($data) {
 		foreach ($data as $key => $value) {
+			foreach($this->getMapping() as $mapping) {
+				if($mapping['property'] === $key && !is_object($value)) $value = $mapping['target']::findOneBy(['id' => $value]);
+			}
 			$f = "set".ucfirst($key);
-			$this->$f($value);
+			if(method_exists($this, $f)) $this->$f($value);
 		}
 	}
 
 	public function save(){
 		$action = (empty($this->getId()) ? INSERT : UPDATE);
-		//return self::getManager()->exec($action, $this->getProperties(), $this->table::get_table_class());
+		return self::getManager()->exec($action, $this->getProperties(), $this->table::get_table_class());
 	}
 
 

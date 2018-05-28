@@ -4,6 +4,7 @@
 <section class="container group">
     <div class="bloc">
 
+        <img src="module/captcha/Captcha.php" />
         <a href="<?php echo path('delete_entity', ['id' => 1, 'entity' => 'article']); ?>">test</a>
         <div></div>
         <div class="bloc-titre">

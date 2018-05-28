@@ -1,6 +1,5 @@
 <?php
-    namespace Module\Router;
-    use Module\Captcha\Captcha;
+    header('Content-type: image/png');
 
 
     class Captcha {
@@ -18,10 +17,10 @@
             $this->nbChar = rand(-8,-6);
             $this->fond = imagecreate($width, $height);
             $white = imagecolorallocate($this->fond, rand(150,255), rand(150,255), rand(150,255));
-            $this->fonts = glob('./fonts/*.ttf'); 
+            $this->fonts = glob('../../fonts/*.ttf'); 
         }
 
-            private function getRandomFont() {
+        private function getRandomFont() {
             return $this->fonts[array_rand($this->fonts)];
         }
 
@@ -81,5 +80,5 @@
         }
     }
  
-$captcha = new Captcha();
-$captcha->generate();
+    $captcha = new Captcha();
+    $captcha->generate();

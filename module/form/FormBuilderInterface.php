@@ -3,6 +3,7 @@
 namespace Module\Form;
 
 use Module\Form\Type\HiddenType;
+use Module\Form\Validator;
 
 class FormBuilderInterface
 {
@@ -11,11 +12,12 @@ class FormBuilderInterface
     public $method = "POST";
     public $action;
     public $enctype;
+    public $object;
+    public $rules;
 
     public function generateFieldKey($options) {
         $this->add('key', $this->key_form = new \Module\Form\Type\HiddenType(), $options);
-    }
-    
+    }    
     
     public function add($name, $type, $options=null) {
         $options['name'] = $name;
@@ -54,7 +56,28 @@ class FormBuilderInterface
     }   
     public function setEnctype($enctype) {
         $this->enctype = $enctype;
-    }     
+    }  
+    
+    public function getKey() {
+        return $this->key;
+    }   
+    public function setKey($key) {
+        $this->key = $key;
+    }  
+    
+    public function getObject() {
+        return $this->object;
+    }   
+    public function setObject($object) {
+        $this->object = $object;
+    }  
+
+    public function getRules() {
+        return $this->rules;
+    }   
+    public function setRules($rules) {
+        $this->rules = $rules;
+    }      
 
     private function setHeadForm(){
 		$HTML_head = ' method="'.$this->getMethod().'"';
@@ -71,12 +94,21 @@ class FormBuilderInterface
         return new FormHTML($HTML_form, $this->setHeadForm());
     }
 
-    public function handleRequest() {
+    public function handleRequest($request) {
         $key = $this->key_form->getValue();
-        if(isset($_POST[$key])) {
-            foreach($_POST[$key] as $value) {
 
+        if(sizeof($request) > 0) {
+            foreach($request as $key => $value) {
+                if(in_array($key, $_SESSION['form_keys'])) $this->getObject()->fromArray($value);                         
             }
+
+            return $this->getObject();
         }
-	}
+    }
+
+    public function validate() {
+        var_dump($this->rules);
+        $validator = new Validator($this->rules, $this->object);
+        return $validator->verify();
+    }
 }
