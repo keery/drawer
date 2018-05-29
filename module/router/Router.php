@@ -36,8 +36,9 @@ class Router
 	public function urlMatcher($path)
 	{
 		$routes = $this->getRoutes();
-		foreach ($routes as $route) 
+		foreach ($routes as $routeName => $route) 
 		{
+			$route['name'] = $routeName;
 			//Si le nom de la route est exacte au path
 			if($route['path'] == $path) 
 			{
