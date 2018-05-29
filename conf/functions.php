@@ -21,4 +21,18 @@
 	function format_date($date, $format) {
 		return date_format(date_create($date), $format);
 	}
+
+	function getNotifs($key) {
+		if(isset($_SESSION['notifs'][$key])) {
+			$notifs = $_SESSION['notifs'][$key];
+			unset($_SESSION['notifs'][$key]);
+		}
+		else $notifs = [];
+
+		return $notifs;
+	}
+	
+	function addNotif($notif, $key) {
+		$_SESSION['notifs'][$key][] = $notif;
+	}
  ?>

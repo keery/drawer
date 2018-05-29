@@ -7,6 +7,13 @@
   </div>
   <a href="<?php echo path('article_add'); ?>" class="btn-add" title="Ajouter un élément"></a>
 </nav>
+<?php foreach(getNotifs('valid') as $notif) : ?>
+  <div class="notif valid">
+      <span class="notif-icone"></span>
+      <div class="notif-titre">Réussi:</div>
+      <?php echo $notif; ?>
+  </div>
+<?php endforeach; ?>
 <section class="container">
   <ul class="list">
     <?php foreach($articles as $article) : ?>

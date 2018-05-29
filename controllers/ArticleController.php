@@ -32,6 +32,7 @@ class ArticleController {
 			$article = $form->handleRequest($_POST);
 			if($form->validate())  {
 				$article->save();
+				addNotif('Article bien enregistré', 'valid');
 				redirectToRoute('articles');		
 			}
 			else {
