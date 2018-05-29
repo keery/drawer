@@ -83,7 +83,7 @@ return
                 [
                     'path' => 'images',
                     'controller' => 'Image',
-                    'action' => 'index'
+                    'action' => 'images'
                 ],
 			'delete_entity' => 
 				[
