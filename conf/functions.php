@@ -33,6 +33,11 @@
 	}
 	
 	function addNotif($notif, $key) {
-		$_SESSION['notifs'][$key][] = $notif;
+		if(is_array($notif)) {
+			foreach ($notif as $n) {
+				$_SESSION['notifs'][$key][] = $n;
+			}
+		}
+		else $_SESSION['notifs'][$key][] = $notif;
 	}
  ?>
