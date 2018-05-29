@@ -22,13 +22,10 @@
       <li class="list-item">
         <div class="text-list"><?php echo $article->getTitre(); ?></div>
         <div class="details-list"><span class="date-details-list"><?php echo format_date($article->getDate_creation(), "d/m/Y"); ?></span></div>
-        <span class="btn-edit-item">
-          <span></span>
-          <ul>
-            <li><a href="<?php echo path('article_edit', ['id' => $article->getId()]); ?>">Éditer</a></li>
-            <li><a href="">Supprimer</a></li>
-          </ul>
-        </span>      
+        <ul class="panel-action">
+          <li><a href="<?php echo path('article_edit', ['id' => $article->getId()]); ?>" title="Éditer"><i class="fas fa-edit"></i></a></li>
+          <li><a href="<?php echo path('delete_entity', ['entity' => 'article', 'id' => $article->getId()]); ?>" title="Supprimer"><i class="far fa-trash-alt"></i></a></li>
+        </ul>
       </li>
     <?php endforeach; ?>
   </ul>

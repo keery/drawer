@@ -11,12 +11,12 @@
       display: inline-block;
       position: relative;
       &.selected, &:hover {
-        @include underline('bottom', 3px, 0);
+        // @include underline('bottom', 3px, 0);
       }
     }
   }
 
-  .nav-options {
+  .nav-options { 
     position: absolute;
     right: 1.5em;
     top: 50%;
@@ -59,7 +59,12 @@
       .date-details-list { background-image: url(../../img/clock.png);background-repeat: no-repeat;background-position: left 50%; padding-left: 12px;}
     }
     + .list-item { border-top: 2px solid #ECF2F9;}
-    .btn-edit-item { right:30px;position: absolute;top: 50%;transform: translateY(-50%);padding: 5px 15px;cursor: pointer;
+      .panel-action { right:30px;position: absolute;top: 50%;transform: translateY(-50%);
+        li { background-color: #77D3C8;
+          a { color:white; }
+        }
+      }
+      .btn-edit-item { right:30px;position: absolute;top: 50%;transform: translateY(-50%);padding: 5px 15px;cursor: pointer;
       &:hover { 
         span, span:after, span:before {background-color: $dark2;}
       }
