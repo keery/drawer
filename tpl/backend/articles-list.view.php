@@ -2,9 +2,9 @@
 <h1>Articles</h1>
 <nav class="container ctn-nav small-xs">
   <div class="nav-links" data-selected-filter="Published">
-    <a href="<?php echo path('articles'); ?>" class="selected">Tous</a>
-    <a href="<?php echo path('articles'); ?>" class="selected">Publiés</a>
-    <a href="<?php echo path('articles'); ?>">Non publiés</a>
+    <a href="<?php echo path('articles') ?>" class="selected">Tous</a>
+    <a href="<?php echo path('articles')."?sort=active"; ?>" class="selected">Publiés</a>
+    <a href="<?php echo path('articles')."?sort=unactive"; ?>">Non publiés</a>
   </div>
   <a href="<?php echo path('article_add'); ?>" class="btn-add" title="Ajouter un élément"></a>
 </nav>

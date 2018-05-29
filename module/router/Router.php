@@ -41,6 +41,7 @@ class Router
 			//Si le nom de la route est exacte au path
 			if($route['path'] == $path) 
 			{
+				$_SERVER['CURRENT_ROUTE'] = $route;
 				$this->redirectTo($route);
 				return $route;
 			}
@@ -88,7 +89,9 @@ class Router
 						}
 						
 					}
+
 					if($match) {
+						$_SERVER['CURRENT_ROUTE'] = $route;
 						$this->redirectTo($route, $getParams);
 						return $route;
 					}
