@@ -17,4 +17,27 @@
 	function isGranted(array $role) {
 		return $user->hasRole($role);
 	}
+
+	function format_date($date, $format) {
+		return date_format(date_create($date), $format);
+	}
+
+	function getNotifs($key) {
+		if(isset($_SESSION['notifs'][$key])) {
+			$notifs = $_SESSION['notifs'][$key];
+			unset($_SESSION['notifs'][$key]);
+		}
+		else $notifs = [];
+
+		return $notifs;
+	}
+	
+	function addNotif($notif, $key) {
+		if(is_array($notif)) {
+			foreach ($notif as $n) {
+				$_SESSION['notifs'][$key][] = $n;
+			}
+		}
+		else $_SESSION['notifs'][$key][] = $notif;
+	}
  ?>

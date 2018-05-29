@@ -22,5 +22,5 @@ $router = new Router();
 	$URI = str_replace(DIRECTORY, '', $URI);
 	if ($URI != DS) $URI = urldecode(substr($URI, 1));
  //}
-$router->urlMatcher($URI);
+$_SERVER['CURRENT_ROUTE'] = $router->urlMatcher($URI);
 ?>

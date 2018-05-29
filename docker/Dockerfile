@@ -2,9 +2,9 @@ FROM php:7.2-apache
 
 # Install PDO MySQL driver
 # See https://github.com/docker-library/php/issues/62
-RUN apt-get update -y && apt-get install -y libpng-dev
+# RUN apt-get update -y && apt-get install -y libpng-dev
 
-RUN docker-php-ext-install gd
+# RUN docker-php-ext-install gd
 
 RUN docker-php-ext-install pdo mysqli pdo_mysql
 

@@ -9,7 +9,11 @@ use Module\Form\FormBuilder;
 use Module\Entity\Form\ArticleForm;
 
 class ArticleController {
-	
+	public function articlesAction()
+	{
+		$data['articles'] = Article::all();
+		View::render("backend/articles-list.view.php", 'layout.php', $data);
+	}
 
 	public function editArticleAction($params)
 	{
@@ -26,14 +30,12 @@ class ArticleController {
 
 		if(request_is("POST")) {
 			$article = $form->handleRequest($_POST);
-
 			if($form->validate())  {
 				$article->save();
-				redirectToRoute('articles');		
+				addNotif('Article bien enregistré', 'valid');
+				redirectToRoute('articles');
 			}
-			else {
-				$data['errors'] = $form->getErrors();
-			}
+			else addNotif($form->getErrors(), 'error');
 		}
 
 		$data['form'] = $form->createView();

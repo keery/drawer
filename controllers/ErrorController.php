@@ -5,6 +5,6 @@ class ErrorController {
 	
 	public function error404Action()
 	{
-		echo "Cette page n'éxiste pas";
+		// echo "Cette page n'éxiste pas";
 	}	
 }

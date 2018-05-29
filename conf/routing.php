@@ -76,7 +76,7 @@ return
 			'articles' => 
 				[
 					'path' => 'articles',
-					'controller' => 'Main',
+					'controller' => 'Article',
 					'action' => 'articles'
 				],
 			'article_edit' => 
@@ -88,6 +88,12 @@ return
 					[
 						'id' => ['pattern' => '\d+']
 					]
+				],
+			'article_add' => 
+				[
+					'path' => 'add/article',
+					'controller' => 'Article',
+					'action' => 'editArticle'
 				],
 			'delete_entity' => 
 				[

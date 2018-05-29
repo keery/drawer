@@ -12,40 +12,6 @@ $text: #304A52;
 // radius
 $radius: .4em;
 
-//mixins
-@mixin box-shadow($color: black, $opacity: 0.11) {
-	box-shadow: 0px 0px 45px rgba($color, $opacity);
-}
-
-@mixin underline($position, $width, $padding: 0px, $color: $highlight) {
-	&:before {
-		position: absolute;
-		content: '';
-		background: $color;
-		@if $position == 'bottom' {
-			left: 0px;
-			bottom: $padding;
-			height: $width;
-			width: 100%;
-		} @else if $position == 'top' {
-			left: 0px;
-			top: $padding;
-			height: $width;
-			width: 100%;
-		} @else if $position == 'left' {
-			left: $padding;
-			width: $width;
-			top: 0px;
-			height: 100%;
-		} @else if $position == 'right' {
-			top: 0px;
-			width: $width;
-			right: $padding;
-			height: 100%;
-		}
-	}
-}
-
 @import 'dist/normalize';
 @import url('https://fonts.googleapis.com/css?family=Cantarell');
 @import url('https://fonts.googleapis.com/css?family=Rochester');
@@ -351,4 +317,56 @@ img { max-width: 100%; }
 {
     background: #77abd2;
     border-color: #618bab;
+}  
+
+.on-off
+{
+	width: 0px;
+	display: none;
+}
+.on-off + label
+{
+	padding: 2px;
+	width: 43px;
+	height: 25px;
+	background-color: #dddddd;
+	border-radius: 25px;
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	margin: 5px 10px 5px 0px;
+}
+.on-off + label:before,
+.on-off + label:after
+{
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  bottom: 1px;
+  content: "";		
+}
+
+.on-off + label:before 
+{
+	right: 1px;
+	background-color: #a7a7a7;
+	border-radius: 25px;
+	transition: background 0.4s;
+}
+.on-off + label:after 
+{
+	width: 23px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: margin 0.4s;
+}
+.on-off:checked + label:before 
+{
+	background-color: #77D3C8;
+}
+.on-off:checked + label:after 
+{
+	margin-left: 18px;
 }

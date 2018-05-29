@@ -85,7 +85,7 @@
                                 data: [90, 10],
                                 borderWidth: [10],
                                 backgroundColor: [
-                                    '#49C5B6',
+                                    '#4C84C1',
                                     '#fefefe'
                                 ]
                             }],
@@ -103,7 +103,7 @@
                                 data: [90, 10],
                                 borderWidth: [10],
                                 backgroundColor: [
-                                    '#49C5B6',
+                                    '#BF4C4C',
                                     '#fefefe'
                                 ]
                             }],
