@@ -57,6 +57,7 @@ class MainController {
 
 		call_user_func($class_name."::delete" , $id);
 
+		addNotif('Suppression réussie', 'valid');
 		redirectToRoute(strtolower($props['entity']."s"));		
 	}	
 }
