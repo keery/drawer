@@ -33,7 +33,7 @@ class ArticleController {
 			if($form->validate())  {
 				$article->save();
 				addNotif('Article bien enregistré', 'valid');
-				redirectToRoute('articles');		
+				redirectToRoute('articles');
 			}
 			else addNotif($form->getErrors(), 'error');
 		}

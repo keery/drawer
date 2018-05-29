@@ -2,8 +2,9 @@
 <h1>Articles</h1>
 <nav class="container ctn-nav small-xs">
   <div class="nav-links" data-selected-filter="Published">
-    <a href="" class="selected">Published</a>
-    <a href="">Drafts</a>
+    <a href="<?php echo path('articles'); ?>" class="selected">Tous</a>
+    <a href="<?php echo path('articles'); ?>" class="selected">Publiés</a>
+    <a href="<?php echo path('articles'); ?>">Non publiés</a>
   </div>
   <a href="<?php echo path('article_add'); ?>" class="btn-add" title="Ajouter un élément"></a>
 </nav>

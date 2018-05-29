@@ -51,25 +51,7 @@ class Router
 				$searchPathExploded = explode('/', $route['path']);
 
 				if(count($findPathExploded) === count($searchPathExploded))
-				{
-					// foreach ($searchPathExploded as $key => $segment) {
-					// 	var_dump($segment);
-					// 	var_dump($findPathExploded[$key]);
-					// 	if($segment != $findPathExploded[$key])
-					// 	{
-					// 		if(in_array(trim($segment, '{}'), $params)){
-					// 			$indexParam = trim($segment, '{}');
-					// 			if(isset($route['params'][$indexParam]['pattern']) && preg_match('/'.$route['params'][$indexParam]['pattern'].'/', $findPathExploded[$key])) 
-					// 			{
-					// 				//TO DO a enlever de commentaire quand la session d'utilisateur sera prete
-					// 				// if(isset($route['accessibility'])) hasRole($route['accessibility'])
-					// 				$this->redirectTo($route);
-					// 				return $route;
-					// 			}
-					// 		}
-					// 	}
-					// }
-					
+				{		
 					$match = true;
 					$getParams = array();
 					foreach ($searchPathExploded as $key => $segment) {
@@ -107,9 +89,6 @@ class Router
 						
 					}
 					if($match) {
-						//TO DO a enlever de commentaire quand la session d'utilisateur sera prete
-						// if(isset($route['accessibility'])) hasRole($route['accessibility'])
-						// var_dump($getParams);
 						$this->redirectTo($route, $getParams);
 						return $route;
 					}
