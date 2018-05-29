@@ -23,7 +23,7 @@ class FileType extends FormComponent
         $ref = $this->entity::get_table_class();
 
         $HTML = '
-            <input type="hidden" name="id_entity" value="'.$this->entity.'">
+            <input type="hidden" name="'.$this->key.'[id_entity]" value="'.$this->entity.'">
             <input type="hidden" '.$this->defaultFields().' id="id_files">
             <div class="input-form">
             <input type="file" id="'.$ref.'_image_image" name="'.$ref.'[image][image]" class="input-file '.$ref.'">

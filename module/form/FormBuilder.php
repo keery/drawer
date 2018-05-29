@@ -9,9 +9,13 @@ class FormBuilder {
 
 	public function create($form, $object=false)
 	{
-		$this->form = $form;
-		$this->object = $object;
+		$uKey = $this->generateUniqKey($form);
+		$form->setObject($object);
+		$this->object[$uKey] = $object;
+		$this->form[$uKey] = $form;
 		$HTML_form = [];
+		$rules = [];
+
 		foreach($form->getStructure() as $key => $field) {
 			$func = 'get'.ucfirst($key);
 			if(method_exists($object, $func)) {
@@ -19,16 +23,25 @@ class FormBuilder {
 				$value = is_object($value) ? $value->getId() : $value;
 				$field->setValue($value);
 			}
-			$HTML_form[$key] = ['field' => $field, 'displayed' => false, 'label' => $field->getLabel()];
-
+			if($field->getRules()) $rules[$key] = $field->getRules();
+			$field->setKey($uKey);
 		}
-		return new FormHTML($HTML_form, $this->setHeadForm());
+
+		$form->setRules($rules);
+
+		return $form;
 	}
 
-	private function setHeadForm(){
-		$HTML_head = ' method="'.$this->form->getMethod().'"';
-		if($action = $this->form->getAction()) $HTML_head .= ' action="'.$action.'"';
-		if($enctype = $this->form->getEnctype()) $HTML_head .= ' enctype="'.$enctype.'"';
-		return $HTML_head;
+	private function generateUniqKey($form){
+		$key = uniqid();
+		$options = [
+			'value' => $key,
+			'required' => true
+		];
+
+		$form->generateFieldKey($options);
+		$_SESSION['form_keys'][] = $key;
+		return $key;
 	}
+
 }

@@ -37,6 +37,7 @@ class FormHTML {
 
     public function form_head() {
         echo '<form '.$this->config.'>';
+        echo $this->input('key');
     } 
 
     public function form_bottom() {

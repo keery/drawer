@@ -2,20 +2,26 @@
 
 namespace Module\Form;
 
+use Module\Form\Type\HiddenType;
+use Module\Form\Validator;
+
 class FormBuilderInterface
 {
     private $structure = [];
+    public $key_form;
     public $method = "POST";
     public $action;
     public $enctype;
-    
+    public $object;
+    public $rules;
+    public $errors;
+
+    public function generateFieldKey($options) {
+        $this->add('key', $this->key_form = new \Module\Form\Type\HiddenType(), $options);
+    }    
     
     public function add($name, $type, $options=null) {
         $options['name'] = $name;
-        
-        //Si il n'y a pas de label on prend le nom par defaut avec une majuscule
-        if(!isset($options['label']))  $options['label'] = ucfirst($name);
-
         $type->build($options);
         $this->structure[$name] = $type;
 
@@ -51,5 +57,70 @@ class FormBuilderInterface
     }   
     public function setEnctype($enctype) {
         $this->enctype = $enctype;
+    }  
+    
+    public function getKey() {
+        return $this->key;
+    }   
+    public function setKey($key) {
+        $this->key = $key;
+    }  
+    
+    public function getObject() {
+        return $this->object;
+    }   
+    public function setObject($object) {
+        $this->object = $object;
+    }  
+
+    public function getRules() {
+        return $this->rules;
+    }   
+    public function setRules($rules) {
+        $this->rules = $rules;
     }      
+
+    public function getErrors() {
+        return $this->errors;
+    }   
+    public function setErrors($errors) {
+        $this->errors = $errors;
+    } 
+
+    private function setHeadForm(){
+		$HTML_head = ' method="'.$this->getMethod().'"';
+		if($action = $this->getAction()) $HTML_head .= ' action="'.$action.'"';
+		if($enctype = $this->getEnctype()) $HTML_head .= ' enctype="'.$enctype.'"';
+		return $HTML_head;
+	}
+    
+    public function createView() {
+        foreach($this->structure as $key => $field) {
+			$HTML_form[$key] = ['field' => $field, 'displayed' => false, 'label' => $field->getLabel()];
+        }
+        
+        return new FormHTML($HTML_form, $this->setHeadForm());
+    }
+
+    public function handleRequest($request) {
+        $key = $this->key_form->getValue();
+
+        if(sizeof($request) > 0) {
+            foreach($request as $key => $value) {
+                if(in_array($key, $_SESSION['form_keys'])) $this->getObject()->fromArray($value);                         
+            }
+
+            return $this->getObject();
+        }
+    }
+
+    public function validate() {
+        $validator = new Validator($this->rules, $this->object);
+        $result = $validator->verify();
+        if( is_array($result) ) {
+            $this->errors = $result;
+            return false;
+        }
+        return true;
+    }
 }
