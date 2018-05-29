@@ -12,7 +12,6 @@ class ArticleController {
 	public function articlesAction()
 	{
 		$data['articles'] = Article::all();
-		var_dump($data['articles']);
 		View::render("backend/articles-list.view.php", 'layout.php', $data);
 	}
 
@@ -31,7 +30,6 @@ class ArticleController {
 
 		if(request_is("POST")) {
 			$article = $form->handleRequest($_POST);
-
 			if($form->validate())  {
 				$article->save();
 				redirectToRoute('articles');		

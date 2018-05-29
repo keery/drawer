@@ -83,6 +83,12 @@ return
 						'id' => ['pattern' => '\d+']
 					]
 				],
+			'article_add' => 
+				[
+					'path' => 'add/article',
+					'controller' => 'Article',
+					'action' => 'editArticle'
+				],
 			'delete_entity' => 
 				[
 					'path' => 'delete/{entity}/{id}',

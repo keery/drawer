@@ -41,6 +41,7 @@ class FormHTML {
     } 
 
     public function form_bottom() {
+        // echo $this->form_rest();
         echo '</form>';
     }    
 

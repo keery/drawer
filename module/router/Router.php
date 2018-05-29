@@ -38,7 +38,6 @@ class Router
 		$routes = $this->getRoutes();
 		foreach ($routes as $route) 
 		{
-
 			//Si le nom de la route est exacte au path
 			if($route['path'] == $path) 
 			{
@@ -50,7 +49,8 @@ class Router
 			{
 				$findPathExploded = explode('/', $path);
 				$searchPathExploded = explode('/', $route['path']);
-				if(count($findPathExploded) == count($searchPathExploded))
+
+				if(count($findPathExploded) === count($searchPathExploded))
 				{
 					// foreach ($searchPathExploded as $key => $segment) {
 					// 	var_dump($segment);
@@ -77,6 +77,11 @@ class Router
 						{
 							if($this->isParam($segment)) {
 								$indexParam = trim($segment, '{}');
+							
+								if(empty($findPathExploded[$key]) && isset($route['params'][$indexParam]['default'] )) {
+									$findPathExploded[$key] = $route['params'][$indexParam]['default'];
+								}
+
 								if(!in_array($indexParam, $params) ) {
 									$match = false;
 									break;
@@ -104,6 +109,7 @@ class Router
 					if($match) {
 						//TO DO a enlever de commentaire quand la session d'utilisateur sera prete
 						// if(isset($route['accessibility'])) hasRole($route['accessibility'])
+						// var_dump($getParams);
 						$this->redirectTo($route, $getParams);
 						return $route;
 					}

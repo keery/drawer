@@ -26,6 +26,10 @@
                     <label>Catégorie</label>
                     <?php echo $form->input('categorie', ['class' => 'select']); ?>
                 </div>
+                <div class="col-sm-6 col-xs-12">
+                    <label>État</label>
+                    <?php echo $form->input('active'); ?>
+                </div>
             </div>
         </div>
     </div>
@@ -53,7 +57,7 @@
     </div>
 </section>
 <div class="text-right text-center-xs col-xs-12">
-    <a href="" class="button btn-validate">Retour à la liste</a>
+    <a href="<?php echo path('articles'); ?>" class="button btn-validate">Retour à la liste</a>
     <?php echo $form->input('submit', ['class' => 'button btn-validate']); ?>
 </div>
 <?php $form->form_bottom(); ?>
