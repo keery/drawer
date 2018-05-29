@@ -35,9 +35,7 @@ class ArticleController {
 				addNotif('Article bien enregistré', 'valid');
 				redirectToRoute('articles');		
 			}
-			else {
-				$data['errors'] = $form->getErrors();
-			}
+			else addNotif($form->getErrors(), 'error');
 		}
 
 		$data['form'] = $form->createView();

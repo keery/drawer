@@ -8,15 +8,13 @@
             <span>Informations</span>
         </div>
         <div class="bloc-content">
-            <?php if(isset($errors) && sizeof($errors) > 0) : ?>
-                <?php foreach ($errors as $key => $error) : ?>
-                    <div class="notif error">
-                        <span class="notif-icone"></span>
-                        <div class="notif-titre">Erreur:</div>
-                        <?php echo $error; ?>
-                    </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
+            <?php foreach(getNotifs('error') as $notif) : ?>
+                <div class="notif error">
+                    <span class="notif-icone"></span>
+                    <div class="notif-titre">Erreur:</div>
+                    <?php echo $notif; ?>
+                </div>
+            <?php endforeach; ?>
             <div class="row spacing">
                 <div class="group col-sm-6 col-xs-12">
                     <?php echo $form->label('titre'); ?>
