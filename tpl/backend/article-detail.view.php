@@ -10,7 +10,7 @@
         <div class="bloc-content">
             <?php if(isset($errors) && sizeof($errors) > 0) : ?>
                 <?php foreach ($errors as $key => $error) : ?>
-                    <div class="notif valid">
+                    <div class="notif error">
                         <span class="notif-icone"></span>
                         <div class="notif-titre">Erreur:</div>
                         <?php echo $error; ?>

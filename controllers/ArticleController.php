@@ -9,7 +9,12 @@ use Module\Form\FormBuilder;
 use Module\Entity\Form\ArticleForm;
 
 class ArticleController {
-	
+	public function articlesAction()
+	{
+		$data['articles'] = Article::all();
+		var_dump($data['articles']);
+		View::render("backend/articles-list.view.php", 'layout.php', $data);
+	}
 
 	public function editArticleAction($params)
 	{

@@ -17,4 +17,8 @@
 	function isGranted(array $role) {
 		return $user->hasRole($role);
 	}
+
+	function format_date($date, $format) {
+		return date_format(date_create($date), $format);
+	}
  ?>

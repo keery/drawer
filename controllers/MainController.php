@@ -12,11 +12,6 @@ class MainController {
 		View::render("backend/dashboard.view.php");
 	}
 
-	public function articlesAction()
-	{
-		View::render("backend/articles-list.view.php");
-	}
-
 	public function pagesAction()
 	{
 		View::render("backend/pages-list.view.php");

@@ -70,7 +70,7 @@ return
 			'articles' => 
 				[
 					'path' => 'articles',
-					'controller' => 'Main',
+					'controller' => 'Article',
 					'action' => 'articles'
 				],
 			'article_edit' => 
