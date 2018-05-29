@@ -1,4 +1,4 @@
-<img src="assets/img/stat-picto.svg" alt="speed" class="picto-page">
+<img src="assets/img/speed-picto.svg" alt="speed" class="picto-page">
 <h1>Statistiques</h1>
 
 <div id="stats">
@@ -56,12 +56,4 @@
       </div>
     </div>
   </div>
-
-  <div class="u-d--ib u-tac switch-date u-mw u-mgt--l">
-    <div class="switch-date--content">
-      <p class="date">Stats for January 27, 2018</p>
-      <p class="date-update">Last update: 8:14 PM</p>
-    </div>
-  </div>
-
 </div>
