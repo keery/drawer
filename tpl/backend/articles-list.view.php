@@ -2,9 +2,9 @@
 <h1>Articles</h1>
 <nav class="container ctn-nav small-xs">
   <div class="nav-links" data-selected-filter="Published">
-    <a href="<?php echo path('articles') ?>" <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "articles" ? 'class="selected"' : '') ?>>Tous</a>
-    <a href="<?php echo path('articles')."?sort=active"; ?>" <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "articles" ? 'class="selected"' : '') ?>>Publiés</a>
-    <a href="<?php echo path('articles')."?sort=unactive"; ?> <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "articles" ? 'class="selected"' : '') ?>s>Non publiés</a>
+    <a href="<?php echo path('articles') ?>" <?php echo (getCurrentUrl() === "articles" ? 'class="selected"' : '') ?>>Tous</a>
+    <a href="<?php echo path('articles')."?sort=active"; ?>" <?php echo (getCurrentUrl() === "articles?sort=active" ? 'class="selected"' : '') ?>>Publiés</a>
+    <a href="<?php echo path('articles')."?sort=unactive"; ?>" <?php echo (getCurrentUrl() === "articles?sort=unactive" ? 'class="selected"' : '') ?>>Non publiés</a>
   </div>
   <a href="<?php echo path('article_add'); ?>" class="btn-add" title="Ajouter un élément"></a>
 </nav>
@@ -16,6 +16,7 @@
   </div>
 <?php endforeach; ?>
 <section class="container">
+  <?php if(count($articles) > 0): ?>
   <ul class="list">
     <?php foreach($articles as $article) : ?>
       <li class="list-item">
@@ -31,4 +32,11 @@
       </li>
     <?php endforeach; ?>
   </ul>
+  <?php else: ?>
+    <div class="notif information">
+        <span class="notif-icone"></span>
+        <div class="notif-titre">Info:</div>
+        Aucun article disponible
+    </div>
+  <?php endif; ?>
 </section>

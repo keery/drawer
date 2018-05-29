@@ -11,7 +11,12 @@ use Module\Entity\Form\ArticleForm;
 class ArticleController {
 	public function articlesAction()
 	{
-		$data['articles'] = Article::all();
+		if(isset($_GET['sort']) && in_array($_GET['sort'], ['active', 'unactive'])) {
+			$data['articles'] = Article::find(['active' => ($_GET['sort'] === 'active' ? 1 : 0)]);
+		}
+		else $data['articles'] = Article::all();
+		
+		
 		View::render("backend/articles-list.view.php", 'layout.php', $data);
 	}
 

@@ -91,14 +91,15 @@ class SqlManager{
 		
 		$q = "SELECT ".$fields." FROM ".$table::get_table_class();
 
-
 		//CLAUSE WHERE
 		if(!empty($where)) {
 			$inlineWhere = $this->prepareInlineKeys($where);
 			$q .= " WHERE ".$inlineWhere;	
 		}
+		
 
 		$this->query = $this->pdo->prepare($q);
+		
 		$this->query->execute($where);
 
 

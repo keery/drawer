@@ -40,4 +40,8 @@
 		}
 		else $_SESSION['notifs'][$key][] = $notif;
 	}
+
+	function getCurrentUrl() {
+		return $_SERVER['CURRENT_ROUTE']['name'].(!empty($_SERVER['QUERY_STRING']) ? "?" : '' ).$_SERVER['QUERY_STRING'];
+	}
  ?>
