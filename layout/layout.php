@@ -24,12 +24,12 @@
 			</header>
 			<nav class="nav">
 				<ul>
-					<li class="selected"><a class="u-mw" href="<?php echo path('admin_index') ?>"><img src="assets/img/speed-picto-white.svg" alt=""><span class="hidden-xs">Dashboard</span></a></li>
-					<li><a class="u-mw" href="<?php echo path('statistic') ?>"><img src="assets/img/stat-picto-white.svg" alt=""><span class="hidden-xs">Statistiques</span></a></li>
-					<li><a class="u-mw" href="<?php echo path('pages') ?>"><img src="assets/img/page-picto-white.svg" alt=""><span class="hidden-xs">Mes pages</span></a></li>
-					<li><a class="u-mw" href="<?php echo path('articles') ?>"><img src="assets/img/article-picto-white.svg" alt=""><span class="hidden-xs">Mes articles</span></a></li>
-					<li><a class="u-mw" href="<?php echo path('users') ?>"><img src="assets/img/article-picto-white.svg" alt=""><span class="hidden-xs">Les utilisateurs</span></a></li>
-					<li><a class="u-mw" href="<?php echo path('parametres') ?>"><img src="assets/img/settings-picto-white.svg" alt=""><span class="hidden-xs">Paramètres</span></a></li>
+					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "admin_index" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('admin_index') ?>"><img src="assets/img/speed-picto-white.svg" alt=""><span class="hidden-xs">Dashboard</span></a></li>
+					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "statistic" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('statistic') ?>"><img src="assets/img/stat-picto-white.svg" alt=""><span class="hidden-xs">Statistiques</span></a></li>
+					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "pages" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('pages') ?>"><img src="assets/img/page-picto-white.svg" alt=""><span class="hidden-xs">Mes pages</span></a></li>
+					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "articles" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('articles') ?>"><img src="assets/img/article-picto-white.svg" alt=""><span class="hidden-xs">Mes articles</span></a></li>
+					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "users" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('users') ?>"><img src="assets/img/article-picto-white.svg" alt=""><span class="hidden-xs">Les utilisateurs</span></a></li>
+					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "parametres" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('parametres') ?>"><img src="assets/img/settings-picto-white.svg" alt=""><span class="hidden-xs">Paramètres</span></a></li>
 				</ul>
 			</nav>
 		</aside>
