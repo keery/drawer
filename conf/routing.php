@@ -5,7 +5,7 @@ return
 		'prefix' => 'admin',
 		'accessibility' => ['ADMINISTRATEUR', 'MODERATEUR'],
 		'routes' => [
-			'admin_index' =>
+			'dashboard' =>
 				[
 					'path' => '/',
 					'controller' => 'Main',

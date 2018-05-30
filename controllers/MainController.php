@@ -9,7 +9,8 @@ class MainController {
 	
 	public function indexAction()
 	{
-		View::render("backend/dashboard.view.php");
+		$data['articles'] = Article::find(null, ['*'], null, 5);
+		View::render("backend/dashboard.view.php", "layout.php", $data);
 	}
 
 	public function statsAction()

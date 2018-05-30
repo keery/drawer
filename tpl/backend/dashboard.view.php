@@ -9,20 +9,19 @@
                     <img src="" alt="">
                 </header>
                 <div class="content">
+                    <?php if (sizeof($articles) > 0) :
+                        foreach ($articles as $article) : ?>
+                            <div class="children">
+                                <h3><?php echo (empty($article->getAuteur()) ? 'Anonyme' : $article->getAuteur()) ; ?></h3>
+                                <p><?php echo $article->getDescription(); ?></p>
+                                <span>il y a 2 jours</span>
+                            </div>
+                        <?php endforeach;
+                    endif; ?>
                     <div class="children">
-                        <h3>Jean louis</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                            Sunt quo quae repellendus obcaecati maiores? Possimus aut ea mollitia voluptas,
-                            ullam quam labore obcaecati, in error ducimus illo expedita recusandae. Est.</p>
-                        <span>il y a 2 jours</span>
+ 
                     </div>
-                    <div class="children">
-                        <h3>Jean louis</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                            Sunt quo quae repellendus obcaecati maiores? Possimus aut ea mollitia voluptas,
-                            ullam quam labore obcaecati, in error ducimus illo expedita recusandae. Est.</p>
-                        <span>il y a 2 jours</span>
-                    </div>
+  
                 </div>
             </div>
         </section>

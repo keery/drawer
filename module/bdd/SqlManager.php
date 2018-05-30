@@ -83,7 +83,9 @@ class SqlManager{
 		$table, 
 		$fields = array('*'),
 		$where = array(), 
-		$onlyOne = false) {
+		$onlyOne = false,
+		$groupBy=null,
+		$limit=null) {
 
 		if(!is_array($fields)) {
 			throw new Erreur('Le deuxième paramètre de la fonction select doit être un tableau');
@@ -113,6 +115,8 @@ class SqlManager{
 			
 			$q .= " WHERE ".$inlineWhere;	
 		}
+
+		if(is_int($limit)) $q .= " LIMIT ".$limit;
 
 		$this->query = $this->pdo->prepare($q);
 		
