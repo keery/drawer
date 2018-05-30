@@ -1,5 +1,5 @@
 <img src="assets/img/page-picto.svg" alt="" class="picto-page">
-<h1>Mes pages</h1>
+<h1><?php echo $titre; ?></h1>
 <?php $form->form_head(); ?>
 <section class="container group">
   <div class="bloc">

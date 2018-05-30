@@ -45,7 +45,7 @@ class ArticleController {
 			}
 			else addNotif($form->getErrors(), 'error');
 		}
-		// var_dump($_SERVER);
+
 		$data['form'] = $form->createView();
 		View::render("backend/article-detail.view.php", 'layout.php', $data);
 	}

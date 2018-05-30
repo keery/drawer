@@ -21,6 +21,9 @@ class PageController {
 		if(isset($params['id'])) $page = Page::findOneBy(array('id' => $params['id']));
 		else $page = new Page();
 
+		$data['titre'] = (!empty($page->getTitre()) ? $page->getTitre() : "Ajout d'une nouvelle page" );
+		
+
 		if(empty($page)) {
 			throw new Erreur("La page contenant l'id ".$params['id']." n'existe pas");
 			return false;
@@ -32,7 +35,7 @@ class PageController {
 			$page = $form->handleRequest($_POST);
 			if($form->validate())  {
 				$page->save();
-				addNotif('Page bien enregistré', 'valid');
+				addNotif('Page bien enregistrée', 'valid');
 				redirectToRoute('pages');
 			}
 			else addNotif($form->getErrors(), 'error');
