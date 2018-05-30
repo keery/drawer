@@ -95,6 +95,28 @@ return
 					'controller' => 'Article',
 					'action' => 'editArticle'
 				],
+			'categories' => 
+				[
+					'path' => 'categories',
+					'controller' => 'Categorie',
+					'action' => 'categories'
+				],
+			'categorie_edit' => 
+				[
+					'path' => 'categorie/{id}',
+					'controller' => 'Categorie',
+					'action' => 'editCategorie',
+					'params' => 
+					[
+						'id' => ['pattern' => '\d+']
+					]
+				],
+			'categorie_add' => 
+				[
+					'path' => 'add/categorie',
+					'controller' => 'Categorie',
+					'action' => 'editCategorie'
+				],				
 			'delete_entity' => 
 				[
 					'path' => 'delete/{entity}/{id}',
