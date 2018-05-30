@@ -19,6 +19,10 @@
               <?php echo $form->label('titre'); ?>
               <?php echo $form->input('titre', ['class' => 'input']); ?>
           </div>
+          <div class="group col-sm-6 col-xs-12">
+              <?php echo $form->label('url'); ?>
+              <?php echo $form->input('url', ['class' => 'input']); ?>
+          </div>
           <div class="col-sm-6 col-xs-12">
               <label>Page parente</label>
               <?php echo $form->input('parent', ['class' => 'select']); ?>

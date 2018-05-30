@@ -15,15 +15,16 @@ use Module\Form\Type\EntityType;
 class PageForm extends FormBuilderInterface
 {
 
-    public function __construct()
+    public function __construct($id)
     {
-        $listPages = Page::all();
+        $listPages = Page::find([['id', '!=', $id]]);
 
         $this
             ->add('titre', new InputType())
+            ->add('url', new InputType())
             ->add('description', new TextType(), ['required' => false])
             ->add('active', new CheckboxType(['Active']), ['class' => "on-off"])
-            ->add('parent', new EntityType($listPages, 'nom'), ['required' => false])
+            ->add('parent', new EntityType($listPages, 'titre'), ['required' => false])
             ->add('submit', new SubmitType())
         ;
     }

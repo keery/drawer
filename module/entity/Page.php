@@ -7,6 +7,7 @@ use Module\Entity\Categorie;
 class Page extends BaseSql {
 	protected $id;
 	protected $titre;
+	protected $url;
 	protected $description;
 	protected $parent;
 	protected $date_creation;
@@ -14,7 +15,7 @@ class Page extends BaseSql {
 	protected $active;
 
 	public $mapping = [
-		"id_categorie" => [
+		"id_parent" => [
 			"relation" => ONE_TO_MANY,
 			"target" => "Module\Entity\Page",
 			"property" => "parent"
@@ -31,6 +32,13 @@ class Page extends BaseSql {
 	}
 	public function setTitre($titre) {
 		$this->titre = $titre;
+	}
+
+	public function getUrl() {
+		return $this->url;
+	}
+	public function setUrl($url) {
+		$this->url = $url;
 	}
 
 	public function getDescription() {

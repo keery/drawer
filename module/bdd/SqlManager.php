@@ -67,7 +67,15 @@ class SqlManager{
 	}
 
 	public function insertQueryBuilder($properties, $table) {
+
+		$properties = $this->notEmptyValue($properties);
 		$keys = array_keys($properties);
+
+// 		var_dump($this->prepareInlineKeys($properties));
+// 		var_dump(implode(',', $keys));
+// 		var_dump($properties);
+// var_dump("INSERT INTO ".$table." (".implode(',', $keys).") VALUES (:".implode(',:', $keys).")");
+// die;
 		$this->query = $this->pdo->prepare("INSERT INTO ".$table." (".implode(',', $keys).") VALUES (:".implode(',:', $keys).")");
 		return $this->query->execute($properties);
 	}
@@ -93,10 +101,22 @@ class SqlManager{
 
 		//CLAUSE WHERE
 		if(!empty($where)) {
-			$inlineWhere = $this->prepareInlineKeys($where);
+			if(is_array(current($where))) {
+				$inlineWhere = "";
+				$formatWhere = [];
+				foreach($where as $cond) {
+					if(count($cond) != 3) {
+						throw new Erreur('Les requêtes select à tableau imbriqué nécessitent 3 paramètres [champ, operateur, valeur]');
+						return false;
+					}
+					$inlineWhere .= " ".$cond[0]." ".$cond[1]." :".$cond[0];
+					$formatWhere[$cond[0]] = $cond[2];
+				}
+				$where = $formatWhere;
+			}
+			else $inlineWhere = $this->prepareInlineKeys($where);
 			$q .= " WHERE ".$inlineWhere;	
 		}
-		
 
 		$this->query = $this->pdo->prepare($q);
 		
@@ -117,9 +137,8 @@ class SqlManager{
 
 	public function prepareInlineKeys($data, $glue ="=:"){
 		$iProps = [];
-
-		foreach (array_keys($data) as $props) {
-			$iProps[] = $props.$glue.$props;
+		foreach ($data as $key => $props) {
+			if($props) $iProps[] = $key.$glue.$key;
 		}
 		return implode(',', $iProps);
 	}
@@ -163,4 +182,11 @@ class SqlManager{
 		}
 	}
 
+	public function notEmptyValue($data) {
+		$values = [];
+		foreach ($data as $key => $value) {
+			if($value) $values[$key] = $value;
+		}
+		return $values;
+	}
 }

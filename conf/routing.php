@@ -42,7 +42,7 @@ return
 			'page_edit' => 
 				[
 					'path' => 'page/{id}',
-					'controller' => 'Main',
+					'controller' => 'Page',
 					'action' => 'editPage',
 					'params' => 
 					[

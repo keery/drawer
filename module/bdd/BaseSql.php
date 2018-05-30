@@ -18,11 +18,14 @@ class BaseSql{
 
 	public function fromArray($data) {
 		foreach ($data as $key => $value) {
-			foreach($this->getMapping() as $mapping) {
-				if($mapping['property'] === $key && !is_object($value)) $value = $mapping['target']::findOneBy(['id' => $value]);
+			if(!empty($value)) {
+				foreach($this->getMapping() as $mapping) {
+					if($mapping['property'] === $key && !is_object($value)) $value = $mapping['target']::findOneBy(['id' => $value]);
+				}
+				$f = "set".ucfirst($key);
+				if(method_exists($this, $f)) $this->$f($value);
 			}
-			$f = "set".ucfirst($key);
-			if(method_exists($this, $f)) $this->$f($value);
+
 		}
 	}
 

@@ -15,7 +15,6 @@ class FormBuilder {
 		$this->form[$uKey] = $form;
 		$HTML_form = [];
 		$rules = [];
-
 		foreach($form->getStructure() as $key => $field) {
 			$func = 'get'.ucfirst($key);
 			if(method_exists($object, $func)) {
