@@ -54,6 +54,13 @@
 .list {width: 100%;
   > .list-item {width: 100%;position: relative;
     padding: 20px 35px;
+    &.indent-20 { padding-left: 20px; }
+    &.indent-40 { padding-left: 40px; }
+    &.indent-60 { padding-left: 60px; }
+    &.indent-80 { padding-left: 80px; }
+    &.indent-100 { padding-left: 100px; }
+    &.indent-120 { padding-left: 120px; }
+    &.indent-140 { padding-left: 140px; }
     .text-list { font-size: 20px; color: $dark;margin-bottom: 5px;}
     .details-list { font-size: 10px; color: $dark;opacity: 0.6;
       .date-details-list { background-image: url(../../img/clock.png);background-repeat: no-repeat;background-position: left 50%; padding-left: 12px;}

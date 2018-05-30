@@ -18,13 +18,14 @@ class BaseSql{
 
 	public function fromArray($data) {
 		foreach ($data as $key => $value) {
-			if(!empty($value)) {
+			if($value != '') {
 				foreach($this->getMapping() as $mapping) {
 					if($mapping['property'] === $key && !is_object($value)) $value = $mapping['target']::findOneBy(['id' => $value]);
 				}
-				$f = "set".ucfirst($key);
-				if(method_exists($this, $f)) $this->$f($value);
 			}
+			else $value = null;
+			$f = "set".ucfirst($key);
+			if(method_exists($this, $f)) $this->$f($value);
 
 		}
 	}
@@ -37,7 +38,6 @@ class BaseSql{
 
 	public static function delete($id){
 		return self::getManager()->exec(DELETE, $id, get_called_class()::get_table_class());
-
 	}
 
 	public function toArray() {

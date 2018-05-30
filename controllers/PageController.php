@@ -12,6 +12,7 @@ class PageController {
 	public function pagesAction()
 	{
 		$data['pages'] = Page::all();
+		$data['pages'] = $this->sortPage();
 		View::render("backend/pages-list.view.php", 'layout.php', $data);
 	}
 
@@ -29,7 +30,6 @@ class PageController {
 
 		if(request_is("POST")) {
 			$page = $form->handleRequest($_POST);
-
 			if($form->validate())  {
 				$page->save();
 				addNotif('Page bien enregistré', 'valid');
@@ -40,6 +40,18 @@ class PageController {
 
         $data['form'] = $form->createView();
 		View::render("backend/page-detail.view.php", 'layout.php', $data);
+	}
+
+	public function sortPage($idParent = null, $data = []) {
+		$pages = Page::find(['id_parent' => $idParent]);
+		foreach($pages as $page) {
+			$data[$page->getId()] = [
+				'object' => $page,
+				'childrens' => $this->sortPage($page->getId())
+			];
+		}
+
+		return $data;
 	}
 
 }

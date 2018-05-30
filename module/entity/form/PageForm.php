@@ -17,7 +17,7 @@ class PageForm extends FormBuilderInterface
 
     public function __construct($id)
     {
-        $listPages = Page::find([['id', '!=', $id]]);
+        $listPages = Page::find([['id', '!=', (!$id ? 0 : $id) ]]);
 
         $this
             ->add('titre', new InputType())

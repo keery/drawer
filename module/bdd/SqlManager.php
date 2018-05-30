@@ -23,13 +23,12 @@ class SqlManager{
 				if(!isset($mapping['property'])) {
 					throw new Erreur('Champ "property" manquant pour "'.$this->table.'"');
 					return false;
-				}
+				}	
 
 				//Si l'attribut comporte bien au objet
 				if(!empty($properties[$mapping['property']])){
 					if(isset($mapping['relation'])) {
 						if(in_array($mapping['relation'], array(ONE_TO_ONE, ONE_TO_MANY))) {
-							
 							$insertId = $properties[$mapping['property']]->save();
 							$properties[$key] = $insertId;
 						}elseif($mapping['relation'] == MANY_TO_MANY){
@@ -40,16 +39,16 @@ class SqlManager{
 						return false;
 					}
 				}
+				else $properties[$key] = null;
 				unset($properties[$mapping['property']]);
 			}
 			unset($properties['mapping']);
 		}
 
-
 		if(in_array($action, array(UPDATE, DELETE, INSERT))) {
 			$res = $this->$qb($properties, $table);
 			if(!$res) $this->printError();
-			else return $this->pdo->lastInsertId();
+			else return $action == INSERT ? $this->pdo->lastInsertId() : $properties['id'];
 		}
 		else {
 			throw new Erreur('Type de requête invalide');
@@ -58,6 +57,7 @@ class SqlManager{
 	}
 
 	public function updateQueryBuilder($properties, $table) {
+		unset($properties['date_update']);
 		$props = $properties;
 		unset($props['id']);
 		$iProps = $this->prepareInlineKeys($props);
@@ -70,12 +70,6 @@ class SqlManager{
 
 		$properties = $this->notEmptyValue($properties);
 		$keys = array_keys($properties);
-
-// 		var_dump($this->prepareInlineKeys($properties));
-// 		var_dump(implode(',', $keys));
-// 		var_dump($properties);
-// var_dump("INSERT INTO ".$table." (".implode(',', $keys).") VALUES (:".implode(',:', $keys).")");
-// die;
 		$this->query = $this->pdo->prepare("INSERT INTO ".$table." (".implode(',', $keys).") VALUES (:".implode(',:', $keys).")");
 		return $this->query->execute($properties);
 	}
@@ -96,6 +90,7 @@ class SqlManager{
 			return false;
 		}
 		$fields = implode(',', $fields);
+
 		
 		$q = "SELECT ".$fields." FROM ".$table::get_table_class();
 
@@ -114,7 +109,8 @@ class SqlManager{
 				}
 				$where = $formatWhere;
 			}
-			else $inlineWhere = $this->prepareInlineKeys($where);
+			else $inlineWhere = $this->prepareInlineSelectKeys($where);
+			
 			$q .= " WHERE ".$inlineWhere;	
 		}
 
@@ -138,7 +134,16 @@ class SqlManager{
 	public function prepareInlineKeys($data, $glue ="=:"){
 		$iProps = [];
 		foreach ($data as $key => $props) {
-			if($props) $iProps[] = $key.$glue.$key;
+			$iProps[] = $key.$glue.$key;
+		}
+		return implode(',', $iProps);
+	}
+
+	public function prepareInlineSelectKeys($data, $glue ="=:"){
+		$iProps = [];
+		foreach ($data as $key => $props) {
+			if(!$props) $iProps[] = $key." IS NULL";
+			else $iProps[] = $key.$glue.$key;
 		}
 		return implode(',', $iProps);
 	}

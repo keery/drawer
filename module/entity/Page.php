@@ -51,7 +51,7 @@ class Page extends BaseSql {
 	public function getParent() {
 		return $this->parent;
 	}
-	public function setParent(Page $parent) {
+	public function setParent($parent) {
 		$this->parent = $parent;
 	}
 
