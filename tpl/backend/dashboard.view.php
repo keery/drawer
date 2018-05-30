@@ -5,7 +5,7 @@
         <section class="col-md-6 col-xs-12 u-pd--m no-spacing-right-sm no-spacing-right-xs group">
             <div>
                 <header>
-                    <span>derniers articles</span>
+                    <span>Derniers articles</span>
                     <img src="" alt="">
                 </header>
                 <div class="content">

@@ -7,6 +7,7 @@ use Module\Entity\Categorie;
 class Article extends BaseSql {
 	protected $id;
 	protected $titre;
+	protected $auteur;
 	protected $description;
 	protected $categorie;
 	protected $date_creation;
@@ -32,6 +33,13 @@ class Article extends BaseSql {
 	public function setTitre($titre) {
 		$this->titre = $titre;
 	}
+
+	public function getAuteur() {
+		return $this->auteur;
+	}
+	public function setAuteur($auteur) {
+		$this->auteur = $auteur;
+	}	
 
 	public function getDescription() {
 		return $this->description;
