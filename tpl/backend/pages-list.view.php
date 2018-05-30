@@ -7,42 +7,27 @@
     <a href="">Scheduled</a>
     <a href="">Trashed</a>
   </div>
-  <a href="page" class="btn-add" title="Ajouter un élément"></a>
+  <a href="<?php echo path('page_add'); ?>" class="btn-add" title="Ajouter un élément"></a>
 </nav>
 <section class="container">
+  <?php if(count($pages) > 0): ?>
   <ul class="list">
-    <li class="list-item">
-      <div class="text-list">Mes dessins</div>
-      <div class="details-list"><span class="date-details-list">1 month ago</span></div>
-      <span class="btn-edit-item">
-        <span></span>
-        <ul>
-          <li><a href="<?php echo path('article_edit', array('id' => 1)); ?>">Éditer</a></li>
-          <li><a href="">Supprimer</a></li>
+    <?php foreach($pages as $page) : ?>
+      <li class="list-item">
+        <div class="text-list"><?php echo $page->getTitre(); ?></div>
+        <div class="details-list"><span class="date-details-list"><?php echo format_date($page->getDate_creation(), "d/m/Y"); ?></span></div>
+        <ul class="panel-action">
+          <li><a href="<?php echo path('page_edit', ['id' => $page->getId()]); ?>" title="Éditer"><i class="fas fa-edit"></i></a></li>
+          <li><a href="<?php echo path('delete_entity', ['entity' => 'page', 'id' => $page->getId()]); ?>" title="Supprimer"><i class="far fa-trash-alt"></i></a></li>
         </ul>
-      </span>
-    </li>
-    <li class="list-item">
-      <div class="text-list">Mes histoires</div>
-      <div class="details-list"><span class="date-details-list">2 months ago</span></div>
-      <span class="btn-edit-item">
-        <span></span>
-        <ul>
-          <li><a href="<?php echo path('article_edit', array('id' => 2)); ?>">Éditer</a></li>
-          <li><a href="">Supprimer</a></li>
-        </ul>
-      </span>
-    </li>
-    <li class="list-item">
-      <div class="text-list">Contactez-moi</div>
-      <div class="details-list"><span class="date-details-list">3 months ago</span></div>
-      <span class="btn-edit-item">
-        <span></span>
-        <ul>
-          <li><a href="<?php echo path('article_edit', array('id' => 3)); ?>">Éditer</a></li>
-          <li><a href="">Supprimer</a></li>
-        </ul>
-      </span>
-    </li>        
+      </li>
+    <?php endforeach; ?>
   </ul>
+  <?php else: ?>
+    <div class="notif information">
+        <span class="notif-icone"></span>
+        <div class="notif-titre">Info:</div>
+        Aucune page disponible
+    </div>
+  <?php endif; ?>
 </section>

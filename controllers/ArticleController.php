@@ -22,8 +22,11 @@ class ArticleController {
 
 	public function editArticleAction($params)
 	{
+
 		if(isset($params['id'])) $article = Article::findOneBy(array('id' => $params['id']));
 		else $article = new Article();
+
+		$data['titre'] = (!empty($article->getTitre()) ? $article->getTitre() : "Ajout d'un nouvel article" );
 
 		if(empty($article)) {
 			throw new Erreur("L'article contenant l'id ".$params['id']." n'existe pas");

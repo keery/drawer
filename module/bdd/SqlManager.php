@@ -111,6 +111,7 @@ class SqlManager{
 				$res[$key] = $this->hydrateObject($table, $val);
 			}
 		}
+		else $res = [];
 		return $onlyOne ? array_shift($res) : $res;
 	}
 

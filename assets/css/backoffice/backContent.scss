@@ -11,7 +11,7 @@
       display: inline-block;
       position: relative;
       &.selected, &:hover {
-        // @include underline('bottom', 3px, 0);
+        @include underline('bottom', 3px, 0);
       }
     }
   }
@@ -19,7 +19,7 @@
   .nav-options { 
     position: absolute;
     right: 1.5em;
-    top: 50%;
+    top: 50%; 
     transform: translateY(-50%);
 
     div {
@@ -60,8 +60,12 @@
     }
     + .list-item { border-top: 2px solid #ECF2F9;}
       .panel-action { right:30px;position: absolute;top: 50%;transform: translateY(-50%);
-        li { background-color: #77D3C8;
-          a { color:white; }
+        li { display: inline-block;
+          a { position:relative;background-color: $dark; color:white; padding: 4px; width: 30px;height: 30px; display: block; border-radius: 4px; 
+            
+            &:hover { background-color: #49656e; }
+            i { font-size: 12px; position: absolute; left:50%; top:50%; transform: translateX(-50%) translateY(-50%) }
+          }
         }
       }
       .btn-edit-item { right:30px;position: absolute;top: 50%;transform: translateY(-50%);padding: 5px 15px;cursor: pointer;

@@ -4,11 +4,11 @@ use Module\Bdd\BaseSql;
 use Module\Bdd\SqlManager;
 use Module\Entity\Categorie;
 
-class Article extends BaseSql {
+class Page extends BaseSql {
 	protected $id;
 	protected $titre;
 	protected $description;
-	protected $categorie;
+	protected $parent;
 	protected $date_creation;
 	protected $date_update;
 	protected $active;
@@ -16,8 +16,8 @@ class Article extends BaseSql {
 	public $mapping = [
 		"id_categorie" => [
 			"relation" => ONE_TO_MANY,
-			"target" => "Module\Entity\Categorie",
-			"property" => "categorie"
+			"target" => "Module\Entity\Page",
+			"property" => "parent"
 		]
 	];
 
@@ -40,11 +40,11 @@ class Article extends BaseSql {
 		$this->description = $description;
 	}
 
-	public function getCategorie() {
-		return $this->categorie;
+	public function getParent() {
+		return $this->parent;
 	}
-	public function setCategorie(Categorie $categorie) {
-		$this->categorie = $categorie;
+	public function setParent(Page $parent) {
+		$this->parent = $parent;
 	}
 
 	public function getDate_creation() {
@@ -68,5 +68,5 @@ class Article extends BaseSql {
 		$this->active = $active;
 	}
 
-	public static function get_table_class() { return "cd_article"; }		
+	public static function get_table_class() { return "cd_page"; }		
 }

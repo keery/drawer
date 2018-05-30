@@ -15,7 +15,7 @@ class EntityType extends ChoiceType
             return false;
         }
 
-        if(is_object($choices[0])){
+        if(count($choices) > 0 && is_object($choices[0])){
             if(!$field) {
                 throw new Erreur("EntityType nécessite le nom de l'attribut à afficher");
                 return false;
@@ -31,17 +31,19 @@ class EntityType extends ChoiceType
             else {
                 throw new Erreur("La méthode ". $getter ." n'existe pas dans la classe ".get_class($choices[0]));
                 return false;
-            }
+            }  
 
-            parent::__construct($label, $manyChoices);
         }
+        else $label = [];
+
+        parent::__construct($label, $manyChoices);
     }
 
     public function toHTML() {
 
         $HTML = '<select';
         $HTML .= $this->defaultFields(false).'>';
-
+        $HTML .= "<option value=''>Choisir un élément</option>";
         foreach($this->choices as $primaryKey => $choice) {
             $HTML .= '<option value="'.$primaryKey.'"';
             if($primaryKey == $this->getValue()) $HTML .= " selected";

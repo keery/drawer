@@ -1,39 +1,50 @@
 <img src="assets/img/page-picto.svg" alt="" class="picto-page">
-<h1>Mes dessins</h1>
+<h1>Mes pages</h1>
+<?php $form->form_head(); ?>
 <section class="container group">
   <div class="bloc">
     <div class="bloc-titre">
       <span>Informations</span>
     </div>
     <div class="bloc-content">
+      <?php foreach(getNotifs('error') as $notif) : ?>
+          <div class="notif error">
+              <span class="notif-icone"></span>
+              <div class="notif-titre">Erreur:</div>
+              <?php echo $notif; ?>
+          </div>
+      <?php endforeach; ?>
       <div class="row spacing">
-        <div class="group col-sm-6 col-xs-12">
-          <label>Titre</label>
-          <input type="text" class="input">
-        </div>
-        <div class="col-sm-6 col-xs-12">
-          <label>Page parente</label>
-          <select name="" class="select">
-            <option value="">Choisir une page</option>
-          </select>
-        </div>
+          <div class="group col-sm-6 col-xs-12">
+              <?php echo $form->label('titre'); ?>
+              <?php echo $form->input('titre', ['class' => 'input']); ?>
+          </div>
+          <div class="col-sm-6 col-xs-12">
+              <label>Page parente</label>
+              <?php echo $form->input('parent', ['class' => 'select']); ?>
+          </div>
+          <div class="col-sm-6 col-xs-12">
+              <label>État</label>
+              <?php echo $form->input('active'); ?>
+          </div>
       </div>
     </div>
   </div>
 </section>  
 
 <section class="container group">
-  <div class="bloc">
-    <div class="bloc-titre">
-      <span>Description</span>
+    <div class="bloc">
+        <div class="bloc-titre">
+            <span>Description</span>
+        </div>
+        <div class="bloc-content">
+            <?php echo $form->input('description', ['class' => 'editor small']); ?>
+        </div>
     </div>
-    <div class="bloc-content">
-      <textarea class="small editor"></textarea>
-    </div>
-  </div>
-</section>  
+</section>
 
 <div class="text-right text-center-xs col-xs-12">
-  <a href="" class="button btn-validate">Retour à la liste</a>         
-  <input type="submit" value="Enregistrer" class="button btn-validate">          
+    <a href="<?php echo path('pages'); ?>" class="button btn-validate">Retour à la liste</a>
+    <?php echo $form->input('submit', ['class' => 'button btn-validate']); ?>
 </div>
+<?php $form->form_bottom(); ?>

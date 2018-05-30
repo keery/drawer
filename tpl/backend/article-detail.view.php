@@ -1,5 +1,5 @@
 <img src="assets/img/article-picto.svg" alt="" class="picto-page">
-<h1>Comment améliorer son dessin en 3 semaines</h1>
+<h1><?php echo $titre; ?></h1>
 <?php $form->form_head(); ?>
 <section class="container group">
     <div class="bloc">

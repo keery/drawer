@@ -12,17 +12,10 @@ class MainController {
 		View::render("backend/dashboard.view.php");
 	}
 
-	public function pagesAction()
-	{
-		View::render("backend/pages-list.view.php");
-
-	}
-
 	public function statsAction()
 	{
 		View::render("backend/statistic.view.php");
 	}
-
 
 	public function editPageAction()
 	{

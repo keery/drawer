@@ -6,16 +6,10 @@ return
 		'accessibility' => ['ADMINISTRATEUR', 'MODERATEUR'],
 		'routes' => [
 			'admin_index' =>
-			[
-				'path' => '/',
-				'controller' => 'Main',
-				'action' => 'index'
-			],
-			'pages' => 
 				[
-					'path' => 'pages',
+					'path' => '/',
 					'controller' => 'Main',
-					'action' => 'pages'
+					'action' => 'index'
 				],
             'users' =>
                 [
@@ -38,7 +32,13 @@ return
 					[
 						'id' => ['pattern' => '\d+']
 					]
-                ],
+				],
+			'pages' => 
+				[
+					'path' => 'pages',
+					'controller' => 'Page',
+					'action' => 'pages'
+				],				
 			'page_edit' => 
 				[
 					'path' => 'page/{id}',
@@ -48,7 +48,13 @@ return
 					[
 						'id' => ['pattern' => '\d+']
 					]
-				],			
+				],
+			'page_add' => 
+				[
+					'path' => 'add/page',
+					'controller' => 'Page',
+					'action' => 'editPage'
+				],							
 			'parametres' => 
 				[
 					'path' => 'parametres',
