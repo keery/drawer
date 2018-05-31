@@ -1,7 +1,7 @@
 <img src="assets/img/article-picto.svg" alt="" class="picto-page">
 <h1>Articles</h1>
 <nav class="container ctn-nav small-xs">
-  <div class="nav-links" data-selected-filter="Published">
+  <div class="nav-links">
     <a href="<?php echo path('articles') ?>" <?php echo (getCurrentUrl() === "articles" ? 'class="selected"' : '') ?>>Tous</a>
     <a href="<?php echo path('articles')."?sort=active"; ?>" <?php echo (getCurrentUrl() === "articles?sort=active" ? 'class="selected"' : '') ?>>Publiés</a>
     <a href="<?php echo path('articles')."?sort=unactive"; ?>" <?php echo (getCurrentUrl() === "articles?sort=unactive" ? 'class="selected"' : '') ?>>Non publiés</a>

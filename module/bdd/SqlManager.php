@@ -117,7 +117,6 @@ class SqlManager{
 		}
 
 		if(is_int($limit)) $q .= " LIMIT ".$limit;
-
 		$this->query = $this->pdo->prepare($q);
 		
 		$this->query->execute($where);
@@ -146,7 +145,7 @@ class SqlManager{
 	public function prepareInlineSelectKeys($data, $glue ="=:"){
 		$iProps = [];
 		foreach ($data as $key => $props) {
-			if(!$props) $iProps[] = $key." IS NULL";
+			if(is_null($props)) $iProps[] = $key." IS NULL";
 			else $iProps[] = $key.$glue.$key;
 		}
 		return implode(',', $iProps);

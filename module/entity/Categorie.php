@@ -6,6 +6,7 @@ use Module\Bdd\SqlManager;
 class Categorie extends BaseSql {
 	protected $id;
 	protected $nom;
+	protected $active;
 
 	public function __construct() {
 		parent::__construct();
@@ -23,6 +24,13 @@ class Categorie extends BaseSql {
 	}
 	public function setNom($nom) {
 		$this->nom = $nom;
+	}
+
+	public function getActive() {
+		return $this->active;
+	}
+	public function setActive($active) {
+		$this->active = $active;
 	}
 
 	public static function get_table_class() { return "cd_categorie_article"; }		
