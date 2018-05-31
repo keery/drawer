@@ -21,7 +21,7 @@ class CategorieController {
 		if(isset($params['id'])) $categorie = Categorie::findOneBy(array('id' => $params['id']));
 		else $categorie = new Categorie();
 
-		$data['titre'] = (!empty($categorie->getTitre()) ? $categorie->getTitre() : "Ajout d'une nouvelle categorie" );
+		$data['titre'] = (!empty($categorie->getNom()) ? $categorie->getNom() : "Ajout d'une nouvelle catégorie" );
 
 		if(empty($categorie)) {
 			throw new Erreur("La categorie contenant l'id ".$params['id']." n'existe pas");

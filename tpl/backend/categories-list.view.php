@@ -20,8 +20,7 @@
   <ul class="list">
     <?php foreach($categories as $categorie) : ?>
       <li class="list-item">
-        <div class="text-list"><?php echo $categorie->getTitre(); ?></div>
-        <div class="details-list"><span class="date-details-list"><?php echo format_date($categorie->getDate_creation(), "d/m/Y"); ?></span></div>
+        <div class="text-list"><?php echo $categorie->getNom(); ?></div>
         <ul class="panel-action">
           <li><a href="<?php echo path('categorie_edit', ['id' => $categorie->getId()]); ?>" title="Éditer"><i class="fas fa-pencil-alt"></i></a></li>
           <li><a href="<?php echo path('delete_entity', ['entity' => 'categorie', 'id' => $categorie->getId()]); ?>" title="Supprimer"><i class="far fa-trash-alt"></i></a></li>
