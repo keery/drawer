@@ -17,22 +17,22 @@ return
                     'controller' => 'User',
                     'action' => 'index'
                 ],
-			'user_add' =>
+            'user_edit' =>
                 [
-                    'path' => 'users/add',
+                    'path' => 'user/{id}',
                     'controller' => 'User',
-                    'action' => 'add'
-				],
-			'user_delete' =>
+                    'action' => 'editUser',
+                    'params' =>
+                        [
+                            'id' => ['pattern' => '\d+']
+                        ]
+                ],
+            'user_add' =>
                 [
-                    'path' => 'user_delete/{id}',
+                    'path' => 'add/user',
                     'controller' => 'User',
-                    'action' => 'delete',
-					'params' => 
-					[
-						'id' => ['pattern' => '\d+']
-					]
-				],
+                    'action' => 'editUser'
+                ],
 			'pages' => 
 				[
 					'path' => 'pages',
