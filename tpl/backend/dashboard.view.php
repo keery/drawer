@@ -7,7 +7,7 @@
                 <header>
                     <span>Derniers articles</span>
                     <img src="" alt="">
-                </header>
+                </header>                
                 <div class="content">
                     <?php if (sizeof($articles) > 0) :
                         foreach ($articles as $article) : ?>

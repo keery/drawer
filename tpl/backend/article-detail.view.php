@@ -3,7 +3,6 @@
 <?php $form->form_head(); ?>
 <section class="container group">
     <div class="bloc">
-        <!-- <img src="module/captcha/Captcha.php" /> -->
         <div class="bloc-titre">
             <span>Informations</span>
         </div>

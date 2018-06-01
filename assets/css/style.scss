@@ -76,7 +76,7 @@ h1, h2, h3, h4 {
 h1 {
 	color: #304A52;display: inline-block;vertical-align: middle; margin-left: 15px;
 }
-.picto-page { display: inline-block;vertical-align: middle; 
+.picto-page { display: inline-block;vertical-align: middle;  max-width: 60px;
 	+ h1 { width: calc(100% - 115px); }
 }
 a {
