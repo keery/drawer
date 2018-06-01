@@ -2,9 +2,12 @@
 
 namespace Controllers;
 
+use Module\Entity\Form\UserForm;
 use Module\Entity\User;
 use Module\View\View;
 use Module\bdd\BaseSql;
+use Module\Form\FormBuilder;
+
 
 class UserController {
 
@@ -19,31 +22,36 @@ class UserController {
 
 	}
 
-	public function addAction($params)
-	{
-
-	}
-
-	public function editAction()
+    public function editUserAction($params)
     {
 
+        if(isset($params['id'])) $user = User::findOneBy(array('id' => $params['id']));
+        else $user = new User();
 
+        // $data['email'] = (!empty($user->getEmail()) ? $user->getEmail() : "Ajout d'un nouvel utilisateur" );
 
+        if(empty($user)) {
+            throw new Erreur("L'utilisateur contenant l'id ".$params['id']." n'existe pas");
+            return false;
+        }
+
+        $fb = new FormBuilder();
+        $form = $fb->create(new UserForm(), $user);
+
+        if(request_is("POST")) {
+            $user = $form->handleRequest($_POST);
+            if($form->validate())  {
+                $user->save();
+                addNotif('Votre compte à  bien été  enregistré', 'valid');
+                redirectToRoute('users');
+            }
+            else addNotif($form->getErrors(), 'error');
+        }
+
+        $data['form'] = $form->createView();
+        View::render("user/user-detail.view.php", 'layout.php', $data);
     }
 
-    public function deleteAction($params)
-    {
-		if(isset($params['id'])) $user = User::findOneBy(array('id' => $params['id']));
-		else $user = new User();
 
-		if(empty($user)) {
-			throw new Erreur("L'user contenant l'id ".$params['id']." n'existe pas");
-			return false;
-		}
 
-		View::render("user/user-delete.view.php", 'layout.php',array(
-			"user" => $user
-		 ));
-    }
-	
 }
