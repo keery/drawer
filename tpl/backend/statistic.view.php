@@ -1,4 +1,4 @@
-<img src="assets/img/speed-picto.svg" alt="speed" class="picto-page">
+<img src="assets/img/stat-picto.svg" alt="speed" class="picto-page">
 <h1>Statistiques</h1>
 
 <div id="stats">

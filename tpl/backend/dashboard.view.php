@@ -1,4 +1,4 @@
-<img src="assets/img/speed-picto.svg" alt="" class="picto-page">
+<img src="assets/img/speedometer.svg" alt="" class="picto-page">
 <h1>Dashboard</h1>
 <div id="dashboard" class="container-grid">
     <div class="top row group">
