@@ -48,3 +48,8 @@ define('DELETE', 'delete');
 define('ONE_TO_ONE', "11");
 define('ONE_TO_MANY', "1n");
 define('MANY_TO_MANY', "nn");
+
+//Roles
+define('ROLE_UTILISATEUR', 'UTILISATEUR');
+define('ROLE_MODERATEUR', 'MODERATEUR');
+define('ROLE_ADMINISTRATEUR', 'ADMINISTRATEUR');

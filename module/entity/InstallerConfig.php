@@ -103,10 +103,17 @@ class InstallerConfig extends \Module\Bdd\BaseSql {
                  define("PASS", "'.$params['pwd'].'");
 
 				';
-				
+
+				$user = new User();
+				$user->fromArray([
+					"firstName" => $params['firstName'],
+					"lastName" => $params['lastName'],
+					"email" => $params['email'],
+					"role" => ROLE_ADMINISTRATEUR
+				]);
+				$user->save();
 
                 file_put_contents(CONF.'config.php', $txtconfi, FILE_APPEND | LOCK_EX);
-
 			}
 			else return $errors;
         }
