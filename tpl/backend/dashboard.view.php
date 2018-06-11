@@ -14,7 +14,7 @@
                             <div class="children">
                                 <h3><?php echo (empty($article->getAuteur()) ? 'Anonyme' : $article->getAuteur()) ; ?></h3>
                                 <p><?php echo $article->getDescription(); ?></p>
-                                <span>il y a 2 jours</span>
+                                <span><p><?php echo $article->articleTimeAgo(); ?></p></span>
                             </div>
                         <?php endforeach;
                     endif; ?>
