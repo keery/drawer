@@ -1,13 +1,16 @@
 <?php 
 namespace Module\Entity;
 
+use Module\Entity\User;
+
 class InstallerConfig extends \Module\Bdd\BaseSql {
 
 	protected $databasename;
 	protected $host;
 	protected $user;
 	protected $pwd;
-    protected $websitetitle;
+	protected $websitetitle;
+	public $errors;
 
 	public function __construct(){
 		parent::__construct();
@@ -29,6 +32,9 @@ class InstallerConfig extends \Module\Bdd\BaseSql {
 		$this->pwd = password_hash($pwd, PASSWORD_DEFAULT);
 	}
 
+	public function getErrors() { return $this->errors; }
+	public function setErrors($errors) { $this->errors = $errors; }
+
 	public function configFormAdd(){
 		return [
 		            "name"=>"Database",
@@ -37,7 +43,7 @@ class InstallerConfig extends \Module\Bdd\BaseSql {
 
                         "websitetitle"=>[
                             "type"=>"text",
-                            "placeholder"=>"website title",
+                            "placeholder"=>"Titre du site",
                             "required"=>true,
                             "maxString"=>200,
                             "minString"=>2
@@ -45,26 +51,26 @@ class InstallerConfig extends \Module\Bdd\BaseSql {
 
 						"databasename"=>[
 										"type"=>"text",
-										"placeholder"=>"database name",
+										"placeholder"=>"Nom de la BDD",
 										"required"=>true,
 										"maxString"=>200,
 										"minString"=>2
 									],
 						"host"=>[
 										"type"=>"text",
-										"placeholder"=>"host",
+										"placeholder"=>"Host",
 										"required"=>true,
 										"maxString"=>100,
 										"minString"=>2
 									],
 						"user"=>[
 										"type"=>"text",
-										"placeholder"=>"user",
+										"placeholder"=>"Utilisateur",
 										"required"=>true],
 
 						"pwd"=>[
 										"type"=>"password",
-										"placeholder"=>"Votre mot de passe",
+										"placeholder"=>"Mot de passe",
 										"required"=>true],
 						"pwdConfirm"=>[
 										"type"=>"password",
@@ -97,19 +103,14 @@ class InstallerConfig extends \Module\Bdd\BaseSql {
                  define("PASS", "'.$params['pwd'].'");
 
 				';
+				
 
                 file_put_contents(CONF.'config.php', $txtconfi, FILE_APPEND | LOCK_EX);
 
-            }
-            foreach ($errors as $error) {
-                echo$error;
-                echo"</br>";
-            }
-
+			}
+			else return $errors;
         }
-
     }
-
 }
 
 

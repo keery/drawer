@@ -7,6 +7,9 @@
 
   .form {
     border: 1px solid $grey;
+    margin-bottom: 15px;
     @include box-shadow();
   }
-}
+
+
+} 
