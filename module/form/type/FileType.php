@@ -42,7 +42,7 @@ class FileType extends FormComponent
                 $HTML .= '<li class="row">
                 <div class="col-xs-4 photo"></div>
                 <div class="panel-action">
-                <button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id=""></button>
+                <button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id=""><i class="fas fa-trash-alt"></i></button>
                 </div>
                 <div class="col-xs-8 img-input">
                 <div class="input-form">
@@ -65,7 +65,7 @@ class FileType extends FormComponent
                 $HTML .= '<li class="row">
                 <div class="col-xs-4 photo" style="background-image: url(assets/img/upload/'. $file->getSrc().');"></div>
                 <div class="panel-action">
-                <button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id=""></button>
+                <button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id=""><i class="fas fa-trash-alt"></i></button>
                 </div>
                 <div class="col-xs-8 img-input">
                 <div class="input-form full">

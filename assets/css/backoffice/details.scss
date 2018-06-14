@@ -59,7 +59,8 @@
 {
 	position: absolute;
 	top: 5px;
-	right: 5px;
+    right: 5px;
+    z-index: 8;
 }
 .action-button
 {
@@ -84,12 +85,12 @@
 
 .img-list {
     > li.row {
-        align-items: center;
+        align-items: center; position: relative;
     }
     
 }
 .img-list .photo
-{
+{ 
 	height: 175px;
     width: 35%;
     max-width: 235px;
