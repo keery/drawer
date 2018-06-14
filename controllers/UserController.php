@@ -63,6 +63,13 @@ class UserController {
         View::render("user/connexion.view.php", 'layout-login.php');
     }
 
+    public function inscriptionAction() {
+        if(request_is("POST")) {
+           
+        }
+        View::render('user/inscription.view.php', 'layout-installer-config.php');
+    }
+
     public function forgetPasswordAction() {
         
         if(request_is("POST") && isset($_POST['_email'])) {
