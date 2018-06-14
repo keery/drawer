@@ -52,6 +52,12 @@ class UserController {
         View::render("user/user-detail.view.php", 'layout.php', $data);
     }
 
+    public function connexionAction() {
+        View::render("user/connexion.view.php", 'layout-login.php');
+    }
 
+    public function forgetPasswordAction() {
+        View::render("user/forget-password.view.php", 'layout-login.php');
+    }
 
 }

@@ -170,6 +170,24 @@ return
 			]	
 		]
 	],
+	'connexion' =>
+		[
+			'path' => 'connexion',
+			'controller' => 'User',
+			'action' => 'connexion'
+		],
+	'inscription' =>
+		[
+			'path' => 'inscription',
+			'controller' => 'User',
+			'action' => 'inscription'
+		],
+	'forget_password' =>
+		[
+			'path' => 'recuperation_password',
+			'controller' => 'User',
+			'action' => 'forgetPassword'
+		],		
 	'erreur' =>
 		[
 			'path' => 'erreur',

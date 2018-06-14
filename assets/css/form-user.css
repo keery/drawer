@@ -1,0 +1,242 @@
+*
+{
+	outline: none;
+	box-sizing: border-box;
+}
+
+body, html
+{
+	margin: 0;
+	padding: 0;
+	font-family: arial;
+	width: 100%;
+	background-color: #ececec;
+	height: 100%;
+}
+.on-off
+{
+	width: 0px;
+}
+.on-off + label
+{
+	padding: 2px;
+	width: 43px;
+	height: 25px;
+	background-color: #dddddd;
+	border-radius: 25px;
+	display: inline-block;
+	position: relative;
+}
+.on-off + label:before,
+.on-off + label:after
+{
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  bottom: 1px;
+  content: "";		
+}
+
+.on-off + label:before 
+{
+	right: 1px;
+	background-color: #a7a7a7;
+	border-radius: 25px;
+	transition: background 0.4s;
+}
+.on-off + label:after 
+{
+	width: 23px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: margin 0.4s;
+}
+.on-off:checked + label:before 
+{
+	background-color: #16b4b5;
+}
+.on-off:checked + label:after 
+{
+	margin-left: 18px;
+}
+input[type='checkbox']
+{
+	margin: 0px;
+	display: none;
+}
+.input input[type="text"], 
+.input input[type="password"], 
+.input input[type="submit"]
+{
+	border: none;
+	background-color: transparent!important;
+	color: white;
+	width: calc(100% - 45px);
+}
+input[type="submit"]
+{
+	cursor: pointer;
+}
+h1
+{
+	letter-spacing: 5px;
+	border-bottom: 3px solid #125566;
+	padding-bottom: 15px;
+    font-size: 26px;
+	color: #125566;
+	font-weight: bold;
+	text-align: center;
+}
+#login-page
+{
+	text-align: center;
+	background-color: #ececec;
+}
+#login-page:after
+{
+	content: '';
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+}	
+#login-form
+{
+	display: inline-block;
+	vertical-align: middle;
+	text-align: left;
+	box-shadow: 0px 12px 29px #145261;
+	color: white;
+	font-family: arial;
+	padding: 50px 70px;
+	border: 2px solid #125566;
+	border-radius: 5px;
+}
+
+.input
+{
+	margin: 15px 0px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.51);
+}
+.fa
+{
+	color: white;
+	margin-right: 15px;
+	width: 12px;
+	font-size: 16px;
+}
+.on-off + label,
+.on-off + label + span
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+.on-off + label + span
+{
+	font-size: 12px;
+	color: #125566;
+	font-weight: bold;
+}
+.group
+{
+	padding: 30px 0px;
+}
+.button
+{
+  	position: relative;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+	min-height: 47px;
+	background-color: transparent;
+	color: #125566!important;
+	font-weight: bold;
+	font-size: 14px;
+	font-family: arial;
+	padding: 11px 9px;
+	border-radius: 41px;
+	border: 2px solid transparent;
+	margin: 13px 0px;
+	cursor: pointer;
+	z-index: 5;
+	text-shadow: none!important;
+	transition: box-shadow 0.2s ease-in-out;
+}
+.button:hover
+{
+    box-shadow: 0px 0px 21px rgba(0, 0, 0, 0.66);
+}	
+.button:before, .button:after
+{
+	content: '';
+    position: absolute;
+    border-radius: 22px;
+}
+.button:before 
+{
+    z-index: -1;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+	transition: filter 0.2s ease-in-out;
+
+}
+.button:after 
+{
+    z-index: -2;
+    top: -2px; bottom: -2px;
+    left: -2px; right: -2px;
+	background: -webkit-linear-gradient(right, #16b4b5 0%, #125566 100%);
+	background: -o-linear-gradient(right, #16b4b5 0%, #125566 100%);
+	background: linear-gradient(to left, #16b4b5 0%, #125566 100%);
+}
+.button:before, 
+#login-form,
+#login-page
+{
+	background-image: url(../img/fond1.jpg);
+	background-attachment: fixed;
+	background-size: cover;
+    background-position: 53% 0px;
+}
+#login-page
+{
+	background-image: url(../img/fond1-blur.jpg);
+	position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;	
+}
+#login-page *
+{
+	box-sizing: border-box;
+	outline: none;
+}
+
+/* Pour ie */
+.button > [type="submit"]
+{
+	border: 0px;	
+	background-image: none;
+	position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 100%!important;
+    font-size: 14px;
+    color: #125566!important;
+    box-shadow: none;
+    text-shadow: none;
+}
+input:-webkit-autofill 
+{
+    transition: background-color 99999999s ease-in-out 0s;
+    -webkit-text-fill-color: white !important;
+}

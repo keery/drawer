@@ -28,8 +28,8 @@
 					<a href="<?php echo path('contact') ?>">Me contacter</a>
 				</div>
 				<div class="right">
-					<a href="#">Sign up</a>
-					<a href="#" class="selected">Sign in</a>
+					<a href="<?php echo path('inscription'); ?>">Inscription</a>
+					<a href="<?php echo path('connexion'); ?>" class="selected">Connexion</a>
 				</div>
 			</nav>
     </header>
