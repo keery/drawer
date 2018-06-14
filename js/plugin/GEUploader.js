@@ -99,9 +99,10 @@
 
 			function uploadImg(route, data_base64)
 			{
+				var key = $("input.input_key").val();
 				var dataForm = new FormData();
 				dataForm.append("data_base64", data_base64);
-				dataForm.append("id_entity", $("input[name='id_entity']").val());
+				dataForm.append("id_entity", $("input[name='"+key+"[id_entity]']").val());
 				dataForm.append("entity", option.entity);
 				dataForm.append("dossier_upload", option.dossier_upload);
 

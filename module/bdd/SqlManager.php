@@ -33,6 +33,8 @@ class SqlManager{
 							$properties[$key] = $insertId;
 						}elseif($mapping['relation'] == MANY_TO_MANY){
 							
+						}elseif($mapping['relation'] == MANY_TO_ONE){
+								
 						}				
 					}else{
 						throw new Erreur('Champ "relation" manquant pour "'.$this->table.'"');
@@ -152,14 +154,40 @@ class SqlManager{
 	}
 
 	public function hydrateObject($table, $data) {
+		// var_dump($data);
 		$t = new $table();
 
 		if(!empty($t->getMapping())){
 			foreach ($t->getMapping() as $key => $mapping) {
 				if(isset($data[$key]) && !empty($data[$key])) {
-					$func = 'set'.ucfirst($mapping['property']);
-					$jointedElement = $mapping['target']::findOneBy(array('id' => $data[$key]));
-					$t->$func($jointedElement);
+					if(in_array($mapping['relation'], array(ONE_TO_ONE, ONE_TO_MANY))) {
+						$func = 'set'.ucfirst($mapping['property']);
+						if(method_exists($t, $func)) {
+							$jointedElement = $mapping['target']::findOneBy(array('id' => $data[$key]));
+							$t->$func($jointedElement);
+						}
+						else {
+							throw new Erreur("La fonction ".$func." n'existe pas");
+							return false;
+						}
+					}					
+				}
+				if($mapping['relation'] === MANY_TO_ONE) {
+					// var_dump($t);
+					$func = $mapping['adding'];
+					if(method_exists($t, $func)) {
+						$jointedElements = $mapping['target']::find(array($key => $data['id']));
+						if(sizeof($jointedElements) > 0) {
+							foreach($jointedElements as $element) {
+								var_dump($element);
+								$t->$func($element);
+							}
+						}
+					}
+					else {
+						// throw new Erreur("La fonction ".$func." n'existe pas");
+						// return false;
+					}
 				}
 				unset($data[$key]);
 			}

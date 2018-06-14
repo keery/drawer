@@ -2,6 +2,7 @@
 namespace Controllers;
 
 use Module\Entity\Article;
+use Module\Entity\Image;
 use Module\View\View;
 use Module\Erreur\Erreur;
 
@@ -35,7 +36,7 @@ class ArticleController {
 		
 		$fb = new FormBuilder();
 		$form = $fb->create(new ArticleForm(), $article);
-
+		
 		if(request_is("POST")) {
 			$article = $form->handleRequest($_POST);
 			if($form->validate())  {

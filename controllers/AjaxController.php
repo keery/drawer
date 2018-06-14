@@ -34,12 +34,12 @@ class AjaxController {
 
                     if ($id_entity != '') 
                     {
-                        $entity = $em->getRepository($entity)->findOneById($id_entity);
-                        $adminPage = $this->container->get('admin_page');
+                        $entity = $entity::findOneBy(['id' => $id_entity]);
 
                         if ($entity != null) 
                         {
-                            if ($adminPage->hasMethod('addImage', $entity)) 
+                            var_dump(method_exists($entity, 'addImage'));
+                            if (method_exists($entity, 'addImage')) 
                             {
                                 $entity->addImage($img);
                             }

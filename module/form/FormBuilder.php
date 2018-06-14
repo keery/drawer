@@ -17,6 +17,7 @@ class FormBuilder {
 		$rules = [];
 		foreach($form->getStructure() as $key => $field) {
 			$func = 'get'.ucfirst($key);
+			if(get_class($field) == "Module\Form\Type\FileType" && $object) $field->setIdEntity($object->getId());
 			if(method_exists($object, $func)) {
 				$value = $object->$func();
 				$value = is_object($value) ? $value->getId() : $value;
@@ -35,7 +36,8 @@ class FormBuilder {
 		$key = uniqid();
 		$options = [
 			'value' => $key,
-			'required' => true
+			'required' => true,
+			'class' => 'input_key'
 		];
 
 		$form->generateFieldKey($options);

@@ -9,15 +9,9 @@ class Image extends BaseSql {
 	protected $src;
 	protected $alt;
 	protected $title;
-    protected $position;
-    protected $article;
-    public $mapping = [
-		"id_article" => [
-			"relation" => ONE_TO_MANY,
-			"target" => "Module\Entity\Article",
-			"property" => "article"
-		]
-	];
+	protected $position;
+	protected $article;
+
     
 
 	public function __construct() {

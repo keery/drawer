@@ -8,11 +8,14 @@ class FileType extends FormComponent
 {
     private $manyFiles;
     private $entity;
+    private $id_entity;
 
     public function __construct($entity, $manyFiles=true) {
         $this->entity = $entity;
         $this->manyFiles = $manyFiles;
     }
+
+    public function setIdEntity($id) { $this->id_entity = $id; }
 
     public function toHTML() {
 
@@ -23,7 +26,8 @@ class FileType extends FormComponent
         $ref = $this->entity::get_table_class();
 
         $HTML = '
-            <input type="hidden" name="'.$this->key.'[id_entity]" value="'.$this->entity.'">
+            <input type="hidden" name="'.$this->key.'[entity]" value="'.$this->entity.'">
+            <input type="hidden" name="'.$this->key.'[id_entity]" value="'.$this->id_entity.'">
             <input type="hidden" '.$this->defaultFields().' id="id_files">
             <div class="input-form">
             <input type="file" id="'.$ref.'_image_image" name="'.$ref.'[image][image]" class="input-file '.$ref.'">

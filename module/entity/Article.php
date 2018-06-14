@@ -13,12 +13,19 @@ class Article extends BaseSql {
 	protected $date_creation;
 	protected $date_update;
 	protected $active;
+	protected $images;
 
 	public $mapping = [
 		"id_categorie" => [
 			"relation" => ONE_TO_MANY,
 			"target" => "Module\Entity\Categorie",
 			"property" => "categorie"
+		],
+		"id_article" => [
+			"relation" => MANY_TO_ONE,
+			"target" => "Module\Entity\Image",
+			"property" => "images",
+			"adding" => "addImage",
 		]
 	];
 
@@ -78,5 +85,9 @@ class Article extends BaseSql {
 
     public function getDate_creation() {
         return $this->date_creation;
-    }
+	}
+	
+	public function addImage($image) {
+		$this->images[] = $image;
+	}
 }
