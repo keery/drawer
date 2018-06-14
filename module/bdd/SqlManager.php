@@ -111,7 +111,7 @@ class SqlManager{
 				}
 				$where = $formatWhere;
 			}
-			else $inlineWhere = $this->prepareInlineSelectKeys($where);
+			else $inlineWhere = $this->prepareInlineSelectKeys($where, "=:", " AND ");
 			
 			$q .= " WHERE ".$inlineWhere;	
 		}
@@ -142,13 +142,13 @@ class SqlManager{
 		return implode(',', $iProps);
 	}
 
-	public function prepareInlineSelectKeys($data, $glue ="=:"){
+	public function prepareInlineSelectKeys($data, $glue ="=:", $separator=","){
 		$iProps = [];
 		foreach ($data as $key => $props) {
 			if(is_null($props)) $iProps[] = $key." IS NULL";
 			else $iProps[] = $key.$glue.$key;
 		}
-		return implode(',', $iProps);
+		return implode($separator, $iProps);
 	}
 
 	public function hydrateObject($table, $data) {

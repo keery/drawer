@@ -4,10 +4,10 @@
 	function path($routeName, $params=null)
 	{
 		$router = new Router();
-		return $router->routeHandler($routeName, $params);
+        return DIRECTORY.DS.$router->routeHandler($routeName, $params);
 	}
 	function redirectToRoute($route) {
-		header('Location: '.DIRECTORY.DS.path($route));
+		header('Location: '.path($route));
 	}
 
 	function request_is($type) {

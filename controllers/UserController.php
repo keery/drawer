@@ -53,10 +53,31 @@ class UserController {
     }
 
     public function connexionAction() {
+        if(request_is("POST") && isset($_POST['_email'], $_POST['_password'])) {
+            if($user = User::findOneBy(['email' => $_POST['_email'], 'password' => $_POST['_password']])) {
+                if(in_array($user->getRole(), [ROLE_MODERATEUR, ROLE_ADMINISTRATEUR])) redirectToRoute("dashboard");
+                else  var_dump(redirectToRoute("site"));		
+            }
+            else addNotif("Ce couple email et mot de passe n'existe pas", 'error');
+        }
         View::render("user/connexion.view.php", 'layout-login.php');
     }
 
     public function forgetPasswordAction() {
+        
+        if(request_is("POST") && isset($_POST['_email'])) {
+
+            if (filter_var($_POST['_email'], FILTER_VALIDATE_EMAIL)) {
+
+                if($user = User::find(['email' => $_POST['_email']])) {
+                    //Envoyer un email ici
+                    addNotif("Votre mot de passe vous a été renvoyé", 'valid');
+                }
+                else addNotif("Cet email ne correspond à aucun compte", 'error');
+
+            }
+            else addNotif("Format d'email incorrect", 'error');
+        }
         View::render("user/forget-password.view.php", 'layout-login.php');
     }
 
