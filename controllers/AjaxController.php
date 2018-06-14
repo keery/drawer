@@ -38,7 +38,6 @@ class AjaxController {
 
                         if ($entity != null) 
                         {
-                            var_dump(method_exists($entity, 'addImage'));
                             if (method_exists($entity, 'addImage')) 
                             {
                                 $entity->addImage($img);

@@ -90,4 +90,7 @@ class Article extends BaseSql {
 	public function addImage($image) {
 		$this->images[] = $image;
 	}
+	public function getImages() {
+		return $this->images;
+	}	
 }

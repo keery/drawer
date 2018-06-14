@@ -86,6 +86,22 @@
     > li.row {
         align-items: center;
     }
+    
+}
+.img-list .photo
+{
+	height: 175px;
+    width: 35%;
+    max-width: 235px;
+    border: 1px solid #cfcfcf;
+    background-size: cover;
+    background-position: 50%;
+}
+.img-input { padding-left: 15px; }
+.photo
+{
+	background-color: #e3e3e3;
+	text-align: center;
 }
 .bloc
 {

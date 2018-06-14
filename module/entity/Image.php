@@ -12,8 +12,6 @@ class Image extends BaseSql {
 	protected $position;
 	protected $article;
 
-    
-
 	public function __construct() {
 		parent::__construct();
 	}

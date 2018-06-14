@@ -173,20 +173,18 @@ class SqlManager{
 					}					
 				}
 				if($mapping['relation'] === MANY_TO_ONE) {
-					// var_dump($t);
 					$func = $mapping['adding'];
 					if(method_exists($t, $func)) {
 						$jointedElements = $mapping['target']::find(array($key => $data['id']));
 						if(sizeof($jointedElements) > 0) {
 							foreach($jointedElements as $element) {
-								var_dump($element);
 								$t->$func($element);
 							}
 						}
 					}
 					else {
-						// throw new Erreur("La fonction ".$func." n'existe pas");
-						// return false;
+						throw new Erreur("La fonction ".$func." n'existe pas");
+						return false;
 					}
 				}
 				unset($data[$key]);

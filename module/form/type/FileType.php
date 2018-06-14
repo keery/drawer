@@ -9,6 +9,7 @@ class FileType extends FormComponent
     private $manyFiles;
     private $entity;
     private $id_entity;
+    private $files;
 
     public function __construct($entity, $manyFiles=true) {
         $this->entity = $entity;
@@ -16,6 +17,7 @@ class FileType extends FormComponent
     }
 
     public function setIdEntity($id) { $this->id_entity = $id; }
+    public function addFiles($files) { $this->files = $files; }
 
     public function toHTML() {
 
@@ -36,7 +38,7 @@ class FileType extends FormComponent
             <div class="dropzone" id="dz_'.$ref.'" data-message="Déposer votre fichier ici"></div>
             <ul class="img-list container-grid">';
             
-            if(!$this->manyFiles) {   
+        if(!$this->manyFiles) {   
                 $HTML .= '<li class="row">
                 <div class="col-xs-4 photo"></div>
                 <div class="panel-action">
@@ -57,6 +59,26 @@ class FileType extends FormComponent
                     <input type="text" id="'.$ref.'_image_position" name="'.$ref.'[image][position]">
                 </div>
             </li>';
+        }
+        else if(sizeof($this->files) > 0) {
+            foreach($this->files as $file) {
+                $HTML .= '<li class="row">
+                <div class="col-xs-4 photo" style="background-image: url(assets/img/upload/'. $file->getSrc().');"></div>
+                <div class="panel-action">
+                <button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id=""></button>
+                </div>
+                <div class="col-xs-8 img-input">
+                <div class="input-form full">
+                    <label for="'.$ref.'_image_alt">Alt</label>
+                    <input type="text" id="'.$ref.'_image_alt" name="'.$ref.'[image][alt]" class="input" value="'.$file->getAlt().'">
+                </div>
+                <div class="input-form full">
+                    <label for="'.$ref.'_image_title">Title</label>
+                    <input type="text" id="'.$ref.'_image_title" name="'.$ref.'[image][title]" class="input" value="'.$file->getTitle().'">
+                </div>
+                </div>
+            </li>';
+            }
         }
         $HTML .= "</ul>
         </div>";
