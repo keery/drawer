@@ -36,8 +36,6 @@ class SqlManager{
 							foreach ($properties[$mapping['property']] as $linkedObject) {
 								$linkedObject->save();
 							}
-							// var_dump($properties);
-							// var_dump($mapping);
 						}				
 					}else{
 						throw new Erreur('Champ "relation" manquant pour "'.$this->table.'"');

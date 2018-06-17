@@ -11,6 +11,7 @@
 			maxWidth : 1920,
 			maxHeight : 1080,
 			nbFichiersMax : 50,
+			key: $("input.input_key").val()
 		}, option);
 
 		//Classe
@@ -99,10 +100,9 @@
 
 			function uploadImg(route, data_base64)
 			{
-				var key = $("input.input_key").val();
 				var dataForm = new FormData();
 				dataForm.append("data_base64", data_base64);
-				dataForm.append("id_entity", $("input[name='"+key+"[id_entity]']").val());
+				dataForm.append("id_entity", $("input[name='"+option.key+"[id_entity]']").val());
 				dataForm.append("entity", option.entity);
 				dataForm.append("dossier_upload", option.dossier_upload);
 
@@ -146,11 +146,10 @@
 							{
 								var id_last_child = ($(images_div+" + ul li:last-child input[type='text']").attr("id"));
 								var split = id_last_child.split(/_/)[0];
-								console.log(split);
 
 								if ($.isNumeric(split) && split != undefined) 
 								{
-									addImg($(images_div), parseInt(split)+1, entity_name, data_base64);
+									addImg($(images_div), parseInt(split)+1, entity_name, data_base64, response.id_file);
 								}				
 							}
 
@@ -192,9 +191,7 @@
 
 			function addImg(container, index, entity_name, imgSRC, value="") 
 		    {
-
-				var proto = '<li class="row"><div class="col-xs-4 photo"><img src="'+imgSRC+'"></div><div class="panel-action"><button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id="'+value+'"><i class="fas fa-trash-alt"></i></button></div><div class="col-xs-8 img-input"><div class="input-form full spacing"><label for="'+index+'_image_alt">Alt</label><input type="text" id="'+index+'_image_alt" name="'+entity_name+'['+index+'][image][alt]" class="input"></div><div class="input-form full spacing"><label for="'+index+'_image_title">Title</label><input type="text" id="'+index+'_image_title" name="'+entity_name+'['+index+'][image][title]" class="input"></div></div></li>';
-				
+				var proto = '<li class="row"><div class="col-xs-4 photo"><img src="'+imgSRC+'"></div><div class="panel-action"><button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id="'+value+'"><i class="fas fa-trash-alt"></i></button></div><div class="col-xs-8 img-input"><input type="hidden" name="'+option.key+'[image]['+index+'][id]" value="'+value+'"><div class="input-form full spacing"><label for="'+index+'_image_alt">Alt</label><input type="text" id="'+index+'_image_alt" name="'+option.key+'[image]['+index+'][alt]" class="input"></div><div class="input-form full spacing"><label for="'+index+'_image_title">Title</label><input type="text" id="'+index+'_image_title" name="'+option.key+'[image]['+index+'][title]" class="input"></div></div></li>';
 
 		    	var template = proto
 		    	  .replace(/_entity_name_/g, entity_name)

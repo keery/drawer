@@ -69,7 +69,7 @@ class FileType extends FormComponent
                 <button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id=""><i class="fas fa-trash-alt"></i></button>
                 </div>
                 <div class="col-xs-8 img-input">
-                <div class="input-form full">
+                <div class="input-form full"> 
                     <label for="'.$ref.'_image_alt">Alt</label>
                     <input type="text" id="'.$count.'_'.$ref.'_image_alt" name="'.$this->key.'[image]['.$count.'][alt]" class="input" value="'.$file->getAlt().'">
                 </div>

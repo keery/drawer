@@ -24,10 +24,14 @@ class BaseSql{
 					
 					if($mapping['relation'] == MANY_TO_ONE && $key."s" == $mapping['property']) {
 						$adding = $mapping['adding'];
-						foreach ($value as $linkedObject) {
-							if($entity = $mapping['target']::findOneBy(['id' => $linkedObject['id']])) {
-								$entity->fromArray($linkedObject);
-								$this->$adding($entity);
+						if(is_array($value)) {
+							var_dump($value);
+							foreach ($value as $linkedObject) {
+								if($entity = $mapping['target']::findOneBy(['id' => $linkedObject['id']])) {
+									$entity->fromArray($linkedObject);
+									var_dump($entity);
+									$this->$adding($entity);
+								}
 							}
 						}
 					}
