@@ -39,7 +39,7 @@ class AjaxController {
                             if (method_exists($entity, 'addImage')) $entity->addImage($img);
                             else $entity->setImage($img);                                
 
-                            $entity->save();
+                            // $entity->save();
                             $response['entity'] = true;
                         }
                         else echo json_encode("Entité introuvable");
