@@ -21,6 +21,16 @@ class BaseSql{
 			if($value != '') {
 				foreach($this->getMapping() as $mapping) {
 					if($mapping['property'] === $key && !is_object($value)) $value = $mapping['target']::findOneBy(['id' => $value]);
+					
+					if($mapping['relation'] == MANY_TO_ONE && $key."s" == $mapping['property']) {
+						$adding = $mapping['adding'];
+						foreach ($value as $linkedObject) {
+							if($entity = $mapping['target']::findOneBy(['id' => $linkedObject['id']])) {
+								$entity->fromArray($linkedObject);
+								$this->$adding($entity);
+							}
+						}
+					}
 				}
 			}
 			else $value = null;

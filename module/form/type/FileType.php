@@ -64,17 +64,18 @@ class FileType extends FormComponent
             foreach($this->files as $count => $file) {
                 $HTML .= '<li class="row">
                 <div class="col-xs-4 photo" style="background-image: url(assets/img/upload/'. $file->getSrc().');"></div>
+                <input type="hidden" name="'.$this->key.'[image]['.$count.'][id]" value="'.$file->getId().'">
                 <div class="panel-action">
                 <button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id=""><i class="fas fa-trash-alt"></i></button>
                 </div>
                 <div class="col-xs-8 img-input">
                 <div class="input-form full">
                     <label for="'.$ref.'_image_alt">Alt</label>
-                    <input type="text" id="'.$count.'_'.$ref.'_image_alt" name="'.$ref.'[image][alt]" class="input" value="'.$file->getAlt().'">
+                    <input type="text" id="'.$count.'_'.$ref.'_image_alt" name="'.$this->key.'[image]['.$count.'][alt]" class="input" value="'.$file->getAlt().'">
                 </div>
                 <div class="input-form full">
                     <label for="'.$ref.'_image_title">Title</label>
-                    <input type="text" id="'.$count.'_'.$ref.'_image_title" name="'.$ref.'[image][title]" class="input" value="'.$file->getTitle().'">
+                    <input type="text" id="'.$count.'_'.$ref.'_image_title" name="'.$this->key.'[image]['.$count.'][title]" class="input" value="'.$file->getTitle().'">
                 </div>
                 </div>
             </li>';

@@ -108,7 +108,6 @@ class FormBuilderInterface
             foreach($request as $key => $value) {
                 if(in_array($key, $_SESSION['form_keys'])) $this->getObject()->fromArray($value);                         
             }
-
             return $this->getObject();
         }
     }

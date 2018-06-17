@@ -24,7 +24,6 @@ class SqlManager{
 					throw new Erreur('Champ "property" manquant pour "'.$this->table.'"');
 					return false;
 				}	
-
 				//Si l'attribut comporte bien au objet
 				if(!empty($properties[$mapping['property']])){
 					if(isset($mapping['relation'])) {
@@ -34,7 +33,11 @@ class SqlManager{
 						}elseif($mapping['relation'] == MANY_TO_MANY){
 							
 						}elseif($mapping['relation'] == MANY_TO_ONE){
-								
+							foreach ($properties[$mapping['property']] as $linkedObject) {
+								$linkedObject->save();
+							}
+							// var_dump($properties);
+							// var_dump($mapping);
 						}				
 					}else{
 						throw new Erreur('Champ "relation" manquant pour "'.$this->table.'"');
@@ -63,7 +66,6 @@ class SqlManager{
 		$props = $properties;
 		unset($props['id']);
 		$iProps = $this->prepareInlineKeys($props);
-
 		$this->query = $this->pdo->prepare("UPDATE ".$table." SET ".$iProps." WHERE id = :id");
 		return $this->query->execute($properties);
 	}
@@ -154,7 +156,6 @@ class SqlManager{
 	}
 
 	public function hydrateObject($table, $data) {
-		// var_dump($data);
 		$t = new $table();
 
 		if(!empty($t->getMapping())){
