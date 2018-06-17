@@ -10,7 +10,7 @@ class Image extends BaseSql {
 	protected $alt;
 	protected $title;
 	protected $position;
-	protected $article;
+	protected $id_article;
 
 	public function __construct() {
 		parent::__construct();
@@ -30,25 +30,25 @@ class Image extends BaseSql {
 		$this->alt = $alt;
     }
 
-    public function getTitle() {
+  public function getTitle() {
 		return $this->title;
 	}
 	public function setTitle($title) {
 		$this->title = $title;
     }
 
-    public function getPosition() {
+  public function getPosition() {
 		return $this->position;
 	}
 	public function setPosition($position) {
 		$this->position = $position;
-    }    
+  }    
     
-    public function getArticle() {
-		return $this->titre;
+  public function getId_article() {
+		return $this->id_article;
 	}
-	public function setArticle(Article $article) {
-		$this->article = $article;
+	public function setId_article($idarticle) {
+		$this->id_article = $idarticle;
 	}
 
 	public static function get_table_class() { return "cd_image"; }		

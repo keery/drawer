@@ -61,7 +61,7 @@ class FileType extends FormComponent
             </li>';
         }
         else if(sizeof($this->files) > 0) {
-            foreach($this->files as $file) {
+            foreach($this->files as $count => $file) {
                 $HTML .= '<li class="row">
                 <div class="col-xs-4 photo" style="background-image: url(assets/img/upload/'. $file->getSrc().');"></div>
                 <div class="panel-action">
@@ -70,11 +70,11 @@ class FileType extends FormComponent
                 <div class="col-xs-8 img-input">
                 <div class="input-form full">
                     <label for="'.$ref.'_image_alt">Alt</label>
-                    <input type="text" id="'.$ref.'_image_alt" name="'.$ref.'[image][alt]" class="input" value="'.$file->getAlt().'">
+                    <input type="text" id="'.$count.'_'.$ref.'_image_alt" name="'.$ref.'[image][alt]" class="input" value="'.$file->getAlt().'">
                 </div>
                 <div class="input-form full">
                     <label for="'.$ref.'_image_title">Title</label>
-                    <input type="text" id="'.$ref.'_image_title" name="'.$ref.'[image][title]" class="input" value="'.$file->getTitle().'">
+                    <input type="text" id="'.$count.'_'.$ref.'_image_title" name="'.$ref.'[image][title]" class="input" value="'.$file->getTitle().'">
                 </div>
                 </div>
             </li>';

@@ -146,6 +146,7 @@
 							{
 								var id_last_child = ($(images_div+" + ul li:last-child input[type='text']").attr("id"));
 								var split = id_last_child.split(/_/)[0];
+								console.log(split);
 
 								if ($.isNumeric(split) && split != undefined) 
 								{

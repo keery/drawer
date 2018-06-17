@@ -27,35 +27,25 @@ class AjaxController {
 
                 if (isset($type) && in_array($type, $extensions)) 
                 {
-   
                     $nom_fichier = uniqid().".".$type;
                     $img = new Image();
                     $img->setSrc($nom_fichier);
+                    $img->setId_article($_POST['id_entity']);
 
                     if ($id_entity != '') 
                     {
-                        $entity = $entity::findOneBy(['id' => $id_entity]);
-
-                        if ($entity != null) 
+                        if ($entity = $entity::findOneBy(['id' => $id_entity])) 
                         {
-                            if (method_exists($entity, 'addImage')) 
-                            {
-                                $entity->addImage($img);
-                            }
-                            else
-                            {
-                                $entity->setImage($img);                                
-                            }
+                            if (method_exists($entity, 'addImage')) $entity->addImage($img);
+                            else $entity->setImage($img);                                
 
-                            $em->persist($entity);
+                            $entity->save();
                             $response['entity'] = true;
                         }
+                        else echo json_encode("Entité introuvable");
                         
                     }
-                    else
-                    {
-                        $response['entity'] = false;
-                    }
+                    else $response['entity'] = false;
 
                     $dataURL = str_replace(" ", "+", $dataURL);
                     $dataURL = base64_decode($dataURL);
@@ -70,20 +60,11 @@ class AjaxController {
                         echo json_encode($response);
                     }
                 }
-                else
-                {
-                    echo json_encode("L'extension du fichier est incorrect");
-                }
+                else echo json_encode("L'extension du fichier est incorrect");
             }
-            else
-            {
-                echo json_encode("Problème lors du téléchargement du fichier");
-            }
+            else  echo json_encode("Problème lors du téléchargement du fichier");
         }
-        else
-        {
-            echo json_encode("Type de requête invalide");            
-        }
+        else echo json_encode("Type de requête invalide");            
     }
     
     private function isXmlHttpRequest() {
