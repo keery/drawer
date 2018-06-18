@@ -44,6 +44,7 @@
 
 	</footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/plugin/tinymce/tinymce.min.js"></script>
     <script type="text/javascript" src="js/plugin/tinymce/langs/fr.js"></script>
     <script type="text/javascript" src="js/plugin/GEUploader.js"></script>

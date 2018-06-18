@@ -70,4 +70,38 @@ class AjaxController {
     private function isXmlHttpRequest() {
         return $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
     }
+
+    public function deleteImgAction(Request $request)
+    {
+        $em = $this
+          ->getDoctrine()
+          ->getManager()        
+        ;
+
+        $id = (int) $_GET['id'];
+
+        if ($request->isXmlHttpRequest() && is_int($id))
+        {
+            $img = $em->getRepository('AdminBundle:Image')->findOneById($id);
+
+            $dossier = $this->getParameter('img_upload');
+
+            if (!empty($img)) 
+            {
+                $fichier = $dossier."/".$img->getImage();
+
+                if (file_exists($fichier) && !empty($img->getImage())) 
+                {
+                    unlink($fichier);
+                }
+                $em->remove($img);
+                $em->flush();
+                
+                $response['state'] = true;
+                return json_encode($response); 
+            }
+            else  echo json_encode("Aucune correspondance en BDD");            
+        }
+        else echo json_encode("Type de requête invalide");            
+    }
 }

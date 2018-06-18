@@ -31,6 +31,72 @@ $(document).ready(function(){
 		toolbar: 'bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor fontsizeselect'
 	});
 
+	$(document).on("click", '.dial', function(event){
+		event.preventDefault()
+		var element = $(this),
+			dataId = element.attr("data-id"),
+			href = element.attr("href");
+
+		if (dataId != null) 
+		{
+			var choix = 
+			{
+				"Annuler": function() 
+				{
+		          $(this).dialog("close");
+		        },
+		        Confirmer: function() 
+		        {
+		          	$(this).dialog("close");
+
+		          	$.ajax({
+						url: Routing.generate("ajax_delete_img"),
+					    type: "GET",
+					    data: "id="+dataId,
+					    dataType: 'json',
+
+					    success: function (response) 
+					    {
+
+					    	if (response.state == true) 
+					    	{
+								element.closest("li").fadeOut();
+					    	}
+					    },
+					    error: function(erreur, etat) 
+					    {
+					    	console.log("ERREUR");
+					    }
+					});
+		        }
+			}
+		}
+		else if(href != null)
+		{
+			var choix = 
+			{
+				"Annuler": function() 
+				{
+		          $(this).dialog("close");
+		        },
+		        Confirmer: function() 
+		        {
+					location= href;
+		          	$(this).dialog("close");
+		        }
+			}
+		}
+	
+		$("<div title='Confirmation'>Voulez-vous vraiment supprimer cet élément ?</div>").dialog({
+				resizable: false,
+				width: 450,
+				height: 185,
+				modal: true,
+				buttons: choix,
+				close: function(){ $(this).remove(); }
+		});
+	});
+
 	tinymce.init({ 
 		selector:'.editor-img',
 		menubar: false, 
