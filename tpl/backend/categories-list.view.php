@@ -23,7 +23,7 @@
         <div class="text-list"><?php echo $categorie->getNom(); ?></div>
         <ul class="panel-action">
           <li><a href="<?php echo path('categorie_edit', ['id' => $categorie->getId()]); ?>" title="Éditer"><i class="fas fa-pencil-alt"></i></a></li>
-          <li><a href="<?php echo path('delete_entity', ['entity' => 'categorie', 'id' => $categorie->getId()]); ?>" title="Supprimer"><i class="far fa-trash-alt"></i></a></li>
+          <li><a href="<?php echo path('delete_entity', ['entity' => 'categorie', 'id' => $categorie->getId()]); ?>" title="Supprimer" class="dial"><i class="far fa-trash-alt"></i></a></li>
         </ul>
       </li>
     <?php endforeach; ?>
