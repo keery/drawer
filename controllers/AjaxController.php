@@ -71,34 +71,25 @@ class AjaxController {
         return $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
     }
 
-    public function deleteImgAction(Request $request)
+    public function deleteImgAction($request)
     {
-        $em = $this
-          ->getDoctrine()
-          ->getManager()        
-        ;
+        $id = (int) $request['id'];
 
-        $id = (int) $_GET['id'];
 
-        if ($request->isXmlHttpRequest() && is_int($id))
+        if ($this->isXmlHttpRequest() && is_int($id) && $id > 0)
         {
-            $img = $em->getRepository('AdminBundle:Image')->findOneById($id);
-
-            $dossier = $this->getParameter('img_upload');
-
-            if (!empty($img)) 
+            if ($img = Image::findOneBy(['id' => $id])) 
             {
-                $fichier = $dossier."/".$img->getImage();
+                $fichier = "assets/img/upload/".$img->getSrc();
 
-                if (file_exists($fichier) && !empty($img->getImage())) 
+                if (file_exists($fichier)) 
                 {
                     unlink($fichier);
                 }
-                $em->remove($img);
-                $em->flush();
+                Image::delete($id);
                 
                 $response['state'] = true;
-                return json_encode($response); 
+                echo json_encode($response); 
             }
             else  echo json_encode("Aucune correspondance en BDD");            
         }

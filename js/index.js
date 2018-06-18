@@ -50,9 +50,8 @@ $(document).ready(function(){
 		          	$(this).dialog("close");
 
 		          	$.ajax({
-						url: Routing.generate("ajax_delete_img"),
+						url: 'ajax/delete_img/'+dataId,
 					    type: "GET",
-					    data: "id="+dataId,
 					    dataType: 'json',
 
 					    success: function (response) 

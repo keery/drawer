@@ -202,6 +202,16 @@ return
 				'path' => 'upload',
 				'controller' => 'Ajax',
 				'action' => 'uploadFiles'
+			],
+			'delete_img' => 
+			[
+				'path' => 'delete_img/{id}',
+				'controller' => 'Ajax',
+				'action' => 'deleteImg',
+				'params' => 
+				[
+					'id' => ['pattern' => '\d+']
+				]
 			]	
 		]
 	]
