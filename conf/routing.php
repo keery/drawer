@@ -37,13 +37,15 @@ return
 				[
 					'path' => 'pages',
 					'controller' => 'Page',
-					'action' => 'pages'
+					'action' => 'pages',
+					'role' => ROLE_ADMINISTRATEUR
 				],				
 			'page_edit' => 
 				[
 					'path' => 'page/{id}',
 					'controller' => 'Page',
 					'action' => 'editPage',
+					'role' => ROLE_ADMINISTRATEUR,
 					'params' => 
 					[
 						'id' => ['pattern' => '\d+']
@@ -53,7 +55,8 @@ return
 				[
 					'path' => 'add/page',
 					'controller' => 'Page',
-					'action' => 'editPage'
+					'action' => 'editPage',
+					'role' => ROLE_ADMINISTRATEUR
 				],							
 			'parametres' => 
 				[
