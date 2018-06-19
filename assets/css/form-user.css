@@ -92,7 +92,7 @@ h1
 #login-page
 {
 	text-align: center;
-	/* background-color: #ececec; */
+	background-color: #ececec;
 }
 #login-page:after
 {
@@ -201,14 +201,14 @@ h1
 #login-form,
 #login-page
 {
-	/* background-image: url(../img/fond1.jpg); */
+	background-image: url(../img/fond1.jpg);
 	background-attachment: fixed;
 	background-size: cover;
     background-position: 53% 0px;
 }
 #login-page
 {
-	/* background-image: url(../img/fond1-blur.jpg); */
+	background-image: url(../img/fond1-blur.jpg);
 	position: fixed;
     left: 0px;
     right: 0px;

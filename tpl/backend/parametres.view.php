@@ -1,6 +1,7 @@
 <img src="assets/img/settings-picto.svg" alt="" class="picto-page">
 <h1>Paramètres</h1>
 <div id="settings">
+  <?php if(isGranted(ROLE_ADMINISTRATEUR)): ?>
   <section class="container padding-box">
     <div class="container-grid">
       <div class="row">
@@ -21,6 +22,7 @@
       </div>
     </div>
   </section>
+  <?php endif; ?>
 
   <section class="container padding-box">
     <div class="container-grid">

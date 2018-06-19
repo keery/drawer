@@ -27,7 +27,9 @@
 				<ul>
 					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "dashboard" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('dashboard') ?>"><img src="assets/img/speedometer-white.svg" alt=""><span class="hidden-xs">Dashboard</span></a></li>
 					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "statistic" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('statistic') ?>"><img src="assets/img/stat-picto-white.svg" alt=""><span class="hidden-xs">Statistiques</span></a></li>
-					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "pages" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('pages') ?>"><img src="assets/img/page-picto-white.svg" alt=""><span class="hidden-xs">Mes pages</span></a></li>
+					<?php if(isGranted(ROLE_ADMINISTRATEUR)): ?>
+						<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "pages" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('pages') ?>"><img src="assets/img/page-picto-white.svg" alt=""><span class="hidden-xs">Mes pages</span></a></li>
+					<?php endif; ?>
 					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "categories" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('categories') ?>"><img src="assets/img/article-picto-white.svg" alt=""><span class="hidden-xs">Catégories</span></a></li>
 					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "articles" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('articles') ?>"><img src="assets/img/article-picto-white.svg" alt=""><span class="hidden-xs">Mes articles</span></a></li>
 					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "users" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('users') ?>"><img src="assets/img/article-picto-white.svg" alt=""><span class="hidden-xs">Les utilisateurs</span></a></li>

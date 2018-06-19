@@ -7,7 +7,6 @@ class SiteController {
 	
 	public function indexAction()
 	{
-		var_dump(isGranted(ROLE_ADMINISTRATEUR));
 		View::render("frontend/site.view.php", "layout-site.php");
 	}
 
