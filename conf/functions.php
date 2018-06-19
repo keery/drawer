@@ -12,10 +12,10 @@
 
 	function request_is($type) {
 		return $type == $_SERVER['REQUEST_METHOD'];
-	}
+    }
 
-	function isGranted(array $role) {
-		return $user->hasRole($role);
+	function isGranted($role) {
+        return (isset($_SESSION[PREFIX."user"]['role'], ROLES[$_SESSION[PREFIX."user"]['role']]) && array_key_exists($role, ROLES)) && ($_SESSION[PREFIX."user"]['role'] === $role || in_array($role, ROLES[$_SESSION[PREFIX."user"]['role']]));
 	}
 
 	function format_date($date, $format) {
@@ -65,33 +65,33 @@
         if($seconds <= 60) return "Ajouté à l'instant";
         else if($minutes <=60)
         {
-            if($minutes==1) return "Il y'a une minute";
-            else return "Il y'a ".$minutes." minutes.";
+            if($minutes==1) return "Il y a une minute";
+            else return "Il y a ".$minutes." minutes.";
         }
         else if($hours <=24)
         {
-            if($hours==1) return "Il y'a une heure";
-            else return "Il y'a ".$hours." heures";
+            if($hours==1) return "Il y a une heure";
+            else return "Il y a ".$hours." heures";
         }
         else if($days <= 7)
         {
             if($days==1) return "Ajouté hier";
-            else return "Il y'a ".$days." jours.";
+            else return "Il y a ".$days." jours.";
         }
         else if($weeks <= 4.3) //4.3 == 52/12
         {
             if($weeks==1)  return "Ajouté il y'a une semaine";
-            else return "Il y'a ".$weeks." semaines";
+            else return "Il y a ".$weeks." semaines";
         }
         else if($months <=12)
         {
             if($months==1) return "Ajouté il y'a un mois";
-            else return "Il y'a ".$months." mois";
+            else return "Il y a ".$months." mois";
         }
         else
         {
             if($years==1) return "Ajouté il y'a un an";
-            else return "Il y'a ".$years." ans";
+            else return "Il y a ".$years." ans";
         }
     }
  ?>

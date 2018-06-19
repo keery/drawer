@@ -21,6 +21,7 @@ class User extends BaseSql
     public $email;
     public $password;
     public $token;
+    public $role;
     public $date_inscription;
     public $date_edition;
     public $id_image;
@@ -111,6 +112,10 @@ class User extends BaseSql
     {
         return $this->id_image;
 
+    }
+    public function setRole($role)
+    {
+        $this->role = $role;
     }
 
     /**

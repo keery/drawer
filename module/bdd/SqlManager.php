@@ -16,7 +16,6 @@ class SqlManager{
 
 	public function exec($action, $properties, $table) {
 		$qb = $action."QueryBuilder";
-
 		//Gestion des relations
 		if(isset($properties['mapping'])){
 			foreach ($properties['mapping'] as $key => $mapping) {
@@ -122,8 +121,6 @@ class SqlManager{
 		$this->query = $this->pdo->prepare($q);
 		
 		$this->query->execute($where);
-
-
 		$res = $this->query->fetchAll(PDO::FETCH_ASSOC);
 
 		//HYDRATE OBJECTS
