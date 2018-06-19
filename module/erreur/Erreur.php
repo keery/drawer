@@ -28,15 +28,17 @@ class Erreur extends ErrorException
         $type = 'Erreur inconnue';
         break;
     }
+    $router = new Router();
+    $router->redirectTo($router->getRouteByName('erreur'));
     
-    return '<strong>' . $type . '</strong> : [' . $this->code . '] ' . $this->message . '<br /><strong>' . $this->file . '</strong> à la ligne <strong>' . $this->line . '</strong>';
+    return '<div class="notif error"><span class="notif-icone"></span><div class="notif-titre">'.$type.'</div> [' . $this->code . '] ' . $this->message . '<br /><strong>' . $this->file . '</strong> à la ligne <strong>' . $this->line . '</strong></div>';
+    // return '<strong>' .  . '</strong> : [' . $this->code . '] ' . $this->message . '<br /><strong>' . $this->file . '</strong> à la ligne <strong>' . $this->line . '</strong>';
   }
 }
 
 // function error2exception($code, $message, $fichier, $ligne)
 // {
 // 	try{
-
 // 	  throw new Erreur($message, 0, $code, $fichier, $ligne);
 // 	}
 // 	catch(Erreur $e)
@@ -45,15 +47,15 @@ class Erreur extends ErrorException
 // 	}
 // }
 
-// function customException($e)
-// {
-// 	ob_end_clean();
-//     // header('HTTP/1.1 500 Internal Server Error');
-//     echo "Je suis dans le custom";
-//     echo $e;
-//     // $router = new Router();
-//     // $router->redirectTo($router->getRouteByName('erreur'));
-// }
+function customException($e)
+{
+	ob_end_clean();
+    // header('HTTP/1.1 500 Internal Server Error');
+    echo "Je suis dans le custom";
+    echo $e;
+    // $router = new Router();
+    // $router->redirectTo($router->getRouteByName('erreur'));
+}
 
 set_error_handler(function ($code, $message, $fichier, $ligne) {
     echo "Je suis dans erreur";
@@ -68,8 +70,9 @@ set_error_handler(function ($code, $message, $fichier, $ligne) {
 });
 set_exception_handler(function ($e) {
   ob_end_clean();
-  header('HTTP/1.1 500 Internal Server Error');
-  echo $e;
-  $router = new Router();
-  $router->redirectTo($router->getRouteByName('erreur'));
+  header('HTTP/1.1 500 Internal Server Error');  
+  include(LAYOUT."layout-error.php");
+  // echo $e;
+  // $router = new Router();
+  // $router->urlMatcher('erreur');
 });
