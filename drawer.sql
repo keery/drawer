@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 01 Juin 2018 à 11:43
+-- Généré le :  Mar 19 Juin 2018 à 15:41
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `cd_article` (
   `id` int(11) NOT NULL,
   `titre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `description` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8_unicode_ci,
   `auteur` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1',
   `id_categorie` int(11) DEFAULT NULL,
@@ -42,7 +42,8 @@ CREATE TABLE `cd_article` (
 --
 
 INSERT INTO `cd_article` (`id`, `titre`, `description`, `auteur`, `active`, `id_categorie`, `date_creation`, `date_update`) VALUES
-(12, 'coucou la vie', '<p>Lorem Ipsum</p>', '', 1, 14, '2018-04-24 14:04:12', '2018-05-30 21:20:29');
+(12, 'coucou la viee', '<p>Lorem Ipsum</p>', NULL, 1, 14, '2018-04-24 14:04:12', '2018-06-17 11:02:15'),
+(44, 'La consÃ©cration', NULL, NULL, 1, 3, '2018-06-17 18:08:39', NULL);
 
 -- --------------------------------------------------------
 
@@ -89,8 +90,6 @@ INSERT INTO `cd_categorie_article` (`id`, `nom`, `active`) VALUES
 (1, 'New categ', 1),
 (2, 'Ma categ numero 2', 0),
 (3, 'Best categ', 0),
-(4, 'Ma categ numero 2', 0),
-(5, 'Ma categ numero 2', 0),
 (6, 'Ma categ numero 2', 0),
 (7, 'Ma categ numero 2', 0),
 (8, 'Ma categ numero 2', 0),
@@ -180,7 +179,6 @@ INSERT INTO `cd_categorie_article` (`id`, `nom`, `active`) VALUES
 (92, 'Ma categ numero 2', 0),
 (93, 'Ma categ numero 2', 0),
 (94, 'Ma categ numero 2', 0),
-(95, 'Ma categ numero 2', 0),
 (96, 'Ma categ numero 2', 0),
 (97, 'Ma categ numero 2', 0),
 (98, 'Ma categ numero 2', 0),
@@ -255,8 +253,7 @@ INSERT INTO `cd_categorie_article` (`id`, `nom`, `active`) VALUES
 (167, 'Ma categ numero 2', 0),
 (168, 'Ma categ numero 2', 0),
 (169, 'Ma categ numero 2', 0),
-(170, 'Ma categ numero 2', 0),
-(171, 'Ma categ numero 2', 0);
+(170, 'Ma categ numero 2', 0);
 
 -- --------------------------------------------------------
 
@@ -292,8 +289,7 @@ CREATE TABLE `cd_image` (
 --
 
 INSERT INTO `cd_image` (`id`, `src`, `title`, `alt`, `position`, `id_article`) VALUES
-(1, '5ae1a08faaa82.png', NULL, NULL, NULL, NULL),
-(2, '5ae1a0f77bfeb.png', NULL, NULL, NULL, NULL),
+(1, '5ae31bdec48b3.jpeg', NULL, 'coucou', NULL, 12),
 (3, '5ae1a13c679cb.png', NULL, NULL, NULL, NULL),
 (4, '5ae1a15e47797.png', NULL, NULL, NULL, NULL),
 (5, '5ae1a19b48fbc.png', NULL, NULL, NULL, NULL),
@@ -372,7 +368,71 @@ INSERT INTO `cd_image` (`id`, `src`, `title`, `alt`, `position`, `id_article`) V
 (78, '5ae31bdec7d49.jpeg', NULL, NULL, NULL, NULL),
 (79, '5ae31bdeea490.jpeg', NULL, NULL, NULL, NULL),
 (80, '5ae329c093ed4.jpeg', NULL, NULL, NULL, NULL),
-(81, '5ae329c0c577a.jpeg', NULL, NULL, NULL, NULL);
+(81, '5ae329c0c577a.jpeg', NULL, NULL, NULL, NULL),
+(82, '5b22d6cfa72bd.jpeg', NULL, NULL, NULL, NULL),
+(83, '5b22d7367e97c.jpeg', NULL, NULL, NULL, NULL),
+(84, '5b22d7d8ced3a.jpeg', NULL, NULL, NULL, NULL),
+(85, '5b22d80c1098b.jpeg', NULL, NULL, NULL, NULL),
+(86, '5b22d83309557.jpeg', NULL, NULL, NULL, NULL),
+(87, '5b26413084f99.png', NULL, NULL, NULL, NULL),
+(88, '5b264150111e6.png', NULL, NULL, NULL, NULL),
+(89, '5b2641aeb664c.png', NULL, NULL, NULL, NULL),
+(90, '5b2641da0e8c3.png', NULL, NULL, NULL, NULL),
+(91, '5b26427d1f0e6.png', NULL, NULL, NULL, NULL),
+(92, '5b2642ea22fe9.png', NULL, NULL, NULL, NULL),
+(93, '5b2643f8a538e.png', NULL, 'zoul', NULL, 12),
+(94, '5b2644171a41e.png', NULL, NULL, NULL, 12),
+(95, '5b26af2902a65.jpeg', NULL, NULL, NULL, NULL),
+(96, '5b26af88c9e2c.jpeg', NULL, NULL, NULL, NULL),
+(97, '5b26afdf543cc.jpeg', NULL, NULL, NULL, NULL),
+(98, '5b26b028a5569.jpeg', NULL, NULL, NULL, 15),
+(99, '5b26b028a5569.jpeg', NULL, NULL, NULL, 15),
+(100, '5b26b0345ba1b.jpeg', NULL, NULL, NULL, 15),
+(101, '5b26b0345ba1b.jpeg', NULL, NULL, NULL, 15),
+(102, '5b26b0552c3e2.png', NULL, NULL, NULL, 15),
+(103, '5b26b0552c3e2.png', NULL, NULL, NULL, 15),
+(104, '5b26b06851e26.jpeg', NULL, NULL, NULL, NULL),
+(105, '5b26b08e087d0.jpeg', NULL, NULL, NULL, NULL),
+(106, '5b26b091b12aa.png', NULL, NULL, NULL, NULL),
+(107, '5b26b1a295172.png', NULL, NULL, NULL, NULL),
+(108, '5b26b1fc0718c.png', NULL, NULL, NULL, NULL),
+(109, '5b26b240efd1e.png', NULL, NULL, NULL, NULL),
+(110, '5b26b26239a04.png', NULL, NULL, NULL, NULL),
+(111, '5b26b2d89c9b4.png', NULL, NULL, NULL, NULL),
+(112, '5b26b44206ba3.png', NULL, 'dsfqsd', NULL, NULL),
+(113, '5b26b4ba7220b.png', NULL, 'sdsfqsd', NULL, NULL),
+(114, '5b26b544ef7f7.png', NULL, NULL, NULL, 29),
+(115, '5b26b544ef7f7.png', NULL, 'sdSQD', NULL, 29),
+(116, '5b26b68278fa6.png', NULL, NULL, NULL, NULL),
+(117, '5b26b6a852abd.png', NULL, NULL, NULL, NULL),
+(118, '5b26ba8a98ada.png', NULL, NULL, NULL, NULL),
+(119, '5b26c304c3a68.png', NULL, 'dfqsdqds', NULL, NULL),
+(120, '5b26c36ce77af.jpeg', NULL, NULL, NULL, NULL),
+(121, '5b26c38058daf.jpeg', NULL, 'dsfsqd', NULL, 36),
+(122, '5b26c3a7850f9.png', NULL, 'uno', NULL, 37),
+(123, '5b26c3a9e4b7b.jpeg', NULL, NULL, NULL, NULL),
+(124, '5b26c3bc34a80.jpeg', NULL, NULL, NULL, 37),
+(125, '5b26c3bc34a80.jpeg', NULL, NULL, NULL, 37),
+(126, '5b26c40a145f6.jpeg', NULL, 'uno', NULL, 38),
+(127, '5b26c410d3b53.png', NULL, NULL, NULL, NULL),
+(128, '5b26c4455e892.png', NULL, 'uno', NULL, 39),
+(129, '5b26c4480821c.jpeg', NULL, NULL, NULL, NULL),
+(130, '5b26c4932907e.jpeg', NULL, NULL, NULL, NULL),
+(131, '5b26c49878e8d.png', NULL, NULL, NULL, NULL),
+(132, '5b26c4cad8541.jpeg', NULL, 'Uno', NULL, 41),
+(133, '5b26c4d061a9a.png', NULL, 'Due', NULL, 41),
+(134, '5b26c4f937e0c.jpeg', NULL, 'uno', NULL, 42),
+(135, '5b26c4fc3bdd5.png', NULL, 'due', NULL, 42),
+(142, '5b26c5d5cf3d3.jpeg', NULL, NULL, NULL, 42),
+(143, '5b26c5d5cf3d3.jpeg', NULL, 'aze', NULL, 42),
+(144, '5b26c60dcb679.png', NULL, NULL, NULL, 42),
+(145, '5b26c60dcb679.png', NULL, NULL, NULL, 42),
+(146, '5b26c64054647.jpeg', NULL, NULL, NULL, 42),
+(147, '5b26c64054647.jpeg', NULL, NULL, NULL, 42),
+(148, '5b26c6b33f113.jpeg', NULL, 'un', NULL, 43),
+(149, '5b26c6b90477f.jpeg', NULL, 'deux', NULL, 43),
+(150, '5b26c6c805c0e.png', NULL, 'trois', NULL, 43),
+(153, '5b26c6f77306d.jpeg', NULL, 'trois', NULL, 44);
 
 -- --------------------------------------------------------
 
@@ -427,8 +487,16 @@ CREATE TABLE `cd_user` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `date_inscription` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `id_image` int(11) NOT NULL
+  `role` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `id_image` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `cd_user`
+--
+
+INSERT INTO `cd_user` (`id`, `pseudo`, `email`, `password`, `date_inscription`, `role`, `id_image`) VALUES
+(1, '', 'mon-compte1131@live.fr', 'test', '2018-06-14 17:36:23', 'ADMINISTRATEUR', NULL);
 
 -- --------------------------------------------------------
 
@@ -514,7 +582,7 @@ ALTER TABLE `cd_user_role`
 -- AUTO_INCREMENT pour la table `cd_article`
 --
 ALTER TABLE `cd_article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT pour la table `cd_article_image`
 --
@@ -539,7 +607,7 @@ ALTER TABLE `cd_commentaire`
 -- AUTO_INCREMENT pour la table `cd_image`
 --
 ALTER TABLE `cd_image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
 --
 -- AUTO_INCREMENT pour la table `cd_infosite`
 --
@@ -554,7 +622,7 @@ ALTER TABLE `cd_page`
 -- AUTO_INCREMENT pour la table `cd_user`
 --
 ALTER TABLE `cd_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `cd_user_role`
 --
