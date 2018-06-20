@@ -1,20 +1,13 @@
 <?php 
-//BDD
-if($_SERVER['HTTP_HOST'] == "localhost") {
-
-	define("HOST", "localhost");
-	define("PASS", "");
-} else {
-
-	define("HOST", "projectdb");
-	define("PASS", "password");
+if($_SERVER['HTTP_HOST'] == "localhost") {	
+	define("HOST", "localhost");	
+	define("PASS", "");	
+} else {		
+	define("HOST", "projectdb");	
+	define("PASS", "password");	
 }
+define("PASS", "password");
 define("DB_NAME", "drawer");
-define("USER", "root");
-
-
-
-
 
 /*******/
 session_start();

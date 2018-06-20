@@ -50,7 +50,7 @@ class SqlManager{
 		if(in_array($action, array(UPDATE, DELETE, INSERT))) {
 			$res = $this->$qb($properties, $table);
 			if(!$res) $this->printError();
-			else return $action == INSERT ? $this->pdo->lastInsertId() : $properties['id'];
+			else return $action == INSERT ? $this->pdo->lastInsertId() : (is_array($properties) ? $properties['id'] : $properties);
 		}
 		else {
 			throw new Erreur('Type de requête invalide');
@@ -204,7 +204,7 @@ class SqlManager{
 
 	public function connectBDD() {
 		try {
-			$this->pdo = new \PDO('mysql:host='.HOST.';dbname='.DB_NAME, USER, '');
+			$this->pdo = new \PDO('mysql:host='.HOST.';dbname='.DB_NAME, USER, PASS);
 		}
 		catch(PDOException $e) {
 			throw new Erreur("Connexion à la base de donnée impossible");

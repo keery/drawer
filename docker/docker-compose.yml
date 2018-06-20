@@ -13,7 +13,7 @@ services:
      - database
 
   database:
-    image: mysql:latest
+    image: mysql:5.7
     container_name: projectdb
     environment:
       MYSQL_ROOT_PASSWORD: password
@@ -21,8 +21,7 @@ services:
     ports:
       - 3400:3400    
     volumes:
-      - db_data_mvc:/var/lib/mysql
-    restart: always
+      - drawer_db:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
@@ -36,5 +35,5 @@ services:
       PMA_HOST: database
 
 volumes:
-    db_data_mvc:
+  drawer_db:
       
