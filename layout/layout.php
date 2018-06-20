@@ -34,7 +34,7 @@
 					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "articles" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('articles') ?>"><img src="assets/img/article-picto-white.svg" alt=""><span class="hidden-xs">Mes articles</span></a></li>
 					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "users" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('users') ?>"><img src="assets/img/article-picto-white.svg" alt=""><span class="hidden-xs">Les utilisateurs</span></a></li>
 					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "parametres" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('parametres') ?>"><img src="assets/img/settings-picto-white.svg" alt=""><span class="hidden-xs">Paramètres</span></a></li>
-					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "template" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('template') ?>"><img src="assets/img/settings-picto-white.svg" alt=""><span class="hidden-xs">Template</span></a></li>
+					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "template" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('template') ?>"><img src="assets/img/template-brush-white.svg" alt=""><span class="hidden-xs">Template</span></a></li>
 				</ul>
 			</nav>
 		</aside>

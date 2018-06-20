@@ -21,11 +21,13 @@ class TemplateForm extends FormBuilderInterface
 
         $this
 
-            ->add('principal', new ColorType(), ['required' => false])
-            ->add('secondaire', new ColorType(), ['required' => false])
-            ->add('sousTitre', new ColorType(), ['required' => false])
-            ->add('sousTitreSec', new ColorType(), ['required' => false])
-            ->add('texte', new ColorType(), ['required' => false])
+            ->add('principal', new ColorType(), ['required' => false, 'value' => "#304A52"])
+            ->add('secondaire', new ColorType(), ['value' => "#379085", 'required' => false])
+            ->add('highlight', new ColorType(), ['value' => "#77D3C8", 'required' => false])
+            ->add('highlight secondaire', new ColorType(), ['value' => "#49C5B6", 'required' => false])
+            ->add('sous titre', new ColorType(), ['value' => "#FFFFFF", 'required' => false])
+            ->add('sous titre secondaire', new ColorType(), ['value' => "#D5DCE3", 'required' => false])
+            ->add('texte', new ColorType(), ['value' => "#304A52", 'required' => false])
             ->add('submit', new SubmitType())
         ;
     }

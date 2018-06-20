@@ -8,6 +8,8 @@ class template extends BaseSql {
     protected $titre;
     protected $principal;
     protected $secondaire;
+    protected $highlight;
+    protected $highlight2;
     protected $sousTitre;
     protected $sousTitreSec;
     protected $texte;
@@ -30,6 +32,18 @@ class template extends BaseSql {
     }
     public function setPrincipal($principal) {
         $this->principal = $principal;
+    }
+    public function getHighlight() {
+        return $this->highlight;
+    }
+    public function setHighlight($highlight) {
+        $this->highlight = $highlight;
+    }
+    public function getHighlight2() {
+        return $this->highlight2;
+    }
+    public function setHighlight2($highlight2) {
+        $this->highlight2 = $highlight2;
     }
 
     public function getSecondaire() {
