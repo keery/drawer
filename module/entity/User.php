@@ -26,10 +26,16 @@ class User extends BaseSql
     public $active;
     public $banned;
     public $date_inscription;
-    public $date_edition;
+    public $date_update;
     public $id_image;
-    public $status = 0;
-    public $age = 0;
+    public $image;
+    public $mapping = [
+		"id_image" => [
+			"relation" => ONE_TO_MANY,
+			"target" => "Module\Entity\Image",
+			"property" => "image"
+		],
+	];
 
 
     public function __construct()
@@ -136,8 +142,8 @@ class User extends BaseSql
     public function setDate_Inscription(){
         $this->date_inscription = date("Y-m-d");
     }
-    public function setDate_Edition(){
-        $this->date_edition = date("Y-m-d");
+    public function setDate_Update(){
+        $this->date_update = date("Y-m-d");
     }
 
     public function setPrenom($prenom)
@@ -158,7 +164,8 @@ class User extends BaseSql
 
     public function setPassword($pwd)
     {
-        $this->password = password_hash($pwd, PASSWORD_DEFAULT);
+        $this->password = $pwd;
+        // $this->password = password_hash($pwd, PASSWORD_DEFAULT);
     }
 
     public function setAge($age){
@@ -192,6 +199,12 @@ class User extends BaseSql
 	}
 	public function setPseudo($pseudo) {
 		$this->pseudo = $pseudo;
+    }
+    public function getImage() {
+		return $this->image;
+	}
+	public function setImage(Image $image) {
+		$this->image = $image;
 	}
     public function formInscription(){
 

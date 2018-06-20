@@ -3,7 +3,7 @@ return
 [
 	'admin' => [
 		'prefix' => 'admin',
-		'accessibility' => ['ADMINISTRATEUR', 'MODERATEUR'],
+		'role' => [ROLE_ADMINISTRATEUR, ROLE_MODERATEUR],
 		'routes' => [
 			'dashboard' =>
 				[
@@ -27,12 +27,12 @@ return
                             'id' => ['pattern' => '\d+']
                         ]
                 ],
-            'user_add' =>
-                [
-                    'path' => 'add/utilisateur',
-                    'controller' => 'User',
-                    'action' => 'editUser'
-                ],
+            // 'user_add' =>
+            //     [
+            //         'path' => 'add/utilisateur',
+            //         'controller' => 'User',
+            //         'action' => 'editUser'
+            //     ],
 			'pages' => 
 				[
 					'path' => 'pages',

@@ -39,7 +39,7 @@ class UserController {
 		$form = $fb->create(new UserForm(), $user);
 		
 		if(request_is("POST")) {
-			$user = $form->handleRequest($_POST);
+            $user = $form->handleRequest($_POST);
 			if($form->validate()) {
 				$id = $user->save();
 

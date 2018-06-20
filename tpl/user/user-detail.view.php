@@ -16,6 +16,10 @@
             <?php endforeach; ?>
             <div class="row spacing">
                 <div class="group col-sm-6 col-xs-12">
+                    <?php echo $form->label('pseudo'); ?>
+                    <?php echo $form->input('pseudo', ['class' => 'input']); ?>
+                </div>
+                <div class="group col-sm-6 col-xs-12">
                     <?php echo $form->label('email'); ?>
                     <?php echo $form->input('email', ['class' => 'input']); ?>
                 </div>
@@ -28,6 +32,10 @@
                     <?php echo $form->input('nom', ['class' => 'input']); ?>
                 </div>
                 <div class="col-sm-6 col-xs-12">
+                    <label>Rôle</label>
+                    <?php echo $form->input('role'); ?>
+                </div> 
+                <div class="col-sm-6 col-xs-12">
                     <label>État</label>
                     <?php echo $form->input('active'); ?>
                 </div>
@@ -35,22 +43,7 @@
                     <label>Banni</label>
                     <?php echo $form->input('banned'); ?>
                 </div>
-                <div class="col-sm-6 col-xs-12">
-                    <label>Rôle</label>
-                    <?php echo $form->input('role'); ?>
-                </div>                
             </div>
-        </div>
-    </div>
-</section>
-
-<section class="container group">
-    <div class="bloc">
-        <div class="bloc-titre">
-            <span>Contenu</span>
-        </div>
-        <div class="bloc-content">
-            <?php echo $form->input('description', ['class' => 'editor-img']); ?>
         </div>
     </div>
 </section>

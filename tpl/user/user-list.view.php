@@ -6,7 +6,6 @@
     <a href="<?php echo path('users')."?sort=active"; ?>" <?php echo (getCurrentUrl() === "users?sort=active" ? 'class="selected"' : '') ?>>Active</a>
     <a href="<?php echo path('users')."?sort=banned"; ?>" <?php echo (getCurrentUrl() === "users?sort=banned" ? 'class="selected"' : '') ?>>Banni</a>
   </div>
-  <a href="<?php echo path('user_add'); ?>" class="btn-add" title="Ajouter un élément"></a>
 </nav>
 <?php foreach(getNotifs('valid') as $notif) : ?>
   <div class="notif valid">

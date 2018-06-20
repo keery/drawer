@@ -47,7 +47,7 @@ class Image extends BaseSql {
   public function getId_article() {
 		return $this->id_article;
 	}
-	public function setId_article($idarticle) {
+	public function setId_article($idarticle = null) {
 		$this->id_article = $idarticle;
 	}
 

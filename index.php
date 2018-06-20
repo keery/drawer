@@ -9,7 +9,6 @@ $loader = require(CONF.'autoload.php');
 Autoloader::register();
 
 $router = new Router();
-
 //A décommenter si besoin du 1er form de config
 // if (!file_exists(CONF.'config.php')) $URI = "installer-config";
 

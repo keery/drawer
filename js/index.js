@@ -1,6 +1,7 @@
 $(document).ready(function(){	
 
 	$("#dz_cd_article, .input-file.cd_article").GEUploader({ entity : "Module\\Entity\\Article", idZone : "dz_cd_article"});
+	$("#dz_cd_user, .input-file.cd_user").GEUploader({ entity : "Module\\Entity\\User", idZone : "dz_cd_user", nbFichiersMax:1});
 	
 
 
@@ -14,7 +15,8 @@ $(document).ready(function(){
 	$(document).on("click", ".nav-links", function(){
 		if($(this).hasClass('open')) $(this).removeClass('open');
 		else $(this).addClass('open');
-	});	
+	});
+
 	tinymce.init({ 
 		selector:'.editor',
 		menubar: false,

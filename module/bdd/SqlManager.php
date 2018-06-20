@@ -59,7 +59,10 @@ class SqlManager{
 	}
 
 	public function updateQueryBuilder($properties, $table) {
+		
 		unset($properties['date_update']);
+		unset($properties['date_inscription']);
+		$properties = $this->notEmptyValue($properties);
 		$props = $properties;
 		unset($props['id']);
 		$iProps = $this->prepareInlineKeys($props);
@@ -119,7 +122,7 @@ class SqlManager{
 
 		if(is_int($limit)) $q .= " LIMIT ".$limit;
 		$this->query = $this->pdo->prepare($q);
-		
+
 		$this->query->execute($where);
 		$res = $this->query->fetchAll(PDO::FETCH_ASSOC);
 

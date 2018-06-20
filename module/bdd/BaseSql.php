@@ -20,7 +20,7 @@ class BaseSql{
 		foreach ($data as $key => $value) {
 			if($value != '') {
 				foreach($this->getMapping() as $mapping) {
-					if($mapping['property'] === $key && !is_object($value)) $value = $mapping['target']::findOneBy(['id' => $value]);
+					if($mapping['property'] === $key && !is_object($value)) $value = $mapping['target']::findOneBy(['id' => (is_array($value) ? $value['id'] : $value ) ]);
 					
 					if($mapping['relation'] == MANY_TO_ONE && $key."s" == $mapping['property']) {
 						$adding = $mapping['adding'];
@@ -37,8 +37,7 @@ class BaseSql{
 			}
 			else $value = null;
 			$f = "set".ucfirst($key);
-			if(method_exists($this, $f)) $this->$f($value);
-
+			if(method_exists($this, $f) && $value) $this->$f($value);
 		}
 	}
 

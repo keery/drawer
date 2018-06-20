@@ -9,6 +9,7 @@ use Module\Form\Type\InputType;
 use Module\Form\Type\CheckboxType;
 use Module\Form\Type\TextType;
 use Module\Form\Type\SubmitType;
+use Module\Form\Type\SelectType;
 use Module\Form\Type\EntityType;
 
 class PageForm extends FormBuilderInterface
@@ -24,6 +25,7 @@ class PageForm extends FormBuilderInterface
             ->add('description', new TextType(), ['required' => false])
             ->add('active', new CheckboxType(['Active']), ['class' => "on-off"])
             ->add('parent', new EntityType($listPages, 'titre'), ['required' => false])
+            ->add('type', new SelectType(['contenu', 'contact', 'articles']), ['class' => "select"])
             ->add('submit', new SubmitType())
         ;
     }

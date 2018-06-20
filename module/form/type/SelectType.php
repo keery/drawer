@@ -40,13 +40,12 @@ class SelectType extends ChoiceType
     }
 
     public function toHTML() {
-
         $HTML = '<select';
         $HTML .= $this->defaultFields(false).'>';
         $HTML .= "<option value=''>Choisir un élément</option>";
         foreach($this->choices as $primaryKey => $choice) {
             $HTML .= '<option value="'.$primaryKey.'"';
-            if($primaryKey == $this->getValue()) $HTML .= " selected";
+            if($choice == $this->getValue()) $HTML .= " selected";
             $HTML .= '>';
             $HTML .= $choice;
             $HTML .= '</option>';

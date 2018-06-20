@@ -19,7 +19,7 @@ class FormBuilder {
 			$func = 'get'.ucfirst($key);
 			if(get_class($field) == "Module\Form\Type\FileType" && $object)  {
 				$field->setIdEntity($object->getId());
-				$field->addFiles($object->getImages());
+				$field->addFiles((method_exists($object, 'getImages') ? $object->getImages() : $object->getImage() ));
 			}
 			if(method_exists($object, $func)) {
 				$value = $object->$func();

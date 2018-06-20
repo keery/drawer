@@ -20,6 +20,10 @@
               <?php echo $form->input('titre', ['class' => 'input']); ?>
           </div>
           <div class="group col-sm-6 col-xs-12">
+              <?php echo $form->label('type'); ?>
+              <?php echo $form->input('type', ['class' => 'input']); ?>
+          </div>
+          <div class="group col-sm-6 col-xs-12">
               <?php echo $form->label('url'); ?>
               <?php echo $form->input('url', ['class' => 'input']); ?>
           </div>

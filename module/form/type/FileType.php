@@ -26,7 +26,6 @@ class FileType extends FormComponent
 			return false;
         }
         $ref = $this->entity::get_table_class();
-
         $HTML = '
             <input type="hidden" name="'.$this->key.'[entity]" value="'.$this->entity.'">
             <input type="hidden" name="'.$this->key.'[id_entity]" value="'.$this->id_entity.'">
@@ -38,25 +37,22 @@ class FileType extends FormComponent
             <div class="dropzone" id="dz_'.$ref.'" data-message="Déposer votre fichier ici"></div>
             <ul class="img-list container-grid">';
             
-        if(!$this->manyFiles) {   
-                $HTML .= '<li class="row">
-                <div class="col-xs-4 photo"></div>
+        if(!$this->manyFiles && $this->files) {   
+            $HTML .= '<li class="row">
+                <div class="col-xs-4 photo" style="background-image: url(assets/img/upload/'. $this->files->getSrc().');"></div>
+                <input type="hidden" name="'.$this->key.'[image][id]" value="'.$this->files->getId().'">
                 <div class="panel-action">
-                <button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id=""><i class="fas fa-trash-alt"></i></button>
+                <button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id="'.$this->files->getId().'"><i class="fas fa-trash-alt"></i></button>
                 </div>
                 <div class="col-xs-8 img-input">
-                <div class="input-form">
+                <div class="input-form full"> 
                     <label for="'.$ref.'_image_alt">Alt</label>
-                    <input type="text" id="'.$ref.'_image_alt" name="'.$ref.'[image][alt]" class="input">
+                    <input type="text" id="'.$ref.'_image_alt" name="'.$this->key.'[image][alt]" class="input" value="'.$this->files->getAlt().'">
                 </div>
-                <div class="input-form">
+                <div class="input-form full">
                     <label for="'.$ref.'_image_title">Title</label>
-                    <input type="text" id="'.$ref.'_image_title" name="'.$ref.'[image][title]" class="input">
+                    <input type="text" id="'.$ref.'_image_title" name="'.$this->key.'[image][title]" class="input" value="'.$this->files->getTitle().'">
                 </div>
-                </div>
-                <div class="position">
-                    <i class="fa fa-sort"></i>
-                    <input type="text" id="'.$ref.'_image_position" name="'.$ref.'[image][position]">
                 </div>
             </li>';
         }
