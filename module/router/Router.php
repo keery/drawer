@@ -39,14 +39,14 @@ class Router
 		foreach ($routes as $routeName => $route) 
 		{
 			$route['name'] = $routeName;
-			if(isset($route['role']) && !isGranted($route['role'])) {
-				throw new Erreur("Vous n'avez pas les droits nécessaires pour accéder à la route [".$route['name']."]");
-				return false;
-			}
 
 			//Si le nom de la route est exacte au path
 			if($route['path'] == $path) 
 			{
+				if(isset($route['role']) && !isGranted($route['role'])) {
+					throw new Erreur("Vous n'avez pas les droits nécessaires pour accéder à la route [".$route['name']."]");
+					return false;
+				}
 				$_SERVER['CURRENT_ROUTE'] = $route;
 				$this->redirectTo($route);
 				return $route;
@@ -97,6 +97,10 @@ class Router
 					}
 
 					if($match) {
+						if(isset($route['role']) && !isGranted($route['role'])) {
+							throw new Erreur("Vous n'avez pas les droits nécessaires pour accéder à la route [".$route['name']."]");
+							return false;
+						}
 						$_SERVER['CURRENT_ROUTE'] = $route;
 						$this->redirectTo($route, $getParams);
 						return $route;
