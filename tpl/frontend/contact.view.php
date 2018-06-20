@@ -5,6 +5,7 @@
       <input type="text" placeholder="Nom" class="input u-mw u-d--b u-mgb--s">
       <input type="text" placeholder="Prenom" class="input u-mw u-d--b u-mgb--s">
       <input type="text" placeholder="Email" class="input u-mw u-d--b u-mgb--s">
+        <textarea class="input u-mw u-d--b u-mgb--s" placeholder="Votre message" rows="8"></textarea>
       <input type="submit" class='button u-mw'>
     </form>
   </div>
