@@ -57,14 +57,20 @@ return
 					'controller' => 'Page',
 					'action' => 'editPage',
 					'role' => ROLE_ADMINISTRATEUR
-				],							
-			'parametres' => 
-				[
-					'path' => 'parametres',
-					'controller' => 'Main',
-					'action' => 'parametres'
-				],						
-			'contact' =>
+				],
+            'parametres' =>
+                [
+                    'path' => 'parametres',
+                    'controller' => 'Main',
+                    'action' => 'parametres'
+                ],
+            'template' =>
+                [
+                    'path' => 'template',
+                    'controller' => 'Template',
+                    'action' => 'template'
+                ],
+            'contact' =>
 				[
 					'path' => 'contact',
 					'controller' => 'Main',

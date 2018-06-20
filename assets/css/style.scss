@@ -5,6 +5,9 @@ $highlight: #77D3C8;
 $highlight2: #49C5B6;
 $grey: #EBF2F9;
 $grey2: #D5DCE3;
+$white: #FFFFFF;
+$text: #304A52;
+
 @mixin box-shadow($color: black, $opacity: 0.11) {    
     box-shadow: 0px 0px 45px rgba($color, $opacity);    
 }    
