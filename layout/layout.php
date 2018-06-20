@@ -15,7 +15,7 @@
 			<header class="header u-tac">
 				<div class="picture-circle u-block--center" style="background-image: url(assets/img/Group.png);"></div>
 				<div class="hidden-xs">
-					<h2>Jean Louis laperche</h2>
+					<h2><?php echo $_SESSION[PREFIX."user"]['prenom']." ".$_SESSION[PREFIX."user"]['nom']; ?></h2>
 					<span>Dessinateur</span>
 					<div>
 						<a href="">Jean-louis.creative.fr</a>

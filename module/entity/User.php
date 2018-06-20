@@ -16,12 +16,15 @@ use Module\Bdd\SqlManager;
 class User extends BaseSql
 {
     public $id = null;
-    public $firstName;
-    public $lastName;
+    public $pseudo;
+    public $prenom;
+    public $nom;
     public $email;
     public $password;
     public $token;
     public $role;
+    public $active;
+    public $banned;
     public $date_inscription;
     public $date_edition;
     public $id_image;
@@ -45,9 +48,9 @@ class User extends BaseSql
     /**
      * @return mixed
      */
-    public function getLastName()
+    public function getNom()
     {
-        return $this->lastName;
+        return $this->nom;
     }
 
 
@@ -59,9 +62,9 @@ class User extends BaseSql
     /**
      * @return mixed
      */
-    public function getFirstName()
+    public function getPrenom()
     {
-        return $this->firstName;
+        return $this->prenom;
     }
 
     /**
@@ -137,13 +140,13 @@ class User extends BaseSql
         $this->date_edition = date("Y-m-d");
     }
 
-    public function setFirstName($firstName)
+    public function setPrenom($prenom)
     {
-        $this->firstName = ucfirst(strtolower(trim($firstName)));
+        $this->prenom = ucfirst(strtolower(trim($prenom)));
     }
-    public function setLastName($lastName)
+    public function setNom($nom)
     {
-        $this->lastName = strtoupper(trim($lastName));
+        $this->nom = strtoupper(trim($nom));
     }
 
 
@@ -165,12 +168,31 @@ class User extends BaseSql
     public function setId_Image($id){
         $this->id_image=$id;
     }
-
-
     public function setToken($token)
     {
         $this->token = $token;
     }
+
+    public function getActive() {
+		return $this->active;
+	}
+	public function setActive($active) {
+		$this->active = $active;
+    }
+    
+    public function getBanned() {
+		return $this->banned;
+	}
+	public function setBanned($banned) {
+		$this->banned = $banned;
+    }
+    
+    public function getPseudo() {
+		return $this->pseudo;
+	}
+	public function setPseudo($pseudo) {
+		$this->pseudo = $pseudo;
+	}
     public function formInscription(){
 
         return [
@@ -184,7 +206,7 @@ class User extends BaseSql
                     "maxString"=>100,
                     "minString"=>2
                 ],
-                "lastName"=>[
+                "nom"=>[
                     "type"=>"text",
                     "placeholder"=>"Votre nom",
                     "required"=>true,
@@ -238,7 +260,7 @@ class User extends BaseSql
                     "maxString"=>100
                 ],
 
-                "lastName"=>[
+                "nom"=>[
                     "type"=>"text",
                     "placeholder"=>"Nom",
                     "required"=>true,

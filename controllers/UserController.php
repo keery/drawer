@@ -13,13 +13,15 @@ class UserController {
 
 	public function indexAction()
 	{
-	    $user = new User();
-	    $users = $user::all();
-        View::render("user/user-list.view.php","layout.php",array(
-           "users" => $users
-
-        ));
-
+        if(isset($_GET['sort']) && in_array($_GET['sort'], ['active', 'banned'])) {
+            if($_GET['sort'] === "active") $data['users'] = User::find(['active' => 1]);
+            else $data['users'] = User::find(['banned' => 1]);
+			
+		}
+		else $data['users'] = User::all();
+		
+		
+		View::render("user/user-list.view.php", 'layout.php', $data);
 	}
 
     public function editUserAction($params)

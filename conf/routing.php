@@ -13,13 +13,13 @@ return
 				],
             'users' =>
                 [
-                    'path' => 'users',
+                    'path' => 'utilisateurs',
                     'controller' => 'User',
                     'action' => 'index'
                 ],
             'user_edit' =>
                 [
-                    'path' => 'user/{id}',
+                    'path' => 'utilisateur/{id}',
                     'controller' => 'User',
                     'action' => 'editUser',
                     'params' =>
@@ -29,7 +29,7 @@ return
                 ],
             'user_add' =>
                 [
-                    'path' => 'add/user',
+                    'path' => 'add/utilisateur',
                     'controller' => 'User',
                     'action' => 'editUser'
                 ],
