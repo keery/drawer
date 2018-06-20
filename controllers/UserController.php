@@ -13,44 +13,45 @@ class UserController {
 
 	public function indexAction()
 	{
-	    $user = new User();
-	    $users = $user::all();
-        View::render("user/user-list.view.php","layout.php",array(
-           "users" => $users
-
-        ));
-
-	}
-
-    public function editUserAction($params)
-    {
-
-        if(isset($params['id'])) $user = User::findOneBy(array('id' => $params['id']));
-        else $user = new User();
-
-        // $data['email'] = (!empty($user->getEmail()) ? $user->getEmail() : "Ajout d'un nouvel utilisateur" );
-
-        if(empty($user)) {
-            throw new Erreur("L'utilisateur contenant l'id ".$params['id']." n'existe pas");
-            return false;
-        }
-
-        $fb = new FormBuilder();
-        $form = $fb->create(new UserForm(), $user);
-
-        if(request_is("POST")) {
-            $user = $form->handleRequest($_POST);
-            if($form->validate())  {
-                $user->save();
-                addNotif('Votre compte à  bien été  enregistré', 'valid');
-                redirectToRoute('users');
-            }
-            else addNotif($form->getErrors(), 'error');
-        }
-
-        $data['form'] = $form->createView();
-        View::render("user/user-detail.view.php", 'layout.php', $data);
+        if(isset($_GET['sort']) && in_array($_GET['sort'], ['active', 'banned'])) {
+            if($_GET['sort'] === "active") $data['users'] = User::find(['active' => 1]);
+            else $data['users'] = User::find(['banned' => 1]);
+			
+		}
+		else $data['users'] = User::all();
+		
+		
+		View::render("user/user-list.view.php", 'layout.php', $data);
     }
+    
+    public function editUserAction($params)
+	{
+		if(isset($params['id'])) $user = User::findOneBy(array('id' => $params['id']));
+		else $user = new User();
+		$data['titre'] = (!empty($user->getPseudo()) ? $user->getPseudo() : "Ajout d'un nouvel utilisateur" );
+
+		if(empty($user)) {
+			throw new Erreur("L'utilisateur contenant l'id ".$params['id']." n'existe pas");
+			return false;
+		}
+		
+		$fb = new FormBuilder();
+		$form = $fb->create(new UserForm(), $user);
+		
+		if(request_is("POST")) {
+			$user = $form->handleRequest($_POST);
+			if($form->validate()) {
+				$id = $user->save();
+
+				addNotif('Utilisateur bien enregistré', 'valid');
+				redirectToRoute('users');
+			}
+			else addNotif($form->getErrors(), 'error');
+		}
+
+		$data['form'] = $form->createView();
+		View::render("user/user-detail.view.php", 'layout.php', $data);
+	}
 
     public function connexionAction() {
         if(request_is("POST") && isset($_POST['_email'], $_POST['_password'])) {
