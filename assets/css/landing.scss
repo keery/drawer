@@ -59,7 +59,7 @@
   }
 
   p.blue {
-    color: #379085;
+    color: $dark2;
   }
 
   img {
@@ -156,7 +156,7 @@
   }
 
   .btn.op {
-    background-color: #379085;
+    background-color: $dark2;
   }
 
   .btn.op:hover {
@@ -278,12 +278,12 @@
   }
 
   .border-landing {
-    border-top: 40px solid #304A52;
+    border-top: 40px solid $dark;
   }
 
   #creation,
   #community {
-    color: #379085;
+    color: $dark2;
     padding: 100px 15px;
   }
 
@@ -297,13 +297,13 @@
 
   #creation p,
   #community p {
-    color: #379085;
+    color: $dark2;
     margin: 30px 0;
   }
 
   #creation h2,
   #community h2 {
-    color: #379085;
+    color: $dark2;
   }
 
   .img-box {
@@ -332,7 +332,7 @@
   }
 
   footer {
-    background-color: #379085;
+    background-color: $dark2;
     padding: 25px 5%;
     display: flex;
     flex-wrap: wrap;
@@ -367,7 +367,7 @@
     margin-right: 5%;
   }
 
-  #contact { background-color: #304a52;padding: 40px 0px;
+  #contact { background-color: $dark;padding: 40px 0px;
     input[type="text"], textarea { box-sizing: border_box; border: none; border-radius: 4px;width: 100%;}
     input[type="text"] { height: 25px; }
     textarea { height: 100px; max-height: 150px;max-width: 100%;}
@@ -392,11 +392,11 @@
   @media screen and (max-width: 1199px) {
     #slider-home .bloc-slider {
       width: 90%;left: 50%;right: auto;transform: translateY(-50%) translateX(-50%);text-align: center;background-color: rgba(55, 144, 133, 0.65);padding: 19px 13px; border-radius: 10px;
-      .btn { background-color: white; color: #379085;
+      .btn { background-color: white; color: $dark2;
         &:hover { opacity: 0.5;}
       }
     }
-    .border-landing { border-top: 10px solid #304A52; }
+    .border-landing { border-top: 10px solid $dark; }
     #creation, #community { padding: 40px 15px; }
     #band {
       .text-band { width: 95%; }

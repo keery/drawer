@@ -60,10 +60,10 @@ class FormBuilderInterface
     }  
     
     public function getKey() {
-        return $this->key;
+        return $this->key_form;
     }   
     public function setKey($key) {
-        $this->key = $key;
+        $this->key_form = $key;
     }  
     
     public function getObject() {
