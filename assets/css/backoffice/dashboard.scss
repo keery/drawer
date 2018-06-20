@@ -24,12 +24,12 @@
         .children {
           h3 {
             margin: 0;
-            color: #304A52;
+            color: $dark;
             text-transform: uppercase;
           }
 
           p {
-            color: rgba(#304A52, 0.7);
+            color: rgba($dark, 0.7);
           }
 
           span { 

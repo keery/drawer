@@ -1,10 +1,16 @@
-// colors
-$dark: #304A52;
+$dark: #810104;
 $dark2: #379085;
-$highlight: #77D3C8;
-$highlight2: #49C5B6;
+$grey2: #77d3c8;
+$highlight: #49c5b6;
+$highlight2: #d5dce3;
+$white: #ffffff;
+$text: #304a52;
+                                                
+
 $grey: #EBF2F9;
-$grey2: #D5DCE3;
+
+
+
 @mixin box-shadow($color: black, $opacity: 0.11) {    
     box-shadow: 0px 0px 45px rgba($color, $opacity);    
 }    
@@ -74,7 +80,7 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-	color: #304A52;display: inline-block;vertical-align: middle; margin-left: 15px;
+	color: $dark;display: inline-block;vertical-align: middle; margin-left: 15px;
 }
 .picto-page { display: inline-block;vertical-align: middle;  max-width: 60px;
 	+ h1 { width: calc(100% - 115px); }
@@ -117,7 +123,7 @@ img { max-width: 100%; }
 	cursor: pointer;
 	transition: all ease-in-out 0.3s;
 
-	&:hover { border-color: #304a52; }
+	&:hover { border-color: $dark; }
 }
 
 .input, .select {
@@ -131,8 +137,8 @@ img { max-width: 100%; }
 
 .btn-validate {
 	color: white;
-	background: $highlight2;
-	&:hover { background-color: #5ee6d5;border: 1px solid #EBF2F9; }
+	background: $highlight;
+	&:hover { background-color: #5ee6d5;border: 1px solid $grey; }
 }
 
 .container {
@@ -395,4 +401,11 @@ img { max-width: 100%; }
 .on-off:checked + label:after 
 {
 	margin-left: 18px;
-}  
+}
+
+
+
+
+
+
+                
