@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 19 Juin 2018 à 15:41
+-- Généré le :  Mer 20 Juin 2018 à 08:17
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -423,6 +423,7 @@ INSERT INTO `cd_image` (`id`, `src`, `title`, `alt`, `position`, `id_article`) V
 (133, '5b26c4d061a9a.png', NULL, 'Due', NULL, 41),
 (134, '5b26c4f937e0c.jpeg', NULL, 'uno', NULL, 42),
 (135, '5b26c4fc3bdd5.png', NULL, 'due', NULL, 42),
+(155, '5b292ffbe3683.png', NULL, NULL, NULL, 44),
 (142, '5b26c5d5cf3d3.jpeg', NULL, NULL, NULL, 42),
 (143, '5b26c5d5cf3d3.jpeg', NULL, 'aze', NULL, 42),
 (144, '5b26c60dcb679.png', NULL, NULL, NULL, 42),
@@ -484,6 +485,8 @@ INSERT INTO `cd_page` (`id`, `id_parent`, `titre`, `description`, `url`, `active
 CREATE TABLE `cd_user` (
   `id` int(11) NOT NULL,
   `pseudo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `prenom` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `nom` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `date_inscription` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -495,8 +498,8 @@ CREATE TABLE `cd_user` (
 -- Contenu de la table `cd_user`
 --
 
-INSERT INTO `cd_user` (`id`, `pseudo`, `email`, `password`, `date_inscription`, `role`, `id_image`) VALUES
-(1, '', 'mon-compte1131@live.fr', 'test', '2018-06-14 17:36:23', 'ADMINISTRATEUR', NULL);
+INSERT INTO `cd_user` (`id`, `pseudo`, `prenom`, `nom`, `email`, `password`, `date_inscription`, `role`, `id_image`) VALUES
+(1, 'admin', 'Guillaume', 'Esnault', 'mon-compte1131@live.fr', 'test', '2018-06-14 17:36:23', 'MODERATEUR', NULL);
 
 -- --------------------------------------------------------
 
@@ -607,7 +610,7 @@ ALTER TABLE `cd_commentaire`
 -- AUTO_INCREMENT pour la table `cd_image`
 --
 ALTER TABLE `cd_image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
 --
 -- AUTO_INCREMENT pour la table `cd_infosite`
 --
