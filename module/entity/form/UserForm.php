@@ -21,6 +21,7 @@ class UserForm extends FormBuilderInterface
             ->add('email', new InputType())
             ->add('prenom', new InputType())
             ->add('nom', new InputType())
+            ->add('profession', new InputType())
             ->add('active', new CheckboxType(['Active']), ['class' => "on-off"])
             ->add('banned', new CheckboxType(['Banni']), ['class' => "on-off"])
             ->add('role', new SelectType([ROLE_ADMINISTRATEUR, ROLE_MODERATEUR, ROLE_UTILISATEUR]), ['class' => 'select'])

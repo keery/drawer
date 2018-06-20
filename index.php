@@ -1,12 +1,22 @@
 <?php 
 use Conf\Autoloader;
 use Module\Router\Router;
+use Module\Entity\User;
 
 require('conf/const.php');
 require(CONF.'functions.php');
 
 $loader = require(CONF.'autoload.php');
 Autoloader::register();
+
+if( isset($_SESSION[PREFIX."user"]['id']) ) {
+	$user = User::findOneBy(['id' => $_SESSION[PREFIX."user"]['id']]);
+	if(isset($_SESSION[PREFIX."user"]['token']) && $user->getToken() != $_SESSION[PREFIX."user"]['token']) session_destroy();
+	$token = uniqid();
+	$_SESSION[PREFIX."user"]['token'] = $token;
+	$user->setToken($token);
+	$user->save();
+}
 
 $router = new Router();
 //A décommenter si besoin du 1er form de config

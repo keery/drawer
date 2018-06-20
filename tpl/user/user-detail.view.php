@@ -31,6 +31,10 @@
                     <?php echo $form->label('nom'); ?>
                     <?php echo $form->input('nom', ['class' => 'input']); ?>
                 </div>
+                <div class="group col-sm-6 col-xs-12">
+                    <?php echo $form->label('profession'); ?>
+                    <?php echo $form->input('profession', ['class' => 'input']); ?>
+                </div>
                 <div class="col-sm-6 col-xs-12">
                     <label>Rôle</label>
                     <?php echo $form->input('role'); ?>

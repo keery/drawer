@@ -3,7 +3,7 @@ return
 [
 	'admin' => [
 		'prefix' => 'admin',
-		'role' => [ROLE_ADMINISTRATEUR, ROLE_MODERATEUR],
+		'role' => ROLE_MODERATEUR,
 		'routes' => [
 			'dashboard' =>
 				[

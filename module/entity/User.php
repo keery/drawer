@@ -24,6 +24,7 @@ class User extends BaseSql
     public $token;
     public $role;
     public $active;
+    public $profession;
     public $banned;
     public $date_inscription;
     public $date_update;
@@ -205,7 +206,15 @@ class User extends BaseSql
 	}
 	public function setImage(Image $image) {
 		$this->image = $image;
+    }
+
+    public function getProfession() {
+		return $this->profession;
 	}
+	public function setProfession($profession) {
+		$this->profession = $profession;
+    }
+    
     public function formInscription(){
 
         return [
