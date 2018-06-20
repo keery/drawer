@@ -19,10 +19,7 @@
                     <?php echo $form->label('titre'); ?>
                     <?php echo $form->input('titre', ['class' => 'input']); ?>
                 </div>
-                <div class="group col-sm-6 col-xs-12">
-                    <?php echo $form->label('auteur'); ?>
-                    <?php echo $form->input('auteur', ['class' => 'input']); ?>
-                </div>
+                <?php echo $form->input('auteur', ['class' => 'input', "value" => $_SESSION[PREFIX."user"]['prenom']." ".$_SESSION[PREFIX."user"]['nom']]); ?>
                 <div class="col-sm-6 col-xs-12">
                     <label>Catégorie</label>
                     <?php echo $form->input('categorie', ['class' => 'select']); ?>

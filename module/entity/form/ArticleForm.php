@@ -11,6 +11,7 @@ use Module\Form\Type\TextType;
 use Module\Form\Type\FileType;
 use Module\Form\Type\SubmitType;
 use Module\Form\Type\EntityType;
+use Module\Form\Type\HiddenType;
 
 class ArticleForm extends FormBuilderInterface
 {
@@ -23,7 +24,7 @@ class ArticleForm extends FormBuilderInterface
             ->add('titre', new InputType(), ['rules' => [
                 "minLength" => 10
             ]])
-            ->add('auteur', new InputType(), ['required' => false])
+            ->add('auteur', new HiddenType(), ['required' => false])
             ->add('description', new TextType(), ['required' => false])
             ->add('active', new CheckboxType(['Active']), ['class' => "on-off"])
             ->add('image', new FileType('Module\Entity\Article'))

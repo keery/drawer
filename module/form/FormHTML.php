@@ -17,6 +17,7 @@ class FormHTML {
             $field['displayed'] = true;
             
             if(isset($options['class'])) $field['field']->setClass($options['class']);
+            if(isset($options['value'])) $field['field']->setValue($options['value']);
             return $field['field']->toHtml();
         }
     }
