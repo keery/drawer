@@ -42,9 +42,11 @@ class ArticleController {
 			if($form->validate()) {
 				$id = $article->save();
 				//Boucle uniquement si relation Many to one
-				foreach ($article->getImages() as $img) {
-					$img->setId_article($id);
-					$img->save();
+				if($article->getImages() !== null) {
+					foreach ($article->getImages() as $img) {
+						$img->setId_article($id);
+						$img->save();
+					}
 				}
 				addNotif('Article bien enregistré', 'valid');
 				redirectToRoute('articles');

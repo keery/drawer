@@ -16,21 +16,29 @@
             <?php endforeach; ?>
             <div class="row spacing">
                 <div class="group col-sm-6 col-xs-12">
-                    <?php echo $form->label('titre'); ?>
-                    <?php echo $form->input('titre', ['class' => 'input']); ?>
+                    <?php echo $form->label('email'); ?>
+                    <?php echo $form->input('email', ['class' => 'input']); ?>
                 </div>
                 <div class="group col-sm-6 col-xs-12">
-                    <?php echo $form->label('auteur'); ?>
-                    <?php echo $form->input('auteur', ['class' => 'input']); ?>
+                    <?php echo $form->label('prenom'); ?>
+                    <?php echo $form->input('prenom', ['class' => 'input']); ?>
                 </div>
-                <div class="col-sm-6 col-xs-12">
-                    <label>Catégorie</label>
-                    <?php echo $form->input('categorie', ['class' => 'select']); ?>
+                <div class="group col-sm-6 col-xs-12">
+                    <?php echo $form->label('nom'); ?>
+                    <?php echo $form->input('nom', ['class' => 'input']); ?>
                 </div>
                 <div class="col-sm-6 col-xs-12">
                     <label>État</label>
                     <?php echo $form->input('active'); ?>
                 </div>
+                <div class="col-sm-6 col-xs-12">
+                    <label>Banni</label>
+                    <?php echo $form->input('banned'); ?>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <label>Rôle</label>
+                    <?php echo $form->input('role'); ?>
+                </div>                
             </div>
         </div>
     </div>

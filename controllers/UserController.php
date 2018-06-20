@@ -26,7 +26,6 @@ class UserController {
     
     public function editUserAction($params)
 	{
-
 		if(isset($params['id'])) $user = User::findOneBy(array('id' => $params['id']));
 		else $user = new User();
 		$data['titre'] = (!empty($user->getPseudo()) ? $user->getPseudo() : "Ajout d'un nouvel utilisateur" );
