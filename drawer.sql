@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 20 Juin 2018 à 08:17
+-- Généré le :  Jeu 21 Juin 2018 à 09:49
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -43,7 +43,13 @@ CREATE TABLE `cd_article` (
 
 INSERT INTO `cd_article` (`id`, `titre`, `description`, `auteur`, `active`, `id_categorie`, `date_creation`, `date_update`) VALUES
 (12, 'coucou la viee', '<p>Lorem Ipsum</p>', NULL, 1, 14, '2018-04-24 14:04:12', '2018-06-17 11:02:15'),
-(44, 'La consÃ©cration', NULL, NULL, 1, 3, '2018-06-17 18:08:39', NULL);
+(47, 'qdsfsdfsdfsdf', NULL, NULL, 1, 6, '2018-06-20 17:07:39', NULL),
+(46, 'qdsfsdfsdfsdf', NULL, NULL, 1, 6, '2018-06-20 17:07:37', NULL),
+(45, 'dfgsdfgdfgdf', NULL, NULL, 1, 3, '2018-06-20 17:07:36', NULL),
+(44, 'La consÃ©cration', '<p>dsqfghfjhhgjhgfhgg</p>', 'Guillaume ESNAULTREFER', 1, 3, '2018-06-17 18:08:39', '2018-06-21 09:12:53'),
+(54, 'qdsfsdfsdfsdf', NULL, NULL, 1, 6, '2018-06-20 17:07:43', NULL),
+(56, 'azertyuiopdd', NULL, 'Guillaume ESNAULTREFER', 1, 3, '2018-06-20 17:07:43', NULL),
+(57, 'azertyuiopdd', NULL, 'Guillaume ESNAULTREFER', 1, 3, '2018-06-20 17:07:44', NULL);
 
 -- --------------------------------------------------------
 
@@ -369,6 +375,7 @@ INSERT INTO `cd_image` (`id`, `src`, `title`, `alt`, `position`, `id_article`) V
 (79, '5ae31bdeea490.jpeg', NULL, NULL, NULL, NULL),
 (80, '5ae329c093ed4.jpeg', NULL, NULL, NULL, NULL),
 (81, '5ae329c0c577a.jpeg', NULL, NULL, NULL, NULL),
+(161, '5b2a4441407f2.png', NULL, NULL, NULL, 1),
 (82, '5b22d6cfa72bd.jpeg', NULL, NULL, NULL, NULL),
 (83, '5b22d7367e97c.jpeg', NULL, NULL, NULL, NULL),
 (84, '5b22d7d8ced3a.jpeg', NULL, NULL, NULL, NULL),
@@ -423,7 +430,12 @@ INSERT INTO `cd_image` (`id`, `src`, `title`, `alt`, `position`, `id_article`) V
 (133, '5b26c4d061a9a.png', NULL, 'Due', NULL, 41),
 (134, '5b26c4f937e0c.jpeg', NULL, 'uno', NULL, 42),
 (135, '5b26c4fc3bdd5.png', NULL, 'due', NULL, 42),
+(159, '5b2a3ee8d447f.png', NULL, NULL, NULL, 1),
+(158, '5b2a3e50edec3.png', NULL, NULL, NULL, 1),
+(157, '5b2a3e3b38bdc.png', NULL, NULL, NULL, 1),
+(156, '5b2a309c37c88.png', NULL, NULL, NULL, 1),
 (155, '5b292ffbe3683.png', NULL, NULL, NULL, 44),
+(160, '5b2a43c98412a.png', NULL, NULL, NULL, 1),
 (142, '5b26c5d5cf3d3.jpeg', NULL, NULL, NULL, 42),
 (143, '5b26c5d5cf3d3.jpeg', NULL, 'aze', NULL, 42),
 (144, '5b26c60dcb679.png', NULL, NULL, NULL, 42),
@@ -433,7 +445,22 @@ INSERT INTO `cd_image` (`id`, `src`, `title`, `alt`, `position`, `id_article`) V
 (148, '5b26c6b33f113.jpeg', NULL, 'un', NULL, 43),
 (149, '5b26c6b90477f.jpeg', NULL, 'deux', NULL, 43),
 (150, '5b26c6c805c0e.png', NULL, 'trois', NULL, 43),
-(153, '5b26c6f77306d.jpeg', NULL, 'trois', NULL, 44);
+(163, '5b2a498d5f966.png', NULL, NULL, NULL, 1),
+(162, '5b2a446098731.png', NULL, NULL, NULL, NULL),
+(153, '5b26c6f77306d.jpeg', NULL, 'trois', NULL, 44),
+(164, '5b2a499554da1.png', NULL, NULL, NULL, 1),
+(165, '5b2a49eb6b4d4.png', NULL, NULL, NULL, 1),
+(166, '5b2a4a0c02e68.png', NULL, NULL, NULL, 1),
+(167, '5b2a4a7b8a3a9.png', NULL, NULL, NULL, 1),
+(168, '5b2a4c89b3c40.png', NULL, NULL, NULL, 1),
+(169, '5b2a4caa18a0c.png', NULL, NULL, NULL, NULL),
+(170, '5b2a4d8b0b5fb.png', NULL, NULL, NULL, 1),
+(171, '5b2a4d9c30a7e.png', NULL, NULL, NULL, 1),
+(172, '5b2a4dc3b7ac9.png', NULL, NULL, NULL, 1),
+(173, '5b2a4dedc962d.png', NULL, NULL, NULL, NULL),
+(174, '5b2a4eb834aae.png', NULL, NULL, NULL, NULL),
+(175, '5b2a4ee2a76d6.png', NULL, NULL, NULL, NULL),
+(176, '5b2a4fe1dda2e.png', NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -458,23 +485,24 @@ CREATE TABLE `cd_page` (
   `description` text COLLATE utf8_unicode_ci,
   `url` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1',
-  `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `type` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'contenu'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Contenu de la table `cd_page`
 --
 
-INSERT INTO `cd_page` (`id`, `id_parent`, `titre`, `description`, `url`, `active`, `date_creation`) VALUES
-(1, NULL, 'tecdsqf', '<p>qdsfsdf</p>', 'test', 1, '2018-05-30 16:06:18'),
-(2, 1, 'coucou', NULL, 'dqfdsf', 1, '2018-05-30 16:06:52'),
-(3, NULL, 'kikito', NULL, 'dfqdsf', 1, '2018-05-30 17:07:07'),
-(4, 2, 'azertyuiop', NULL, 'azertyuiop', 1, '2018-05-30 18:08:22'),
-(5, 4, 'niveau 4', '<p>sqdfdsf</p>', 'sqfdbnv', 1, '2018-05-30 18:08:58'),
-(6, 5, 'niveau 5', '<p>sdfqsdfsdf</p>', 'svsdqfqsdfs', 1, '2018-05-30 18:08:59'),
-(8, NULL, 'niveau 0', '<p>sdfqsdfsd</p>', 'sdfqsdfsd', 1, '2018-05-30 19:09:00'),
-(9, 8, 'niveau 1', '<p>dsfsqdfsdf</p>', 'fsgbdfgfd', 1, '2018-05-30 19:09:01'),
-(10, 9, 'niveau 2', NULL, 'azerty', 1, '2018-05-30 19:09:01');
+INSERT INTO `cd_page` (`id`, `id_parent`, `titre`, `description`, `url`, `active`, `date_creation`, `type`) VALUES
+(1, NULL, 'Accueil', 'Page accueil', '/', 1, '2018-05-30 16:06:18', 'accueil'),
+(2, 1, 'coucou', NULL, 'dqfdsf', 1, '2018-05-30 16:06:52', 'contenu'),
+(3, NULL, 'kikito', NULL, 'dfqdsf', 1, '2018-05-30 17:07:07', 'contenu'),
+(4, 2, 'azertyuiop', NULL, 'azertyuiop', 1, '2018-05-30 18:08:22', 'contenu'),
+(5, 4, 'niveau 4', '<p>sqdfdsf</p>', 'sqfdbnv', 1, '2018-05-30 18:08:58', 'contenu'),
+(6, 5, 'niveau 5', '<p>sdfqsdfsdf</p>', 'svsdqfqsdfs', 1, '2018-05-30 18:08:59', 'contenu'),
+(8, NULL, 'niveau 0', '<p>sdfqsdfsd</p>', 'sdfqsdfsd', 1, '2018-05-30 19:09:00', 'contenu'),
+(9, 8, 'niveau 1', '<p>dsfsqdfsdf</p>', 'fsgbdfgfd', 1, '2018-05-30 19:09:01', 'contenu'),
+(10, 9, 'niveau 2', NULL, 'azerty', 1, '2018-05-30 19:09:01', 'contenu');
 
 -- --------------------------------------------------------
 
@@ -488,9 +516,13 @@ CREATE TABLE `cd_user` (
   `prenom` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `nom` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `banned` tinyint(1) NOT NULL,
   `date_inscription` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `role` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `profession` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `token` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `id_image` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -498,8 +530,8 @@ CREATE TABLE `cd_user` (
 -- Contenu de la table `cd_user`
 --
 
-INSERT INTO `cd_user` (`id`, `pseudo`, `prenom`, `nom`, `email`, `password`, `date_inscription`, `role`, `id_image`) VALUES
-(1, 'admin', 'Guillaume', 'Esnault', 'mon-compte1131@live.fr', 'test', '2018-06-14 17:36:23', 'MODERATEUR', NULL);
+INSERT INTO `cd_user` (`id`, `pseudo`, `prenom`, `nom`, `email`, `password`, `active`, `banned`, `date_inscription`, `role`, `profession`, `token`, `id_image`) VALUES
+(1, 'admin', 'Guillaume', 'ESNAULTREFER', 'mon-compte1131@live.fr', 'test', 1, 1, '2018-06-14 17:36:23', '1', '', '5b2b73370831d', 175);
 
 -- --------------------------------------------------------
 
@@ -585,7 +617,7 @@ ALTER TABLE `cd_user_role`
 -- AUTO_INCREMENT pour la table `cd_article`
 --
 ALTER TABLE `cd_article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 --
 -- AUTO_INCREMENT pour la table `cd_article_image`
 --
@@ -610,7 +642,7 @@ ALTER TABLE `cd_commentaire`
 -- AUTO_INCREMENT pour la table `cd_image`
 --
 ALTER TABLE `cd_image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 --
 -- AUTO_INCREMENT pour la table `cd_infosite`
 --
