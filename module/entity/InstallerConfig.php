@@ -106,8 +106,8 @@ class InstallerConfig extends \Module\Bdd\BaseSql {
 
 				$user = new User();
 				$user->fromArray([
-					"firstName" => $params['firstName'],
-					"lastName" => $params['lastName'],
+					"prenom" => $params['firstName'],
+					"nom" => $params['lastName'],
 					"email" => $params['email'],
 					"role" => ROLE_ADMINISTRATEUR
 				]);

@@ -2,6 +2,7 @@
 namespace Controllers;
 
 use Module\View\View;
+use Module\Entity\Article;
 
 class SiteController {
 	
@@ -10,10 +11,17 @@ class SiteController {
 		View::render("frontend/site.view.php", "layout-site.php");
 	}
 
-	public function oeuvreAction()
+	public function articlesAction()
 	{
-		View::render("frontend/oeuvre.view.php", "layout-site.php");
+		$data['articles'] = Article::all();
+		View::render("frontend/oeuvre.view.php", "layout-site.php", $data);
 	}
+
+	// public function articleAction($request)
+	// {
+	// 	$data['articles'] = Article::all();
+	// 	View::render("frontend/oeuvre.view.php", "layout-site.php", $data);
+	// }
 
 	public function contactAction()
 	{

@@ -168,9 +168,9 @@ return
 		'prefix' => 'site',
 		'routes' => [
 			'oeuvre' => [
-				'path' => 'oeuvre',
+				'path' => 'articles',
 				'controller' => 'Site',
-				'action' => 'oeuvre'
+				'action' => 'articles'
 			],
 			'contact' => [
 				'path' => 'contact',

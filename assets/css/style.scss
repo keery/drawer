@@ -123,7 +123,11 @@ img { max-width: 100%; }
 	cursor: pointer;
 	transition: all ease-in-out 0.3s;
 
+	
 	&:hover { border-color: $dark; }
+	&.inv { border: 1px solid $dark;
+		&:hover { background-color: $dark; color:white; }
+	}
 }
 
 .input, .select {
