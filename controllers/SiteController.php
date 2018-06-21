@@ -17,11 +17,11 @@ class SiteController {
 		View::render("frontend/oeuvre.view.php", "layout-site.php", $data);
 	}
 
-	// public function articleAction($request)
-	// {
-	// 	$data['articles'] = Article::all();
-	// 	View::render("frontend/oeuvre.view.php", "layout-site.php", $data);
-	// }
+	public function articleDetailAction($request)
+	{
+		$data['articles'] = Article::all();
+		View::render("frontend/oeuvre-detail.view.php", "layout-site.php", $data);
+	}
 
 	public function contactAction()
 	{

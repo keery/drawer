@@ -172,6 +172,15 @@ return
 				'controller' => 'Site',
 				'action' => 'articles'
 			],
+			'site_article_detail' => [
+				'path' => '{name}',
+				'controller' => 'Site',
+				'action' => 'articleDetail',
+				'params' => 
+				[
+					'name' => ['pattern' => '.*']
+				]
+			],
 			'contact' => [
 				'path' => 'contact',
 				'controller' => 'Site',

@@ -185,6 +185,7 @@ class Router
 				{
 					if(preg_match("/".$route['params'][$index]['pattern']."/", $params[$index]))
 					{
+						$params[$index] = convertToUrl($params[$index]);
 						$path = preg_replace('#\{'.$index.'}#', $params[$index], $path);
 					}
 					else throw new Erreur('Le paramètre "'.$index.'" n\'est pas valide');

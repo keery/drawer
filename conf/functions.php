@@ -193,4 +193,8 @@
         $truncate .= $ending;
         return $truncate;
     }
+
+    function convertToUrl($string) {
+        return preg_replace('/[^a-z0-9]/i', '-', $string);
+    }
  ?>
