@@ -65,6 +65,12 @@ class UserController {
         View::render("user/connexion.view.php", 'layout-login.php');
     }
 
+    public function logoutAction() {
+        unset($_SESSION[PREFIX."user"]);
+        session_destroy();
+        redirectToRoute("site");
+    }
+
     public function inscriptionAction() {
         if(request_is("POST")) {
            

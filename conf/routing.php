@@ -194,6 +194,12 @@ return
 			'controller' => 'User',
 			'action' => 'connexion'
 		],
+	'deconnexion' =>
+		[
+			'path' => 'logout',
+			'controller' => 'User',
+			'action' => 'logout'
+		],
 	'inscription' =>
 		[
 			'path' => 'inscription',

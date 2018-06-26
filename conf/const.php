@@ -58,4 +58,4 @@ define('ROLE_ADMINISTRATEUR', 'ADMINISTRATEUR');
 //Parametres
 $parameters = include(CONF.'parameters.php');
 define('ROLES', $parameters['ROLES']);
-$_SESSION[PREFIX."user"] = isset($_SESSION[PREFIX."user"]) ? $_SESSION[PREFIX."user"] : [] ;
+// $_SESSION[PREFIX."user"] = isset($_SESSION[PREFIX."user"]) ? $_SESSION[PREFIX."user"] : null ;
