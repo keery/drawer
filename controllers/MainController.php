@@ -4,6 +4,7 @@ namespace Controllers;
 use Module\Entity\Article;
 use Module\Entity\Categorie;
 use Module\View\View;
+use Module\Erreur\Erreur;
 
 class MainController {
 	
@@ -60,7 +61,7 @@ class MainController {
 			throw new Erreur("L'objet de la classe ".$class_name." avec l'id ".$id." n'existe pas");
 			return false;
 		}
-		die;
+
 		call_user_func($class_name."::delete" , $id);
 
 		addNotif('Suppression réussie', 'valid');
