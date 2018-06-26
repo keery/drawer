@@ -26,6 +26,7 @@ class User extends BaseSql
     public $active;
     public $profession;
     public $banned;
+    public $expire;
     public $date_inscription;
     public $date_update;
     public $id_image;
@@ -214,6 +215,13 @@ class User extends BaseSql
 	public function setProfession($profession) {
 		$this->profession = $profession;
     }
+
+    public function getExpire() {
+		return $this->expire;
+	}
+	public function setExpire($expire) {
+		$this->expire = $expire;
+    }    
     
     public function formInscription(){
 
