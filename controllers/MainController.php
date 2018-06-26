@@ -49,6 +49,18 @@ class MainController {
 			return false;
 		}
 
+		$object = call_user_func($class_name."::findOneBy" , ['id' => $id]);
+		if($object) {
+			if(method_exists($object, 'getProtected') && $object->getProtected() == "1") {
+				throw new Erreur("L'objet de la classe ".$class_name." avec l'id ".$id." ne peut pas être supprimé");
+				return false;
+			}
+		}
+		else {
+			throw new Erreur("L'objet de la classe ".$class_name." avec l'id ".$id." n'existe pas");
+			return false;
+		}
+		die;
 		call_user_func($class_name."::delete" , $id);
 
 		addNotif('Suppression réussie', 'valid');
