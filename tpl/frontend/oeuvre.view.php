@@ -1,5 +1,4 @@
 <div class="container-grid wrapper">
-  <div class="row">
     <h2>Mes oeuvres</h2>
 
     <div class="row">
@@ -22,8 +21,15 @@
             </a>
           </div>
         <?php endforeach; ?>
+      <?php else: ?>
+        <div class="col-xs-12">
+          <div class="notif information full">
+              <span class="notif-icone"></span>
+              <div class="notif-titre">Info:</div>
+              Il n'y a actuellement aucune oeuvre de publiée
+          </div>
+        </div>
       <?php endif; ?>
       </div>
     </div>
-  </div>
 </div>
