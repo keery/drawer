@@ -2,6 +2,7 @@
 namespace Controllers;
 
 use Module\Entity\Article;
+use Module\Entity\Commentaire;
 use Module\Entity\Categorie;
 use Module\View\View;
 use Module\Erreur\Erreur;
@@ -11,6 +12,7 @@ class MainController {
 	public function indexAction()
 	{
 		$data['articles'] = Article::find(null, ['*'], null, 5);
+		$data['commentaires'] = Commentaire::find(null, ['*'], null, 5);
 		View::render("backend/dashboard.view.php", "layout.php", $data);
 	}
 
