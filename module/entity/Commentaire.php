@@ -10,7 +10,7 @@ class Commentaire extends BaseSql {
     protected $publication;
     protected $active;
     protected $idarticle;
-    protected $iduser;
+    // protected $iduser;
     protected $user;
 	public $mapping = [
 		// "id_article" => [
@@ -65,12 +65,12 @@ class Commentaire extends BaseSql {
 		$this->idarticle = $idarticle;
 	}
 
-    public function getIduser() {
-		return $this->iduser;
-	}
-	public function setIduser($iduser) {
-		$this->iduser = $iduser;
-	}
+    // public function getIduser() {
+	// 	return $this->iduser;
+	// }
+	// public function setIduser($iduser) {
+	// 	$this->iduser = $iduser;
+	// }
 	
 	public function getUser() {
 		return $this->user;

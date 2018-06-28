@@ -4,6 +4,20 @@
         <h1><?php echo $article->getTitre(); ?></h1>
       </div>
       <div class="u-pd--m">
+        <?php foreach(getNotifs('valid') as $notif) : ?>
+            <div class="notif valid">
+                <span class="notif-icone"></span>
+                <div class="notif-titre">Réussi:</div>
+                <?php echo $notif; ?>
+            </div>
+        <?php endforeach; ?>
+        <?php foreach(getNotifs('error') as $notif) : ?>
+            <div class="notif error">
+                <span class="notif-icone"></span>
+                <div class="notif-titre">Erreur:</div>
+                <?php echo $notif; ?>
+            </div>
+        <?php endforeach; ?>
         <?php if($article->getAuteur()) echo "<i class='author'>Oeuvre de ".$article->getAuteur()."</i>"; ?>
         <?php if($article->getDescription()) echo "<p>".$article->getDescription()."</p>"; ?>
       </div>
@@ -20,7 +34,7 @@
         <div class="spacing spacing-v">
         <?php foreach($commentaires as $comm) : ?>
             <div class="comm">
-                <div class="info-comm author"><?php echo date_publication($comm->getPublication()) ?> par <?php echo $comm->getUser()->getPrenom(); ?></div>
+                <div class="info-comm author"><?php echo date_publication($comm->getPublication()) ?> par <?php echo $comm->getUser()->getPrenom() . " " . $comm->getUser()->getNom()[0]."."; ?></div>
                 <?php echo $comm->getCommentaire(); ?>
             </div>
         <?php endforeach; ?>

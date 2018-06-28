@@ -6,7 +6,6 @@
     <a href="<?php echo path('commentaires')."?sort=active"; ?>" <?php echo (getCurrentUrl() === "commentaires?sort=active" ? 'class="selected"' : '') ?>>Publiés</a>
     <a href="<?php echo path('commentaires')."?sort=unactive"; ?>" <?php echo (getCurrentUrl() === "commentaires?sort=unactive" ? 'class="selected"' : '') ?>>Non publiés</a>
   </div>
-  <a href="<?php echo path('commentaire_add'); ?>" class="btn-add" title="Ajouter un élément"></a>
 </nav>
 <?php foreach(getNotifs('valid') as $notif) : ?>
   <div class="notif valid">

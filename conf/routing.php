@@ -122,9 +122,14 @@ return
 				],
 			'commentaire_add' => 
 				[
-					'path' => 'add/commentaire',
-					'controller' => 'Commentaire',
-					'action' => 'editCommentaire'
+					'path' => 'add/comment/{id}',
+					'controller' => 'Site',
+					'action' => 'addComment',
+					'role' => ROLE_UTILISATEUR,
+					'params' => 
+					[
+						'id' => ['pattern' => '\d+']
+					]
 				],				
 			'categories' => 
 				[
