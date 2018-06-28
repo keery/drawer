@@ -7,7 +7,7 @@ use Module\View\View;
 use Module\Erreur\Erreur;
 
 use Module\Form\FormBuilder;
-use Module\Entity\Form\CommentaireForm;
+use Module\Entity\Form\CommentaireEditForm;
 
 class CommentaireController {
 	public function commentairesAction()
@@ -27,7 +27,7 @@ class CommentaireController {
 		if(isset($params['id'])) $commentaire = Commentaire::findOneBy(array('id' => $params['id']));
 		else $commentaire = new Commentaire();
 
-		$data['titre'] = (!empty($commentaire->getTitre()) ? $commentaire->getTitre() : "Ajout d'un nouveau commentaire" );
+		$data['id'] = (!empty($commentaire->getId()) ? $commentaire->getId() : "Ajout d'un nouveau commentaire" );
 
 		if(empty($commentaire)) {
 			throw new Erreur("Le commentaire contenant l'id ".$params['id']." n'existe pas");
@@ -35,7 +35,7 @@ class CommentaireController {
 		}
 		
 		$fb = new FormBuilder();
-		$form = $fb->create(new CommentaireForm(), $commentaire);
+		$form = $fb->create(new CommentaireEditForm(), $commentaire);
 		
 		if(request_is("POST")) {
 			$commentaire = $form->handleRequest($_POST);
