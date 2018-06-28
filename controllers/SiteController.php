@@ -3,7 +3,10 @@ namespace Controllers;
 
 use Module\View\View;
 use Module\Entity\Article;
+use Module\Entity\Commentaire;
 use Module\Erreur\Erreur;
+use Module\Form\FormBuilder;
+use Module\Entity\Form\CommentaireForm;
 
 class SiteController {
 	
@@ -22,6 +25,27 @@ class SiteController {
 	{
 		if(isset($request['id'])) {
 			if($data['article'] = Article::findOneBy(['id' => $request['id']])) {
+				if(isGranted(ROLE_UTILISATEUR)) {
+					$commentaire = new Commentaire();
+					$fb = new FormBuilder();
+					$form = $fb->create(new CommentaireForm(), $commentaire);
+
+					if(request_is("POST")) {
+						$commentaire = $form->handleRequest($_POST);
+						$commentaire->setIdarticle($request['id']);
+						$commentaire->setIduser($_SESSION[PREFIX."user"]['id']);
+						if($form->validate()) {
+							$commentaire->save();
+							addNotif('Votre commentaire a bien été ajouté, un administrateur validera son contenu sous peu', 'valid');
+							redirectToRoute('site_article_detail', ['name' => $data['article']->getTitre(), 'id' => $request['id']]);
+						}
+						else addNotif($form->getErrors(), 'error');
+					}
+				}
+
+				$data['form'] = $form->createView();
+				$data['commentaires'] = Commentaire::find(['idarticle' => $request['id']]);
+
 				View::render("frontend/oeuvre-detail.view.php", "layout-site.php", $data);
 			}
 			else {

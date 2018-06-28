@@ -113,4 +113,14 @@
 
   .author { font-size: 12px; }
   .img-container { position:relative; }
+  .comm { padding: 15px 0;
+
+    + .comm { border-top: 1px solid #ccc; }
+  }
+  .comm-field {
+    margin: 15px 0;
+    max-height: 150px;
+    max-width: 100%;
+    min-width: 100%;
+  }
 }

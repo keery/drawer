@@ -6,9 +6,14 @@
 		$router = new Router();
         return DIRECTORY.DS.$router->routeHandler($routeName, $params);
 	}
-	function redirectToRoute($route) {
-		header('Location: '.path($route));
-	}
+	function redirectToRoute($route, $params=null) {
+		header('Location: '.path($route, $params));
+    }
+    
+    function date_publication($date) {
+        $date = date_create($date);
+        return "Publié le ".date_format($date, "d/m/Y") . " à ".date_format($date, "H:i");
+    }
 
 	function request_is($type) {
 		return $type == $_SERVER['REQUEST_METHOD'];
