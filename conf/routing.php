@@ -100,10 +100,32 @@ return
 				],
 			'article_add' => 
 				[
-					'path' => 'add/article',
-					'controller' => 'Article',
-					'action' => 'editArticle'
+					'path' => 'add/commentaire',
+					'controller' => 'Commentaire',
+					'action' => 'editCommentaire'
 				],
+			'commentaires' => 
+				[
+					'path' => 'commentaires',
+					'controller' => 'Commentaire',
+					'action' => 'commentaires'
+				],
+			'commentaire_edit' => 
+				[
+					'path' => 'commentaire/{id}',
+					'controller' => 'Commentaire',
+					'action' => 'editCommentaire',
+					'params' => 
+					[
+						'id' => ['pattern' => '\d+']
+					]
+				],
+			'commentaire_add' => 
+				[
+					'path' => 'add/commentaire',
+					'controller' => 'Commentaire',
+					'action' => 'editCommentaire'
+				],				
 			'categories' => 
 				[
 					'path' => 'categories',
