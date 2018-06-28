@@ -11,7 +11,7 @@
         <div class="text-center spacing">
             <?php foreach($article->getImages() as $img): ?>
                 <div class="img-container">
-                    <img src="<?php echo UPLOAD.$img->getSrc(); ?>" />
+                    <?php echo renderImg($img); ?>                    
                 </div>                
             <?php endforeach; ?>
         </div>

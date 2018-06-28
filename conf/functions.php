@@ -15,6 +15,15 @@
         return "Publié le ".date_format($date, "d/m/Y") . " à ".date_format($date, "H:i");
     }
 
+    function renderImg($img, $class=null) {
+        $HTML = '<img src="'.UPLOAD.$img->getSrc().'"';
+        if(!empty($img->getAlt())) $HTML .= " alt='".$img->getAlt()."'";
+        if(!empty($img->getTitle())) $HTML .= " alt='".$img->getTitle()."'";
+        if($class) $HTLM .= " class='".$class."'";
+        $HTML .= " />";
+        return $HTML;
+    }
+
 	function request_is($type) {
 		return $type == $_SERVER['REQUEST_METHOD'];
     }
