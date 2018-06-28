@@ -173,12 +173,13 @@ return
 				'action' => 'articles'
 			],
 			'site_article_detail' => [
-				'path' => '{name}',
+				'path' => '{name}/{id}',
 				'controller' => 'Site',
 				'action' => 'articleDetail',
 				'params' => 
 				[
-					'name' => ['pattern' => '.*']
+					'name' => ['pattern' => '.*'],
+					'id' => ['pattern' => '[0-9]+']
 				]
 			],
 			'contact' => [

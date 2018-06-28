@@ -6,7 +6,7 @@
       <?php if(isset($articles) && sizeof($articles) > 0): ?>
         <?php foreach($articles as $article): ?>
           <div class="col-md-4 col-sm-6 col-xs-12 u-pd--s">
-            <a href="<?php echo path('site_article_detail', ['name' => $article->getTitre()]); ?>">
+            <a href="<?php echo path('site_article_detail', ['name' => $article->getTitre(), 'id' => $article->getId()]); ?>">
               <div class="thumbnail">
                 <?php 
                   if( sizeof($article->getImages()) > 0) $bg = 'assets/img/upload/'.$article->getImages()[0]->getSrc();

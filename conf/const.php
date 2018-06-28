@@ -37,6 +37,7 @@ define('CTRL', PROJECT_LINK.DS."controllers".DS);
 define('TPL', PROJECT_LINK.DS."tpl".DS);
 define('LAYOUT', PROJECT_LINK.DS."layout".DS);
 define('ASSETS', PROJECT_LINK.DS."assets".DS);
+define('UPLOAD', DIRNAME.DS."assets/img/upload".DS);
 define('ROOT', DS.dirname(__FILE__).DS);
 
 //Constante SQL

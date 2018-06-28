@@ -3,6 +3,7 @@ namespace Controllers;
 
 use Module\View\View;
 use Module\Entity\Article;
+use Module\Erreur\Erreur;
 
 class SiteController {
 	
@@ -19,8 +20,16 @@ class SiteController {
 
 	public function articleDetailAction($request)
 	{
-		$data['articles'] = Article::all();
-		View::render("frontend/oeuvre-detail.view.php", "layout-site.php", $data);
+		if(isset($request['id'])) {
+			if($data['article'] = Article::findOneBy(['id' => $request['id']])) {
+				View::render("frontend/oeuvre-detail.view.php", "layout-site.php", $data);
+			}
+			else {
+				throw new Erreur("Cet article n'existe pas");
+				return false;
+			}
+		}
+		else redirectToRoute('site');
 	}
 
 	public function contactAction()
