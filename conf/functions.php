@@ -217,4 +217,41 @@
     function convertToUrl($string) {
         return strtolower(preg_replace('/[^a-z0-9]/i', '-', removeAccents($string)));
     }
+    function sendMail($destinataire, $titre, $body) {
+
+        $mail = new PHPMailer(true);
+
+        try {
+            $mail->SMTPDebug = 0;                                 // Enable verbose debug output
+            $mail->isSMTP();                                      // Set mailer to use SMTP
+            $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+            $mail->SMTPAuth = true;                               // Enable SMTP authentication
+            $mail->Username = 'guillaumesnault@gmail.com';                 // SMTP username
+            $mail->Password = 'guigui91';                           // SMTP password
+            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+            $mail->Port = 587;                                    // TCP port to connect to
+        
+            //Recipients
+            $mail->setFrom('guillaumesnault@gmail.com', 'Mailer');
+
+            if(is_array($destinataire)) {
+                foreach ($destinataire as  $dest) {
+                    $mail->addAddress($dest);
+                }
+
+            }
+            else $mail->addAddress($destinataire);     // Add a recipient
+        
+            //Content
+            $mail->isHTML(true);                                  // Set email format to HTML
+            $mail->Subject = $titre;
+            $mail->Body    = $body;
+            $mail->AltBody = $body;
+        
+            $mail->send();
+            return "Message bien envoyé";
+        } catch (Exception $e) {
+            return "Le mail n'a pas pu être envoyé,". $mail->ErrorInfo;
+        }
+    }
  ?>
