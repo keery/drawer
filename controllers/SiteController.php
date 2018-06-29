@@ -73,15 +73,13 @@ class SiteController {
 							}
 							$link = path("commentaire_edit", ['id' => $request['id']]);
 							sendMail($destinataires, PROJECT_NAME." - Nouveau commentaire", 'Bonjour,<br>Un nouveau commentaire a été ajouté par '.$_SESSION[PREFIX."user"]['prenom'].' '.$_SESSION[PREFIX."user"]['nom'].', vous pouvez accepter ou refuser ce message en vous rendant sur '.$link.".");
-							// var_dump($destinataires);
 						}
-						// sendMail()
-						// addNotif('Votre commentaire a bien été ajouté, un administrateur validera son contenu sous peu', 'valid');
+						addNotif('Votre commentaire a bien été ajouté, un administrateur validera son contenu sous peu', 'valid');
 					}
 					else addNotif($form->getErrors(), 'error');
 				}
 
-				// redirectToRoute('site_article_detail', ['name' => $data['article']->getTitre(), 'id' => $request['id']]);
+				redirectToRoute('site_article_detail', ['name' => $data['article']->getTitre(), 'id' => $request['id']]);
 			}
 			else {
 				throw new Erreur("Cet article n'existe pas");
