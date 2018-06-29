@@ -61,12 +61,27 @@ class SiteController {
 					$commentaire->setUser( User::findOneby(['id' => $_SESSION[PREFIX."user"]['id']]) );
 					if($form->validate()) {
 						$commentaire->save();
-						addNotif('Votre commentaire a bien été ajouté, un administrateur validera son contenu sous peu', 'valid');
+
+						$moderateurs = User::find(["role" => ROLE_MODERATEUR]);
+						$admins = User::find(["role" => ROLE_ADMINISTRATEUR]);
+						$users = array_merge($moderateurs, $admins);
+
+						if(sizeof($users) > 0) {
+							$destinataires = [];
+							foreach ($users as $user) {
+								$destinataires[] = $user->getEmail();
+							}
+							$link = path("commentaire_edit", ['id' => $request['id']]);
+							sendMail($destinataires, PROJECT_NAME." - Nouveau commentaire", 'Bonjour,<br>Un nouveau commentaire a été ajouté par '.$_SESSION[PREFIX."user"]['prenom'].' '.$_SESSION[PREFIX."user"]['nom'].', vous pouvez accepter ou refuser ce message en vous rendant sur '.$link.".");
+							// var_dump($destinataires);
+						}
+						// sendMail()
+						// addNotif('Votre commentaire a bien été ajouté, un administrateur validera son contenu sous peu', 'valid');
 					}
 					else addNotif($form->getErrors(), 'error');
 				}
 
-				redirectToRoute('site_article_detail', ['name' => $data['article']->getTitre(), 'id' => $request['id']]);
+				// redirectToRoute('site_article_detail', ['name' => $data['article']->getTitre(), 'id' => $request['id']]);
 			}
 			else {
 				throw new Erreur("Cet article n'existe pas");

@@ -20,6 +20,9 @@ define("USER", "root");
 session_start();
 // define("DS", DIRECTORY_SEPARATOR);
 define("DS", "/");
+//TODO A SUPPRIMER ET A METTRE DANS LE FICHIER DE L'INSTALLEUR
+define("PROJECT_NAME", "Creative Drawer");
+
 define("DIRNAME", dirname($_SERVER["SCRIPT_NAME"]));
 define("DIRECTORY", str_replace($_SERVER['CONTEXT_DOCUMENT_ROOT'], '', pathinfo($_SERVER['SCRIPT_FILENAME'])['dirname']) );
 

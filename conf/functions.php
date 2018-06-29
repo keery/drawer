@@ -1,5 +1,7 @@
 <?php
-	use Module\Router\Router;
+    use Module\Router\Router;
+    use Module\PHPMailer\PHPMailer;
+    use Module\PHPMailer\Exception;
 
 	function path($routeName, $params=null)
 	{
@@ -230,7 +232,8 @@
             $mail->Password = 'guigui91';                           // SMTP password
             $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
             $mail->Port = 587;                                    // TCP port to connect to
-        
+            $mail->CharSet = 'UTF-8';
+            
             //Recipients
             $mail->setFrom('guillaumesnault@gmail.com', 'Mailer');
 
@@ -241,7 +244,8 @@
 
             }
             else $mail->addAddress($destinataire);     // Add a recipient
-        
+            
+            // $body = utf8_encode($body);
             //Content
             $mail->isHTML(true);                                  // Set email format to HTML
             $mail->Subject = $titre;
