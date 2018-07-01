@@ -121,6 +121,16 @@
     margin: 15px 0;
     max-height: 150px;
     max-width: 100%;
-    min-width: 100%;
+    min-width: 100%; 
+  }
+
+  #contact {
+    input[type="text"], textarea { box-sizing: border-box; border: 1px solid #c1c1c1; border-radius: 4px;width: 100%;padding: 5px;}
+    input[type="text"] { height: 25px; }
+    textarea { height: 100px; max-height: 150px;max-width: 100%;}
+    label {color: #473f3f;display: block;margin-bottom: 10px;font-size: 16px;}
+    form { width: 60%;margin: 0 auto;
+      > div { margin: 10px 0;}
+    }
   }
 }

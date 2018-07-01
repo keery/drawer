@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head lang="fr">
-		<link rel="stylesheet" href="/assets/css/dist/style.css">
+		<link rel="stylesheet" href="assets/css/dist/style.css">
 		<meta charset="UTF-8">
-    <base href="/">
+    <base href="<?php echo DIRECTORY; ?>/">
 		<title>Creative Drawer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	</head>

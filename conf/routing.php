@@ -213,6 +213,11 @@ return
 				'path' => 'contact',
 				'controller' => 'Site',
 				'action' => 'contact'
+			]	,
+			'send_contact' => [
+				'path' => 'send_contact',
+				'controller' => 'Site',
+				'action' => 'sendContact'
 			]	
 		]
 	],

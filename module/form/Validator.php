@@ -10,10 +10,11 @@ class Validator {
     public function __construct($rules, $object) {
         $this->rules = $rules;
         $this->object = $object;
-    }
+    } 
 
     public function verify() {
         $object = $this->object;
+        var_dump($this->rules);
         foreach ($this->rules as $key => $rule) {
 
             $f = 'get'.ucfirst(strtolower($key));
@@ -57,7 +58,7 @@ class Validator {
         return false;
 	}
 
-	public static function checkEmail($email){
+	public function checkEmail($email){
         if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return true;
         }

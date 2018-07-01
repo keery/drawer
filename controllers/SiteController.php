@@ -3,11 +3,13 @@ namespace Controllers;
 
 use Module\View\View;
 use Module\Entity\Article;
+use Module\Entity\Contact;
 use Module\Entity\Commentaire;
 use Module\Entity\User;
 use Module\Erreur\Erreur;
 use Module\Form\FormBuilder;
 use Module\Entity\Form\CommentaireForm;
+use Module\Entity\Form\ContactForm;
 
 class SiteController {
 	
@@ -91,6 +93,47 @@ class SiteController {
 
 	public function contactAction()
 	{
-		View::render("frontend/contact.view.php", "layout-site.php");
+		$fb = new FormBuilder();
+		$form = $fb->create(new ContactForm());
+
+		if(request_is("POST")) {
+			$article = $form->handleRequest($_POST);
+			if($form->validate()) {
+				addNotif('Votre message a bien été envoyé', 'valid');
+				redirectToRoute('contact');
+			}
+			else addNotif($form->getErrors(), 'error');
+		}
+		$form->setAction(path('send_contact'));
+		$data['form'] = $form->createView();
+		View::render("frontend/contact.view.php", "layout-site.php", $data);
+	}
+
+	public function sendContactAction()
+	{
+		$contact = new Contact();
+		$fb = new FormBuilder();
+		$form = $fb->create(new ContactForm(), $contact);
+
+		if(request_is("POST")) {
+			$article = $form->handleRequest($_POST);
+			if($form->validate()) {
+				
+				$users = User::find(["role" => ROLE_ADMINISTRATEUR]);
+
+				if(sizeof($users) > 0) {
+					$destinataires = [];
+					foreach ($users as $user) {
+						$destinataires[] = $user->getEmail();
+					}
+
+					sendMail($destinataires, PROJECT_NAME." - ".$contact->getTitre(), 'Bonjour,<br>Un nouveau message a été envoyé par '.$contact->getEmail().": <br/>".$contact->getMessage());
+				}
+				
+				addNotif('Votre message a bien été envoyé', 'valid');				
+			}
+			else addNotif($form->getErrors(), 'error');
+		}
+		redirectToRoute('contact');
 	}
 }
