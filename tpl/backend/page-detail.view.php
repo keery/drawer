@@ -15,26 +15,28 @@
           </div>
       <?php endforeach; ?>
       <div class="row spacing">
-          <div class="group col-sm-6 col-xs-12">
-              <?php echo $form->label('titre'); ?>
-              <?php echo $form->input('titre', ['class' => 'input']); ?>
-          </div>
-          <div class="group col-sm-6 col-xs-12">
-              <?php echo $form->label('type'); ?>
-              <?php echo $form->input('type', ['class' => 'input']); ?>
-          </div>
-          <div class="group col-sm-6 col-xs-12">
-              <?php echo $form->label('url'); ?>
-              <?php echo $form->input('url', ['class' => 'input']); ?>
-          </div>
-          <div class="col-sm-6 col-xs-12">
-              <label>Page parente</label>
-              <?php echo $form->input('parent', ['class' => 'select']); ?>
-          </div>
-          <div class="col-sm-6 col-xs-12">
-              <label>État</label>
-              <?php echo $form->input('active'); ?>
-          </div>
+            <div class="group col-sm-6 col-xs-12">
+                <?php echo $form->label('titre'); ?>
+                <?php echo $form->input('titre', ['class' => 'input']); ?>
+            </div>
+            <?php if($titre != "Accueil") : ?>
+                <div class="group col-sm-6 col-xs-12">
+                    <?php echo $form->label('type'); ?>
+                    <?php echo $form->input('type', ['class' => 'input']); ?>
+                </div>
+            <?php endif; ?>
+            <div class="group col-sm-6 col-xs-12">
+                <?php echo $form->label('url'); ?>
+                <?php echo $form->input('url', ['class' => 'input']); ?>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <label>Page parente</label>
+                <?php echo $form->input('parent', ['class' => 'select']); ?>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <label>État</label>
+                <?php echo $form->input('active'); ?>
+            </div>
       </div>
     </div>
   </div>

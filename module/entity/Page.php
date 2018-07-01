@@ -10,6 +10,7 @@ class Page extends BaseSql {
 	protected $url;
 	protected $description;
 	protected $parent;
+	protected $type;
 	protected $protected;
 	protected $date_creation;
 	protected $date_update;
@@ -82,6 +83,13 @@ class Page extends BaseSql {
 	}
 	public function setProtected($protected) {
 		$this->protected = $protected;
+	}
+
+	public function getType() {
+		return $this->type;
+	}
+	public function setType($type) {
+		$this->type = $type;
 	}
 
 	public static function get_table_class() { return "cd_page"; }		

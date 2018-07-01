@@ -4,6 +4,7 @@ namespace Controllers;
 use Module\View\View;
 use Module\Entity\Article;
 use Module\Entity\Contact;
+use Module\Entity\Page;
 use Module\Entity\Commentaire;
 use Module\Entity\User;
 use Module\Erreur\Erreur;
@@ -12,10 +13,22 @@ use Module\Entity\Form\CommentaireForm;
 use Module\Entity\Form\ContactForm;
 
 class SiteController {
+	public function getArbo($pages= [], $idParent = null) {
+		if($pageZero = Page::find(['active' => 1, 'id_parent' => $idParent])) {
+			foreach ($pageZero as $page) {
+				$pages[$page->getId()]['page'] = $page;
+				if($childs = Page::find(['active' => 1, 'id_parent' => $page->getId()])) {
+					$pages[$page->getId()]['childs'] = $childs;
+				}
+			}
+		}
+		return $pages;
+	}
 	
 	public function indexAction()
 	{
-		View::render("frontend/site.view.php", "layout-site.php");
+		$data['arbo'] = $this->getArbo();
+		View::render("frontend/site.view.php", "layout-site.php", $data);
 	}
 
 	public function articlesAction()

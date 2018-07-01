@@ -115,14 +115,16 @@ class SqlManager{
 				}
 				$where = $formatWhere;
 			}
-			else $inlineWhere = $this->prepareInlineSelectKeys($where, "=:", " AND ");
+			else  {
+				$res = $this->prepareInlineSelectKeys($where, "=:", " AND ");
+				$inlineWhere = $res['inline'];
+				$where = $res['where'];
+			}
 			
 			$q .= " WHERE ".$inlineWhere;	
 		}
-
 		if(is_int($limit)) $q .= " LIMIT ".$limit;
 		$this->query = $this->pdo->prepare($q);
-
 		$this->query->execute($where);
 		$res = $this->query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -147,10 +149,13 @@ class SqlManager{
 	public function prepareInlineSelectKeys($data, $glue ="=:", $separator=","){
 		$iProps = [];
 		foreach ($data as $key => $props) {
-			if(is_null($props)) $iProps[] = $key." IS NULL";
+			if(is_null($props)) {
+				unset($data[$key]);
+				$iProps[] = $key." IS NULL";
+			}
 			else $iProps[] = $key.$glue.$key;
 		}
-		return implode($separator, $iProps);
+		return ['where' => $data, 'inline' =>implode($separator, $iProps)];
 	}
 
 	public function hydrateObject($table, $data) {

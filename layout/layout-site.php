@@ -23,9 +23,26 @@
 				</div>
 				<nav class="navbar">
 					<div class="left">
-						<a href="<?php echo path('site') ?>" <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "site" ? 'class="selected"' : '') ?>>Accueil</a>
-						<a href="<?php echo path('oeuvre') ?>"  <?php echo (in_array($_SERVER['CURRENT_ROUTE']['name'],['site_article_detail', 'oeuvre']) ? 'class="selected"' : '') ?>>Mes oeuvres</a>
-						<a href="<?php echo path('contact') ?>"  <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "contact" ? 'class="selected"' : '') ?>>Me contacter</a>
+
+					<?php
+							if($pageZero = Module\Entity\Page::find(['active' => 1, 'id_parent' => null])) {
+								$pages= [];
+								foreach ($pageZero as $page) {
+									$pages[$page->getId()]['page'] = $page;
+									if($childs = Module\Entity\Page::find(['active' => 1, 'id_parent' => $page->getId()])) {
+										$pages[$page->getId()]['childs'] = $childs;
+									}
+								}
+
+								if(sizeof($pages) > 0): 
+									foreach ($pages as $page) :
+										echo '<a href="'.path($page['page']->getType()).'" '.($_SERVER['CURRENT_ROUTE']['name'] === $page['page']->getType() ? 'class="selected"' : '').' >'.$page['page']->getTitre().'</a>';
+									endforeach;
+								endif; 
+							}
+					?>
+						<?php /*echo  */?>
+						<?php /*echo (in_array($_SERVER['CURRENT_ROUTE']['name'],['site_article_detail', 'oeuvre']) ? 'class="selected"' : '') */?>
 					</div>
 					<div class="right">
 						<?php if( isset($_SESSION[PREFIX."user"])) : ?>

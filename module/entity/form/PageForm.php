@@ -25,7 +25,7 @@ class PageForm extends FormBuilderInterface
             ->add('description', new TextType(), ['required' => false])
             ->add('active', new CheckboxType(['Active']), ['class' => "on-off"])
             ->add('parent', new EntityType($listPages, 'titre'), ['required' => false])
-            ->add('type', new SelectType(['contenu', 'contact', 'articles']), ['class' => "select"])
+            ->add('type', new SelectType(['contenu' => 'Contenu', 'contact' => 'Contact', 'oeuvre' => 'Articles']), ['class' => "select"])
             ->add('submit', new SubmitType())
         ;
     }

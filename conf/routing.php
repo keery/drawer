@@ -199,6 +199,11 @@ return
 				'controller' => 'Site',
 				'action' => 'articles'
 			],
+			'contenu' => [
+				'path' => 'contenu',
+				'controller' => 'Site',
+				'action' => 'contenu'
+			],
 			'site_article_detail' => [
 				'path' => '{name}/{id}',
 				'controller' => 'Site',
