@@ -95,15 +95,6 @@ class SiteController {
 	{
 		$fb = new FormBuilder();
 		$form = $fb->create(new ContactForm());
-
-		if(request_is("POST")) {
-			$article = $form->handleRequest($_POST);
-			if($form->validate()) {
-				addNotif('Votre message a bien été envoyé', 'valid');
-				redirectToRoute('contact');
-			}
-			else addNotif($form->getErrors(), 'error');
-		}
 		$form->setAction(path('send_contact'));
 		$data['form'] = $form->createView();
 		View::render("frontend/contact.view.php", "layout-site.php", $data);
@@ -117,6 +108,7 @@ class SiteController {
 
 		if(request_is("POST")) {
 			$article = $form->handleRequest($_POST);
+			
 			if($form->validate()) {
 				
 				$users = User::find(["role" => ROLE_ADMINISTRATEUR]);

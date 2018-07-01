@@ -5,6 +5,7 @@ namespace Module\Entity\Form;
 use Module\Form\FormBuilderInterface;
 use Module\Form\Type\InputType;
 use Module\Form\Type\TextType;
+use Module\Form\Type\CaptchaType;
 use Module\Form\Type\SubmitType;
 
 class ContactForm extends FormBuilderInterface
@@ -18,6 +19,9 @@ class ContactForm extends FormBuilderInterface
             ]])
             ->add('titre', new InputType())
             ->add('message', new TextType())
+            ->add('captcha', new CaptchaType(), ['rules' => [
+                "captcha" => true
+            ]])
             ->add('submit', new SubmitType())
         ;
     }

@@ -107,6 +107,7 @@ class FormBuilderInterface
         
         if(sizeof($request) > 0 && $this->getObject()) {
             foreach($request as $key => $value) {
+                if(isset($value['captcha'])) $_POST['captcha'] = $value['captcha'];
                 if(in_array($key, $_SESSION['form_keys'])) $this->getObject()->fromArray($value);                         
             }
             return $this->getObject();

@@ -33,6 +33,10 @@
                         <?php echo $form->label('message'); ?>
                         <?php echo $form->input('message', ['class' => 'input']); ?>
                     </div>
+                    <div>
+                        <?php echo $form->label('captcha'); ?>
+                        <?php echo $form->input('captcha'); ?>
+                    </div>
                     <div class="text-right">
                         <?php echo $form->input('submit', ['class' => 'button inv']); ?>
                     </div>

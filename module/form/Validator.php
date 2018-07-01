@@ -14,13 +14,14 @@ class Validator {
 
     public function verify() {
         $object = $this->object;
-        var_dump($this->rules);
         foreach ($this->rules as $key => $rule) {
-
-            $f = 'get'.ucfirst(strtolower($key));
-            $value = $object->$f();
-            foreach ($rule as $keyRule => $critere) {
-                $this->$keyRule($value, $critere);
+            if($key == 'captcha') $this->captcha($_POST['captcha']);
+            else {
+                $f = 'get'.ucfirst(strtolower($key));
+                $value = $object->$f();
+                foreach ($rule as $keyRule => $critere) {
+                    $this->$keyRule($value, $critere);
+                }
             }
         }
         return sizeof($this->errors) > 0 ? $this->errors : true;
@@ -63,6 +64,14 @@ class Validator {
             return true;
         }
         $this->errors[] = "Le format de l'email n'est pas valide";
+        return false; 
+    }
+    
+    public function captcha($captcha){
+        if($captcha == $_SESSION['captcha']) {
+            return true;
+        }
+        $this->errors[] = "Captcha invalide";
         return false; 
 	}
 

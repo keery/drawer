@@ -1,7 +1,7 @@
 <?php
+    
+    namespace Module\Captcha;
     header('Content-type: image/png');
-
-
     class Captcha {
         private $nbChar;
         private $fond;
@@ -62,9 +62,11 @@
             $length = strlen($chars);
             $sliceWidth = $this->width / $length;
             $decallage = 15;
+            session_start();
+            $_SESSION['captcha'] = $chars;
 
             $this->generateRandomShape();
-
+            
             for ( $i = 0; $i < $length; $i++ ) {
 
                 $char = $chars[$i];
@@ -79,6 +81,6 @@
             imagepng($fond);
         }
     }
- 
+    
     $captcha = new Captcha();
     $captcha->generate();

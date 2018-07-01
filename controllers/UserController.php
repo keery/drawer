@@ -55,6 +55,7 @@ class UserController {
 	}
 
     public function connexionAction() {
+        if(isset($_SESSION[PREFIX."user"])) redirectToRoute("site");
         if(request_is("POST") && isset($_POST['_email'], $_POST['_password'])) {
             if($user = User::findOneBy(['email' => $_POST['_email'], 'password' => $_POST['_password']])) {
                 $_SESSION[PREFIX."user"] = (array) $user;
@@ -80,6 +81,8 @@ class UserController {
     }
 
     public function forgetPasswordAction() {
+
+        if(isset($_SESSION[PREFIX."user"])) redirectToRoute("site");
         
         if(request_is("POST") && isset($_POST['_email'])) {
 
@@ -102,6 +105,8 @@ class UserController {
     }
 
     public function newPasswordAction($request) {
+
+        if(isset($_SESSION[PREFIX."user"])) redirectToRoute("site");
 
         if(isset($request['token'])) {
             $expire = date('Y-m-d H:i:s', $request['token']);
