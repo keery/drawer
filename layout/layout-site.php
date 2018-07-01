@@ -23,9 +23,9 @@
 				</div>
 				<nav class="navbar">
 					<div class="left">
-						<a href="<?php echo path('site') ?>">Accueil</a>
-						<a href="<?php echo path('oeuvre') ?>">Mes oeuvres</a>
-						<a href="<?php echo path('contact') ?>">Me contacter</a>
+						<a href="<?php echo path('site') ?>" <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "site" ? 'class="selected"' : '') ?>>Accueil</a>
+						<a href="<?php echo path('oeuvre') ?>"  <?php echo (in_array($_SERVER['CURRENT_ROUTE']['name'],['site_article_detail', 'oeuvre']) ? 'class="selected"' : '') ?>>Mes oeuvres</a>
+						<a href="<?php echo path('contact') ?>"  <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "contact" ? 'class="selected"' : '') ?>>Me contacter</a>
 					</div>
 					<div class="right">
 						<?php if( isset($_SESSION[PREFIX."user"])) : ?>

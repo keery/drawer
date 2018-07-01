@@ -235,7 +235,7 @@
             $mail->CharSet = 'UTF-8';
             
             //Recipients
-            $mail->setFrom('guillaumesnault@gmail.com', 'Mailer');
+            $mail->setFrom('guillaumesnault@gmail.com', 'Creative Drawer');
 
             if(is_array($destinataire)) {
                 foreach ($destinataire as  $dest) {
