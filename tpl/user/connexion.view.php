@@ -2,6 +2,13 @@
   <form method="POST" action="<?php /*echo path('verification_user'); */?>" id="login-form">
     <div>
       <h1>Connexion</h1>
+      <?php foreach(getNotifs('valid') as $notif) : ?>
+          <div class="notif valid">
+              <span class="notif-icone"></span>
+              <div class="notif-titre">Réussi:</div>
+              <?php echo $notif; ?>
+          </div>
+        <?php endforeach; ?>
       <?php foreach(getNotifs('error') as $notif) : ?>
             <div class="notif error">
                 <span class="notif-icone"></span>

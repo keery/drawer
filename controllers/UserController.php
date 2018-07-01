@@ -7,6 +7,7 @@ use Module\Entity\User;
 use Module\View\View;
 use Module\bdd\BaseSql;
 use Module\Form\FormBuilder;
+use Module\Erreur\Erreur;
 
 
 class UserController {
@@ -84,9 +85,13 @@ class UserController {
 
             if (filter_var($_POST['_email'], FILTER_VALIDATE_EMAIL)) {
 
-                if($user = User::find(['email' => $_POST['_email']])) {
-                    //Envoyer un email ici
-                    addNotif("Votre mot de passe vous a été renvoyé", 'valid');
+                if($user = User::findOneBy(['email' => $_POST['_email']])) {
+                    $date = date('Y-m-d H:i:s', strtotime('+4 hour'));
+                    $token = strtotime($date);
+                    $user->setExpire($date);
+                    $user->save();
+                    sendMail($user->getEmail(), PROJECT_NAME." - Mot de passe oublié", 'Bonjour,<br>Suite à votre demande, voici un lien vous permettant de créer un nouveau mot de passe, '.$_SERVER["HTTP_HOST"].path('new_password', ['token' => $token]));
+                    addNotif("Un lien pour réinitialiser votre mot de passe vous a été renvoyé", 'valid');
                 }
                 else addNotif("Cet email ne correspond à aucun compte", 'error');
 
@@ -94,6 +99,36 @@ class UserController {
             else addNotif("Format d'email incorrect", 'error');
         }
         View::render("user/forget-password.view.php", 'layout-login.php');
+    }
+
+    public function newPasswordAction($request) {
+
+        if(isset($request['token'])) {
+            $expire = date('Y-m-d H:i:s', $request['token']);
+            if( $expire < date('Y-m-d H:i:s')) {
+                throw new Erreur("Le lien de récupération de mot de passe n'est plus valide");
+                return false;
+            }
+            if($user = User::findOneBy(['expire' => $expire])) {
+                if(request_is("POST")) {
+                    if($_POST['password'] == $_POST['confirm']) {
+                        $user->setPassword($_POST['confirm']);
+                        $user->save();                        
+                        addNotif("Votre mot de passe a bien été changé", 'valid');
+                    }
+                    else addNotif("Les mots de passe sont différents", 'error');
+                }
+                View::render("user/new-password.view.php", 'layout-login.php', ['token' => $request['token']]);
+            }
+            else {
+                throw new Erreur("Erreur interne");
+                return false;
+            }
+        }
+        else {
+            throw new Erreur("Token requis");
+            return false;
+        }
     }
 
 }

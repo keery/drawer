@@ -244,7 +244,17 @@ return
 			'path' => 'recuperation_password',
 			'controller' => 'User',
 			'action' => 'forgetPassword'
-		],		
+		],	
+	'new_password' =>
+		[
+			'path' => 'new_password/{token}',
+			'controller' => 'User',
+			'action' => 'newPassword',
+			'params' => 
+			[
+				'token' => ['pattern' => '.*']
+			]
+		],				
 	'erreur' =>
 		[
 			'path' => 'erreur',
