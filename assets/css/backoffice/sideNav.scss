@@ -33,8 +33,18 @@
       &:hover { text-decoration: underline; }
     }
   }
+  .nav::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .nav::-webkit-scrollbar-thumb {	
+    background-color: $highlight;
+    border-radius: 3px;
+  }
   .nav {
     padding: 3em 0;
+    height: 50vh;
+    overflow: auto;
 
     ul {
       
