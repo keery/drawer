@@ -5,7 +5,7 @@ use Module\Entity\Article;
 use Module\Entity\Image;
 use Module\View\View;
 use Module\Erreur\Erreur;
-
+use Module\Rss\Rss;
 use Module\Form\FormBuilder;
 use Module\Entity\Form\ArticleForm;
 
@@ -49,6 +49,8 @@ class ArticleController {
 					}
 				}
 				addNotif('Article bien enregistré', 'valid');
+				//Genere le flux RSS	
+				$this->generateRssArticle();
 				redirectToRoute('articles');
 			}
 			else addNotif($form->getErrors(), 'error');
@@ -58,4 +60,26 @@ class ArticleController {
 		View::render("backend/article-detail.view.php", 'layout.php', $data);
 	}
 
+	public function generateRssArticle() {		
+		$articles = Article::all();
+
+		if(sizeof($articles) > 0) {
+			$rss = new Rss('rss-article.xml');
+
+			foreach ($articles as $article) {
+				$articleNode = $rss->addElement('article');
+				$rss->addElement('id', $article->getId(), $articleNode);
+				$rss->addElement('titre', $article->getTitre(), $articleNode);
+				$rss->addElement('description', $article->getDescription(), $articleNode);
+				$rss->addElement('auteur', $article->getAuteur(), $articleNode);
+				$rss->addElement('creation', $article->getDate_creation(), $articleNode);
+				$categorieNode = $rss->addElement('categorie', '', $articleNode);
+				$categorie = $article->getCategorie();
+				$rss->addElement('id', $categorie->getId(), $categorieNode);
+				$rss->addElement('titre', $categorie->getNom(), $categorieNode);
+			}
+
+			$rss->generate();
+		}
+	}
 }
