@@ -26,8 +26,7 @@
 					<h2><?php echo $_SESSION[PREFIX."user"]['prenom']." ".$_SESSION[PREFIX."user"]['nom']; ?></h2>
 					<span><?php if(isset($_SESSION[PREFIX."user"]['profession'])) echo $_SESSION[PREFIX."user"]['profession']; ?></span>
 					<div>
-						<a href="<?php echo path('site'); ?>">Retour au site</a>
-						<img src="" alt="">
+						<a href="<?php echo path('site'); ?>">Retour au site</a><a href="<?php echo path('deconnexion'); ?>"><i class="fas fa-power-off"></i></a>
 					</div>
 				</div>
 			</header>
