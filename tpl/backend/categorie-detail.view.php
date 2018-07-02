@@ -1,4 +1,4 @@
-<img src="assets/img/article-picto.svg" alt="" class="picto-page">
+<i class="fas fa-grip-horizontal picto-page"></i>
 <h1><?php echo $titre; ?></h1>
 <?php $form->form_head(); ?>
 <section class="container group">

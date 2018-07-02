@@ -1,4 +1,4 @@
-<img src="assets/img/commentaire-picto.svg" alt="" class="picto-page">
+<i class="far fa-comment picto-page"></i>
 <h1>Commentaire n°<?php echo $id; ?></h1>
 <?php $form->form_head(); ?>
 <section class="container group">

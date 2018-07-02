@@ -100,9 +100,9 @@ return
 				],
 			'article_add' => 
 				[
-					'path' => 'add/commentaire',
-					'controller' => 'Commentaire',
-					'action' => 'editCommentaire'
+					'path' => 'add/article',
+					'controller' => 'Article',
+					'action' => 'editArticle'
 				],
 			'commentaires' => 
 				[

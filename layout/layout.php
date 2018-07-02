@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="assets/css/dist/style.css">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 	</head>
 	<body>
 	<div class="flex-wrapper">
@@ -35,12 +35,12 @@
 					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "dashboard" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('dashboard') ?>"><img src="assets/img/speedometer-white.svg" alt=""><span class="hidden-xs">Dashboard</span></a></li>
 					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "statistic" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('statistic') ?>"><img src="assets/img/stat-picto-white.svg" alt=""><span class="hidden-xs">Statistiques</span></a></li>
 					<?php if(isGranted(ROLE_ADMINISTRATEUR)): ?>
-						<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "pages" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('pages') ?>"><img src="assets/img/page-picto-white.svg" alt=""><span class="hidden-xs">Mes pages</span></a></li>
+						<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "pages" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('pages') ?>"><i class="fas fa-list picto-menu"></i><span class="hidden-xs">Mes pages</span></a></li>
 					<?php endif; ?>
-					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "categories" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('categories') ?>"><img src="assets/img/article-picto-white.svg" alt=""><span class="hidden-xs">Catégories</span></a></li>
-					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "commentaires" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('commentaires') ?>"><img src="assets/img/commentaires-picto-white.svg" alt=""><span class="hidden-xs">Commentaires</span></a></li>
-					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "articles" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('articles') ?>"><img src="assets/img/article-picto-white.svg" alt=""><span class="hidden-xs">Mes articles</span></a></li>
-					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "users" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('users') ?>"><img src="assets/img/article-picto-white.svg" alt=""><span class="hidden-xs">Les utilisateurs</span></a></li>
+					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "categories" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('categories') ?>"><i class="fas fa-grip-horizontal picto-menu"></i><span class="hidden-xs">Catégories</span></a></li>
+					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "commentaires" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('commentaires') ?>"><i class="far fa-comment picto-menu"></i><span class="hidden-xs">Commentaires</span></a></li>
+					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "articles" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('articles') ?>"><i class="fas fa-newspaper picto-menu"></i><span class="hidden-xs">Mes articles</span></a></li>
+					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "users" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('users') ?>"><i class="fas fa-user picto-menu"></i><span class="hidden-xs">Les utilisateurs</span></a></li>
 					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "parametres" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('parametres') ?>"><img src="assets/img/settings-picto-white.svg" alt=""><span class="hidden-xs">Paramètres</span></a></li>
 					<li <?php echo ($_SERVER['CURRENT_ROUTE']['name'] === "template" ? 'class="selected"' : '') ?>><a class="u-mw" href="<?php echo path('template') ?>"><img src="assets/img/template-brush-white.svg" alt=""><span class="hidden-xs">Template</span></a></li>
 				</ul>

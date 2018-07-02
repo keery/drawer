@@ -1,4 +1,4 @@
-<img src="assets/img/categorie-picto.svg" alt="" class="picto-page">
+<i class="fas fa-grip-horizontal picto-page"></i>
 <h1>Catégories</h1>
 <nav class="container ctn-nav small-xs">
   <div class="nav-links" data-selected-filter="Published">

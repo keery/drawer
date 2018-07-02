@@ -1,4 +1,4 @@
-<img src="assets/img/article-picto.svg" alt="" class="picto-page">
+<i class="fas fa-newspaper picto-page"></i>
 <h1>Articles</h1>
 <nav class="container ctn-nav small-xs">
   <div class="nav-links">

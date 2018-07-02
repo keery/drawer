@@ -25,10 +25,10 @@ class CategorieController {
 		if(isset($params['id'])) $categorie = Categorie::findOneBy(array('id' => $params['id']));
 		else $categorie = new Categorie();
 
-		$data['titre'] = (!empty($categorie->getNom()) ? $categorie->getNom() : "Ajout d'une nouvelle catégigorie" );
+		$data['titre'] = (!empty($categorie->getNom()) ? $categorie->getNom() : "Ajout d'une nouvelle catégorie" );
 
 		if(empty($categorie)) {
-			throw new Erreur("La categorie contenant l'id ".$params['id']." n'existe pas");
+			throw new Erreur("La catégorie contenant l'id ".$params['id']." n'existe pas");
 			return false;
 		}
 		
@@ -39,7 +39,7 @@ class CategorieController {
 			$categorie = $form->handleRequest($_POST);
 			if($form->validate())  {
 				$categorie->save();
-				addNotif('Categorie bien enregistrée', 'valid');
+				addNotif('Catégorie bien enregistrée', 'valid');
 				redirectToRoute('categories');
 			}
 			else addNotif($form->getErrors(), 'error');

@@ -82,7 +82,7 @@ h1, h2, h3, h4 {
 h1 {
 	color: $dark;display: inline-block;vertical-align: middle; margin-left: 15px;
 }
-.picto-page { display: inline-block;vertical-align: middle;  max-width: 60px;
+.picto-page { display: inline-block;vertical-align: middle;  max-width: 60px; font-size: 48px; color: $dark;
 	+ h1 { width: calc(100% - 115px); }
 }
 a {

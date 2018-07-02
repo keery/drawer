@@ -1,5 +1,5 @@
-<img src="assets/img/commentaire-picto.svg" alt="" class="picto-page">
-<h1>Articles</h1>
+<i class="far fa-comment picto-page"></i>
+<h1>Commentaires</h1>
 <nav class="container ctn-nav small-xs">
   <div class="nav-links">
     <a href="<?php echo path('commentaires') ?>" <?php echo (getCurrentUrl() === "commentaires" ? 'class="selected"' : '') ?>>Tous</a>

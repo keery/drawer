@@ -1,4 +1,4 @@
-<img src="assets/img/page-picto.svg" alt="" class="picto-page">
+<i class="fas fa-list picto-page"></i>
 <h1>Mes pages</h1>
 <nav class="container ctn-nav small-xs">
   <div class="nav-links">

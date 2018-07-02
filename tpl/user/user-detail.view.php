@@ -1,4 +1,4 @@
-<img src="assets/img/article-picto.svg" alt="" class="picto-page">
+<img src="assets/img/man-user.svg" alt="" class="picto-page picto-user">
 <h1><?php echo $titre; ?></h1>
 <?php $form->form_head(); ?>
 <section class="container group">
