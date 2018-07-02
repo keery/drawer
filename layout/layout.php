@@ -13,7 +13,15 @@
 	<div class="flex-wrapper">
 		<aside class="sideNav">
 			<header class="header u-tac">
-				<div class="picture-circle u-block--center" style="background-image: url(assets/img/Group.png);"></div>
+				<?php 
+					$class='';
+					if(isset($_SESSION[PREFIX."user"]['image'])) $img = UPLOAD.$_SESSION[PREFIX."user"]['image'];
+					else {
+						$class = 'no-img';
+						$img = IMG."user.png";
+					}
+					?>
+				<div class="picture-circle u-block--center <?php echo $class; ?>" style="background-image: url(<?php echo $img; ?>);"></div>
 				<div class="hidden-xs">
 					<h2><?php echo $_SESSION[PREFIX."user"]['prenom']." ".$_SESSION[PREFIX."user"]['nom']; ?></h2>
 					<span><?php if(isset($_SESSION[PREFIX."user"]['profession'])) echo $_SESSION[PREFIX."user"]['profession']; ?></span>

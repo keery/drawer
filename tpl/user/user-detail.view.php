@@ -35,10 +35,12 @@
                     <?php echo $form->label('profession'); ?>
                     <?php echo $form->input('profession', ['class' => 'input']); ?>
                 </div>
-                <div class="col-sm-6 col-xs-12">
-                    <label>Rôle</label>
-                    <?php echo $form->input('role'); ?>
-                </div> 
+                <?php if(isGranted(ROLE_ADMINISTRATEUR)) : ?>
+                    <div class="col-sm-6 col-xs-12">
+                        <label>Rôle</label>
+                        <?php echo $form->input('role'); ?>
+                    </div> 
+                <?php endif; ?>
                 <div class="col-sm-6 col-xs-12">
                     <label>État</label>
                     <?php echo $form->input('active'); ?>

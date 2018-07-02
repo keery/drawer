@@ -220,7 +220,9 @@ img { max-width: 100%; }
     }	
 }
 
-.picture-circle { background-size: cover; background-position: 50% 50%; border-radius: 100%; }
+.picture-circle { background-size: cover; background-position: 50% 50%; border-radius: 100%;
+	&.no-img { background-size: 100% auto; background-position: 100% 8px; border-radius: 100%; background-repeat: no-repeat; border: 1px solid white; }
+}
 .padding-box { padding: 40px 30px; }
 .text-center { text-align: center; }
 .text-right { text-align: right; }

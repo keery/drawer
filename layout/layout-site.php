@@ -41,8 +41,6 @@
 								endif; 
 							}
 					?>
-						<?php /*echo  */?>
-						<?php /*echo (in_array($_SERVER['CURRENT_ROUTE']['name'],['site_article_detail', 'oeuvre']) ? 'class="selected"' : '') */?>
 					</div>
 					<div class="right">
 						<?php if( isset($_SESSION[PREFIX."user"])) : ?>

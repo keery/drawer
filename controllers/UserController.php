@@ -59,6 +59,7 @@ class UserController {
         if(request_is("POST") && isset($_POST['_email'], $_POST['_password'])) {
             if($user = User::findOneBy(['email' => $_POST['_email'], 'password' => $_POST['_password']])) {
                 $_SESSION[PREFIX."user"] = (array) $user;
+                if($user->getImage()) $_SESSION[PREFIX."user"]['image'] = $user->getImage()->getSrc();
                 if(in_array($user->getRole(), [ROLE_MODERATEUR, ROLE_ADMINISTRATEUR])) redirectToRoute("dashboard");
                 else  redirectToRoute("site");		
             }
