@@ -23,7 +23,9 @@
       </div>
       <?php if(count($article->getImages()) > 0): ?>
         <div class="text-center spacing">
-            <?php foreach($article->getImages() as $img): ?>
+            <?php $imgs = $article->getImages();
+                sortObjects($imgs, 'getPosition'); ?>
+            <?php foreach($imgs as $img): ?>
                 <div class="img-container">
                     <?php echo renderImg($img); ?>                    
                 </div>                
