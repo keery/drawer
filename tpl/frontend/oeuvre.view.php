@@ -8,7 +8,12 @@
             <a href="<?php echo path('site_article_detail', ['name' => $article->getTitre(), 'id' => $article->getId()]); ?>">
               <div class="thumbnail">
                 <?php 
-                  if( sizeof($article->getImages()) > 0) $bg = 'assets/img/upload/'.$article->getImages()[0]->getSrc();
+                  
+                  if( sizeof($article->getImages()) > 0) {
+                    $imgs= $article->getImages();
+                    sortObjects($imgs, 'getPosition');
+                    $bg = 'assets/img/upload/'.$imgs[0]->getSrc();
+                  }
                   else $bg = 'assets/img/no-image.svg';
                 ?>
                 <div class="photo"><div style="background-image: url(<?php echo $bg; ?>)"></div></div>
