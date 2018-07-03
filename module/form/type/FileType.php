@@ -42,17 +42,21 @@ class FileType extends FormComponent
                 <div class="col-xs-4 photo" style="background-image: url(assets/img/upload/'. $this->files->getSrc().');"></div>
                 <input type="hidden" name="'.$this->key.'[image][id]" value="'.$this->files->getId().'">
                 <div class="panel-action">
-                <button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id="'.$this->files->getId().'"><i class="fas fa-trash-alt"></i></button>
+                    <button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id="'.$this->files->getId().'"><i class="fas fa-trash-alt"></i></button>
                 </div>
                 <div class="col-xs-8 img-input">
-                <div class="input-form full"> 
-                    <label for="'.$ref.'_image_alt">Alt</label>
-                    <input type="text" id="'.$ref.'_image_alt" name="'.$this->key.'[image][alt]" class="input" value="'.$this->files->getAlt().'">
+                    <div class="input-form full"> 
+                        <label for="'.$ref.'_image_alt">Alt</label>
+                        <input type="text" id="'.$ref.'_image_alt" name="'.$this->key.'[image][alt]" class="input" value="'.$this->files->getAlt().'">
+                    </div>
+                    <div class="input-form full">
+                        <label for="'.$ref.'_image_title">Title</label>
+                        <input type="text" id="'.$ref.'_image_title" name="'.$this->key.'[image][title]" class="input" value="'.$this->files->getTitle().'">
+                    </div>
                 </div>
-                <div class="input-form full">
-                    <label for="'.$ref.'_image_title">Title</label>
-                    <input type="text" id="'.$ref.'_image_title" name="'.$this->key.'[image][title]" class="input" value="'.$this->files->getTitle().'">
-                </div>
+                <div class="position">
+                    <i class="fas fa-sort"></i>
+                    <input type="text" id="'.$ref.'_image_position" name="'.$this->key.'[image][position]" value="'.$this->files->getPosition().'">
                 </div>
             </li>';
         }
@@ -65,14 +69,18 @@ class FileType extends FormComponent
                 <button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id="'.$file->getId().'"><i class="fas fa-trash-alt"></i></button>
                 </div>
                 <div class="col-xs-8 img-input">
-                <div class="input-form full"> 
-                    <label for="'.$ref.'_image_alt">Alt</label>
-                    <input type="text" id="'.$count.'_'.$ref.'_image_alt" name="'.$this->key.'[image]['.$count.'][alt]" class="input" value="'.$file->getAlt().'">
+                    <div class="input-form full"> 
+                        <label for="'.$ref.'_image_alt">Alt</label>
+                        <input type="text" id="'.$count.'_'.$ref.'_image_alt" name="'.$this->key.'[image]['.$count.'][alt]" class="input" value="'.$file->getAlt().'">
+                    </div>
+                    <div class="input-form full">
+                        <label for="'.$ref.'_image_title">Title</label>
+                        <input type="text" id="'.$count.'_'.$ref.'_image_title" name="'.$this->key.'[image]['.$count.'][title]" class="input" value="'.$file->getTitle().'">
+                    </div>
                 </div>
-                <div class="input-form full">
-                    <label for="'.$ref.'_image_title">Title</label>
-                    <input type="text" id="'.$count.'_'.$ref.'_image_title" name="'.$this->key.'[image]['.$count.'][title]" class="input" value="'.$file->getTitle().'">
-                </div>
+                <div class="position">
+                    <i class="fas fa-sort"></i>
+                    <input type="text" id="'.$count.'_'.$ref.'_image_position" name="'.$this->key.'[image]['.$count.'][position]" class="input" value="'.$file->getPosition().'">
                 </div>
             </li>';
             }
