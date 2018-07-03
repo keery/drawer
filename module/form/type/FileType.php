@@ -35,7 +35,7 @@ class FileType extends FormComponent
             <button class="btn-validate button" type="button">Choisir un fichier</button>
             </div>
             <div class="dropzone" id="dz_'.$ref.'" data-message="Déposer votre fichier ici"></div>
-            <ul class="img-list container-grid">';
+            <ul class="img-list container-grid sortable">';
             
         if(!$this->manyFiles && $this->files) {   
             $HTML .= '<li class="row">
@@ -61,6 +61,9 @@ class FileType extends FormComponent
             </li>';
         }
         else if(sizeof($this->files) > 0) {
+
+            sortObjects($this->files, 'getPosition');
+            
             foreach($this->files as $count => $file) {
                 $HTML .= '<li class="row">
                 <div class="col-xs-4 photo" style="background-image: url(assets/img/upload/'. $file->getSrc().');"></div>

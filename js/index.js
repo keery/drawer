@@ -3,7 +3,55 @@ $(document).ready(function(){
 	$("#dz_cd_article, .input-file.cd_article").GEUploader({ entity : "Module\\Entity\\Article", idZone : "dz_cd_article"});
 	$("#dz_cd_user, .input-file.cd_user").GEUploader({ entity : "Module\\Entity\\User", idZone : "dz_cd_user", nbFichiersMax:1});
 	
-
+	$('.sortable > tbody, .sortable').sortable(
+		{
+			axis: "y",
+			cursor: "move",
+			itemps: "> li",
+			placeholder: "placeholder",
+			start:function(event, ui)
+			{
+				$(this).find(".placeholder").height(ui.item.innerHeight());
+			},
+			stop:function(event, ui)
+			{
+				$(this).find(".fa-sort").each(function(index)
+				{
+					$(this).next("input[type='text']").attr('value', index+1);
+				});
+	
+				// var dataForm = new FormData();
+	
+				// $('input[name="id_elements[]"]').map(function(){
+				// 	dataForm.append("id_elements[]", $(this).val());
+				// });
+	
+				// dataForm.append("entity_name", $('input[name="entity_name"]').val());
+	
+				// $.ajax({
+				// 	url: Routing.generate("ajax_position"),
+				// 	type: "POST",
+				// 	data: dataForm,
+				// 	   contentType: false,
+				// 	 processData: false,
+				// 	dataType: 'json',
+				// 	error: function(erreur, etat) 
+				// 	{
+				// 		console.log("[ERREUR] Position");
+				// 	}
+				// });
+			},
+			helper: function(event, ui)
+			{
+				ui.children().each(function()
+				{
+					$(this).width($(this).width());
+				});
+				
+				return ui;
+			},
+			handle:".fa-sort"
+		}).disableSelection();
 
 	$(document).on("click", ".btn-edit-item", function(){
 		var hasClass = $(this).hasClass('open');
