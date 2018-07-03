@@ -112,7 +112,9 @@
   }
 
   .author { font-size: 12px; }
-  .img-container { position:relative; }
+  .img-container { position:relative; margin: 10px 0; background-color: #f3f3f3; min-height: 35px;
+    .badge-position { position: absolute; bottom: 7px; right:5px; border-radius: 100%; width: 25px;height: 25px; line-height: 25px; font-size: 12px; background-color: $dark;color:white;}
+  }
   .comm { padding: 15px 0;
 
     + .comm { border-top: 1px solid #ccc; }

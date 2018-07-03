@@ -27,7 +27,12 @@
                 sortObjects($imgs, 'getPosition'); ?>
             <?php foreach($imgs as $img): ?>
                 <div class="img-container">
-                    <?php echo renderImg($img); ?>                    
+                    <?php echo renderImg($img); ?>
+                    <?php if ($img->getPosition()): ?>
+                        <div class="badge-position">
+                            <?php echo $img->getPosition(); ?>                  
+                        </div>
+                    <?php endif; ?>
                 </div>                
             <?php endforeach; ?>
         </div>
