@@ -20,27 +20,27 @@
         <div class="container-grid">
             <div class="row form-installer">
                 <div class="col-sm-6 col-xs-12">
-                    <div><?php echo $form->label('pseudo'); ?></div>
+                    <div><?php echo $form->label('pseudo', true, true); ?></div>
                     <?php echo $form->input('pseudo', ['class' => 'input full']); ?>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                    <div><?php echo $form->label('password'); ?></div>
+                    <div><?php echo $form->label('password', true, true); ?></div>
                     <?php echo $form->input('password', ['class' => 'input full']); ?>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                    <div><?php echo $form->label('password_confirmation'); ?></div>
+                    <div><?php echo $form->label('password_confirmation', true, true); ?></div>
                     <?php echo $form->input('password_confirmation', ['class' => 'input full']); ?>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                    <div><?php echo $form->label('email'); ?></div>
+                    <div><?php echo $form->label('email', true, true); ?></div>
                     <?php echo $form->input('email', ['class' => 'input full']); ?>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                    <div><?php echo $form->label('prenom'); ?></div>
+                    <div><?php echo $form->label('prenom', true, true); ?></div>
                     <?php echo $form->input('prenom', ['class' => 'input full']); ?>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                    <div><?php echo $form->label('nom'); ?></div>
+                    <div><?php echo $form->label('nom', true, true); ?></div>
                     <?php echo $form->input('nom', ['class' => 'input full']); ?>
                 </div>
                 <div class="col-sm-6 col-xs-12">

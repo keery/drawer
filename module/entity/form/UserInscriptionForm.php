@@ -18,7 +18,9 @@ class UserInscriptionForm extends FormBuilderInterface
     {
         $this
             ->add('pseudo', new InputType())
-            ->add('email', new InputType())
+            ->add('email', new InputType(), ['rules' => [
+                "checkEmail" => true
+            ]])
             ->add('password', new PasswordType())
             ->add('password_confirmation', new PasswordType(), ['label' => "Confirmation du mot de passe"])
             ->add('prenom', new InputType())

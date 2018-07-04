@@ -11,21 +11,21 @@ class FormHTML {
         $this->config = $configHead;
     }
 
-    public function input($id, $options=null){
+    public function input($id, $options=null, $asterisque=null){
         if(array_key_exists($id, $this->fields)) {
             $field = $this->fields[$id];
             $field['displayed'] = true;
             
             if(isset($options['class'])) $field['field']->setClass($options['class']);
             if(isset($options['value'])) $field['field']->setValue($options['value']);
-            return $field['field']->toHtml();
+            return $field['field']->toHtml(true);
         }
     }
 
-    public function label($id, $tag = true){
+    public function label($id, $tag = true, $asterisque=true){
         if(array_key_exists($id, $this->fields)) {
             $HTML = $this->fields[$id]['label'];
-            if($tag) $HTML = '<label>'.$HTML.'</label>';
+            if($tag) $HTML = '<label>'.$HTML.'</label>'.($asterisque ? "<i class='asterisque'>*</i>" : "");
             return $HTML;
         }
     }
