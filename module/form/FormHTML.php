@@ -36,8 +36,8 @@ class FormHTML {
         }
     }
 
-    public function form_head() {
-        echo '<form '.$this->config.'>';
+    public function form_head($class=null) {
+        echo '<form '.$this->config.' '.($class ? 'class="'.$class.'"' : '').'>';
         echo $this->input('key');
     } 
 

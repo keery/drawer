@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Module\Entity\Form\UserForm;
+use Module\Entity\Form\UserInscriptionForm;
 use Module\Entity\User;
 use Module\View\View;
 use Module\bdd\BaseSql;
@@ -75,10 +76,23 @@ class UserController {
     }
 
     public function inscriptionAction() {
-        if(request_is("POST")) {
-           
-        }
-        View::render('user/inscription.view.php', 'layout-installer-config.php');
+        $user = new User();
+        $fb = new FormBuilder();
+        $form = $fb->create(new UserInscriptionForm(), $user);
+        
+		if(request_is("POST")) {
+            $user = $form->handleRequest($_POST);
+			if($form->validate()) {
+				$id = $user->save();
+
+				addNotif('Inscription confirmée, vous allez recevoir un email de confirmation', 'valid');
+				redirectToRoute('users');
+			}
+			else addNotif($form->getErrors(), 'error');
+		}
+
+		$data['form'] = $form->createView();
+        View::render("user/user-inscription.view.php", 'layout-inscription.php', $data);
     }
 
     public function forgetPasswordAction() {

@@ -210,6 +210,22 @@
         return $truncate;
     }
 
+    function chaine_encode($text)
+    {
+		if( !function_exists('mcrypt_encrypt') )return rawurlencode(trim(base64_encode($text)));
+
+		$SALT = "NZp2Y5oshDLF8eJCUamVxG6k";
+        return rawurlencode(trim(base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $SALT, $text, MCRYPT_MODE_ECB, mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND)))));
+    }
+
+    function chaine_decode($text)
+    {
+		if( !function_exists('mcrypt_encrypt') )return base64_decode(rawurldecode($text));
+
+        $SALT = "NZp2Y5oshDLF8eJCUamVxG6k";
+		return trim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $SALT, base64_decode(rawurldecode($text)), MCRYPT_MODE_ECB, mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND)));
+    }
+
     function sortObjects(&$objects, $func) {
         return usort($objects, function($a, $b) use ($func)
         {

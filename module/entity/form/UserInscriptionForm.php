@@ -11,7 +11,7 @@ use Module\Form\Type\SelectType;
 use Module\Form\Type\FileType;
 use Module\Form\Type\SubmitType;
 
-class UserForm extends FormBuilderInterface
+class UserInscriptionForm extends FormBuilderInterface
 {
 
     public function __construct()
@@ -20,6 +20,7 @@ class UserForm extends FormBuilderInterface
             ->add('pseudo', new InputType())
             ->add('email', new InputType())
             ->add('password', new PasswordType())
+            ->add('password_confirmation', new PasswordType(), ['label' => "Confirmation du mot de passe"])
             ->add('prenom', new InputType())
             ->add('nom', new InputType())
             ->add('profession', new InputType(), ['required' => false])
