@@ -20,35 +20,35 @@
         <div class="container-grid">
             <div class="row form-installer">
                 <div class="col-sm-6 col-xs-12">
-                    <div><?php echo $form->label('pseudo', true, true); ?></div>
+                    <div><?php echo $form->label('pseudo'); ?></div>
                     <?php echo $form->input('pseudo', ['class' => 'input full']); ?>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                    <div><?php echo $form->label('password', true, true); ?></div>
-                    <?php echo $form->input('password', ['class' => 'input full']); ?>
-                </div>
-                <div class="col-sm-6 col-xs-12">
-                    <div><?php echo $form->label('password_confirmation', true, true); ?></div>
-                    <?php echo $form->input('password_confirmation', ['class' => 'input full']); ?>
-                </div>
-                <div class="col-sm-6 col-xs-12">
-                    <div><?php echo $form->label('email', true, true); ?></div>
+                    <div><?php echo $form->label('email'); ?></div>
                     <?php echo $form->input('email', ['class' => 'input full']); ?>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                    <div><?php echo $form->label('prenom', true, true); ?></div>
+                    <div><?php echo $form->label('password'); ?></div>
+                    <?php echo $form->input('password', ['class' => 'input full']); ?>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <div><?php echo $form->label('password_confirmation'); ?></div>
+                    <?php echo $form->input('password_confirmation', ['class' => 'input full']); ?>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <div><?php echo $form->label('prenom'); ?></div>
                     <?php echo $form->input('prenom', ['class' => 'input full']); ?>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                    <div><?php echo $form->label('nom', true, true); ?></div>
+                    <div><?php echo $form->label('nom'); ?></div>
                     <?php echo $form->input('nom', ['class' => 'input full']); ?>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                    <div><?php echo $form->label('profession'); ?></div>
+                    <div><?php echo $form->label('profession', true, false); ?></div>
                     <?php echo $form->input('profession', ['class' => 'input full']); ?>
                 </div>
                 <div class="col-xs-12">
-                    <div><?php echo $form->label('image'); ?></div>
+                    <div><?php echo $form->label('image', true, false); ?></div>
                     <?php echo $form->input('image', ['class' => 'input full']); ?>
                 </div>
             </div>

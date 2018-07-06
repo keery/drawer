@@ -78,18 +78,38 @@ class UserController {
     public function inscriptionAction() {
         $user = new User();
         $fb = new FormBuilder();
-        $form = $fb->create(new UserInscriptionForm(), $user);
+        
+        $data_user_form = $data_user = array_shift($_POST);
         
 		if(request_is("POST")) {
-            $user = $form->handleRequest($_POST);
-			if($form->validate()) {
-				$id = $user->save();
+            var_dump($_POST);
 
-				addNotif('Inscription confirmée, vous allez recevoir un email de confirmation', 'valid');
-				redirectToRoute('users');
-			}
-			else addNotif($form->getErrors(), 'error');
-		}
+            unset($data_user_form['password']);
+            $user->fromArray($data_user_form);
+            // var_dump($user);
+            // unset($_POST[$data_user['key']]['password_confirmation']);
+            $_POST[$data_user['key']] = $data_user;
+            // var_dump($data_user);
+            $form = $fb->create(new UserInscriptionForm(), $user);
+            $user = $form->handleRequest($_POST);
+            $errors = [];
+            if( User::findOneBy(['pseudo' => $user->getPseudo()] )) $errors[] = "Ce pseudo est déjà utilisé";
+            if( User::findOneBy(['email' => $user->getEmail()] )) $errors[] = "Cet email est déjà utilisé, si vous avez oublié votre mot de passe rendez vous sur cette <a href='".path('forget_password')."'>page</a>";
+            if( !isset($data_user['password_confirmation']) || !isset($data_user['password']) || $data_user['password'] != $data_user['password_confirmation'] ) $errors[] = "Les mots de passe sont différents";
+            
+            if( sizeof($errors) > 0 ) addNotif($errors, 'error');
+            else {
+                if($form->validate()) {
+                    $user->setRole(ROLE_UTILISATEUR);
+                    $id = $user->save();
+
+                    addNotif('Inscription confirmée, vous allez recevoir un email de confirmation', 'valid');
+                    redirectToRoute('users');
+                }
+                else addNotif($form->getErrors(), 'error');
+            }
+        }
+        else $form = $fb->create(new UserInscriptionForm(), $user);
 
 		$data['form'] = $form->createView();
         View::render("user/user-inscription.view.php", 'layout-inscription.php', $data);

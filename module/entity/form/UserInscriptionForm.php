@@ -17,14 +17,25 @@ class UserInscriptionForm extends FormBuilderInterface
     public function __construct()
     {
         $this
-            ->add('pseudo', new InputType())
-            ->add('email', new InputType(), ['rules' => [
-                "checkEmail" => true
+            ->add('pseudo', new InputType(), ['rules' => [
+                'minLength' => 6,
+                'required' => true
             ]])
-            ->add('password', new PasswordType())
+            ->add('email', new InputType(), ['rules' => [
+                "checkEmail" => true,
+                'required' => true
+            ]])
+            ->add('password', new PasswordType(), ['rules' => [
+                'checkPwd' => true,
+                'required' => true
+            ]])
             ->add('password_confirmation', new PasswordType(), ['label' => "Confirmation du mot de passe"])
-            ->add('prenom', new InputType())
-            ->add('nom', new InputType())
+            ->add('prenom', new InputType(), ['rules' => [
+                'required' => true
+            ]])
+            ->add('nom', new InputType(), ['rules' => [
+                'required' => true
+            ]])
             ->add('profession', new InputType(), ['required' => false])
             ->add('image', new FileType('Module\Entity\User', false))
             ->add('submit', new SubmitType())

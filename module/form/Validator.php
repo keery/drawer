@@ -41,7 +41,8 @@ class Validator {
         }
         $this->errors[] = "La taille doit être supérieur à ".$length;
         return false;
-	}
+    }
+    
 
 	public function maxNum($num, $length){
         if($num<=$length) {
@@ -67,6 +68,14 @@ class Validator {
         return false; 
     }
     
+    public function required($required){
+        if(!empty($required)) {
+            return true;
+        }
+        $this->errors[] = "Vous n'avez pas rempli tous les champs";
+        return false; 
+	}
+    
     public function captcha($captcha){
         if($captcha == $_SESSION['captcha']) {
             return true;
@@ -75,7 +84,7 @@ class Validator {
         return false; 
 	}
 
-	public static function checkPwd($pwd){
+	public function checkPwd($pwd){
         if(strlen($pwd)>=6 && 
         strlen($pwd)<=32 && 
 		preg_match("/[a-z]/", $pwd) && 
@@ -87,7 +96,7 @@ class Validator {
         return false;
 	}
 
-	public static function checkNumber($number){
+	public function checkNumber($number){
         if(is_numeric(trim($number))) {
             return true;
         }
