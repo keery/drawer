@@ -58,7 +58,7 @@ class UserController {
     public function connexionAction() {
         if(isset($_SESSION[PREFIX."user"])) redirectToRoute("site");
         if(request_is("POST") && isset($_POST['_email'], $_POST['_password'])) {
-            if($user = User::findOneBy(['email' => $_POST['_email'], 'password' => $_POST['_password']])) {
+            if($user = User::findOneBy(['pseudo' => $_POST['_email'], 'password' => $_POST['_password']])) {
                 $_SESSION[PREFIX."user"] = (array) $user;
                 if($user->getImage()) $_SESSION[PREFIX."user"]['image'] = $user->getImage()->getSrc();
                 if(in_array($user->getRole(), [ROLE_MODERATEUR, ROLE_ADMINISTRATEUR])) redirectToRoute("dashboard");
@@ -128,10 +128,9 @@ class UserController {
                 $user->save();
                 addNotif("Confirmation réussie, vous pouvez désormais vous connecter à votre espace utilisateur", 'valid');
             }
-            
         }
         
-        View::render("user/connexion.view.php", 'layout-login.php');
+        redirectToRoute('connexion');
     }
 
     public function forgetPasswordAction() {
