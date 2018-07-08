@@ -3,10 +3,10 @@
     use Module\PHPMailer\PHPMailer;
     use Module\PHPMailer\Exception;
 
-	function path($routeName, $params=null)
+	function path($routeName, $params=null, $convert=true)
 	{
 		$router = new Router();
-        return DIRECTORY.DS.$router->routeHandler($routeName, $params);
+        return DIRECTORY.DS.$router->routeHandler($routeName, $params, $convert);
 	}
 	function redirectToRoute($route, $params=null) {
 		header('Location: '.path($route, $params));

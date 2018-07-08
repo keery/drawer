@@ -264,7 +264,7 @@ return
 		[
 			'path' => 'email-verification/{token}',
 			'controller' => 'User',
-			'action' => 'newPassword',
+			'action' => 'verifEmail',
 			'params' => 
 			[
 				'token' => ['pattern' => '.*']

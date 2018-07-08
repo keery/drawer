@@ -101,7 +101,7 @@ class UserController {
                     $id = $user->save();
                     $token = chaine_encode(['expire' => $token, 'id' => $id]);
 
-                    sendMail($user->getEmail(), PROJECT_NAME." - Confirmation d'inscription", 'Bonjour,<br>Afin de confirmer votre inscription vous devez valider votre adresse email en vous rendant sur le lien suivant, '.path('verif_email', ['token' => $token]));
+                    sendMail($user->getEmail(), PROJECT_NAME." - Confirmation d'inscription", 'Bonjour,<br>Afin de confirmer votre inscription vous devez valider votre adresse email en vous rendant sur le lien suivant, '.path('verif_email', ['token' => urlencode($token)], false));
                     addNotif('Inscription confirmée, vous allez recevoir un email de confirmation', 'valid');
                     redirectToRoute('connexion');
                 }
@@ -112,6 +112,26 @@ class UserController {
 
 		$data['form'] = $form->createView();
         View::render("user/user-inscription.view.php", 'layout-inscription.php', $data);
+    }
+
+    public function verifEmailAction($request) {
+        if(isset($request)) {
+            $infoUser = unserialize(chaine_decode($request['token']));
+            if($infoUser['expire'] < date('Y-m-d H:i:s')) $errors[] = "Votre lien de confirmation a expiré, vous allez recevoir un nouveau lien dans quelques instant.";
+            if(!$user = User::findOneBy(['id' => $infoUser['id']])) $errors[] = "Erreur interne, veuillez vous inscrire à nouveau.";
+
+            if(sizeof($errors) > 0) {
+                addNotif($errors, 'error');
+            }
+            else {
+                $user->setActive(1);
+                $user->save();
+                addNotif("Confirmation réussie, vous pouvez désormais vous connecter à votre espace utilisateur", 'valid');
+            }
+            
+        }
+        
+        View::render("user/connexion.view.php", 'layout-login.php');
     }
 
     public function forgetPasswordAction() {

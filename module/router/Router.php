@@ -149,12 +149,12 @@ class Router
 
 	}
 
-	public function routeHandler($routeName, $params=null)
+	public function routeHandler($routeName, $params=null, $convert=true)
 	{
 		if($route = $this->routeExist($routeName))
 		{
 			$path = $route['path'];
-			if($params) $path = $this->convertParams($route, $params);
+			if($params) $path = $this->convertParams($route, $params, $convert);
 			return $path;
 		}
 	}
@@ -173,7 +173,7 @@ class Router
 		return false;
 	}
 
-	private function convertParams($route, $params)
+	private function convertParams($route, $params, $convert=true)
 	{
 		$path = $route['path'];
 
@@ -185,7 +185,7 @@ class Router
 				{
 					if(preg_match("/".$route['params'][$index]['pattern']."/", $params[$index]))
 					{
-						$params[$index] = convertToUrl($params[$index]);
+						if($convert) $params[$index] = convertToUrl($params[$index]);
 						$path = preg_replace('#\{'.$index.'}#', $params[$index], $path);
 					}
 					else throw new Erreur('Le paramètre "'.$index.'" n\'est pas valide');
