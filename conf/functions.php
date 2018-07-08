@@ -212,6 +212,7 @@
 
     function chaine_encode($text)
     {
+        if(is_array($text)) $text = serialize($text);
 		if( !function_exists('mcrypt_encrypt') )return rawurlencode(trim(base64_encode($text)));
 
 		$SALT = "NZp2Y5oshDLF8eJCUamVxG6k";

@@ -82,14 +82,9 @@ class UserController {
         $data_user_form = $data_user = array_shift($_POST);
         
 		if(request_is("POST")) {
-            var_dump($_POST);
-
             unset($data_user_form['password']);
             $user->fromArray($data_user_form);
-            // var_dump($user);
-            // unset($_POST[$data_user['key']]['password_confirmation']);
             $_POST[$data_user['key']] = $data_user;
-            // var_dump($data_user);
             $form = $fb->create(new UserInscriptionForm(), $user);
             $user = $form->handleRequest($_POST);
             $errors = [];
@@ -101,10 +96,14 @@ class UserController {
             else {
                 if($form->validate()) {
                     $user->setRole(ROLE_UTILISATEUR);
+                    $token = date('Y-m-d H:i:s', strtotime('+4 hour'));
+                    $user->setToken($token);
                     $id = $user->save();
+                    $token = chaine_encode(['expire' => $token, 'id' => $id]);
 
+                    sendMail($user->getEmail(), PROJECT_NAME." - Confirmation d'inscription", 'Bonjour,<br>Afin de confirmer votre inscription vous devez valider votre adresse email en vous rendant sur le lien suivant, '.path('verif_email', ['token' => $token]));
                     addNotif('Inscription confirmée, vous allez recevoir un email de confirmation', 'valid');
-                    redirectToRoute('users');
+                    redirectToRoute('connexion');
                 }
                 else addNotif($form->getErrors(), 'error');
             }

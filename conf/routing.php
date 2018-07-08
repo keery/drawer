@@ -259,7 +259,17 @@ return
 			[
 				'token' => ['pattern' => '.*']
 			]
-		],				
+		],		
+	'verif_email' =>
+		[
+			'path' => 'email-verification/{token}',
+			'controller' => 'User',
+			'action' => 'newPassword',
+			'params' => 
+			[
+				'token' => ['pattern' => '.*']
+			]
+		],						
 	'erreur' =>
 		[
 			'path' => 'erreur',
