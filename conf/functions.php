@@ -31,7 +31,7 @@
     }
 
 	function isGranted($role) {
-        return (isset($_SESSION[PREFIX."user"]['role'], ROLES[$_SESSION[PREFIX."user"]['role']]) && array_key_exists($role, ROLES)) && ($_SESSION[PREFIX."user"]['active'] == 1) && ($_SESSION[PREFIX."user"]['banned'] != 0) && ($_SESSION[PREFIX."user"]['role'] === $role || in_array($role, ROLES[$_SESSION[PREFIX."user"]['role']]));
+        return (isset($_SESSION[PREFIX."user"]['role'], ROLES[$_SESSION[PREFIX."user"]['role']]) && array_key_exists($role, ROLES)) && ($_SESSION[PREFIX."user"]['active'] == 1) && ($_SESSION[PREFIX."user"]['banned'] == 0) && ($_SESSION[PREFIX."user"]['role'] === $role || in_array($role, ROLES[$_SESSION[PREFIX."user"]['role']]));
 	}
 
 	function format_date($date, $format) {

@@ -407,9 +407,8 @@ img { max-width: 100%; }
 	margin-left: 18px;
 }
 
-
-
-
-
-
-                
+@media (max-width: 992px) {
+	.picto-page {
+	  font-size: 28px;
+	}
+  }
