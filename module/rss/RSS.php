@@ -23,24 +23,6 @@ class Rss
         $this->xml_file = $xml_file;
         $this->name = $name;
         $this->root = $root;
-
-        // $channel = $xml_file->createElement("channel");
-        // $channel = $root->appendChild($channel);
-                
-        // $desc = $xml_file->createElement("description");
-        // $desc = $channel->appendChild($desc);
-        // $text_desc = $xml_file->createTextNode("Partage de connaissances en tous genres"); // on insère du texte entre les balises <description></description>
-        // $text_desc = $desc->appendChild($text_desc);
-
-        // $link = $xml_file->createElement("link");
-        // $link = $channel->appendChild($link);
-        // $text_link = $xml_file->createTextNode("http://www.bougiemind.info");
-        // $text_link = $link->appendChild($text_link);
-
-        // $title = $xml_file->createElement("title");
-        // $title = $channel->appendChild($title);
-        // $text_title = $xml_file->createTextNode("Bougie'S mind");
-        // $text_title = $title->appendChild($text_title);
     }
 
     public function addElement($tag, $text="", $container=null) {

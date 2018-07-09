@@ -25,7 +25,7 @@ class FormHTML {
     public function label($id, $tag = true, $asterisque=true){
         if(array_key_exists($id, $this->fields)) {
             $HTML = $this->fields[$id]['label'];
-            if($tag) $HTML = '<label>'.$HTML.'</label>'.($asterisque ? "<i class='asterisque'>*</i>" : "");
+            if($tag) $HTML = '<label>'.$HTML.($this->fields[$id]['field']->getRequired() ? " <i class='asterisque'>*</i>" : "").'</label>';
             return $HTML;
         }
     }

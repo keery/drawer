@@ -4,7 +4,16 @@
 		<base href="<?php echo DIRECTORY; ?>/">
 		<link rel="stylesheet" href="assets/css/dist/style.css">
 		<meta charset="UTF-8">
-		<title>Creative </title>	
+		<?php
+			if(!$settings = Module\Entity\Parametre::findOneBy(['id' => 1])) {
+				$settings = new Module\Entity\Parametre();
+			}
+		?>
+		<title><?php echo $settings->getTitre() ? $settings->getTitre() : "No title"; ?></title>
+		
+		<?php if($settings->getDescription()): 
+			echo '<meta name="description" content="'.html_entity_decode(strip_tags( $settings->getDescription() )).'"/>';
+		endif; ?>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 	</head>
@@ -13,16 +22,15 @@
 		<header class="header">
 				<div class="banner">
 					<div class="banner-content">
-						<h1 class='banner-title'>Hassan akar</h1>
-						<h2 class='banner-subtitle'>Dessinateur amateur</h2>
+						<h1 class='banner-title'><?php echo $settings->getTitre(); ?></h1>
+						<?php if($settings->getSoustitre()) echo "<h2 class='banner-subtitle'>".$settings->getSoustitre()."</h2>"; ?>						
 						<div class='banner-social'>
 							<?php
-							if($settings = Module\Entity\Parametre::findOneBy(['id' => 1])) {
-								if($settings->getFacebook()) echo '<a href="'.$settings->getFacebook().'"><i class="fab fa-facebook-square"></i></a>';
-								if($settings->getLinkedin()) echo '<a href="'.$settings->getLinkedin().'"><i class="fab fa-linkedin"></i></a>';
-								if($settings->getTwitter()) echo '<a href="'.$settings->getTwitter().'"><i class="fab fa-twitter-square"></i></a>';
-								if($settings->getInstagram()) echo '<a href="'.$settings->getInstagram().'"><i class="fab fa-instagram"></i></a>';
-							}
+								if($settings->getFacebook()) echo '<a href="'.$settings->getFacebook().'" target="_blank"><i class="fab fa-facebook-square"></i></a>';
+								if($settings->getLinkedin()) echo '<a href="'.$settings->getLinkedin().'" target="_blank"><i class="fab fa-linkedin"></i></a>';
+								if($settings->getTwitter()) echo '<a href="'.$settings->getTwitter().'" target="_blank"><i class="fab fa-twitter-square"></i></a>';
+								if($settings->getInstagram()) echo '<a href="'.$settings->getInstagram().'" target="_blank"><i class="fab fa-instagram"></i></a>';
+								if(file_exists('rss-article.xml')) echo '<a href="rss-article.xml" target="_blank"><i class="fas fa-rss-square"></i></a>'
 							?>
 						</div>
 					</div>

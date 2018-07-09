@@ -37,7 +37,7 @@
       font-size: 35px;
       padding: 8px;
 
-      .fab { color:white;transition: color ease-in-out 0.2s;
+      .fab, .fas { color:white;transition: color ease-in-out 0.2s;
         &:hover { color:#473f3f; }
       }
     }

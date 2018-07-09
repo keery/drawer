@@ -9,6 +9,7 @@ class Parametre extends BaseSql
 {
     public $id = null;
     public $titre;
+    public $soustitre;
     public $description;
     public $facebook;
     public $linkedin;
@@ -50,6 +51,13 @@ class Parametre extends BaseSql
 	}
 	public function setTitre($titre) {
 		$this->titre = $titre;
+    }
+
+    public function getSoustitre() {
+		return $this->soustitre;
+	}
+	public function setSoustitre($soustitre) {
+		$this->soustitre = $soustitre;
     }
     
     public function getDescription() {

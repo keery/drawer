@@ -1,6 +1,6 @@
 <i class="fas fa-newspaper picto-page"></i>
 <h1><?php echo $titre; ?></h1>
-<?php $form->form_head(); ?>
+<?php $form->form_head(); ?> 
 <section class="container group">
     <div class="bloc">
         <div class="bloc-titre">

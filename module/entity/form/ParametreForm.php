@@ -23,6 +23,7 @@ class ParametreForm extends FormBuilderInterface
             ->add('titre', new InputType(), ['rules' => [
                 "minLength" => 10
             ]])
+            ->add('soustitre', new InputType(), ['required' => false, 'label' => "Sous titre"])
             ->add('description', new TextType(), ['required' => false])
             ->add('image', new FileType('Module\Entity\User', false))
             ->add('facebook', new InputType(), ['required' => false])
