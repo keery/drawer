@@ -40,6 +40,7 @@ class SiteController {
 	public function articleDetailAction($request)
 	{
 		if(isset($request['id'])) {
+			$data['idarticle'] = $request['id'];
 			if($data['article'] = Article::findOneBy(['id' => $request['id']])) {
 				if(isGranted(ROLE_UTILISATEUR)) {
 					$commentaire = new Commentaire();

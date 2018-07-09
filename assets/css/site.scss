@@ -2,6 +2,17 @@
   $color: #473F3F;
   $opacity: .5;
 
+  .relative { position: relative; }
+  .action-article { 
+    position: absolute;
+    right: 5px;
+    top:5px;
+    > * { margin: 0 5px; }
+    .fas { border-radius: 100%; border:1px solid grey; text-align: center;height: 30px;width: 30px; line-height: 30px; }
+    .fa-thumbs-up { color:#4fb94f;; }
+    .fa-thumbs-down { color:#d83030; }
+  }
+
   .header {
     background: $color;
     color: white;
