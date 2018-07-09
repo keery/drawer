@@ -25,7 +25,12 @@ class InstallerConfigController {
 
                 if(empty($errors)){
                     try {
-                        $this->pdo = new \PDO('mysql:host='.$params['host'].';dbname='.$params['databasename'], $params['user'], $params['pwd']);
+//                        $res = explode(';', file_get_contents('structure.sql'));
+//
+//                        var_dump($res);
+
+
+                        new \PDO('mysql:host='.$params['host'].';dbname='.$params['databasename'], $params['user'], $params['pwd']);
 
 
                             $txtconfi= '<?php

@@ -18,8 +18,8 @@ class Validate{
 
 				if($attributs["type"]=="email" && !self::checkEmail($data[$name]) ){
 					$errorsMsg[]= "Format de l'email incorrect";
-				}else if ($attributs["type"]=="password" && !self::checkPwd($data[$name]) ){
-					$errorsMsg[]= "Mot de passe incorrect(Maj, Min, Chiffre, entre 6 et 32)";
+	/*			}else if ($attributs["type"]=="password" && !self::checkPwd($data[$name]) ){
+					$errorsMsg[]= "Mot de passe incorrect(Maj, Min, Chiffre, entre 6 et 32)";*/
 				}else if ($attributs["type"]=="number" && !self::checkNumber($data[$name]) ){
 					$errorsMsg[]= $name ." n'est pas correct";
 				}
@@ -66,12 +66,12 @@ class Validate{
 		return filter_var($email, FILTER_VALIDATE_EMAIL);
 	}
 
-	public static function checkPwd($pwd){
+/*	public static function checkPwd($pwd){
 		return strlen($pwd)>=6 && strlen($pwd)<=32 && 
 		preg_match("/[a-z]/", $pwd) && 
 		preg_match("/[A-Z]/", $pwd) && 
 		preg_match("/[0-9]/", $pwd);
-	}
+	}*/
 
 	public static function checkNumber($number){
 		return is_numeric(trim($number));

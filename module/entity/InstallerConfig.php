@@ -70,12 +70,7 @@ class InstallerConfig extends \Module\Bdd\BaseSql {
 						"pwd"=>[
 										"type"=>"password",
 										"placeholder"=>"Mot de passe",
-										"required"=>true],
-						"pwdConfirm"=>[
-										"type"=>"password",
-										"placeholder"=>"Confirmer votre mot de passe",
-										"required"=>true,
-										"confirm"=>"pwd"],
+										],
 
 
 					]
