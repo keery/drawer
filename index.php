@@ -12,32 +12,11 @@ Autoloader::register();
 
 if (!file_exists(CONF.'config.php')){
     $URI = "installer-config";
-
-    $router = new Router();
-    $URI = explode("?", $_SERVER["REQUEST_URI"]);
-    $URI = $URI[0];
-    $URI = str_replace(DIRECTORY, '', $URI);
-    if ($URI != DS) $URI = urldecode(substr($URI, 1));
-
-    $router->urlMatcher($URI);
-    
 }
-
-
-elseif( User::findOneBy(['role' => "ADMINISTRATEUR"] )){
+elseif( !User::findOneBy(['role' => "ADMINISTRATEUR"] )){
     $URI = "installer-user";
-
-    $router = new Router();
-    $URI = explode("?", $_SERVER["REQUEST_URI"]);
-    $URI = $URI[0];
-    $URI = str_replace(DIRECTORY, '', $URI);
-    if ($URI != DS) $URI = urldecode(substr($URI, 1));
-
-    $router->urlMatcher($URI);
 }
- else {
-
-if( isset($_SESSION[PREFIX."user"]['id']) ) {
+ elseif( isset($_SESSION[PREFIX."user"]['id']) ) {
 	$expire = date('Y-m-d H:i:s');
 	$user = User::findOneBy(['id' => $_SESSION[PREFIX."user"]['id']]);
 	if((isset($_SESSION[PREFIX."user"]['token']) && $user->getToken() != $_SESSION[PREFIX."user"]['token']) || ($user->getExpire() < $expire) ) session_destroy();
@@ -48,11 +27,13 @@ if( isset($_SESSION[PREFIX."user"]['id']) ) {
 	$user->save();
 }
 
-$router = new Router();
-	$URI = explode("?", $_SERVER["REQUEST_URI"]);
-	$URI = $URI[0];
-	$URI = str_replace(DIRECTORY, '', $URI);
-	if ($URI != DS) $URI = urldecode(substr($URI, 1));
-  }
+else{
+    $router = new Router();
+    $URI = explode("?", $_SERVER["REQUEST_URI"]);
+    $URI = $URI[0];
+    $URI = str_replace(DIRECTORY, '', $URI);
+    if ($URI != DS) $URI = urldecode(substr($URI, 1));
+}
+
  $router->urlMatcher($URI);
 ?>
