@@ -32,9 +32,6 @@
 		</div>
 	</div>
 
-	<div class="form u-pd--l container-grid">
-		
-	</div>
 
 	<input type="submit" class="button u-mw btn-validate" value="<?php echo $config["config"]["submit"];?>">
 </form>

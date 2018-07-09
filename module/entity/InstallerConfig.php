@@ -1,7 +1,6 @@
 <?php 
 namespace Module\Entity;
 
-use Module\Entity\User;
 
 class InstallerConfig extends \Module\Bdd\BaseSql {
 
@@ -84,40 +83,7 @@ class InstallerConfig extends \Module\Bdd\BaseSql {
 
 	}
 
-    public function addConfig($params){
 
-        $config = $this->configFormAdd();
-        $errors = [];
-
-        if(!empty($params)){
-            $validate = new \Module\form_validate\Validate();
-            $errors = $validate->checkForm($config, $params);
-
-            if(empty($errors)){
-
-                $txtconfi= '<?php
-                 define("TITLE", "'.$params['websitetitle'].'");
-                 define("HOST", "'.$params['host'].'");
-                 define("DB_NAME", "'.$params['databasename'].'");
-                 define("USER", "'.$params['user'].'");
-                 define("PASS", "'.$params['pwd'].'");
-
-				';
-
-				$user = new User();
-				$user->fromArray([
-					"prenom" => $params['firstName'],
-					"nom" => $params['lastName'],
-					"email" => $params['email'],
-					"role" => ROLE_ADMINISTRATEUR
-				]);
-				$user->save();
-
-                file_put_contents(CONF.'config.php', $txtconfi, FILE_APPEND | LOCK_EX);
-			}
-			else return $errors;
-        }
-    }
 }
 
 

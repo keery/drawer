@@ -1,36 +1,22 @@
-<?php
-if (!empty($_POST)) {
-    header("refresh:0");
-}
-?>
+
 <!DOCTYPE html>
 <html>
-	<head lang="fr">
-		<link rel="stylesheet" href="assets/css/dist/style.css">
-		<meta charset="UTF-8">
-		<title>Creative</title>
-		<base href="/">
+<head lang="fr">
+    <link rel="stylesheet" href="assets/css/dist/style.css">
+    <meta charset="UTF-8">
+    <title>Creative</title>
+    <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-	</head>
-	<body>
+</head>
+<body>
 
 
-	<div id="installer" class="u-pd--m">
-    <form  method="post" class="form u-pd--l container-grid">
-      <div>
-        <h1>Your profile</h1>
-        <input required type="text" name="Name" class="input u-mw u-mgb--m" placeholder='Name'>
-        <input required type="text" name="LastName" class="input u-mw u-mgb--m" placeholder='Last name'>
-        <input required type="text" name="Email" class="input u-mw u-mgb--m" placeholder='Email'>
-        <input required type="text" name="Password" class="input u-mw u-mgb--m" placeholder='Password'>
-        <input required type="text" name="CPassword" class="input u-mw u-mgb--m" placeholder='Confirm password'>
-        <input required type="submit" value="Submit" class="button u-mw btn-validate">
-      </div>
-    </form>
-	</div>
+<div id="installer" class="u-pd--m">
+    <?php include(TPL.$tpl); ?>
+</div>
 
-	<script src="http://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
-	<script src="js/index.js"></script>
+<script src="http://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+<script src="js/index.js"></script>
 
-	</body>
+</body>
 </html>

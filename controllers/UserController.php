@@ -80,6 +80,7 @@ class UserController {
     }
 
     public function inscriptionAction() {
+
         $user = new User();
         $fb = new FormBuilder();
         
@@ -135,6 +136,7 @@ class UserController {
         }
         
         redirectToRoute('connexion');
+
     }
 
     public function forgetPasswordAction() {

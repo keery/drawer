@@ -9,6 +9,34 @@ require(CONF.'functions.php');
 $loader = require(CONF.'autoload.php');
 Autoloader::register();
 
+
+if (!file_exists(CONF.'config.php')){
+    $URI = "installer-config";
+
+    $router = new Router();
+    $URI = explode("?", $_SERVER["REQUEST_URI"]);
+    $URI = $URI[0];
+    $URI = str_replace(DIRECTORY, '', $URI);
+    if ($URI != DS) $URI = urldecode(substr($URI, 1));
+
+    $router->urlMatcher($URI);
+    
+}
+
+
+elseif( User::findOneBy(['role' => "ADMINISTRATEUR"] )){
+    $URI = "installer-user";
+
+    $router = new Router();
+    $URI = explode("?", $_SERVER["REQUEST_URI"]);
+    $URI = $URI[0];
+    $URI = str_replace(DIRECTORY, '', $URI);
+    if ($URI != DS) $URI = urldecode(substr($URI, 1));
+
+    $router->urlMatcher($URI);
+}
+ else {
+
 if( isset($_SESSION[PREFIX."user"]['id']) ) {
 	$expire = date('Y-m-d H:i:s');
 	$user = User::findOneBy(['id' => $_SESSION[PREFIX."user"]['id']]);
@@ -21,17 +49,10 @@ if( isset($_SESSION[PREFIX."user"]['id']) ) {
 }
 
 $router = new Router();
-//A décommenter si besoin du 1er form de config
-// if (!file_exists(CONF.'config.php')) $URI = "installer-config";
-
-// TO DO need SQL get admin user
-//elseif (USERADMINEXISTE?)$URI = "installer-user";
-// else {
-
 	$URI = explode("?", $_SERVER["REQUEST_URI"]);
 	$URI = $URI[0];
 	$URI = str_replace(DIRECTORY, '', $URI);
 	if ($URI != DS) $URI = urldecode(substr($URI, 1));
-//  }
+  }
  $router->urlMatcher($URI);
 ?>
