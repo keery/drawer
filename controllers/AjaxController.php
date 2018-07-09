@@ -79,11 +79,14 @@ class AjaxController {
             if(!$rel = RelUserArticle::findOneBy(['id_article' => $request['id'], 'id_user' => $_SESSION[PREFIX."user"]['id']])) {
                 $rel = new RelUserArticle();
             }
-
+            $data['id'] = $rel->getId();
+            // if($request['type'] == "delete") RelUserArticle::delete($rel->getId());
+            if($request['type'] == "delete") $request['type'] = "unvote";
             $rel->setId_article($request['id']);
             $rel->setId_user($_SESSION[PREFIX."user"]['id']);
             $rel->setVote($request['type']);
             $rel->save();
+
             $data['state'] = true;
         }
         echo json_encode($data);

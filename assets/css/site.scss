@@ -7,7 +7,7 @@
     position: absolute;
     right: 5px;
     top:5px;
-    > * { margin: 0 5px; }
+    > * { margin: 0 5px; vertical-align: middle!important; }
     .fas { border-radius: 100%; border:1px solid grey; text-align: center;height: 30px;width: 30px; line-height: 30px; }
     .fa-thumbs-up, .fa-thumbs-down { transition: background-color ease-in-out 0.2s; background-color: white; cursor: pointer; }
     .fa-thumbs-up { color:#4fb94f;
@@ -17,7 +17,21 @@
       &:hover, &.active { background-color: #d83030; color:white;border-color:#d83030; }
     }
   }
-
+  .display-ib { display: inline-block; }
+  .round-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    border-radius: 100%;
+    color: white;
+    font-size: 10px;
+    width: 14px;
+    background-color: #473f3f;
+    text-align: center;
+    height: 14px;
+    line-height: 14px;
+  }
+ 
   .header {
     background: $color; 
     color: white;

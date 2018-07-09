@@ -30,8 +30,14 @@ fjs.parentNode.insertBefore(js, fjs);
         
         <div class="action-article">
             <?php if(isGranted(ROLE_UTILISATEUR)): ?>
-                <i class="fas fa-thumbs-up <?php echo ($rel && $rel->getVote() == "like" ? 'active' : "" ); ?>" data-article="<?php echo $idarticle; ?>" title="J'aime"></i>
-                <i class="fas fa-thumbs-down <?php echo ($rel && $rel->getVote() == "dislike" ? 'active' : "" ); ?>" data-article="<?php echo $idarticle; ?>" title="Je n'aime pas"></i>
+                <span class="relative display-ib">
+                    <i class="fas fa-thumbs-up <?php echo ($rel && $rel->getVote() == "like" ? 'active' : "" ); ?>" data-article="<?php echo $idarticle; ?>" title="J'aime"></i>
+                    <b class="round-badge"><?php echo $like; ?></b>
+                </span>
+                <span class="relative display-ib">
+                    <i class="fas fa-thumbs-down <?php echo ($rel && $rel->getVote() == "dislike" ? 'active' : "" ); ?>" data-article="<?php echo $idarticle; ?>" title="Je n'aime pas"></i>
+                    <b class="round-badge"><?php echo $dislike; ?></b>
+                </span>
             <?php endif; ?>            
             <div class="fb-share-button" 
                 data-href="<?php echo $_SERVER['SERVER_NAME'].$_SERVER['REDIRECT_URL']; ?>" 

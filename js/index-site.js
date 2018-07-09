@@ -3,17 +3,20 @@ $(document).ready(function(){
         var _this = $(this);
         var id = $(this).attr('data-article');
         
-        var vote = null;
         var type = null;
-        if($(this).hasClass('fa-thumbs-up')) {
-            type = 'like';
-            vote = 1;
-        } 
-        else if($(this).hasClass('fa-thumbs-down')) {
-            type = 'dislike';
-            vote = 0;
+        var next = ".fa-thumbs-up";
+        if(_this.hasClass('active')) {
+            type = "delete";
         }
-        if(vote != null && type != null) {
+        else if(_this.hasClass('fa-thumbs-up')) {
+            type = 'like';
+            next = ".fa-thumbs-down";
+        } 
+        else if(_this.hasClass('fa-thumbs-down')) {
+            type = 'dislike';
+        }
+        console.log();
+        if(type != null) {
             $.ajax({
                 url: "ajax/action/"+id+"/"+type,
                 type: "GET",
@@ -22,8 +25,18 @@ $(document).ready(function(){
                 dataType: 'json',
                 success: function (response) 
                 {
+                    var badge = _this.next('b');
                     $(".fa-thumbs-down, .fa-thumbs-up").removeClass('active');
-                    _this.addClass('active');
+                    if(type != "delete") {
+                        var nextBadge = _this.parent().parent().find(next).next('b');
+                        var valueNext = parseInt( nextBadge.text() );
+                        badge.text(parseInt( badge.text() )+1);
+
+                        if(valueNext > 0) nextBadge.text(valueNext-1);
+                        
+                        _this.addClass('active');
+                    }                    
+                    else badge.text(parseInt( badge.text() )-1);
                 },
                 error: function(erreur, etat) 
                 {

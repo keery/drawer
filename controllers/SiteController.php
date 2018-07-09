@@ -44,18 +44,25 @@ class SiteController {
 			$data['idarticle'] = $request['id'];
 			if($data['article'] = Article::findOneBy(['id' => $request['id']])) {
 				if(isGranted(ROLE_UTILISATEUR)) {
+					$data['rel'] = RelUserArticle::findOneBy(['id_article' => $request['id'], 'id_user' => $_SESSION[PREFIX."user"]['id']]);					
 					$commentaire = new Commentaire();
 					$fb = new FormBuilder();
 					$form = $fb->create(new CommentaireForm(), $commentaire);
 					$form->setAction(path('commentaire_add', ['id' => $request['id']]));
 
 					$data['form'] = $form->createView();
+					
+					$data['like'] = 0;
+					$data['dislike'] = 0;
+					if($rels = RelUserArticle::find(['id_article' => $request['id']])) {
+						foreach ($rels as $rel) {
+							if($rel->getVote() == "dislike") $data['dislike']++;
+							elseif($rel->getVote() == "like") $data['like']++;
+						}
+					}
 				}
 
 				$data['commentaires'] = Commentaire::find(['idarticle' => $request['id'], "active" => 1]);
-				if(isGranted(ROLE_UTILISATEUR)) {
-					$data['rel'] = RelUserArticle::findOneBy(['id_article' => $request['id'], 'id_user' => $_SESSION[PREFIX."user"]['id']]);
-				}
 
 				View::render("frontend/oeuvre-detail.view.php", "layout-site.php", $data);
 			}

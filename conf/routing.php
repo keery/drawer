@@ -293,7 +293,7 @@ return
 				'params' => 
 				[
 					'id' => ['pattern' => '[0-9]+'],
-					'type' => ['pattern' => '(like|dislike)'],
+					'type' => ['pattern' => '(like|dislike|delete)'],
 				]
 			],
 			'delete_img' => 
