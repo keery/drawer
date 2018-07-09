@@ -3,7 +3,9 @@ $(document).ready(function(){
     
         $(".fa-thumbs-down, .fa-thumbs-up").on('click', function() {
             if( vote ) {
-                vote = false;
+                vote = false ;
+
+
 
                 setTimeout(function(){
                     vote = true;
