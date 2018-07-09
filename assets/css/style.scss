@@ -411,4 +411,9 @@ img { max-width: 100%; }
 	.picto-page {
 	  font-size: 28px;
 	}
-  }
+
+	.list>.list-item .panel-action { right:8px; }
+	.list>.list-item .panel-action li a { width: 20px;height: 20px; 
+		i { font-size: 10px; }
+	}
+}
