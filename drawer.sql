@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 03 Juillet 2018 à 19:29
+-- Généré le :  Lun 09 Juillet 2018 à 10:12
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -283,7 +283,7 @@ CREATE TABLE `cd_commentaire` (
 
 INSERT INTO `cd_commentaire` (`id`, `commentaire`, `publication`, `active`, `idarticle`, `iduser`) VALUES
 (2, 'ce boff', '2018-06-28 18:08:04', 1, 44, 1),
-(3, 'ce bo', '2018-06-28 18:08:08', 0, 44, 1),
+(3, 'ce bo', '2018-06-28 18:08:08', 1, 44, 1),
 (4, 'ce bo', '2018-06-28 18:08:08', 0, 44, 1),
 (5, 'ce bo', '2018-06-28 18:08:09', 0, 44, 1),
 (6, 'ce bo', '2018-06-28 18:08:09', 0, 44, 1),
@@ -362,7 +362,7 @@ CREATE TABLE `cd_image` (
 --
 
 INSERT INTO `cd_image` (`id`, `src`, `title`, `alt`, `position`, `id_article`) VALUES
-(1, '5ae31bdec48b3.jpeg', NULL, 'coucou', NULL, 12),
+(1, '5ae31bdec48b3.jpeg', NULL, 'coucou', 3, 12),
 (3, '5ae1a13c679cb.png', NULL, NULL, NULL, NULL),
 (4, '5ae1a15e47797.png', NULL, NULL, NULL, NULL),
 (5, '5ae1a19b48fbc.png', NULL, NULL, NULL, NULL),
@@ -454,8 +454,8 @@ INSERT INTO `cd_image` (`id`, `src`, `title`, `alt`, `position`, `id_article`) V
 (90, '5b2641da0e8c3.png', NULL, NULL, NULL, NULL),
 (91, '5b26427d1f0e6.png', NULL, NULL, NULL, NULL),
 (92, '5b2642ea22fe9.png', NULL, NULL, NULL, NULL),
-(93, '5b2643f8a538e.png', NULL, 'zoul', NULL, 12),
-(94, '5b2644171a41e.png', NULL, NULL, NULL, 12),
+(93, '5b2643f8a538e.png', NULL, 'zoul', 2, 12),
+(94, '5b2644171a41e.png', NULL, NULL, 1, 12),
 (95, '5b26af2902a65.jpeg', NULL, NULL, NULL, NULL),
 (96, '5b26af88c9e2c.jpeg', NULL, NULL, NULL, NULL),
 (97, '5b26afdf543cc.jpeg', NULL, NULL, NULL, NULL),
@@ -571,6 +571,30 @@ INSERT INTO `cd_page` (`id`, `id_parent`, `titre`, `description`, `url`, `protec
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `cd_settings`
+--
+
+CREATE TABLE `cd_settings` (
+  `id` int(11) NOT NULL,
+  `titre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `soustitre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `twitter` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `facebook` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `linkedin` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `instagram` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `cd_settings`
+--
+
+INSERT INTO `cd_settings` (`id`, `titre`, `soustitre`, `description`, `twitter`, `facebook`, `linkedin`, `instagram`) VALUES
+(1, 'Hassan Hakar', 'Dessinateur amateur', '<p>Cr&eacute;ative drawer est une plateforme qui permet aux dessinateurs de partager&nbsp;ainsi que de cr&eacute;er une communaut&eacute; autour de leur univers et passion commune, le dessin.</p>', NULL, 'https://www.facebook.com/', 'https://www.linkedin.com/feed/', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `cd_user`
 --
 
@@ -587,7 +611,7 @@ CREATE TABLE `cd_user` (
   `role` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `profession` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `token` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `expire` timestamp NOT NULL,
+  `expire` timestamp NULL DEFAULT NULL,
   `id_image` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -596,8 +620,9 @@ CREATE TABLE `cd_user` (
 --
 
 INSERT INTO `cd_user` (`id`, `pseudo`, `prenom`, `nom`, `email`, `password`, `active`, `banned`, `date_inscription`, `role`, `profession`, `token`, `expire`, `id_image`) VALUES
-(1, 'admin', 'Guillaume', 'ESNAULTREFER', 'mon-compte1131@live.fr', 'truc', 1, 1, '2018-06-14 17:36:23', 'ADMINISTRATEUR', '', '5b3a83568c4d1', '2018-07-02 21:56:06', 175),
-(2, 'test', 'truc', 'trcu', 'mon-compte1132@live.fr', 'test', 1, 0, '2018-06-29 18:32:56', 'MODERATEUR', NULL, '', '2018-06-29 18:32:56', NULL);
+(1, 'admin', 'Guillaume', 'ESNAULTREFER', 'mon-compte1131@live.fr', 'truc', 1, 0, '2018-06-14 17:36:23', 'ADMINISTRATEUR', '', '5b4333fce24bf', '2018-07-09 12:07:56', 175),
+(2, 'test', 'truc', 'trcu', 'mon-compte1132@live.fr', 'test', 1, 0, '2018-06-29 18:32:56', 'MODERATEUR', NULL, '', '2018-06-29 18:32:56', NULL),
+(9, 'guigui', 'Guillaume', 'ESNAULT', 'guillaumesnault@gmail.com', 'Guigui-91', 1, 0, '2018-07-08 13:46:45', 'UTILISATEUR', NULL, '5b4218fc2801a', '2018-07-08 16:00:28', NULL);
 
 -- --------------------------------------------------------
 
@@ -663,6 +688,12 @@ ALTER TABLE `cd_page`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `cd_settings`
+--
+ALTER TABLE `cd_settings`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `cd_user`
 --
 ALTER TABLE `cd_user`
@@ -720,10 +751,15 @@ ALTER TABLE `cd_infosite`
 ALTER TABLE `cd_page`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
+-- AUTO_INCREMENT pour la table `cd_settings`
+--
+ALTER TABLE `cd_settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT pour la table `cd_user`
 --
 ALTER TABLE `cd_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `cd_user_role`
 --
