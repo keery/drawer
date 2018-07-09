@@ -6,6 +6,7 @@ js = d.createElement(s); js.id = id;
 js.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.0';
 fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+<script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: fr_FR</script>
 <div>
     <article class="article col-sm-8">
       <div class="header">
@@ -26,15 +27,17 @@ fjs.parentNode.insertBefore(js, fjs);
                 <?php echo $notif; ?>
             </div>
         <?php endforeach; ?>
+        
         <div class="action-article">
             <?php if(isGranted(ROLE_UTILISATEUR)): ?>
                 <i class="fas fa-thumbs-up <?php echo ($rel && $rel->getVote() == "like" ? 'active' : "" ); ?>" data-article="<?php echo $idarticle; ?>" title="J'aime"></i>
                 <i class="fas fa-thumbs-down <?php echo ($rel && $rel->getVote() == "dislike" ? 'active' : "" ); ?>" data-article="<?php echo $idarticle; ?>" title="Je n'aime pas"></i>
-            <?php endif; ?>
+            <?php endif; ?>            
             <div class="fb-share-button" 
-                data-href="https://www.leboncoin.fr/locations/1456589870.htm/" 
+                data-href="<?php echo $_SERVER['SERVER_NAME'].$_SERVER['REDIRECT_URL']; ?>" 
                 data-layout="button_count">
             </div>
+            <script type="IN/Share" data-url="<?php echo $_SERVER['SERVER_NAME'].$_SERVER['REDIRECT_URL']; ?>"></script>
         </div>
         <?php if($article->getAuteur()) echo "<i class='author'>Oeuvre de ".$article->getAuteur()."</i>"; ?>
         <?php if($article->getDescription()) echo "<p>".$article->getDescription()."</p>"; ?>

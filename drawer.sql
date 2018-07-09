@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 09 Juillet 2018 à 10:12
+-- Généré le :  Lun 09 Juillet 2018 à 15:49
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -620,9 +620,29 @@ CREATE TABLE `cd_user` (
 --
 
 INSERT INTO `cd_user` (`id`, `pseudo`, `prenom`, `nom`, `email`, `password`, `active`, `banned`, `date_inscription`, `role`, `profession`, `token`, `expire`, `id_image`) VALUES
-(1, 'admin', 'Guillaume', 'ESNAULTREFER', 'mon-compte1131@live.fr', 'truc', 1, 0, '2018-06-14 17:36:23', 'ADMINISTRATEUR', '', '5b4333fce24bf', '2018-07-09 12:07:56', 175),
+(1, 'admin', 'Guillaume', 'ESNAULTREFER', 'mon-compte1131@live.fr', 'truc', 1, 0, '2018-06-14 17:36:23', 'ADMINISTRATEUR', '', '5b4378ef2b04a', '2018-07-09 17:02:07', 175),
 (2, 'test', 'truc', 'trcu', 'mon-compte1132@live.fr', 'test', 1, 0, '2018-06-29 18:32:56', 'MODERATEUR', NULL, '', '2018-06-29 18:32:56', NULL),
 (9, 'guigui', 'Guillaume', 'ESNAULT', 'guillaumesnault@gmail.com', 'Guigui-91', 1, 0, '2018-07-08 13:46:45', 'UTILISATEUR', NULL, '5b4218fc2801a', '2018-07-08 16:00:28', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cd_user_article`
+--
+
+CREATE TABLE `cd_user_article` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_article` int(11) NOT NULL,
+  `vote` varchar(10) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `cd_user_article`
+--
+
+INSERT INTO `cd_user_article` (`id`, `id_user`, `id_article`, `vote`) VALUES
+(1, 1, 44, 'dislike');
 
 -- --------------------------------------------------------
 
@@ -701,6 +721,12 @@ ALTER TABLE `cd_user`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Index pour la table `cd_user_article`
+--
+ALTER TABLE `cd_user_article`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `cd_user_role`
 --
 ALTER TABLE `cd_user_role`
@@ -760,6 +786,11 @@ ALTER TABLE `cd_settings`
 --
 ALTER TABLE `cd_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT pour la table `cd_user_article`
+--
+ALTER TABLE `cd_user_article`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `cd_user_role`
 --
