@@ -5,7 +5,8 @@
 		<link rel="stylesheet" href="assets/css/dist/style.css">
 		<meta charset="UTF-8">
 		<title>Creative </title>	
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 	</head>
 	<body>	
 	<div id="site" class="flex-wrapper">
@@ -15,9 +16,14 @@
 						<h1 class='banner-title'>Hassan akar</h1>
 						<h2 class='banner-subtitle'>Dessinateur amateur</h2>
 						<div class='banner-social'>
-							<img src="assets/img/facebook-logo-button.png" alt="">
-							<img src="assets/img/twitter-logo-button.png" alt="">
-							<img src="assets/img/instagram-logo.png" alt="">
+							<?php
+							if($settings = Module\Entity\Parametre::findOneBy(['id' => 1])) {
+								if($settings->getFacebook()) echo '<a href="'.$settings->getFacebook().'"><i class="fab fa-facebook-square"></i></a>';
+								if($settings->getLinkedin()) echo '<a href="'.$settings->getLinkedin().'"><i class="fab fa-linkedin"></i></a>';
+								if($settings->getTwitter()) echo '<a href="'.$settings->getTwitter().'"><i class="fab fa-twitter-square"></i></a>';
+								if($settings->getInstagram()) echo '<a href="'.$settings->getInstagram().'"><i class="fab fa-instagram"></i></a>';
+							}
+							?>
 						</div>
 					</div>
 				</div>

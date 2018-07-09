@@ -33,6 +33,15 @@
       color: rgba(white, 0.8);
     }
 
+    .banner-social > a {
+      font-size: 35px;
+      padding: 8px;
+
+      .fab { color:white;transition: color ease-in-out 0.2s;
+        &:hover { color:#473f3f; }
+      }
+    }
+    
     .banner-social > img {
       width: 40px;
       margin-right: .5em;

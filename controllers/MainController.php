@@ -2,10 +2,13 @@
 namespace Controllers;
 
 use Module\Entity\Article;
+use Module\Entity\Parametre;
 use Module\Entity\Commentaire;
 use Module\Entity\Categorie;
 use Module\View\View;
 use Module\Erreur\Erreur;
+use Module\Entity\Form\ParametreForm;
+use Module\Form\FormBuilder;
 
 class MainController {
 	
@@ -28,7 +31,28 @@ class MainController {
 
 	public function parametresAction()
 	{
-		View::render("backend/parametres.view.php");
+		if(!$parametre = Parametre::findOneBy(array('id' => 1))) {
+			$parametre = new Parametre();
+		} 
+
+		$data['titre'] = "Configuration des paramètres";
+
+		
+		$fb = new FormBuilder();
+		$form = $fb->create(new ParametreForm(), $parametre);
+		
+		if(request_is("POST")) {
+			$parametre = $form->handleRequest($_POST);
+			if($form->validate()) {
+				$id = $parametre->save();
+				addNotif('Paramètres bien enregistré', 'valid');
+				redirectToRoute('parametres');
+			}
+			else addNotif($form->getErrors(), 'error');
+		}
+
+		$data['form'] = $form->createView();
+		View::render("backend/parametres.view.php", 'layout.php', $data);
 	}	
 
 	public function deleteAction($props)
