@@ -37,8 +37,7 @@
 				</div>
 				<nav class="navbar">
 					<div class="left">
-
-					<?php
+						<?php
 							if($pageZero = Module\Entity\Page::find(['active' => 1, 'id_parent' => null])) {
 								$pages= [];
 								foreach ($pageZero as $page) {
@@ -76,7 +75,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script> -->
-	<!-- <script src="js/index.js"></script>	 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/index-site.js"></script>	
 	</body>
 </html>

@@ -2,6 +2,7 @@
 namespace Controllers;
 
 use Module\Entity\Image;
+use Module\Entity\RelUserArticle;
 
 
 class AjaxController {
@@ -69,6 +70,23 @@ class AjaxController {
     
     private function isXmlHttpRequest() {
         return $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
+    }
+    
+    public function likeAction($request) {
+        $data['state'] = false;
+        if ($this->isXmlHttpRequest() && isset($request['id'], $request['type'], $_SESSION[PREFIX."user"]['id']))
+        {
+            if(!$rel = RelUserArticle::findOneBy(['id_article' => $request['id'], 'id_user' => $_SESSION[PREFIX."user"]['id']])) {
+                $rel = new RelUserArticle();
+            }
+
+            $rel->setId_article($request['id']);
+            $rel->setId_user($_SESSION[PREFIX."user"]['id']);
+            $rel->setVote($request['type']);
+            $rel->save();
+            $data['state'] = true;
+        }
+        echo json_encode($data);
     }
 
     public function deleteImgAction($request)

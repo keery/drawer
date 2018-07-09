@@ -285,6 +285,17 @@ return
 				'controller' => 'Ajax',
 				'action' => 'uploadFiles'
 			],
+			'like' => 
+			[
+				'path' => 'action/{id}/{type}',
+				'controller' => 'Ajax',
+				'action' => 'like',
+				'params' => 
+				[
+					'id' => ['pattern' => '[0-9]+'],
+					'type' => ['pattern' => '(like|dislike)'],
+				]
+			],
 			'delete_img' => 
 			[
 				'path' => 'delete_img/{id}',

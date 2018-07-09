@@ -28,8 +28,8 @@ fjs.parentNode.insertBefore(js, fjs);
         <?php endforeach; ?>
         <div class="action-article">
             <?php if(isGranted(ROLE_UTILISATEUR)): ?>
-                <i class="fas fa-thumbs-up" data-article="<?php echo $idarticle; ?>"></i>
-                <i class="fas fa-thumbs-down" data-article="<?php echo $idarticle; ?>"></i>
+                <i class="fas fa-thumbs-up <?php echo ($rel && $rel->getVote() == "like" ? 'active' : "" ); ?>" data-article="<?php echo $idarticle; ?>" title="J'aime"></i>
+                <i class="fas fa-thumbs-down <?php echo ($rel && $rel->getVote() == "dislike" ? 'active' : "" ); ?>" data-article="<?php echo $idarticle; ?>" title="Je n'aime pas"></i>
             <?php endif; ?>
             <div class="fb-share-button" 
                 data-href="https://www.leboncoin.fr/locations/1456589870.htm/" 

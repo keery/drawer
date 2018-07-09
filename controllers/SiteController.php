@@ -7,6 +7,7 @@ use Module\Entity\Contact;
 use Module\Entity\Page;
 use Module\Entity\Commentaire;
 use Module\Entity\User;
+use Module\Entity\RelUserArticle;
 use Module\Erreur\Erreur;
 use Module\Form\FormBuilder;
 use Module\Entity\Form\CommentaireForm;
@@ -52,6 +53,9 @@ class SiteController {
 				}
 
 				$data['commentaires'] = Commentaire::find(['idarticle' => $request['id'], "active" => 1]);
+				if(isGranted(ROLE_UTILISATEUR)) {
+					$data['rel'] = RelUserArticle::findOneBy(['id_article' => $request['id'], 'id_user' => $_SESSION[PREFIX."user"]['id']]);
+				}
 
 				View::render("frontend/oeuvre-detail.view.php", "layout-site.php", $data);
 			}

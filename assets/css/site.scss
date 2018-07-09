@@ -9,12 +9,17 @@
     top:5px;
     > * { margin: 0 5px; }
     .fas { border-radius: 100%; border:1px solid grey; text-align: center;height: 30px;width: 30px; line-height: 30px; }
-    .fa-thumbs-up { color:#4fb94f;; }
-    .fa-thumbs-down { color:#d83030; }
+    .fa-thumbs-up, .fa-thumbs-down { transition: background-color ease-in-out 0.2s; background-color: white; cursor: pointer; }
+    .fa-thumbs-up { color:#4fb94f;
+      &:hover, &.active { background-color: #4fb94f; color:white;border-color:#4fb94f; }
+    }
+    .fa-thumbs-down { color:#d83030; 
+      &:hover, &.active { background-color: #d83030; color:white;border-color:#d83030; }
+    }
   }
 
   .header {
-    background: $color;
+    background: $color; 
     color: white;
     width: 100%;
     margin-bottom: 3em;
