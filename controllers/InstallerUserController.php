@@ -35,8 +35,6 @@ class InstallerUserController{
                     $id = $user->save();
                     $token = chaine_encode(['expire' => $token, 'id' => $id]);
 
-                    sendMail($user->getEmail(), PROJECT_NAME." - Confirmation d'inscription", 'Bonjour,<br>Afin de confirmer votre inscription vous devez valider votre adresse email en vous rendant sur le lien suivant, '.path('verif_email', ['token' => urlencode($token)], false));
-                    addNotif('Inscription confirmée, vous allez recevoir un email de confirmation', 'valid');
                     redirectToRoute('connexion');
                 }
                 else addNotif($form->getErrors(), 'error');

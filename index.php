@@ -21,15 +21,10 @@ if( isset($_SESSION[PREFIX."user"]['id']) ) {
 }
 
 
-if (!file_exists(CONF.'config.php')){
-    $URI = "installer-config";
-}
-elseif( !User::findOneBy(['role' => "ADMINISTRATEUR"] )){
-    $URI = "installer-user";
-}
-
-else{
-    $router = new Router();
+$router = new Router();
+if (!file_exists(CONF.'config.php')) $URI = "installer-config";
+elseif( !User::findOneBy(['role' => "ADMINISTRATEUR"] )) $URI = "installer-user";
+else {    
     $URI = explode("?", $_SERVER["REQUEST_URI"]);
     $URI = $URI[0];
     $URI = str_replace(DIRECTORY, '', $URI);
