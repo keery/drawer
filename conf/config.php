@@ -1,5 +1,5 @@
 <?php
-                        define("TITLE", "toutttt");
+                        define("TITLE", "Hassan Akar");
                         define("HOST", "localhost");
                         define("DB_NAME", "louis");
                         define("USER", "root");

@@ -18,7 +18,7 @@ class UserInscriptionForm extends FormBuilderInterface
     {
         $this
             ->add('pseudo', new InputType(), ['rules' => [
-                'minLength' => 6,
+                'minLength' => 2,
                 'required' => true
             ]])
             ->add('email', new InputType(), ['rules' => [

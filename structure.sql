@@ -109,7 +109,7 @@ CREATE TABLE `cd_user` (
   `date_inscription` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `role` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `profession` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `token` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `token` varchar(25) COLLATE utf8_unicode_ci NULL,
   `expire` timestamp NULL DEFAULT NULL,
   `id_image` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
