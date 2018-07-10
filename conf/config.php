@@ -1,6 +1,6 @@
 <?php
-                        define("TITLE", "Hassan Akar");
+                        define("TITLE", "azer");
                         define("HOST", "localhost");
-                        define("DB_NAME", "louis");
+                        define("DB_NAME", "azer");
                         define("USER", "root");
                         define("PASS", ""); 
