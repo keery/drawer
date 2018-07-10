@@ -11,13 +11,14 @@
 			maxWidth : 1920,
 			maxHeight : 1080,
 			nbFichiersMax : 50,
+			front: false,
 			key: $("input.input_key").val()
 		}, option);
 
 		//Classe
 		function GEUploader(elem, p)
 		{
-
+			if(elem.hasClass('front')) option.front = true;
 			var entity_name = option.entity.split(":"),
 				nbExist = null,
 				prev_msg;
@@ -169,7 +170,10 @@
 						}
 						else
 						{
-							var proto = '<li class="row"><div class="col-xs-4 photo"></div><div class="panel-action"><button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id="'+response.id_file+'"><i class="fas fa-trash-alt"></i></button></div><div class="col-xs-8 img-input"><div class="input-form full spacing"><label for="'+entity_name+'_image_alt">Alt</label><input type="text" id="'+entity_name+'_image_alt" name="'+entity_name+'[image][alt]" class="input"></div><div class="input-form full spacing"><label for="'+entity_name+'_image_title">Title</label><input type="text" id="'+entity_name+'_image_title" name="'+entity_name+'[image][title]" class="input"></div></div></li>';
+							var proto = '<li class="row"><div class="col-xs-4 photo"></div>';
+							if(!option.front) proto += '<div class="panel-action"><button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id="'+response.id_file+'"><i class="fas fa-trash-alt"></i></button></div><div class="col-xs-8 img-input"><div class="input-form full spacing"><label for="'+entity_name+'_image_alt">Alt</label><input type="text" id="'+entity_name+'_image_alt" name="'+entity_name+'[image][alt]" class="input"></div><div class="input-form full spacing"><label for="'+entity_name+'_image_title">Title</label><input type="text" id="'+entity_name+'_image_title" name="'+entity_name+'[image][title]" class="input"></div></div>';
+							proto += '</li>';
+							// proto += '<div class="panel-action"><button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id="'+response.id_file+'"><i class="fas fa-trash-alt"></i></button></div><div class="col-xs-8 img-input"><div class="input-form full spacing"><label for="'+entity_name+'_image_alt">Alt</label><input type="text" id="'+entity_name+'_image_alt" name="'+entity_name+'[image][alt]" class="input"></div><div class="input-form full spacing"><label for="'+entity_name+'_image_title">Title</label><input type="text" id="'+entity_name+'_image_title" name="'+entity_name+'[image][title]" class="input"></div></div></li>';
 							
 							list.find("li:last-child").find(".photo").append(img);
 

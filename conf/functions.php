@@ -29,6 +29,9 @@
 	function request_is($type) {
 		return $type == $_SERVER['REQUEST_METHOD'];
     }
+    function isXmlHttpRequest() {
+        return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
+    }
 
 	function isGranted($role) {
         return (isset($_SESSION[PREFIX."user"]['role'], ROLES[$_SESSION[PREFIX."user"]['role']]) && array_key_exists($role, ROLES)) && ($_SESSION[PREFIX."user"]['active'] == 1) && ($_SESSION[PREFIX."user"]['banned'] == 0) && ($_SESSION[PREFIX."user"]['role'] === $role || in_array($role, ROLES[$_SESSION[PREFIX."user"]['role']]));

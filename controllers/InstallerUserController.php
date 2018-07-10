@@ -33,8 +33,7 @@ class InstallerUserController{
         $fb = new FormBuilder();
 
         $data_user_form = $data_user = array_shift($_POST);
-
-        if(request_is("POST")) {
+        if(request_is("POST") && !isset($_POST['entity'])) {
             unset($data_user_form['password']);
             $user->fromArray($data_user_form);
             $_POST[$data_user['key']] = $data_user;

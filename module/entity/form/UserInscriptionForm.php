@@ -37,7 +37,7 @@ class UserInscriptionForm extends FormBuilderInterface
                 'required' => true
             ]])
             ->add('profession', new InputType(), ['required' => false])
-            ->add('image', new FileType('Module\Entity\User', false))
+            ->add('image', new FileType('Module\Entity\User', false, true), ['required' => false])
             ->add('submit', new SubmitType())
         ;
     }

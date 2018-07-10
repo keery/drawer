@@ -33,7 +33,7 @@
             </div>
             <div class="group col-sm-12 col-xs-12">
                 <?php echo $form->label('image'); ?>
-                <?php echo $form->input('image', ['class' => 'input']); ?>
+                <?php echo $form->input('image', ['class' => 'front']); ?>
             </div>
             <div class="text-right text-center-xs col-xs-12">
                 <?php echo $form->input('submit', ['class' => 'button btn-validate']); ?>
