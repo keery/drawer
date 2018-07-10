@@ -79,6 +79,10 @@ CREATE TABLE `cd_page` (
   `type` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'contenu'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+INSERT INTO `cd_page` (`id`, `id_parent`, `titre`, `description`, `url`, `protected`, `active`, `date_creation`, `type`) VALUES
+(1, NULL, 'Accueil', 'Page accueil', '/', 1, 1, '2018-05-30 16:06:18', 'site'),
+(2, NULL, 'Mes oeuvres', NULL, 'mes-oeuvres', 0, 1, '2018-05-30 17:07:07', 'oeuvre'),
+(3, NULL, 'Me contacter', NULL, 'contact', 0, 1, '2018-05-30 19:09:00', 'contact');
 
 CREATE TABLE `cd_settings` (
   `id` int(11) NOT NULL,

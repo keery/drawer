@@ -2,15 +2,13 @@
 use Conf\Autoloader;
 use Module\Router\Router;
 use Module\Entity\User;
-// use Module\Bdd\SPDO;
-
-
 
 require('conf/const.php');
 require(CONF.'functions.php');
 if (file_exists (CONF.'config.php')){
     require(CONF.'config.php');
 }
+else unset($_SESSION[PREFIX."user"]);
 
 $loader = require(CONF.'autoload.php');
 Autoloader::register();

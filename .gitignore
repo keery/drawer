@@ -4,7 +4,7 @@ node_modules/
 # compiled csss
 assets/css/dist/style.css
 assets/img/upload/
-
+conf/config.php
 .idea
 .vscode
 .htaccess
