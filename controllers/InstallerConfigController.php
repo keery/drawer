@@ -3,6 +3,7 @@ namespace Controllers;
 
 use Module\View\View;
 use Module\Entity\InstallerConfig;
+use PDO;
 
 class InstallerConfigController {
 
@@ -23,32 +24,24 @@ class InstallerConfigController {
                 $validate = new \Module\form_validate\Validate();
                 $errors = $validate->checkForm($config, $params);
 
+
+                
                 if(empty($errors)){
-                    try {
-//                        $res = explode(';', file_get_contents('structure.sql'));
-//
-//                        var_dump($res);
+                    $res = include('module/bdd/try-connection.php');
+                    if(is_object($res)) {
 
-
-                        new \PDO('mysql:host='.$params['host'].';dbname='.$params['databasename'], $params['user'], $params['pwd']);
-
-
+                        //Génération du fichier de config
                             $txtconfi= '<?php
                         define("TITLE", "'.$params['websitetitle'].'");
                         define("HOST", "'.$params['host'].'");
                         define("DB_NAME", "'.$params['databasename'].'");
                         define("USER", "'.$params['user'].'");
-                        define("PASS", "'.$params['pwd'].'");
-
-                        ';
-
+                        define("PASS", "'.$params['pwd'].'"); ';
                         file_put_contents(CONF.'config.php', $txtconfi, FILE_APPEND | LOCK_EX);
+                        
                         redirectToRoute("installer-user");
                     }
-                    catch(PDOException $e) {
-                        throw new Erreur("Connexion à la base de donnée impossible");
-                        return false;
-                    }
+                    else $data['errors'][] = $res;
                 }
                 else $data['errors'] = $errors;
             }

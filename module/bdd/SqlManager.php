@@ -200,7 +200,7 @@ class SqlManager{
 	}
 
 	public function query($query) {
-
+		return $this->pdo->query($query);
 	}
 
 	public function printError() {
@@ -212,7 +212,7 @@ class SqlManager{
 
 	public function connectBDD() {
 		try {
-			$this->pdo = new \PDO('mysql:host='.HOST.';dbname='.DB_NAME, USER, '');
+			$this->pdo = new \PDO('mysql:host='.HOST.';dbname='.DB_NAME, USER, PASS);
 		}
 		catch(PDOException $e) {
 			throw new Erreur("Connexion à la base de donnée impossible");

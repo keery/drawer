@@ -2,13 +2,15 @@
 use Conf\Autoloader;
 use Module\Router\Router;
 use Module\Entity\User;
+// use Module\Bdd\SPDO;
+
+
 
 require('conf/const.php');
 require(CONF.'functions.php');
 
 $loader = require(CONF.'autoload.php');
 Autoloader::register();
-
 
 if( isset($_SESSION[PREFIX."user"]['id']) ) {
     $expire = date('Y-m-d H:i:s');
@@ -24,13 +26,17 @@ if( isset($_SESSION[PREFIX."user"]['id']) ) {
 
 $router = new Router();
 if (!file_exists(CONF.'config.php')) $URI = "installer-config";
-elseif( !User::findOneBy(['role' => "ADMINISTRATEUR"] )) $URI = "installer-user";
-else {    
-    $URI = explode("?", $_SERVER["REQUEST_URI"]);
-    $URI = $URI[0];
-    $URI = str_replace(DIRECTORY, '', $URI);
-    if ($URI != DS) $URI = urldecode(substr($URI, 1));
+else {
+    require(CONF.'config.php');
+    if( !User::findOneBy(['role' => "ADMINISTRATEUR"] )) $URI = "installer-user";
+    else {    
+        $URI = explode("?", $_SERVER["REQUEST_URI"]);
+        $URI = $URI[0];
+        $URI = str_replace(DIRECTORY, '', $URI);
+        if ($URI != DS) $URI = urldecode(substr($URI, 1));
+    }
 }
+
 
  $router->urlMatcher($URI);
 ?>

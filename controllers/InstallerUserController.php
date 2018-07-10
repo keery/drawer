@@ -7,10 +7,27 @@ use Module\Entity\User;
 use Module\bdd\BaseSql;
 use Module\Form\FormBuilder;
 use Module\Erreur\Erreur;
+use Module\Entity\Parametre;
+use Module\Bdd\SqlManager;
+
 class InstallerUserController{
 
     public function indexAction()
     {
+        //Création de la structure
+        if(file_exists('structure.sql')) {
+            $structure = file_get_contents('structure.sql');
+            $m = new SqlManager();
+            $m->query($structure);
+        }
+        else $data['errors'][] = "Le fichier de structure n'existe pas, contactez un modérateur";
+
+        if(count(Parametre::all()) == 0 ) {
+            $ligneParam = new Parametre();
+            $ligneParam->setTitre(TITLE);
+            $ligneParam->save();
+        }
+
 
         $user = new User();
         $fb = new FormBuilder();
