@@ -32,12 +32,40 @@
                 fill : false,
                 borderColor: ['#49C5B6']
               },
+
+
+
                 {
-                    data: [2, 7, 17, 4, 7, 12],
+                    data: [5, 7, 17, 4, 7, 12],
                     label:"visiteur",
                     borderWidth: [3],
                     fill : false,
                     borderColor: ['#847']
+                }
+                ,
+
+
+
+                {
+                    data: [2, 17, 3, 15, 8, 16],
+                    label:"j'aime",
+                    borderWidth: [3],
+                    fill : false,
+                    borderColor: ['#7ed866']
+                }
+
+
+
+
+                ,
+
+
+                {
+                    data: [2, 7, 17, 4, 7, 12],
+                    label:"Commentaires",
+                    borderWidth: [3],
+                    fill : false,
+                    borderColor: ['#883008']
                 }
 
             ],
