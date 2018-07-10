@@ -8,6 +8,9 @@ use Module\Entity\User;
 
 require('conf/const.php');
 require(CONF.'functions.php');
+if (file_exists (CONF.'config.php')){
+    require(CONF.'config.php');
+}
 
 $loader = require(CONF.'autoload.php');
 Autoloader::register();
@@ -27,7 +30,7 @@ if( isset($_SESSION[PREFIX."user"]['id']) ) {
 $router = new Router();
 if (!file_exists(CONF.'config.php')) $URI = "installer-config";
 else {
-    require(CONF.'config.php');
+
     if( !User::findOneBy(['role' => "ADMINISTRATEUR"] )) $URI = "installer-user";
     else {    
         $URI = explode("?", $_SERVER["REQUEST_URI"]);

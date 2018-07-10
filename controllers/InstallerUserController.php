@@ -49,6 +49,7 @@ class InstallerUserController{
                     $user->setRole(ROLE_ADMINISTRATEUR);
                     $token = date('Y-m-d H:i:s', strtotime('+4 hour'));
                     $user->setToken($token);
+                    $user->setActive(1);
                     $id = $user->save();
                     $token = chaine_encode(['expire' => $token, 'id' => $id]);
 
