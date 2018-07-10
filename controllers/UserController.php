@@ -68,7 +68,7 @@ class UserController {
                 }
                 else addNotif("Vous avez été banni par un modérateur, votre accès est momentanément suspendu", 'error');
             }
-            else addNotif("Ce couple email et mot de passe n'existe pas", 'error');
+            else addNotif("Ce couple pseudo et mot de passe n'existe pas", 'error');
         }
         View::render("user/connexion.view.php", 'layout-login.php');
     }
