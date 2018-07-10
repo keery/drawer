@@ -17,6 +17,7 @@
                                 <span><p><?php echo articleTimeAgo($article->getDate_creation()); ?></p></span>
                             </div>
                         <?php endforeach;
+                    else: echo "Il n'y a actuellement aucun article";
                     endif; ?>
                 </div>
             </div>
@@ -36,6 +37,7 @@
                                 <span><p><?php echo articleTimeAgo($commentaire->getPublication()); ?></p></span>
                             </div>
                         <?php endforeach;
+                        else: echo "Il n'y a actuellement aucun commentaire";
                     endif; ?>
                 </div>
             </div>
