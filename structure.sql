@@ -75,14 +75,16 @@ CREATE TABLE `cd_page` (
   `url` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `protected` tinyint(1) NOT NULL DEFAULT '0',
   `active` tinyint(1) NOT NULL DEFAULT '1',
+  `inmenu` tinyint(1) NOT NULL DEFAULT '1',
   `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `type` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'contenu'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `cd_page` (`id`, `id_parent`, `titre`, `description`, `url`, `protected`, `active`, `date_creation`, `type`) VALUES
-(1, NULL, 'Accueil', 'Page accueil', '/', 1, 1, '2018-05-30 16:06:18', 'site'),
-(2, NULL, 'Mes oeuvres', NULL, 'mes-oeuvres', 0, 1, '2018-05-30 17:07:07', 'oeuvre'),
-(3, NULL, 'Me contacter', NULL, 'contact', 0, 1, '2018-05-30 19:09:00', 'contact');
+INSERT INTO `cd_page` (`id`, `id_parent`, `titre`, `description`, `url`, `protected`, `active`, `inmenu`, `date_creation`, `type`) VALUES
+(1, NULL, 'Accueil', '<p>Page accueil</p>', '-', 1, 1, 1, '2018-05-30 16:06:18', 'site'),
+(2, NULL, 'Mes oeuvres', NULL, 'mes-oeuvres', 0, 1, 1, '2018-05-30 17:07:07', 'oeuvre'),
+(3, NULL, 'Me contacter', NULL, 'contact', 0, 1, 1, '2018-05-30 19:09:00', 'contact'),
+(4, NULL, 'Mentions lÃ©gales', '<p><strong style="font-size: 24px;">Information l&eacute;gales</strong></p>\r\n<p><strong>D&eacute;veloppeur</strong> : ESNAULT Guillaume , AKAR Hassan , DELUCHE Louis , CHARLOT</p>\r\n<p>Alexandre.</p>\r\n<p><strong>Adresse des cr&eacute;ateurs</strong>: 242 Rue du Faubourg Saint-Antoine, 75012 Paris</p>\r\n<p><strong>Num&eacute;ro de t&eacute;l&eacute;phone</strong> : 07 82 75 12 40</p>\r\n<p><strong>Adresse email</strong> : creativedrawer@gmail.com</p>\r\n<p>Copyright, Propri&eacute;t&eacute; intellectuelle et industrielle</p>\r\n<p>Tous les textes, images, sons et animations de ce site web sont soumis &agrave; la loi de la propri&eacute;t&eacute;</p>\r\n<p>intellectuelle. Toute reproduction sans autorisation &eacute;crite de son auteur est strictement</p>\r\n<p>interdite.</p>\r\n<p>&nbsp;</p>\r\n<p><span style="font-size: 18pt;"><strong>H&eacute;bergement</strong></span></p>\r\n<p>Nom de l&rsquo;h&eacute;bergeur : OVH</p>\r\n<p>Adresse : 2 rue Kellermann -59100 Roubaix - France</p>\r\n<p>Raisons social : SAS au capital de 10 069 020</p>\r\n<p>Num&eacute;ro de t&eacute;l&eacute;phone (Service client) : 1007</p>', 'mentions-legales', 1, 1, 0, '2018-07-11 08:10:08', 'contenu');
 
 CREATE TABLE `cd_settings` (
   `id` int(11) NOT NULL,

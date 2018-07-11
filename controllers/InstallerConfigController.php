@@ -23,9 +23,7 @@ class InstallerConfigController {
             if(!empty($params)){
                 $validate = new \Module\form_validate\Validate();
                 $errors = $validate->checkForm($config, $params);
-
-
-                
+         
                 if(empty($errors)){
                     $res = include('module/bdd/try-connection.php');
                     if(is_object($res)) {

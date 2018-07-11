@@ -33,7 +33,7 @@ class PageController {
 		if(request_is("POST")) {
 			$data_page_form = $data_page = array_shift($_POST);
 			$page->fromArray($data_page_form);
-			$form = $fb->create(new PageForm(), $page);
+			$form = $fb->create(new PageForm($page->getId()), $page);
             $_POST[$data_page['key']] = $data_page;
 			$page = $form->handleRequest($_POST);
 			$page = $form->handleRequest($_POST);

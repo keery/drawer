@@ -234,6 +234,11 @@ return
 				'path' => 'send_contact',
 				'controller' => 'Site',
 				'action' => 'sendContact'
+			],
+			'mention' => [
+				'path' => 'mentions-legales',
+				'controller' => 'Site',
+				'action' => 'mention'
 			]	
 		]
 	],

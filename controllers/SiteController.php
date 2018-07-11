@@ -36,7 +36,7 @@ class SiteController {
 	public function contenuAction($request)
 	{
 		if($page = Page::findOneBy(['url' => $request['url']])) {
-			$data['page'] = $page;
+			$data['current_page'] = $page;
 			View::render("frontend/contenu.view.php", "layout-site.php", $data);
 		}
 		else redirectToRoute('site');
@@ -48,7 +48,7 @@ class SiteController {
 			$data['articles'] = Article::find(['id_categorie' => $_POST['filter-cat']]);
 		}
 		else $data['articles'] = Article::all();
-		$data['categories'] = Categorie::all();		
+		$data['categories'] = Categorie::find(['active' => 1]);		
 		View::render("frontend/oeuvre.view.php", "layout-site.php", $data);
 	}
 

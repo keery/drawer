@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 	</head>
 	<body>	
-	<div id="site" class="flex-wrapper">
+	<div id="site" class="flex-wrapper h-auto">
 		<header class="header">
 				<div class="banner">
 					<div class="banner-content">
@@ -38,11 +38,11 @@
 				<nav class="navbar">
 					<div class="left">
 						<?php
-							if($pageZero = Module\Entity\Page::find(['active' => 1, 'id_parent' => null])) {
+							if($pageZero = Module\Entity\Page::find(['active' => 1, 'inmenu' => 1, 'id_parent' => null])) {
 								$pages= [];
 								foreach ($pageZero as $page) {
 									$pages[$page->getId()]['page'] = $page;
-									if($childs = Module\Entity\Page::find(['active' => 1, 'id_parent' => $page->getId()])) {
+									if($childs = Module\Entity\Page::find(['active' => 1, 'inmenu' => 1, 'id_parent' => $page->getId()])) {
 										$pages[$page->getId()]['childs'] = $childs;
 									}
 								}
@@ -77,6 +77,16 @@
 			</div>
 		</div>
 	</div>
+	<footer>
+		<div class="container-grid text-right">
+			<?php if($mention = Module\Entity\Page::findOneBy(['url' => 'mentions-legales'])) : 
+				$url = path($mention->getType(), ['url' => $mention->getUrl()]);
+				?>
+				<a href="<?php echo $url; ?>">Mentions légales</a> | 
+			<?php endif; ?>
+			<a href="<?php echo path('landing'); ?>">Powered by Creative Drawer©</a>
+		</div>
+	</footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="js/index-site.js"></script>	
 	</body>

@@ -37,6 +37,10 @@
                 <label>État</label>
                 <?php echo $form->input('active'); ?>
             </div>
+            <div class="col-sm-6 col-xs-12">
+                <label>Dans le menu ?</label>
+                <?php echo $form->input('inmenu'); ?>
+            </div>
       </div>
     </div>
   </div>
