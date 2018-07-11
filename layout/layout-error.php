@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head lang="fr">
-		<link rel="stylesheet" href="<?php echo DIRNAME; ?>/assets/css/dist/style.css">
+		<link rel="stylesheet" href="assets/css/dist/style.css">
 		<meta charset="UTF-8">
 		<title>Erreur - Creative Drawer</title>
-		<base href="/">
+		<base href="<?php echo DIRECTORY; ?>/">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	</head>
 	<body>

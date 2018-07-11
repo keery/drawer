@@ -60,7 +60,7 @@
     }
 
     .banner-subtitle {
-      margin-top:0px,
+      margin-top:0px;
       color: rgba(white, 0.8);
     }
 
@@ -98,7 +98,15 @@
       }
     }    
   }
+  .filter-cat {
+    background-color: rgba(243, 244, 244, 0.27058);
+    border: 1px solid #d5d5d5;
+    border-radius: 8px;
+    padding: 5px 25px;
 
+    input[type="submit"] {     float: right;
+      margin-top: 12px; }
+  }
   .content {
     .article {
       @include box-shadow();

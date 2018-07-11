@@ -5,7 +5,7 @@
 		<link rel="stylesheet" href="<?php echo DIRNAME ;?>/assets/css/dist/style.css">
 		<meta charset="UTF-8">
 		<title>Installeur - Creative Drawer</title>
-		<base href="/">
+		<base href="<?php echo DIRECTORY; ?>/">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	</head>
 	<body>

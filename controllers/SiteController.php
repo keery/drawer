@@ -4,6 +4,7 @@ namespace Controllers;
 use Module\View\View;
 use Module\Entity\Article;
 use Module\Entity\Contact;
+use Module\Entity\Categorie;
 use Module\Entity\Page;
 use Module\Entity\Commentaire;
 use Module\Entity\User;
@@ -32,9 +33,22 @@ class SiteController {
 		View::render("frontend/site.view.php", "layout-site.php", $data);
 	}
 
+	public function contenuAction($request)
+	{
+		if($page = Page::findOneBy(['url' => $request['url']])) {
+			$data['page'] = $page;
+			View::render("frontend/contenu.view.php", "layout-site.php", $data);
+		}
+		else redirectToRoute('site');
+	}
+
 	public function articlesAction()
 	{
-		$data['articles'] = Article::all();
+		if(isset($_POST['filter-cat']) && !empty($_POST['filter-cat'])) {
+			$data['articles'] = Article::find(['id_categorie' => $_POST['filter-cat']]);
+		}
+		else $data['articles'] = Article::all();
+		$data['categories'] = Categorie::all();		
 		View::render("frontend/oeuvre.view.php", "layout-site.php", $data);
 	}
 

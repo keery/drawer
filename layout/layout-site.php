@@ -49,7 +49,9 @@
 
 								if(sizeof($pages) > 0): 
 									foreach ($pages as $page) :
-										echo '<a href="'.path($page['page']->getType()).'" '.($_SERVER['CURRENT_ROUTE']['name'] === $page['page']->getType() ? 'class="selected"' : '').' >'.$page['page']->getTitre().'</a>';
+										$url = path($page['page']->getType(), ['url' => $page['page']->getUrl()]);
+										if($page['page']->getProtected()) $url = path($page['page']->getType());
+										echo '<a href="'.$url.'" '.($_SERVER['CURRENT_ROUTE']['name'] === $page['page']->getType() ? 'class="selected"' : '').' >'.$page['page']->getTitre().'</a>';
 									endforeach;
 								endif; 
 							}

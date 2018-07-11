@@ -32,10 +32,13 @@ class CategorieController {
 			return false;
 		}
 		
-		$fb = new FormBuilder();
-		$form = $fb->create(new CategorieForm(), $categorie);
+		$fb = new FormBuilder();		
 
 		if(request_is("POST")) {
+			$data_categorie_form = $data_categorie = array_shift($_POST);
+			$categorie->fromArray($data_categorie_form);
+			$form = $fb->create(new CategorieForm(), $categorie);
+            $_POST[$data_categorie['key']] = $data_categorie;
 			$categorie = $form->handleRequest($_POST);
 			if($form->validate())  {
 				$categorie->save();
@@ -44,6 +47,7 @@ class CategorieController {
 			}
 			else addNotif($form->getErrors(), 'error');
 		}
+		else $form = $fb->create(new CategorieForm(), $categorie);
 
         $data['form'] = $form->createView();
 		View::render("backend/categorie-detail.view.php", 'layout.php', $data);

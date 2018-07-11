@@ -20,47 +20,47 @@ class Validator {
                 $f = 'get'.ucfirst(strtolower($key));
                 $value = $object->$f();
                 foreach ($rule as $keyRule => $critere) {
-                    $this->$keyRule($value, $critere);
+                    $this->$keyRule($value, $critere, $key);
                 }
             }
         }
         return sizeof($this->errors) > 0 ? $this->errors : true;
     }
 
-    public function maxLength($string, $length){
+    public function maxLength($string, $length, $field){
         if(strlen(trim($string))<=$length) {            
             return true;
         }
-        $this->errors[] = "La taille doit être inférieur à ".$length;
+        $this->errors[] = "La taille du champ ".$field." doit être inférieur à ".$length;
         return false;
 	}
 
-	public function minLength($string, $length){
+	public function minLength($string, $length, $field){
         if(strlen($string)>=$length) {
             return true;
         }
-        $this->errors[] = "La taille doit être supérieur à ".$length;
+        $this->errors[] = "La taille du champ ".$field." doit être supérieur à ".$length;
         return false;
     }
     
 
-	public function maxNum($num, $length){
+	public function maxNum($num, $length, $field){
         if($num<=$length) {
             return true;
         }
-        $this->errors[] = "Le chiffre doit être inférieur à ".$length;
+        $this->errors[] = "Le chiffre du champ ".$field." doit être inférieur à ".$length;
         return false;
 	}
 
-	public function minNum($num, $length){
+	public function minNum($num, $length, $field){
         if($num>=$length) {
             return true;
         }
-        $this->errors[] = "Le chiffre doit être supérieur à ".$length;
+        $this->errors[] = "Le chiffre du champ ".$field." doit être supérieur à ".$length;
         return false;
 	}
 
-	public function checkEmail($email){
+	public function checkEmail($email, $field){
         if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return true;
         }
@@ -68,7 +68,7 @@ class Validator {
         return false; 
     }
     
-    public function required($required){
+    public function required($required, $field){
         if(!empty($required)) {
             return true;
         }
@@ -76,7 +76,7 @@ class Validator {
         return false; 
 	}
     
-    public function captcha($captcha){
+    public function captcha($captcha, $field){
         if($captcha == $_SESSION['captcha']) {
             return true;
         }
@@ -84,7 +84,7 @@ class Validator {
         return false; 
 	}
 
-	public function checkPwd($pwd){
+	public function checkPwd($pwd, $field){
         if(strlen($pwd)>=6 && 
         strlen($pwd)<=32 && 
 		preg_match("/[a-z]/", $pwd) && 
@@ -96,11 +96,11 @@ class Validator {
         return false;
 	}
 
-	public function checkNumber($number){
+	public function checkNumber($number, $field){
         if(is_numeric(trim($number))) {
             return true;
         }
-        $this->errors[] = "Chiffre requis";
+        $this->errors[] = "Chiffre requis pour le champ ".$field."";
         return false;
 	}
 }

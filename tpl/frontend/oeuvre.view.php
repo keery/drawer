@@ -1,6 +1,22 @@
 <div class="container-grid wrapper">
     <h2>Mes oeuvres</h2>
 
+    <?php if(sizeof($categories) > 0): ?>
+      <form method="POST">
+        <div class="filter-cat">
+          <label>Articles par catégorie</label>
+          <select class="select" name="filter-cat">
+            <option value="">Tous les articles</option>
+            <?php foreach($categories as $cat):
+              $selected = "";
+              if(isset($_POST['filter-cat']) && $_POST['filter-cat'] == $cat->getId()) $selected = "selected";
+              echo '<option value="'.$cat->getId().'" '.$selected.'>'.$cat->getNom().'</option>';
+            endforeach; ?>
+          </select>
+          <input type="submit" value="Filtrer" class="button inv">
+        </div> 
+      </form>
+    <?php endif; ?>
     <div class="row">
       <?php if(isset($articles) && sizeof($articles) > 0): ?>
         <?php foreach($articles as $article): ?>

@@ -8,3 +8,4 @@ conf/config.php
 .idea
 .vscode
 .htaccess
+rss-article.xml

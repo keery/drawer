@@ -28,18 +28,24 @@ class PageController {
 			throw new Erreur("La page contenant l'id ".$params['id']." n'existe pas");
 			return false;
 		}
-		$fb = new FormBuilder();		
-		$form = $fb->create(new PageForm($page->getId()), $page);
+		$fb = new FormBuilder();				
 
 		if(request_is("POST")) {
+			$data_page_form = $data_page = array_shift($_POST);
+			$page->fromArray($data_page_form);
+			$form = $fb->create(new PageForm(), $page);
+            $_POST[$data_page['key']] = $data_page;
+			$page = $form->handleRequest($_POST);
 			$page = $form->handleRequest($_POST);
 			if($form->validate())  {
+				$page->setUrl(convertToUrl($page->getUrl()));
 				$page->save();
 				addNotif('Page bien enregistrée', 'valid');
 				redirectToRoute('pages');
 			}
 			else addNotif($form->getErrors(), 'error');
 		}
+		else $form = $fb->create(new PageForm($page->getId()), $page);
 
         $data['form'] = $form->createView();
 		View::render("backend/page-detail.view.php", 'layout.php', $data);
