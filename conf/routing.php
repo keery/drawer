@@ -178,7 +178,6 @@ return
             'controller' => 'InstallerUser',
             'action' => 'index'
         ],
-
 	'landing' => 
 		[
 			'path' => 'landing',
@@ -195,14 +194,22 @@ return
 		'prefix' => 'site',
 		'routes' => [
 			'oeuvre' => [
-				'path' => 'articles',
+				'path' => 'a/{url}',
 				'controller' => 'Site',
-				'action' => 'articles'
+				'action' => 'articles',
+				'params' => 
+				[
+					'url' => ['pattern' => '.*']
+				]
 			],
 			'contenu' => [
-				'path' => 'contenu',
+				'path' => '{url}',
 				'controller' => 'Site',
-				'action' => 'contenu'
+				'action' => 'contenu',
+				'params' => 
+				[
+					'url' => ['pattern' => '.*']
+				]
 			],
 			'site_article_detail' => [
 				'path' => '{name}/{id}',
@@ -215,10 +222,14 @@ return
 				]
 			],
 			'contact' => [
-				'path' => 'contact',
+				'path' => 'c/{url}',
 				'controller' => 'Site',
-				'action' => 'contact'
-			]	,
+				'action' => 'contact',
+				'params' => 
+				[
+					'url' => ['pattern' => '.*']
+				]
+			],
 			'send_contact' => [
 				'path' => 'send_contact',
 				'controller' => 'Site',

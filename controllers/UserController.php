@@ -58,8 +58,11 @@ class UserController {
     public function connexionAction() {
         if(isset($_SESSION[PREFIX."user"])) redirectToRoute("site");
         if(request_is("POST") && isset($_POST['_email'], $_POST['_password'])) {
-            if($user = User::findOneBy(['pseudo' => $_POST['_email'], 'password' => $_POST['_password']])) {
-
+            
+            if( ($user = User::findOneBy(['pseudo' => $_POST['_email'], 'password' => $_POST['_password']]))
+            || ($user2 = User::findOneBy(['email' => $_POST['_email'], 'password' => $_POST['_password']]))  ) {
+                
+                $user = $user ? $user : $user2;
                 if($user->getBanned() != 1) {
                     $_SESSION[PREFIX."user"] = (array) $user;
                     if($user->getImage()) $_SESSION[PREFIX."user"]['image'] = $user->getImage()->getSrc();
@@ -84,9 +87,9 @@ class UserController {
         $user = new User();
         $fb = new FormBuilder();
         
-        $data_user_form = $data_user = array_shift($_POST);
         
 		if(request_is("POST")) {
+            $data_user_form = $data_user = array_shift($_POST);
             unset($data_user_form['password']);
             $user->fromArray($data_user_form);
             $_POST[$data_user['key']] = $data_user;

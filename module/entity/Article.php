@@ -13,6 +13,7 @@ class Article extends BaseSql {
 	protected $date_creation;
 	protected $date_update;
 	protected $active;
+	public $keyword;
 	protected $images;
 
 	public $mapping = [
@@ -39,6 +40,13 @@ class Article extends BaseSql {
 	}
 	public function setTitre($titre) {
 		$this->titre = $titre;
+	}
+
+	public function getKeyword() {
+		return $this->keyword;
+	}
+	public function setKeyword($keyword) {
+		$this->keyword = $keyword;
 	}
 
 	public function getAuteur() {

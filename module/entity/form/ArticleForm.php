@@ -21,9 +21,7 @@ class ArticleForm extends FormBuilderInterface
         $listCateg = Categorie::all();
 
         $this
-            ->add('titre', new InputType(), ['rules' => [
-                "minLength" => 10
-            ]])
+            ->add('titre', new InputType())
             ->add('auteur', new HiddenType(), ['required' => false])
             ->add('description', new TextType(), ['required' => false])
             ->add('active', new CheckboxType(['Active']), ['class' => "on-off"])

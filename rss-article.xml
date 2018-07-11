@@ -1,11 +1,6 @@
 <?xml version="1.0"?>
 <rss version="2.0">
-  <article><id>12</id><titre>coucou la viee</titre><description>&lt;p&gt;Lorem Ipsum&lt;/p&gt;</description><auteur>Guillaume ESNAULTREFER</auteur><creation>2018-04-24 16:04:12</creation><categorie><id>14</id><titre>Ma categ numero 2</titre></categorie></article>
-  <article><id>47</id><titre>qdsfsdfsdfsdf</titre><description></description><auteur></auteur><creation>2018-06-20 19:07:39</creation><categorie><id>6</id><titre>Ma categ numero 2</titre></categorie></article>
-  <article><id>46</id><titre>qdsfsdfsdfsdf</titre><description></description><auteur></auteur><creation>2018-06-20 19:07:37</creation><categorie><id>6</id><titre>Ma categ numero 2</titre></categorie></article>
-  <article><id>45</id><titre>dfgsdfgdfgdf</titre><description></description><auteur></auteur><creation>2018-06-20 19:07:36</creation><categorie><id>3</id><titre>Best categ</titre></categorie></article>
-  <article><id>44</id><titre>La cons&#xE9;cration</titre><description>&lt;p&gt;dsqfghfjhhgjhgfhgg&lt;/p&gt;</description><auteur>Guillaume ESNAULTREFER</auteur><creation>2018-06-17 20:08:39</creation><categorie><id>3</id><titre>Best categ</titre></categorie></article>
-  <article><id>54</id><titre>qdsfsdfsdfsdf</titre><description></description><auteur></auteur><creation>2018-06-20 19:07:43</creation><categorie><id>6</id><titre>Ma categ numero 2</titre></categorie></article>
-  <article><id>56</id><titre>azertyuiopdd</titre><description></description><auteur>Guillaume ESNAULTREFER</auteur><creation>2018-06-20 19:07:43</creation><categorie><id>3</id><titre>Best categ</titre></categorie></article>
-  <article><id>57</id><titre>azertyuiopdd</titre><description></description><auteur>Guillaume ESNAULTREFER</auteur><creation>2018-06-20 19:07:44</creation><categorie><id>3</id><titre>Best categ</titre></categorie></article>
+  <article><id>1</id><titre>Mon tableau</titre><description></description><auteur>Guillaume ESNAULT</auteur><creation>2018-07-10 16:04:19</creation><categorie><id>2</id><titre>Peinture</titre></categorie></article>
+  <article><id>2</id><titre>truceee</titre><description></description><auteur>Guillaume ESNAULT</auteur><creation>2018-07-10 16:04:20</creation><categorie><id>1</id><titre>Sculture</titre></categorie></article>
+  <article><id>3</id><titre>gqdgdg</titre><description></description><auteur>Guillaume ESNAULT</auteur><creation>2018-07-11 09:09:34</creation><categorie><id>2</id><titre>Peinture</titre></categorie></article>
 </rss>

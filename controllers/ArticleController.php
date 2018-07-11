@@ -3,6 +3,7 @@ namespace Controllers;
 
 use Module\Entity\Article;
 use Module\Entity\Image;
+use Module\Entity\Categorie;
 use Module\View\View;
 use Module\Erreur\Erreur;
 use Module\Rss\Rss;
@@ -16,8 +17,7 @@ class ArticleController {
 			$data['articles'] = Article::find(['active' => ($_GET['sort'] === 'active' ? 1 : 0)]);
 		}
 		else $data['articles'] = Article::all();
-		
-		
+				
 		View::render("backend/articles-list.view.php", 'layout.php', $data);
 	}
 
@@ -35,11 +35,15 @@ class ArticleController {
 		}
 		
 		$fb = new FormBuilder();
-		$form = $fb->create(new ArticleForm(), $article);
 		
 		if(request_is("POST")) {
+			$data_article_form = $data_article = array_shift($_POST);
+			$article->fromArray($data_article_form);
+			$form = $fb->create(new ArticleForm(), $article);
+            $_POST[$data_article['key']] = $data_article;
 			$article = $form->handleRequest($_POST);
 			if($form->validate()) {
+				$article->setKeyword(convertToUrl($article->getTitre()));
 				$id = $article->save();
 				//Boucle uniquement si relation Many to one
 				if($article->getImages() !== null) {
@@ -55,6 +59,7 @@ class ArticleController {
 			}
 			else addNotif($form->getErrors(), 'error');
 		}
+		else $form = $fb->create(new ArticleForm(), $article);
 
 		$data['form'] = $form->createView();
 		View::render("backend/article-detail.view.php", 'layout.php', $data);
