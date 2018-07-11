@@ -63,6 +63,16 @@
                                 ]
                             }],
                         },
+
+
+                        options:{
+                            title: {
+                                display: true,
+                                text: 'Vue',
+                                fontSize:50,
+                                fontStyle:"normal"
+                            }
+                        }
                     });
                 </script>
                 <canvas id="myChart2" class="chart-item"></canvas>
@@ -81,6 +91,15 @@
                                 ]
                             }],
                         },
+
+                        options:{
+                            title: {
+                                display: true,
+                                text: 'Commentaires',
+                                fontSize:50,
+                                fontStyle:"normal"
+                            }
+                        }
                     });
                 </script>
                 <canvas id="myChart3" class="chart-item"></canvas>
@@ -99,6 +118,45 @@
                                 ]
                             }],
                         },
+
+
+                        options:{
+                            title: {
+                                display: true,
+                                text: 'Nombre de visiteurs',
+                                fontSize:50,
+                                fontStyle:"normal"
+                            }
+                        }
+                    });
+                </script>
+
+                <canvas id="myChart5" class="chart-item"></canvas>
+                <script>
+
+
+                    var ctx = document.getElementById("myChart5").getContext('2d');
+                    var myDoughnutChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        maintainAspectRatio: true,
+                        data: {
+                            datasets: [{
+                                data: [90, 10],
+                                borderWidth: [10],
+                                backgroundColor: [
+                                    '#fcf90e',
+                                    '#fefefe'
+                                ]
+                            }],
+                        },
+                        options:{
+                            title: {
+                                display: true,
+                                text: "j'aime",
+                                fontSize:50,
+                                fontStyle:"normal"
+                            }
+                        }
                     });
                 </script>
             </div>
