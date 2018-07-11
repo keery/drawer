@@ -21,7 +21,7 @@
         $HTML = '<img src="'.UPLOAD.$img->getSrc().'"';
         if(!empty($img->getAlt())) $HTML .= " alt='".$img->getAlt()."'";
         if(!empty($img->getTitle())) $HTML .= " alt='".$img->getTitle()."'";
-        if($class) $HTLM .= " class='".$class."'";
+        if($class) $HTML .= " class='".$class."'";
         $HTML .= " />";
         return $HTML;
     }

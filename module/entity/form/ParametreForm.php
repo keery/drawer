@@ -21,7 +21,7 @@ class ParametreForm extends FormBuilderInterface
 
         $this
             ->add('titre', new InputType(), ['rules' => [
-                "minLength" => 10
+                "minLength" => 1
             ]])
             ->add('soustitre', new InputType(), ['required' => false, 'label' => "Sous titre"])
             ->add('description', new TextType(), ['required' => false])

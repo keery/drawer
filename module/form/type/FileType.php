@@ -45,7 +45,7 @@ class FileType extends FormComponent
                 <div class="panel-action">
                     <button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id="'.$this->files->getId().'"><i class="fas fa-trash-alt"></i></button>
                 </div>';
-            if(isGranted(ROLE_ADMINISTRATEUR)) {
+            if(isGranted(ROLE_ADMINISTRATEUR) && !is_numeric(strpos($this->getClass(), 'front'))) {
                 $HTML .= '<div class="col-xs-8 img-input">
                     <div class="input-form full"> 
                         <label for="'.$ref.'_image_alt">Alt</label>
@@ -55,11 +55,11 @@ class FileType extends FormComponent
                         <label for="'.$ref.'_image_title">Title</label>
                         <input type="text" id="'.$ref.'_image_title" name="'.$this->key.'[image][title]" class="input" value="'.$this->files->getTitle().'">
                     </div>
-                </div>
-                <div class="position">
-                    <i class="fas fa-sort"></i>
-                    <input type="text" id="'.$ref.'_image_position" name="'.$this->key.'[image][position]" value="'.$this->files->getPosition().'">
                 </div>';
+                // <div class="position">
+                //     <i class="fas fa-sort"></i>
+                //     <input type="text" id="'.$ref.'_image_position" name="'.$this->key.'[image][position]" value="'.$this->files->getPosition().'">
+                // </div>';
             }
             $HTML .= '</li>';
         }
@@ -73,8 +73,8 @@ class FileType extends FormComponent
                 <input type="hidden" name="'.$this->key.'[image]['.$count.'][id]" value="'.$file->getId().'">
                 <div class="panel-action">
                 <button class="delete button btn-icone dial" type="button" title="Supprimer l\'image" data-id="'.$file->getId().'"><i class="fas fa-trash-alt"></i></button>
-                </div>';
-                if(isGranted(ROLE_ADMINISTRATEUR)) {
+                </div>';                
+                if(isGranted(ROLE_ADMINISTRATEUR) && !is_numeric(strpos($this->getClass(), 'front'))) {
                     $HTML .= '<div class="col-xs-8 img-input">
                         <div class="input-form full"> 
                             <label for="'.$ref.'_image_alt">Alt</label>

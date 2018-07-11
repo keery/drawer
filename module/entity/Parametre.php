@@ -95,21 +95,21 @@ class Parametre extends BaseSql
 		$this->instagram = $instagram;
 	}
 
-    public function getId_Image()
-    {
-        return $this->id_image;
-    }
+  public function getId_Image()
+  {
+      return $this->id_image;
+  }
 
-    public function setId_Image($id){
-        $this->id_image=$id;
-    }
+  public function setId_Image($id){
+      $this->id_image=$id;
+  }
 
-    public function getImage() {
+  public function getImage() {
 		return $this->image;
 	}
 	public function setImage(Image $image) {
 		$this->image = $image;
-    }
+  }
 
-    public static function get_table_class() { return "cd_settings"; }
+  public static function get_table_class() { return "cd_settings"; }
 }

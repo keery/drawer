@@ -186,7 +186,10 @@ img { max-width: 100%; }
 		}
 	}
 }
-
+.logo { max-width: 60px;
+    position: absolute;
+    left: 40px;
+    top: 15px; }
 .notif-clock {
 	border-radius: 100%;
 	border: 2px solid #D5DCE2;

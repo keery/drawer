@@ -22,6 +22,10 @@
 		<header class="header">
 				<div class="banner">
 					<div class="banner-content">
+						<?php 
+						if($settings->getImage()): ?>
+							<a href="<?php echo path('site'); ?>"><?php echo renderImg($settings->getImage(), 'logo'); ?></a>
+						<?php endif; ?>
 						<h1 class='banner-title'><?php echo $settings->getTitre(); ?></h1>
 						<?php if($settings->getSoustitre()) echo "<h2 class='banner-subtitle'>".$settings->getSoustitre()."</h2>"; ?>						
 						<div class='banner-social'>

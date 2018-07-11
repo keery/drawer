@@ -17,50 +17,49 @@
   <?php endforeach; ?>
   <?php if(isGranted(ROLE_ADMINISTRATEUR)): ?>
   <?php $form->form_head(); ?>
-  <section class="container padding-box">
-    <div class="container-grid">
-      <div class="row">
-        <div class="col-md-3 col-xs-12 u-tac group-xs">
-          <label>Icône du site</label>
-          <div class="preview-icon u-block--center"></div>
-          <div class="text-center">
-            <a href="" class="button">Ajouter</a>
-          </div>
+  <section class="container group">
+    <div class="bloc">
+        <div class="bloc-titre">
+            <span>Paramètres du site</span>
         </div>
-        <div class="col-md-6 col-xs-12 group spacing-left">
-          <div>
-            <?php echo $form->label('titre'); ?>
-            <?php echo $form->input('titre', ['class' => 'input']); ?>
-          </div>
-          <div class="u-mgt--m">
-            <?php echo $form->label('soustitre'); ?>
-            <?php echo $form->input('soustitre', ['class' => 'input']); ?>
-          </div>
+        <div class="bloc-content">
+        <div class="row spacing">
+            <div class="group col-sm-6 col-xs-12">
+              <?php echo $form->label('titre'); ?>
+              <?php echo $form->input('titre', ['class' => 'input']); ?>
+            </div>
+            <div class="group col-sm-6 col-xs-12">
+              <?php echo $form->label('soustitre'); ?>
+              <?php echo $form->input('soustitre', ['class' => 'input']); ?>
+            </div>
+            <div class="group col-sm-6 col-xs-12">
+              <?php echo $form->label('facebook'); ?>
+              <?php echo $form->input('facebook', ['class' => 'input']); ?>
+            </div>
+            <div class="group col-sm-6 col-xs-12">
+              <?php echo $form->label('linkedin'); ?>
+              <?php echo $form->input('linkedin', ['class' => 'input']); ?>
+            </div>
+            <div class="group col-sm-6 col-xs-12">
+              <?php echo $form->label('instagram'); ?>
+              <?php echo $form->input('instagram', ['class' => 'input']); ?>
+            </div>
+            <div class="group col-sm-6 col-xs-12">
+              <?php echo $form->label('twitter'); ?>
+              <?php echo $form->input('twitter', ['class' => 'input']); ?>
+            </div>
         </div>
-        <div class="text-right text-center-xs col-md-3 col-xs-12">
-          <?php echo $form->input('submit', ['class' => 'button btn-validate']); ?>     
-        </div>
-      </div>
     </div>
-    <div class="u-mgt--l">
-      <div class="row">
-        <div class="col-sm-6 col-xs-12 group spacing-left">
-          <label><?php echo $form->label('facebook', false); ?></label>
-          <?php echo $form->input('facebook', ['class' => 'input']); ?>
+  </section>
+
+  <section class="container group">
+    <div class="bloc">
+        <div class="bloc-titre">
+            <span>Icône du site</span>
         </div>
-        <div class="col-sm-6 col-xs-12 group spacing-left">
-          <label><?php echo $form->label('linkedin', false); ?></label>
-          <?php echo $form->input('linkedin', ['class' => 'input']); ?>
+        <div class="bloc-content">
+          <?php echo $form->input('image', ['class' => 'front']); ?>
         </div>
-        <div class="col-sm-6 col-xs-12 group spacing-left">
-          <label><?php echo $form->label('instagram', false); ?></label>
-          <?php echo $form->input('instagram', ['class' => 'input']); ?>
-        </div>
-        <div class="col-sm-6 col-xs-12 group spacing-left">
-          <label><?php echo $form->label('twitter', false); ?></label>
-          <?php echo $form->input('twitter', ['class' => 'input']); ?>
-        </div>                  
-      </div>
     </div>
   </section>
   <section class="container group">
@@ -73,6 +72,10 @@
         </div>
     </div>
   </section>
+  <div class="text-right text-center-xs col-xs-12">
+      <a href="<?php echo path('articles'); ?>" class="button btn-validate">Retour à la liste</a>
+      <?php echo $form->input('submit', ['class' => 'button btn-validate']); ?>
+  </div>
   <?php $form->form_bottom(); ?>
   <?php endif; ?>
 
