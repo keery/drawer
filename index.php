@@ -12,10 +12,8 @@ else unset($_SESSION[PREFIX."user"]);
 
 $loader = require(CONF.'autoload.php');
 Autoloader::register();
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
+
 if( isset($_SESSION[PREFIX."user"]['id']) ) {
     $expire = date('Y-m-d H:i:s');
     $user = User::findOneBy(['id' => $_SESSION[PREFIX."user"]['id']]);
