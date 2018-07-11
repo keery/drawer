@@ -2,7 +2,7 @@
 <html>
 	<head lang="fr">
 		<base href="<?php echo DIRECTORY; ?>/">
-		<link rel="stylesheet" href="assets/css/dist/style.css">
+        <link rel="stylesheet" href="<?php echo DIRNAME ;?>/assets/css/dist/style.css">
 		<meta charset="UTF-8">
 		<?php
 			if(!$settings = Module\Entity\Parametre::findOneBy(['id' => 1])) {

@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<title>Creative </title>
 		<base href="<?php echo DIRECTORY; ?>/">
-		<link rel="stylesheet" href="assets/css/dist/style.css">
+        <link rel="stylesheet" href="<?php echo DIRNAME ;?>/assets/css/dist/style.css">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">

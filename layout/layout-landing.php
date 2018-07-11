@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head lang="fr">
-		<link rel="stylesheet" href="assets/css/dist/style.css">
+        <link rel="stylesheet" href="<?php echo DIRNAME ;?>/assets/css/dist/style.css">
 		<meta charset="UTF-8">
     <base href="<?php echo DIRECTORY; ?>/">
 		<title>Creative Drawer</title>
