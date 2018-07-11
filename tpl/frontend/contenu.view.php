@@ -1,8 +1,7 @@
 <div>
     <article class="article col-sm-8">
       <div class="header">
-      <?php $page = $page['page']; ?>
-        <h1><?php echo $page->getTitre(); ?></h1>
+        <h1><?php echo $current_page->getTitre(); ?></h1>
       </div>
       <div class="u-pd--m relative">
         <?php foreach(getNotifs('valid') as $notif) : ?>
@@ -20,7 +19,7 @@
             </div>
         <?php endforeach; ?>
         
-        <?php if($page->getDescription()) echo "<p>".$page->getDescription()."</p>"; ?>
+        <?php if($current_page->getDescription()) echo "<p>".$current_page->getDescription()."</p>"; ?>
       </div>
     </article>
 </div>

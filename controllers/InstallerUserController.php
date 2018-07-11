@@ -14,6 +14,7 @@ class InstallerUserController{
 
     public function indexAction()
     {
+        if(User::findOneBy(['role' => "ADMINISTRATEUR"] )) redirectToRoute('site');
         //Création de la structure
         if(file_exists('structure.sql')) {
             $structure = file_get_contents('structure.sql');

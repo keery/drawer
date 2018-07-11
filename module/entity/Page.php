@@ -11,6 +11,7 @@ class Page extends BaseSql {
 	protected $description;
 	protected $parent;
 	protected $type;
+	protected $inmenu;
 	protected $protected;
 	protected $date_creation;
 	protected $date_update;
@@ -76,6 +77,12 @@ class Page extends BaseSql {
 	}
 	public function setActive($active) {
 		$this->active = $active;
+	}
+	public function getInmenu() {
+		return $this->inmenu;
+	}
+	public function setInmenu($inmenu) {
+		$this->inmenu = $inmenu;
 	}
 	
 	public function getProtected() {
