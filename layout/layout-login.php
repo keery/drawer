@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head lang="fr">
-		<link rel="stylesheet" href="assets/css/form-user.css">
+        <link rel="stylesheet" href="<?php echo DIRNAME ;?>/assets/css/dist/style.css">
 		<meta charset="UTF-8">
 		<title>Authentification - <?php echo PROJECT_NAME; ?></title>
 		<base href="<?php echo DIRECTORY; ?>/">
