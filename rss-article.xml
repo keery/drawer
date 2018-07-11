@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<rss version="2.0">
-  <article><id>1</id><titre>Mon tableau</titre><description></description><auteur>Guillaume ESNAULT</auteur><creation>2018-07-10 16:04:19</creation><categorie><id>2</id><titre>Peinture</titre></categorie></article>
-  <article><id>2</id><titre>truceee</titre><description></description><auteur>Guillaume ESNAULT</auteur><creation>2018-07-10 16:04:20</creation><categorie><id>1</id><titre>Sculture</titre></categorie></article>
-  <article><id>3</id><titre>gqdgdg</titre><description></description><auteur>Guillaume ESNAULT</auteur><creation>2018-07-11 09:09:34</creation><categorie><id>2</id><titre>Peinture</titre></categorie></article>
-</rss>
