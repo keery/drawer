@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html>
 	<head lang="fr">
-        <link rel="stylesheet" href="<?php echo DIRNAME ;?>/assets/css/dist/style.css">
+		<link rel="stylesheet" href="<?php echo DIRECTORY; ?>/assets/css/form-user.css">
 		<meta charset="UTF-8">
 		<title>Authentification - <?php echo PROJECT_NAME; ?></title>
-		<base href="<?php echo DIRECTORY; ?>/">
+		<base href="<?php echo DIRECTORY; ?>">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 	</head>
