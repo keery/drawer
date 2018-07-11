@@ -46,13 +46,26 @@
 										$pages[$page->getId()]['childs'] = $childs;
 									}
 								}
-
 								if(sizeof($pages) > 0): 
+									echo "<ul class='main-menu'>";
 									foreach ($pages as $page) :
 										$url = path($page['page']->getType(), ['url' => $page['page']->getUrl()]);
 										if($page['page']->getProtected()) $url = path($page['page']->getType());
+										echo '<li>';
 										echo '<a href="'.$url.'" '.($_SERVER['CURRENT_ROUTE']['name'] === $page['page']->getType() ? 'class="selected"' : '').' >'.$page['page']->getTitre().'</a>';
+										if(isset($page['childs'])) {
+											echo '<ul>';
+											foreach ($page['childs'] as $child) {
+												$urlChild = path($child->getType(), ['url' => $child->getUrl()]);
+												echo '<li>';
+													echo '<a href="'.$urlChild.'" '.($_SERVER['CURRENT_ROUTE']['name'] === $child->getType() ? 'class="selected"' : '').' >'.$child->getTitre().'</a>';
+												echo '</li>';
+											}
+											echo '</ul>';
+										}
+										echo '</li>';
 									endforeach;
+									echo "<ul>";
 								endif; 
 							}
 					?>

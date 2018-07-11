@@ -223,7 +223,7 @@ class SqlManager{
 	public function notEmptyValue($data) {
 		$values = [];
 		foreach ($data as $key => $value) {
-			if($value) $values[$key] = $value;
+			if($value != null) $values[$key] = $value;
 		}
 		return $values;
 	}

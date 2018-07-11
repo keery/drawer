@@ -37,7 +37,7 @@ class BaseSql{
 			}
 			else $value = null;
 			$f = "set".ucfirst($key);
-			if(method_exists($this, $f) && $value) $this->$f($value);
+			if(method_exists($this, $f) && $value != null) $this->$f($value);
 		}
 	}
 

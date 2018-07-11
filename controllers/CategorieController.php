@@ -21,7 +21,6 @@ class CategorieController {
 
 	public function editCategorieAction($params)
 	{
-
 		if(isset($params['id'])) $categorie = Categorie::findOneBy(array('id' => $params['id']));
 		else $categorie = new Categorie();
 
@@ -38,7 +37,7 @@ class CategorieController {
 			$data_categorie_form = $data_categorie = array_shift($_POST);
 			$categorie->fromArray($data_categorie_form);
 			$form = $fb->create(new CategorieForm(), $categorie);
-            $_POST[$data_categorie['key']] = $data_categorie;
+			$_POST[$data_categorie['key']] = $data_categorie;
 			$categorie = $form->handleRequest($_POST);
 			if($form->validate())  {
 				$categorie->save();
