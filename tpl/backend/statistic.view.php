@@ -2,7 +2,7 @@
 <h1>Statistiques</h1>
 
 <div id="stats">
-  <nav class="container ctn-nav">
+  <!-- <nav class="container ctn-nav">
     <div class="nav-links" data-selected-filter="Traffic">
       <a href="" class="selected">Traffic</a>
       <a href="">Insights</a>
@@ -13,7 +13,7 @@
       <div><a href="">Mois</a></div>
       <div><a href="">Année</a></div>
     </div>
-  </nav>
+  </nav> -->
 
   <div class="calendar container container-grid">
     <div class="row">
@@ -24,73 +24,80 @@
           type: 'line',
           maintainAspectRatio: true,
           data: {
+            labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
             datasets: [
               {
-                data: [9, 23, 23, 12, 7, 12],
-                label:"vue",
+                data: <?php echo '['.implode(',',$dateLike).']'; ?>,
+                label:"Like",
                 borderWidth: [3],
                 fill : false,
                 borderColor: ['#49C5B6']
               },
-
-
-
-                {
-                    data: [5, 7, 17, 4, 7, 12],
-                    label:"visiteur",
-                    borderWidth: [3],
-                    fill : false,
-                    borderColor: ['#847']
-                }
-                ,
-
-
-
-                {
-                    data: [2, 17, 3, 15, 8, 16],
-                    label:"j'aime",
-                    borderWidth: [3],
-                    fill : false,
-                    borderColor: ['#7ed866']
-                }
-
-
-
-
-                ,
-
-
-                {
-                    data: [2, 7, 17, 4, 7, 12],
-                    label:"Commentaires",
-                    borderWidth: [3],
-                    fill : false,
-                    borderColor: ['#883008']
-                }
-
-            ],
+              {
+                data: <?php echo '['.implode(',',$dateDislike).']'; ?>,
+                label:"Disike",
+                borderWidth: [3],
+                fill : false,
+                borderColor: ['#bf4c4c']
+              },
+              {
+                data: <?php echo '['.implode(',',$dateUser).']'; ?>,
+                label:"Inscription",
+                borderWidth: [3],
+                fill : false,
+                borderColor: ['#847']
+              }
+              ,
+              {
+                data: <?php echo '['.implode(',',$dateCommentaire).']'; ?>,
+                label:"Commentaires",
+                borderWidth: [3],
+                fill : false,
+                borderColor: ['#883008']
+              }
+            ]
           },
+          options: {
+            responsive: true,
+            title: {
+              display: true,
+              text: 'Statistiques annuels'
+            },
+            scales: {
+              xAxes: [{
+                display: true,
+              }],
+              yAxes: [{
+                display: true,
+                ticks: {
+                  stepSize: 1
+                }
+              }]
+            }
+          }
         });
       </script>
-      <div class="stats-info col-lg-3">
-        <img src="assets/img/eye.svg" alt="">
-        <span class="title">Vue</span>
-        <span class="content">1000</span>
-      </div>
-      <div class="stats-info col-lg-3">
-        <img src="assets/img/man-user.svg" alt="">
-        <span class="title">Visiteurs</span>
-        <span class="content">174</span>
-      </div>
-      <div class="stats-info col-lg-3">
-        <img src="assets/img/star.svg" alt="">
-        <span class="title">Mention j'aime</span>
-        <span class="content">10</span>
-      </div>
-      <div class="stats-info col-lg-3">
-        <img src="assets/img/black-bubble-speech.svg" alt="">
-        <span class="title">Commentaires</span>
-        <span class="content">2387</span>
+      <div class="full text-center">
+        <div class="stats-info col-lg-3">
+          <i class="fas fa-heart"></i>
+          <span class="title">Like</span>
+          <span class="content"><?php echo $nblike; ?></span>
+        </div>
+        <div class="stats-info col-lg-3">
+          <i class="fas fa-thumbs-down"></i>
+          <span class="title">Dislike</span>
+          <span class="content"><?php echo $nbdislike; ?></span>
+        </div>
+        <div class="stats-info col-lg-3">
+          <img src="assets/img/man-user.svg" alt="">
+          <span class="title">Utilisateur(s)</span>
+          <span class="content"><?php echo $nbuser; ?></span>
+        </div>
+        <div class="stats-info col-lg-3">
+          <img src="assets/img/black-bubble-speech.svg" alt="">
+          <span class="title">Commentaire(s)</span>
+          <span class="content"><?php echo $nbcommentaire; ?></span>
+        </div>
       </div>
     </div>
   </div>

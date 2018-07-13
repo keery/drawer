@@ -226,6 +226,8 @@ class UserController {
             else {
                 if($form->validate()) {
                     $id = $user->save();
+                    $_SESSION[PREFIX."user"] = (array) $user;
+                    if($user->getImage()) $_SESSION[PREFIX."user"]['image'] = $user->getImage()->getSrc();
                     addNotif('Modifications enregistrées', 'valid');
                     // redirectToRoute('profil');
                 }

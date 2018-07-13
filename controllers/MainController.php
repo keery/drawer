@@ -55,7 +55,52 @@ class MainController {
 
 	public function statsAction()
 	{
-		View::render("backend/statistic.view.php");
+		//Like à l'année
+		$data['like'] = 0;
+		$data['dateLike'] = ['01' => 0, '02' => 0, '03' => 0, '04' => 0, '05' => 0, '06' => 0, '07' => 0, '08' => 0, '09' => 0, '10' => 0, '11' => 0, '12' => 0];
+		if($likes = RelUserArticle::find(['vote' => 'like'])) {
+			$data['nblike'] = sizeof($likes);
+			foreach ($likes as $like) {
+				$month = date("m",strtotime($like->getDate()));
+				$data['dateLike'][$month]++;
+			}
+		}
+
+		//Dislike à l'année
+		$data['dislike'] = 0;
+		$data['dateDislike'] = ['01' => 0, '02' => 0, '03' => 0, '04' => 0, '05' => 0, '06' => 0, '07' => 0, '08' => 0, '09' => 0, '10' => 0, '11' => 0, '12' => 0];
+		if($dislikes = RelUserArticle::find(['vote' => 'dislike'])) {
+			$data['nbdislike'] = sizeof($dislikes);
+			foreach ($dislikes as $dislike) {
+				$month = date("m",strtotime($dislike->getDate()));
+				$data['dateDislike'][$month]++;
+			}
+		}
+
+		//Inscription
+		$data['users'] = 0;
+		$data['dateUser'] = ['01' => 0, '02' => 0, '03' => 0, '04' => 0, '05' => 0, '06' => 0, '07' => 0, '08' => 0, '09' => 0, '10' => 0, '11' => 0, '12' => 0];
+		if($users = User::all()) {
+			$data['nbuser'] = sizeof($users);
+			foreach ($users as $user) {
+				$month = date("m",strtotime($user->getDate_Inscription()));
+				$data['dateUser'][$month]++;
+			}
+		}
+
+		//Commentaires
+		$data['commentaires'] = 0;
+		$data['dateCommentaire'] = ['01' => 0, '02' => 0, '03' => 0, '04' => 0, '05' => 0, '06' => 0, '07' => 0, '08' => 0, '09' => 0, '10' => 0, '11' => 0, '12' => 0];
+		if($commentaires = Commentaire::all()) {
+			$data['nbcommentaire'] = sizeof($commentaires);
+			foreach ($commentaires as $commentaire) {
+				$month = date("m",strtotime($commentaire->getPublication()));
+				$data['dateCommentaire'][$month]++;
+			}
+		}
+
+		if($nbLike = RelUserArticle::find(['vote' => 'dislike'])) $data['dislike'] = sizeof($nbLike);
+		View::render("backend/statistic.view.php", "layout.php", $data);
 	}
 
 	public function editPageAction()

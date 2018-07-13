@@ -8,6 +8,7 @@ class RelUserArticle extends BaseSql {
 	protected $id_user;
 	protected $id_article;
 	protected $vote;
+	protected $data;
 
 	public function __construct() {
 		parent::__construct();
@@ -37,6 +38,12 @@ class RelUserArticle extends BaseSql {
 	}
 	public function setVote($vote) {
 		$this->vote = $vote;
+	}
+	public function getDate() {
+		return $this->date;
+	}
+	public function setDate($date) {
+		$this->date = $date;
 	}
 
 	public static function get_table_class() { return "cd_user_article"; }		
