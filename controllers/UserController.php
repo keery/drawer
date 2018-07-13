@@ -109,7 +109,7 @@ class UserController {
                     $id = $user->save();
                     $token = chaine_encode(['expire' => $token, 'id' => $id]);
 
-                    sendMail($user->getEmail(), PROJECT_NAME." - Confirmation d'inscription", 'Bonjour,<br>Afin de confirmer votre inscription vous devez valider votre adresse email en vous rendant sur le lien suivant, '.path('verif_email', ['token' => urlencode($token)], false));
+                    sendMail($user->getEmail(), PROJECT_NAME." - Confirmation d'inscription", 'Bonjour,<br>Afin de confirmer votre inscription vous devez valider votre adresse email en vous rendant sur le <a href="'.URL_SITE.path('verif_email', ['token' => urlencode($token)], false).'">lien</a>');
                     addNotif('Inscription confirmée, vous allez recevoir un email de confirmation', 'valid');
                     redirectToRoute('connexion');
                 }
@@ -155,7 +155,7 @@ class UserController {
                     $token = strtotime($date);
                     $user->setExpire($date);
                     $user->save();
-                    sendMail($user->getEmail(), PROJECT_NAME." - Mot de passe oublié", 'Bonjour,<br>Suite à votre demande, voici un lien vous permettant de créer un nouveau mot de passe, '.$_SERVER["HTTP_HOST"].path('new_password', ['token' => $token]));
+                    sendMail($user->getEmail(), PROJECT_NAME." - Mot de passe oublié", 'Bonjour,<br>Suite à votre demande, voici un <a href="'.URL_SITE.path('new_password', ['token' => $token]).'">lien</a> vous permettant de créer un nouveau mot de passe');
                     addNotif("Un lien pour réinitialiser votre mot de passe vous a été renvoyé", 'valid');
                 }
                 else addNotif("Cet email ne correspond à aucun compte", 'error');

@@ -42,7 +42,7 @@ define('ASSETS', PROJECT_LINK.DS."assets".DS);
 define('UPLOAD', DIRNAME.DS."assets/img/upload".DS);
 define('IMG', DIRNAME.DS."assets/img".DS);
 define('ROOT', DS.dirname(__FILE__).DS);
-
+define('URL_SITE', "http://www.creative-drawer.ovh");
 //Constante SQL
 define('UPDATE', 'update');
 define('INSERT', 'insert');

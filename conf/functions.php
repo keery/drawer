@@ -274,10 +274,13 @@
             
             // $body = utf8_encode($body);
             //Content
-            $mail->isHTML(true);                                  // Set email format to HTML
             $mail->Subject = $titre;
-            $mail->Body    = $body;
-            $mail->AltBody = $body;
+            // $mail->Body    = $body;
+            $mail->MsgHTML($body);
+
+            
+            // $mail->AltBody = $body;
+            $mail->isHTML(true);                                  // Set email format to HTML
         
             $mail->send();
             return "Message bien envoyé";

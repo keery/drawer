@@ -112,8 +112,8 @@ class SiteController {
 							foreach ($users as $user) {
 								$destinataires[] = $user->getEmail();
 							}
-							$link = path("commentaire_edit", ['id' => $request['id']]);
-							sendMail($destinataires, PROJECT_NAME." - Nouveau commentaire", 'Bonjour,<br>Un nouveau commentaire a été ajouté par '.$_SESSION[PREFIX."user"]['prenom'].' '.$_SESSION[PREFIX."user"]['nom'].', vous pouvez accepter ou refuser ce message en vous rendant sur '.$link.".");
+							$link = '<a href="'.URL_SITE.path("commentaire_edit", ['id' => $request['id']]).'">lien</a>';
+							sendMail($destinataires, PROJECT_NAME." - Nouveau commentaire", 'Bonjour,<br>Un nouveau commentaire a été ajouté par '.$_SESSION[PREFIX."user"]['prenom'].' '.$_SESSION[PREFIX."user"]['nom'].', vous pouvez accepter ou refuser ce message en vous rendant sur le '.$link.".");
 						}
 						addNotif('Votre commentaire a bien été ajouté, un administrateur validera son contenu sous peu', 'valid');
 					}
