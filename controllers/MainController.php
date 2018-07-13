@@ -5,6 +5,8 @@ use Module\Entity\Article;
 use Module\Entity\Parametre;
 use Module\Entity\Commentaire;
 use Module\Entity\Categorie;
+use Module\Entity\RelUserArticle;
+use Module\Entity\User;
 use Module\View\View;
 use Module\Erreur\Erreur;
 use Module\Entity\Form\ParametreForm;
@@ -14,8 +16,40 @@ class MainController {
 	
 	public function indexAction()
 	{
+		//Nombre d'article
+		$data['nbarticles'] = 0;
+		if($nbarts = Article::all()) $data['nbarticles'] = sizeof($nbarts);
+
 		$data['articles'] = Article::find(null, ['*'], null, 5);
 		$data['commentaires'] = Commentaire::find(null, ['*'], null, 5);
+		
+		$totalVote = 0;
+		if($nbLike = RelUserArticle::all()) $totalVote = sizeof($nbLike);
+
+		$data['like'] = 0;
+		if($nbLike = RelUserArticle::find(['vote' => 'like'])) $data['like'] = percent(sizeof($nbLike), $totalVote);
+
+		$data['dislike'] = 0;
+		if($nbLike = RelUserArticle::find(['vote' => 'dislike'])) $data['dislike'] = percent(sizeof($nbLike), $totalVote);
+
+		$totalComm = 0;
+		if($nbComm = Commentaire::all()) $totalComm = sizeof($nbComm);
+
+		$data['com_unactive'] = 0;
+		if($nbComm = Commentaire::find(['active' => 0])) $data['com_unactive'] = percent(sizeof($nbComm), $totalComm);
+
+		$data['com_active'] = 0;
+		if($nbComm = Commentaire::find(['active' => 1])) $data['com_active'] = percent(sizeof($nbComm), $totalComm);
+
+		$totalUser = 0;
+		if($nbuser = User::all()) $totalUser = sizeof($nbuser);
+
+		$data['user_active'] = 0;
+		if($nbuser = User::find(['banned' => 0])) $data['user_active'] = percent(sizeof($nbuser), $totalUser);
+
+		$data['user_banned'] = 0;
+		if($nbuser = User::find(['banned' => 1])) $data['user_banned'] = percent(sizeof($nbuser), $totalUser);
+
 		View::render("backend/dashboard.view.php", "layout.php", $data);
 	}
 

@@ -45,7 +45,7 @@
     </div>
     <hr class="lineSeparator">
     <div class="bottom row">
-        <div class="left group col-lg-5 col-md-12 col-xs-12 spacing-right">
+        <div class="left group col-xs-12 spacing-right">
             <div class="chart-container">
                 <canvas id="myChart" class="chart-item"></canvas>
                 <script>
@@ -55,11 +55,11 @@
                         maintainAspectRatio: true,
                         data: {
                             datasets: [{
-                                data: [90, 10],
+                                data: [<?php echo $like; ?>, <?php echo $dislike; ?>],
                                 borderWidth: [10],
                                 backgroundColor: [
                                     '#49C5B6',
-                                    '#fefefe'
+                                    '#bf4c4c'
                                 ]
                             }],
                         },
@@ -68,7 +68,7 @@
                         options:{
                             title: {
                                 display: true,
-                                text: 'Vue',
+                                text: 'Dislike/Like',
                                 fontSize:50,
                                 fontStyle:"normal"
                             }
@@ -83,19 +83,18 @@
                         maintainAspectRatio: true,
                         data: {
                             datasets: [{
-                                data: [90, 10],
+                                data: [<?php echo $com_active; ?>, <?php echo $com_unactive; ?>],
                                 borderWidth: [10],
                                 backgroundColor: [
-                                    '#4C84C1',
-                                    '#fefefe'
+                                    '#49C5B6',
+                                    '#bf4c4c'
                                 ]
                             }],
                         },
-
                         options:{
                             title: {
                                 display: true,
-                                text: 'Commentaires',
+                                text: 'Commentaire(s) validé(s)',
                                 fontSize:50,
                                 fontStyle:"normal"
                             }
@@ -110,11 +109,11 @@
                         maintainAspectRatio: true,
                         data: {
                             datasets: [{
-                                data: [90, 10],
+                                data: [<?php echo $user_active; ?>, <?php echo $user_banned; ?>],
                                 borderWidth: [10],
                                 backgroundColor: [
-                                    '#BF4C4C',
-                                    '#fefefe'
+                                    '#49C5B6',
+                                    '#bf4c4c'
                                 ]
                             }],
                         },
@@ -123,107 +122,15 @@
                         options:{
                             title: {
                                 display: true,
-                                text: 'Nombre de visiteurs',
+                                text: 'Utilisateur(s) banni(s)',
                                 fontSize:50,
                                 fontStyle:"normal"
                             }
                         }
                     });
-                </script>
-
-                <canvas id="myChart5" class="chart-item"></canvas>
-                <script>
-
-
-                    var ctx = document.getElementById("myChart5").getContext('2d');
-                    var myDoughnutChart = new Chart(ctx, {
-                        type: 'doughnut',
-                        maintainAspectRatio: true,
-                        data: {
-                            datasets: [{
-                                data: [90, 10],
-                                borderWidth: [10],
-                                backgroundColor: [
-                                    '#fcf90e',
-                                    '#fefefe'
-                                ]
-                            }],
-                        },
-                        options:{
-                            title: {
-                                display: true,
-                                text: "j'aime",
-                                fontSize:50,
-                                fontStyle:"normal"
-                            }
-                        }
-                    });
-                </script>
+                </script>                
             </div>
-            <span>TOTAL - 12 300 views</span>
-        </div>
-        <div class="col-lg-5 col-md-12 col-xs-12">
-            <canvas id="myChart4"></canvas>
-            <script>
-                var ctx = document.getElementById("myChart4").getContext('2d');
-                var myDoughnutChart = new Chart(ctx, {
-                    type: 'bar',
-                    maintainAspectRatio: true,
-                    data: {
-                        datasets: [
-                            {
-                                data: [{x:'2016-12-25', y:5}, {x:'2016-12-26', y:50}],
-                                backgroundColor: [
-                                    '#49C5B6',
-                                    '#fefefe'
-                                ]
-                            },
-                            {
-                                data: [{x:'2016-12-25', y:35}],
-                                backgroundColor: [
-                                    '#49C5B6',
-                                    '#fefefe'
-                                ]
-                            },
-                            {
-                                data: [{x:'2016-12-25', y:13}],
-                                backgroundColor: [
-                                    '#49C5B6',
-                                    '#fefefe'
-                                ]
-                            },
-                            {
-                                data: [{x:'2016-12-25', y:34}],
-                                backgroundColor: [
-                                    '#49C5B6',
-                                    '#fefefe'
-                                ]
-                            },
-                            {
-                                data: [{x:'2016-12-25', y:5}],
-                                backgroundColor: [
-                                    '#49C5B6',
-                                    '#fefefe'
-                                ]
-                            },
-                            {
-                                data: [{x:'2016-12-25', y:10}],
-                                backgroundColor: [
-                                    '#49C5B6',
-                                    '#fefefe'
-                                ]
-                            },
-                            {
-                                data: [{x:'2016-12-25', y:12}],
-                                backgroundColor: [
-                                    '#49C5B6',
-                                    '#fefefe'
-                                ]
-                            }
-                        ],
-                    },
-                });
-            </script>
+            <span>TOTAL - <?php echo $nbarticles; ?> article(s)</span>
         </div>
     </div>
 </div>

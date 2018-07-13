@@ -213,6 +213,10 @@
         return $truncate;
     }
 
+    function percent($number, $total) {
+        return $number * 100 / $total;
+    }
+
     function chaine_encode($text)
     {
         if(is_array($text)) $text = serialize($text);

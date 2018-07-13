@@ -73,11 +73,11 @@
   }
 
   .chart-container {
-    display: flex;
+    display: flex; justify-content: center;
   }
 
   .chart-item {
     height: 100px !important;
     width: calc(100px + 100px) !important;
   }
-}
+} 
