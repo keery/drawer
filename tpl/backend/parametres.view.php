@@ -15,7 +15,6 @@
           <?php echo $notif; ?>
       </div>
   <?php endforeach; ?>
-  <?php if(isGranted(ROLE_ADMINISTRATEUR)): ?>
   <?php $form->form_head(); ?>
   <section class="container group">
     <div class="bloc">
@@ -77,5 +76,4 @@
       <?php echo $form->input('submit', ['class' => 'button btn-validate']); ?>
   </div>
   <?php $form->form_bottom(); ?>
-  <?php endif; ?>
 </div>

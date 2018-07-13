@@ -62,7 +62,8 @@ return
                 [
                     'path' => 'parametres',
                     'controller' => 'Main',
-                    'action' => 'parametres'
+					'action' => 'parametres',
+					'role' => ROLE_ADMINISTRATEUR,
                 ],
             'template' =>
                 [
