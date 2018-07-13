@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Module\Entity\Form\UserForm;
+use Module\Entity\Form\ProfilForm;
 use Module\Entity\Form\UserInscriptionForm;
 use Module\Entity\User;
 use Module\View\View;
@@ -198,4 +199,41 @@ class UserController {
         }
     }
 
+    public function profilAction() {
+        if(!($user = User::findOneBy(['id' => $_SESSION[PREFIX."user"]['id']])) || !isset($_SESSION[PREFIX."user"])) redirectToRoute("dashboard");
+
+        $fb = new FormBuilder();
+        $user->setPassword('');    
+        $form = $fb->create(new ProfilForm(), $user);
+
+		if(request_is("POST")) {
+            $data_user_form = $data_user = array_shift($_POST);
+            unset($data_user_form['password']);
+            $user->fromArray($data_user_form);
+            $_POST[$data_user['key']] = $data_user;
+            $form = $fb->create(new ProfilForm(), $user);
+            $user = $form->handleRequest($_POST);
+            $errors = [];
+            if($data_user['email'] != $user->getEmail()) {
+                if( User::findOneBy(['email' => $user->getEmail()] )) $errors[] = "Cet email est déjà utilisé, si vous avez oublié votre mot de passe rendez vous sur cette <a href='".path('forget_password')."'>page</a>";
+            }
+
+            if(isset($data_user['password'])) {
+                if( !isset($data_user['password_confirmation']) || $data_user['password'] != $data_user['password_confirmation'] ) $errors[] = "Les mots de passe sont différents";
+            }
+            
+            if( sizeof($errors) > 0 ) addNotif($errors, 'error');
+            else {
+                if($form->validate()) {
+                    $id = $user->save();
+                    addNotif('Modifications enregistrées', 'valid');
+                    // redirectToRoute('profil');
+                }
+                else addNotif($form->getErrors(), 'error');
+            }
+        }
+
+		$data['form'] = $form->createView();
+        View::render("backend/profil.view.php", 'layout.php', $data);
+    }
 }

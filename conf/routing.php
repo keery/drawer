@@ -147,6 +147,12 @@ return
 						'id' => ['pattern' => '\d+']
 					]
 				],
+			'profil' => 
+				[
+					'path' => 'profil',
+					'controller' => 'User',
+					'action' => 'profil'
+				],
 			'categorie_add' => 
 				[
 					'path' => 'add/categorie',

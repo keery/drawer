@@ -21,9 +21,9 @@
 						$img = IMG."user.png";
 					}
 					?>
-				<div class="picture-circle u-block--center <?php echo $class; ?>" style="background-image: url(<?php echo $img; ?>);"></div>
+				<a href='<?php echo path('profil'); ?>'><div class="picture-circle u-block--center <?php echo $class; ?>" style="background-image: url(<?php echo $img; ?>);"></div></a>
 				<div class="hidden-xs">
-					<h2><?php echo $_SESSION[PREFIX."user"]['prenom']." ".$_SESSION[PREFIX."user"]['nom']; ?></h2>
+					<h2><?php echo "<a href='".path('profil')."'>".$_SESSION[PREFIX."user"]['prenom']." ".$_SESSION[PREFIX."user"]['nom']."</a>"; ?></h2>
 					<span><?php if(isset($_SESSION[PREFIX."user"]['profession'])) echo $_SESSION[PREFIX."user"]['profession']; ?></span>
 					<div>
 						<a href="<?php echo path('site'); ?>">Retour au site</a><a href="<?php echo path('deconnexion'); ?>"><i class="fas fa-power-off"></i></a>
