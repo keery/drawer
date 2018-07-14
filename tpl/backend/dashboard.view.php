@@ -66,6 +66,8 @@
 
 
                         options:{
+                            rotation: Math.PI * 1.5,
+                            cutoutPercentage: 50,
                             title: {
                                 display: true,
                                 text: 'Dislike/Like',
@@ -97,6 +99,8 @@
                             }],
                         },
                         options:{
+                            rotation: Math.PI * 1.5,
+                            cutoutPercentage: 50,
                             title: {
                                 display: true,
                                 text: 'Commentaire(s) validé(s)',
@@ -130,6 +134,8 @@
 
 
                         options:{
+                            cutoutPercentage: 50,
+                            rotation: Math.PI * 1.5,
                             title: {
                                 display: true,
                                 text: 'Utilisateur(s) banni(s)',
