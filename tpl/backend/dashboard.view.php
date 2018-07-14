@@ -71,6 +71,11 @@
                                 text: 'Dislike/Like',
                                 fontSize:50,
                                 fontStyle:"normal"
+                            },
+
+
+                            animation:{
+                                animateScale:true
                             }
                         }
                     });
@@ -97,6 +102,11 @@
                                 text: 'Commentaire(s) validé(s)',
                                 fontSize:50,
                                 fontStyle:"normal"
+                            },
+
+
+                            animation:{
+                                animateScale:true
                             }
                         }
                     });
@@ -125,6 +135,11 @@
                                 text: 'Utilisateur(s) banni(s)',
                                 fontSize:50,
                                 fontStyle:"normal"
+                            },
+
+
+                            animation:{
+                                animateScale:true
                             }
                         }
                     });
