@@ -177,7 +177,7 @@ $(document).ready(function(){
 									dataForm.append("data_base64", reader.result);
 
 							        $.ajax({
-										url: Routing.generate('ajax_img_editeur'),
+										url: "ajax/imgediteur",
 									    type: "POST",
 									    data: dataForm,
 									    contentType: false,
@@ -186,7 +186,7 @@ $(document).ready(function(){
 		
 									    success: function (response) 
 									    {
-				                            editor.insertContent('<img src="http://localhost/ysheza/web/uploads/img_upload/'+response.nom_fichier+'" width="200" />');
+				                            editor.insertContent('<img src="/drawer/assets/img/upload/'+response.nom_fichier+'" width="200" />');
 									    },
 									    error: function(erreur, etat) 
 									    {

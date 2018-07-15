@@ -308,6 +308,12 @@ return
 				'controller' => 'Ajax',
 				'action' => 'uploadFiles'
 			],
+			'ajax_img_editeur' => 
+			[
+				'path' => 'imgediteur',
+				'controller' => 'Ajax',
+				'action' => 'editeurImg'
+			],
 			'like' => 
 			[
 				'path' => 'action/{id}/{type}',
