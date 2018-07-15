@@ -6,6 +6,9 @@
       <div class="u-pd--m">
         <section id="contact">
             <div class="container-grid">
+                <?php if($current_page->getDescription()):
+                    echo '<p>'.$current_page->getDescription().'</p>';
+                endif; ?>
                 <?php foreach(getNotifs('valid') as $notif) : ?>
                     <div class="notif valid">
                         <span class="notif-icone"></span>

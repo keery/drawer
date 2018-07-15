@@ -2,7 +2,7 @@
 <html>
 	<head lang="fr">
 		<meta charset="UTF-8">
-		<title>Creative </title>
+		<title>Creative Drawer</title>
 		<base href="<?php echo DIRECTORY; ?>/">
         <link rel="stylesheet" href="<?php echo DIRNAME ;?>/assets/css/dist/style.css">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -47,7 +47,7 @@
 			</nav>
 		</aside>
 		<div class="body-wrapper content">
-			<div class="notif-clock"><span>2</span></div>
+			<!-- <div class="notif-clock"><span>2</span></div> -->
 			<?php include(TPL.$tpl); ?>
 		</div>
 	</div>

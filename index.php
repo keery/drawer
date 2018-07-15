@@ -2,6 +2,7 @@
 use Conf\Autoloader;
 use Module\Router\Router;
 use Module\Entity\User;
+use Module\Sitemap\SeoAnalyzer;
 
 require('conf/const.php');
 require(CONF.'functions.php');
@@ -13,11 +14,10 @@ else unset($_SESSION[PREFIX."user"]);
 $loader = require(CONF.'autoload.php');
 Autoloader::register();
 
-
 if( isset($_SESSION[PREFIX."user"]['id']) ) {
     $expire = date('Y-m-d H:i:s');
     $user = User::findOneBy(['id' => $_SESSION[PREFIX."user"]['id']]);
-    if((isset($_SESSION[PREFIX."user"]['token']) && $user->getToken() != $_SESSION[PREFIX."user"]['token']) || ($user->getExpire() < $expire) ) session_destroy();
+    // if((isset($_SESSION[PREFIX."user"]['token']) && $user->getToken() != $_SESSION[PREFIX."user"]['token']) || ($user->getExpire() < $expire) ) session_destroy();
     $token = uniqid();
     $_SESSION[PREFIX."user"]['token'] = $token;
     $user->setToken($token);

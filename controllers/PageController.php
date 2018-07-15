@@ -4,7 +4,7 @@ namespace Controllers;
 use Module\Entity\Page;
 use Module\View\View;
 use Module\Erreur\Erreur;
-
+use Module\Sitemap\SeoAnalyzer;
 use Module\Form\FormBuilder;
 use Module\Entity\Form\PageForm;
 

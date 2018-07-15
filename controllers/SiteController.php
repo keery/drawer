@@ -29,8 +29,15 @@ class SiteController {
 	
 	public function indexAction()
 	{
-		$data['arbo'] = $this->getArbo();
-		View::render("frontend/site.view.php", "layout-site.php", $data);
+		if($data['current_page'] = Page::findOneBy(['id' => 1])) {
+			$data['arbo'] = $this->getArbo();
+			
+			$data['last_article'] = null;
+			if($articles = Article::all()) {
+				$data['last_article'] = array_pop($articles);
+			}
+			View::render("frontend/site.view.php", "layout-site.php", $data);
+		}
 	}
 
 	public function contenuAction($request)
@@ -42,14 +49,17 @@ class SiteController {
 		else redirectToRoute('site');
 	}
 
-	public function articlesAction()
+	public function articlesAction($request)
 	{
-		if(isset($_POST['filter-cat']) && !empty($_POST['filter-cat'])) {
-			$data['articles'] = Article::find(['id_categorie' => $_POST['filter-cat']]);
+		if($data['current_page'] = Page::findOneBy(['url' => $request['url']])) {
+			if(isset($_POST['filter-cat']) && !empty($_POST['filter-cat'])) {
+				$data['articles'] = Article::find(['id_categorie' => $_POST['filter-cat']]);
+			}
+			else $data['articles'] = Article::all();
+			$data['categories'] = Categorie::find(['active' => 1]);		
+			View::render("frontend/oeuvre.view.php", "layout-site.php", $data);
 		}
-		else $data['articles'] = Article::all();
-		$data['categories'] = Categorie::find(['active' => 1]);		
-		View::render("frontend/oeuvre.view.php", "layout-site.php", $data);
+		else redirectToRoute('site');
 	}
 
 	public function articleDetailAction($request)
@@ -130,13 +140,16 @@ class SiteController {
 		else redirectToRoute('site');
 	}
 
-	public function contactAction()
+	public function contactAction($request)
 	{
-		$fb = new FormBuilder();
-		$form = $fb->create(new ContactForm());
-		$form->setAction(path('send_contact'));
-		$data['form'] = $form->createView();
-		View::render("frontend/contact.view.php", "layout-site.php", $data);
+		if($data['current_page'] = Page::findOneBy(['url' => $request['url']])) {
+			$fb = new FormBuilder();
+			$form = $fb->create(new ContactForm());
+			$form->setAction(path('send_contact'));
+			$data['form'] = $form->createView();
+			View::render("frontend/contact.view.php", "layout-site.php", $data);
+		}
+		else redirectToRoute('site');
 	}
 
 	public function sendContactAction()

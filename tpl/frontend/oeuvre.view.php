@@ -1,6 +1,10 @@
 <div class="container-grid wrapper">
     <h2>Mes oeuvres</h2>
 
+    <?php if($current_page->getDescription()):
+      echo '<p>'.$current_page->getDescription().'</p>';
+    endif; ?>
+    
     <?php if(sizeof($categories) > 0): ?>
       <form method="POST">
         <div class="filter-cat">

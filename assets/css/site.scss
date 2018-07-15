@@ -150,7 +150,7 @@ $opacity: .5;
       overflow: hidden;
   
       .header {
-        background: $color;
+        background: $color; margin-bottom:0;
 
         h1 {
           color: white;
