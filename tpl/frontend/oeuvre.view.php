@@ -21,7 +21,7 @@
         </div> 
       </form>
     <?php endif; ?>
-    <div class="row">
+    <div class="row clear">
       <?php if(isset($articles) && sizeof($articles) > 0): ?>
         <?php foreach($articles as $article): ?>
           <div class="col-md-4 col-sm-6 col-xs-12 u-pd--s">

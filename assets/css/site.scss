@@ -2,13 +2,14 @@
 
 $color: #473F3F;
 $opacity: .5;
-#site { padding-bottom: 75px;
+.clear { clear: both; }
+#site { padding-bottom: 95px;
 
   .relative { position: relative; }
   .action-article { 
     position: absolute;
     right: 5px;
-    top:5px;
+    top:15px;
     > * { margin: 0 5px; vertical-align: middle!important; }
     .fas { border-radius: 100%; border:1px solid grey; text-align: center;height: 30px;width: 30px; line-height: 30px; }
     .fa-thumbs-up, .fa-thumbs-down { transition: background-color ease-in-out 0.2s; background-color: white; cursor: pointer; }
