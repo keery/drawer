@@ -1,6 +1,6 @@
 <div class="container-grid wrapper">
   <div class="row">
-    <div class="col-sm-8 col-xs-12">
+    <div class="<?php echo $settings ? 'col-sm-8' : ''; ?> col-xs-12">
       <article class="article spacing-bottom">
         <div class="header">
           <h1><?php echo $current_page->getTitre(); ?></h1>
@@ -35,12 +35,14 @@
       </article>
       <?php endif; ?>
     </div>
-    <article class="description col-sm-4">
-      <div class="spacing-left">
-        <div>
-          <?php echo $settings->getDescription(); ?>
+    <?php if($settings): ?>
+      <article class="description col-sm-4">
+        <div class="spacing-left">
+          <div>
+            <?php echo $settings->getDescription(); ?>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
+      <?php endif; ?>
   </div>
 </div>
