@@ -142,7 +142,10 @@ $opacity: .5;
     input[type="submit"] {     float: right;
       margin-top: 12px; }
   }
-
+  .description { 
+    p { margin: 0; }
+   }
+   .spacing-bottom { margin-bottom: 25px; }
   .content {
     .article {
       @include box-shadow();

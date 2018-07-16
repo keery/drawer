@@ -116,7 +116,6 @@ class MainController {
 
 		$data['titre'] = "Configuration des paramètres";
 
-		
 		$fb = new FormBuilder();
 		$form = $fb->create(new ParametreForm(), $parametre);
 		
@@ -124,6 +123,7 @@ class MainController {
 			$parametre = $form->handleRequest($_POST);
 			if($form->validate()) {
 				$id = $parametre->save();
+
 				addNotif('Paramètres bien enregistré', 'valid');
 				redirectToRoute('parametres');
 			}

@@ -49,6 +49,7 @@ $(document).ready(function(){
 		menubar: false,
 		max_height: 500,
 		statusbar: false,
+		relative_urls : false,
 		plugins: [
 			'advlist autolink lists link image charmap print preview anchor',
 		  	'textcolor colorpicker'
@@ -131,6 +132,7 @@ $(document).ready(function(){
 		max_height: 500,
 		statusbar: false,
 		required: true,
+		relative_urls : false,
 		plugins: [
 		  'advlist autolink lists link charmap print preview anchor',
 		  'searchreplace visualblocks code fullscreen',
