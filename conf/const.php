@@ -6,7 +6,6 @@ if($_SERVER['HTTP_HOST'] == "localhost") {
 	define("HOST", "projectdb");	
 	define("PASS", "password");	
 }
-define("PASS", "password");
 define("DB_NAME", "drawer");
 
 /*******/
