@@ -28,6 +28,11 @@ class TemplateForm extends FormBuilderInterface
             ->add('sous titre', new ColorType(), ['value' => "#FFFFFF", 'required' => false])
             ->add('sous titre secondaire', new ColorType(), ['value' => "#D5DCE3", 'required' => false])
             ->add('texte', new ColorType(), ['value' => "#304A52", 'required' => false])
+
+            ->add('mainfront', new ColorType(), ['label' => "Couleur principal", 'required' => false])
+            ->add('font1front', new ColorType(), ['label' => "Couleur des titres", 'required' => false])
+            ->add('font2front', new ColorType(), ['label' => "Couleur des textes", 'required' => false])
+            ->add('background', new ColorType(), ['label' => "Couleur de fond", 'required' => false])
             ->add('submit', new SubmitType())
         ;
     }

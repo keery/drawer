@@ -24,37 +24,26 @@
     <?php endforeach; ?>
     <h2>Style</h2>
 
+  
     <section class="container padding-box">
         <div class="container-grid">
             <div class="row">
-
                 <div class="col-md-6 col-xs-12 group spacing-left">
-                    <?php echo $form->label('principal'); ?>
-                    <?php echo $form->input('principal', ['class' => 'color']); ?>
+                    <?php echo $form->label('mainfront'); ?>
+                    <?php echo $form->input('mainfront', ['class' => 'color']); ?>
                 </div>
                 <div class="col-md-6 col-xs-12 group spacing-left">
-                    <?php echo $form->label('secondaire'); ?>
-                    <?php echo $form->input('secondaire', ['class' => 'color']); ?>
+                    <?php echo $form->label('font1front'); ?>
+                    <?php echo $form->input('font1front', ['class' => 'color']); ?>
                 </div>
                 <div class="col-md-6 col-xs-12 group spacing-left">
-                    <?php echo $form->label('highlight'); ?>
-                    <?php echo $form->input('highlight', ['class' => 'color']); ?>
+                    <?php echo $form->label('font2front'); ?>
+                    <?php echo $form->input('font2front', ['class' => 'color']); ?>
                 </div>
                 <div class="col-md-6 col-xs-12 group spacing-left">
-                    <?php echo $form->label('highlight secondaire'); ?>
-                    <?php echo $form->input('highlight secondaire', ['class' => 'color']); ?>
+                    <?php echo $form->label('background'); ?>
+                    <?php echo $form->input('background', ['class' => 'color']); ?>
                 </div>
-                <div class="col-md-6 col-xs-12 group spacing-left">
-                    <?php echo $form->label('sous titre'); ?>
-                    <?php echo $form->input('sous titre', ['class' => 'color']); ?>
-                </div>
-                <div class="col-md-6 col-xs-12 group spacing-left">
-                    <?php echo $form->label('sous titre secondaire'); ?>
-                    <?php echo $form->input('sous titre secondaire', ['class' => 'color']); ?>
-                </div>
-                <div class="col-md-6 col-xs-12 group spacing-left">
-                    <?php echo $form->label('texte'); ?>
-                    <?php echo $form->input('texte', ['class' => 'color']); ?>
                 </div>
                 <div class="text-right text-center-xs col-md-3 col-xs-12">
                     <input type="submit" value="Enregistrer" class="button btn-validate">

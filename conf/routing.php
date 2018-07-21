@@ -70,7 +70,13 @@ return
                     'path' => 'template',
                     'controller' => 'Template',
                     'action' => 'template'
-                ],
+				],
+			'template_edit' =>
+                [
+                    'path' => 'edit/template',
+                    'controller' => 'Template',
+                    'action' => 'editTemplate'
+                ],				
             'contact' =>
 				[
 					'path' => 'contact',

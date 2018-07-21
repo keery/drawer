@@ -14,6 +14,11 @@ class template extends BaseSql {
     protected $sousTitreSec;
     protected $texte;
 
+    protected $mainfront;
+    protected $font1front;
+    protected $font2front;
+    protected $background;
+
 
 
     public function __construct() {
@@ -39,6 +44,30 @@ class template extends BaseSql {
     public function setHighlight($highlight) {
         $this->highlight = $highlight;
     }
+    public function getMainfront() {
+        return $this->mainfront;
+    }
+    public function setMainfront($mainfront) {
+        $this->mainfront = $mainfront;
+    }
+    public function getFont1front() {
+        return $this->font1front;
+    }
+    public function setFont1front($font1front) {
+        $this->font1front = $font1front;
+    }
+    public function getFont2front() {
+        return $this->font2front;
+    }
+    public function setFont2front($font2front) {
+        $this->font2front = $font2front;
+    }   
+    public function getBackground() {
+        return $this->background;
+    }
+    public function setBackground($background) {
+        $this->background = $background;
+    }        
     public function getHighlight2() {
         return $this->highlight2;
     }
@@ -74,4 +103,5 @@ class template extends BaseSql {
         $this->texte = $texte;
     }
 
+	public static function get_table_class() { return "cd_template"; }
 }
