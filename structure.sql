@@ -132,6 +132,16 @@ CREATE TABLE `cd_user_role` (
   `nom` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+CREATE TABLE `cd_template` (
+  `id` int(11) NOT NULL,
+  `mainfront` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `font1front` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `font2front` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `background` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `cd_template` (`id`, `mainfront`, `font1front`, `font2front`, `background`) VALUES
+(1, '#473F3F', '#FFFFFF', '#000000', '#FFFFFF');
 
 ALTER TABLE `cd_article`
   ADD PRIMARY KEY (`id`);
@@ -170,6 +180,9 @@ ALTER TABLE `cd_user_article`
 ALTER TABLE `cd_user_role`
   ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `cd_template`
+  ADD PRIMARY KEY (`id`);
+
 ALTER TABLE `cd_article`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
@@ -205,3 +218,6 @@ ALTER TABLE `cd_user_article`
 
 ALTER TABLE `cd_user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `cd_template`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
