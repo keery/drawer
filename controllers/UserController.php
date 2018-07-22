@@ -21,9 +21,13 @@ class UserController {
             else $data['users'] = User::find(['banned' => 1]);
 			
 		}
-		else $data['users'] = User::all();
-		
-		
+        else $data['users'] = User::all();
+        
+        if(sizeof($data['users']) > 0) {
+            foreach ($data['users'] as $key => $user) {
+                if($user->getId() == $_SESSION[PREFIX."user"]['id']) unset($data['users'][$key]);
+            }
+        }
 		View::render("user/user-list.view.php", 'layout.php', $data);
     }
     
@@ -125,9 +129,12 @@ class UserController {
 
     public function verifEmailAction($request) {
         if(isset($request)) {
+
             $infoUser = unserialize(chaine_decode($request['token']));
             if($infoUser['expire'] < date('Y-m-d H:i:s')) $errors[] = "Votre lien de confirmation a expiré, vous allez recevoir un nouveau lien dans quelques instant.";
             if(!$user = User::findOneBy(['id' => $infoUser['id']])) $errors[] = "Erreur interne, veuillez vous inscrire à nouveau.";
+            var_dump($infoUser);
+            die;
 
             if(sizeof($errors) > 0) {
                 addNotif($errors, 'error');
@@ -139,7 +146,7 @@ class UserController {
             }
         }
         
-        redirectToRoute('connexion');
+        // redirectToRoute('connexion');
 
     }
 

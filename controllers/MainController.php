@@ -56,7 +56,7 @@ class MainController {
 	public function statsAction()
 	{
 		//Like à l'année
-		$data['like'] = 0;
+		$data['nblike'] = 0;
 		$data['dateLike'] = ['01' => 0, '02' => 0, '03' => 0, '04' => 0, '05' => 0, '06' => 0, '07' => 0, '08' => 0, '09' => 0, '10' => 0, '11' => 0, '12' => 0];
 		if($likes = RelUserArticle::find(['vote' => 'like'])) {
 			$data['nblike'] = sizeof($likes);
@@ -67,7 +67,7 @@ class MainController {
 		}
 
 		//Dislike à l'année
-		$data['dislike'] = 0;
+		$data['nbdislike'] = 0;
 		$data['dateDislike'] = ['01' => 0, '02' => 0, '03' => 0, '04' => 0, '05' => 0, '06' => 0, '07' => 0, '08' => 0, '09' => 0, '10' => 0, '11' => 0, '12' => 0];
 		if($dislikes = RelUserArticle::find(['vote' => 'dislike'])) {
 			$data['nbdislike'] = sizeof($dislikes);

@@ -81,7 +81,7 @@
         <div class="stats-info col-lg-3">
           <i class="fas fa-heart"></i>
           <span class="title">Like</span>
-          <span class="content"><?php echo $nblike; ?></span>
+          <span class="content"><?php echo $like; ?></span>
         </div>
         <div class="stats-info col-lg-3">
           <i class="fas fa-thumbs-down"></i>
