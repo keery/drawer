@@ -94,7 +94,8 @@ CREATE TABLE `cd_settings` (
   `twitter` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `facebook` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `linkedin` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `instagram` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `instagram` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `id_image` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
