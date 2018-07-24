@@ -1,6 +1,7 @@
 <?php
 namespace Module\Sitemap;
 use DOMDocument;
+
 class SeoAnalyzer {
 
     const CURL_OPTIONS = [
@@ -31,16 +32,10 @@ class SeoAnalyzer {
         libxml_clear_errors();
 
         $links = $doc->getElementsByTagName('a');
-        // var_dump($links->length);
-        var_dump($html);
-        ini_set('xdebug.var_display_max_depth', 5);
-        ini_set('xdebug.var_display_max_children', 256);
-        ini_set('xdebug.var_display_max_data', 25000);
         if($links->length > 0) {
             foreach ($links as $link) {
                 $t_url[$link->getAttribute("href")] = $link->getAttribute("href");
-                $t_res = SeoAnalyzer::analyze(URL_SITE.$link->getAttribute("href"), $t_url);
-                var_dump(URL_SITE.$link->getAttribute("href"));
+                $t_res = SeoAnalyzer::analyze(URL_SITE.'/'.$link->getAttribute("href"), $t_url);
                 // var_dump($t_res);
                 if(!empty($t_res)) {
                     foreach ($t_res as $res) {
@@ -48,7 +43,8 @@ class SeoAnalyzer {
                     }
                 }
             }
-        }
+        }      
+        
         curl_close($c);
         return $t_url;
     }

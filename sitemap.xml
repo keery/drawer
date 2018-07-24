@@ -1,11 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  <url>
-    <loc>http://www.creative-drawer.ovh</loc>
-    <changethis->freq>daily</changethis->freq>
-    <this->priority>1.0</this->priority>
-  </url>
-</urlset>
+<?xml version="1.0"?>
+<rss version="2.0">
+  <url>ssqdsffsdf</url>
+  <url>qfsdfsdf</url>
+  <url>qsdfsdf</url>
+  <url>sdfqsdf</url>
+  <url>rss-article.xml</url>
+  <url>/site</url>
+  <url>/site/a/mes-oeuvres</url>
+  <url>/site/c/contact</url>
+  <url>/site/deluche</url>
+  <url>/inscription</url>
+  <url>/connexion</url>
+  <url>/site/ma-statut-de-la-liberte/2</url>
+  <url>/site/mentions-legales</url>
+  <url>/landing</url>
+</rss>

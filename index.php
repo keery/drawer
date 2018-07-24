@@ -3,6 +3,9 @@ use Conf\Autoloader;
 use Module\Router\Router;
 use Module\Entity\User;
 use Module\Sitemap\SeoAnalyzer;
+use Module\Rss\Rss;
+
+
 
 require('conf/const.php');
 require(CONF.'functions.php');
@@ -13,6 +16,15 @@ else unset($_SESSION[PREFIX."user"]);
 
 $loader = require(CONF.'autoload.php');
 Autoloader::register();
+
+// SITE MAP GENERATOR
+$anal = new SeoAnalyzer();
+$res = $anal->analyze("www.creative-drawer.ovh/site");
+if(sizeof($res) > 0) {
+    $rss = new Rss('sitemap.xml');
+    foreach ($res as $url)  $urlNode = $rss->addElement('url', $url);
+    $rss->generate();
+}
 
 if( isset($_SESSION[PREFIX."user"]['id']) ) {
     $expire = date('Y-m-d H:i:s');
