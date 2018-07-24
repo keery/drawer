@@ -101,6 +101,9 @@
 				?>
 				<a href="<?php echo $url; ?>">Mentions légales</a> | 
 			<?php endif; ?>
+			<?php if(file_exists('sitemap.xml')): ?>
+				<a href="sitemap.xml" target="_blank">Plan du site</a> | 
+			<?php endif; ?>
 			<a href="<?php echo path('landing'); ?>">Powered by Creative Drawer©</a>
 		</div>
 	</footer>
