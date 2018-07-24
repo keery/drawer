@@ -17,6 +17,8 @@ class ArticleController {
 			$data['articles'] = Article::find(['active' => ($_GET['sort'] === 'active' ? 1 : 0)]);
 		}
 		else $data['articles'] = Article::all();
+
+		$data['categs'] = Categorie::all();
 				
 		View::render("backend/articles-list.view.php", 'layout.php', $data);
 	}

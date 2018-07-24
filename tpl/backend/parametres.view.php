@@ -64,7 +64,7 @@
   <section class="container group">
     <div class="bloc">
         <div class="bloc-titre">
-            <span>Contenu</span>
+            <span>Présentation</span>
         </div>
         <div class="bloc-content">
             <?php echo $form->input('description', ['class' => 'editor-img small']); ?>

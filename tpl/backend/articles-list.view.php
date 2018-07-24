@@ -16,24 +16,32 @@
   </div>
 <?php endforeach; ?>
 <section class="container">
-  <?php if(count($articles) > 0): ?>
-  <ul class="list">
-    <?php foreach($articles as $article) : ?>
-      <li class="list-item">
-        <div class="text-list"><?php echo $article->getTitre(); ?></div>
-        <div class="details-list"><span class="date-details-list"><?php echo format_date($article->getDate_creation(), "d/m/Y"); ?></span></div>
-        <ul class="panel-action">
-          <li><a href="<?php echo path('article_edit', ['id' => $article->getId()]); ?>" title="Éditer"><i class="fas fa-pencil-alt"></i></a></li>
-          <li><a href="<?php echo path('delete_entity', ['entity' => 'article', 'id' => $article->getId()]); ?>" title="Supprimer" class="dial"><i class="far fa-trash-alt"></i></a></li>
-        </ul>
-      </li>
-    <?php endforeach; ?>
-  </ul>
+  <?php if(count($categs) > 0): ?>
+    <?php if(count($articles) > 0): ?>
+    <ul class="list">
+      <?php foreach($articles as $article) : ?>
+        <li class="list-item">
+          <div class="text-list"><?php echo $article->getTitre(); ?></div>
+          <div class="details-list"><span class="date-details-list"><?php echo format_date($article->getDate_creation(), "d/m/Y"); ?></span></div>
+          <ul class="panel-action">
+            <li><a href="<?php echo path('article_edit', ['id' => $article->getId()]); ?>" title="Éditer"><i class="fas fa-pencil-alt"></i></a></li>
+            <li><a href="<?php echo path('delete_entity', ['entity' => 'article', 'id' => $article->getId()]); ?>" title="Supprimer" class="dial"><i class="far fa-trash-alt"></i></a></li>
+          </ul>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+    <?php else: ?>
+      <div class="notif information">
+          <span class="notif-icone"></span>
+          <div class="notif-titre">Info:</div>
+          Aucun article disponible
+      </div>
+    <?php endif; ?>
   <?php else: ?>
     <div class="notif information">
         <span class="notif-icone"></span>
         <div class="notif-titre">Info:</div>
-        Aucun article disponible
+        Aucune catégorie existante, l'affectation à une catégorie est obligatoire lors de le création d'un article, vous pouvez en ajouter <a href="<?php echo path('categorie_add'); ?>">ici</a>
     </div>
   <?php endif; ?>
 </section>
