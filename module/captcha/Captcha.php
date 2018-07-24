@@ -9,7 +9,7 @@
         private $height;
         private $fonts = [];
 
-        const CHARS = "abcdefghijklmnopqrstuvwxyz0123456789";
+        const CHARS = "abcdefghijklmnopqrstuvwxyz";
 
         public function __construct($width=500, $height=50) {
             $this->width = $width;

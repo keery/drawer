@@ -244,7 +244,7 @@ return
 				]
 			],
 			'send_contact' => [
-				'path' => 'send_contact',
+				'path' => 'contact/send_contact',
 				'controller' => 'Site',
 				'action' => 'sendContact'
 			],

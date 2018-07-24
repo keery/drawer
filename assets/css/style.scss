@@ -412,6 +412,16 @@ img { max-width: 100%; }
 {
 	margin-left: 18px;
 }
+.badge-photo {
+	display: inline-block;
+    width: 35px;
+    vertical-align: middle;
+    height: 35px;
+    background-size: cover;
+    border-radius: 100%;
+    background-position: 50%;
+    margin: 10px 7px 10px 0;
+}
 
 @media (max-width: 992px) {
 	.picto-page {

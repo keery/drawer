@@ -133,8 +133,6 @@ class UserController {
             $infoUser = unserialize(chaine_decode($request['token']));
             if($infoUser['expire'] < date('Y-m-d H:i:s')) $errors[] = "Votre lien de confirmation a expiré, vous allez recevoir un nouveau lien dans quelques instant.";
             if(!$user = User::findOneBy(['id' => $infoUser['id']])) $errors[] = "Erreur interne, veuillez vous inscrire à nouveau.";
-            var_dump($infoUser);
-            die;
 
             if(sizeof($errors) > 0) {
                 addNotif($errors, 'error');
