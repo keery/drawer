@@ -70,10 +70,14 @@ fjs.parentNode.insertBefore(js, fjs);
             <div class="comm">
                 <?php 
                     $img = IMG."user.png";
-					if($imgUser = $comm->getUser()->getImage()) $img = UPLOAD.$imgUser->getSrc();
+                    $class="noimg";
+					if($imgUser = $comm->getUser()->getImage()) {
+                        $img = UPLOAD.$imgUser->getSrc();
+                        $class="";
+                    }
 				?>
                 <div class="info-comm author">
-                    <span class='badge-photo' style="background-image: url(<?php echo $img; ?>)"></span>
+                    <span class='badge-photo <?php echo $class; ?>' style="background-image: url(<?php echo $img; ?>)"></span>
                     <?php echo date_publication($comm->getPublication()) ?> par <?php echo $comm->getUser()->getPrenom() . " " . $comm->getUser()->getNom()[0]."."; ?></div>
                 <?php echo $comm->getCommentaire(); ?>
             </div>

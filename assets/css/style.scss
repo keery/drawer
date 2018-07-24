@@ -419,8 +419,11 @@ img { max-width: 100%; }
     height: 35px;
     background-size: cover;
     border-radius: 100%;
-    background-position: 50%;
-    margin: 10px 7px 10px 0;
+    background-color: #aeaeae;
+	background-position: 50%;
+	background-repeat: no-repeat;
+	margin: 10px 7px 10px 0;
+	&.noimg { background-position: 50% 2px; }
 }
 
 @media (max-width: 992px) {
