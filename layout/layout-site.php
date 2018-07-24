@@ -30,11 +30,11 @@
 						<?php if($settings->getSoustitre()) echo "<h2 class='banner-subtitle'>".$settings->getSoustitre()."</h2>"; ?>						
 						<div class='banner-social'>
 							<?php
-								if($settings->getFacebook()) echo '<a href="'.$settings->getFacebook().'" target="_blank"><i class="fab fa-facebook-square"></i></a>';
-								if($settings->getLinkedin()) echo '<a href="'.$settings->getLinkedin().'" target="_blank"><i class="fab fa-linkedin"></i></a>';
-								if($settings->getTwitter()) echo '<a href="'.$settings->getTwitter().'" target="_blank"><i class="fab fa-twitter-square"></i></a>';
-								if($settings->getInstagram()) echo '<a href="'.$settings->getInstagram().'" target="_blank"><i class="fab fa-instagram"></i></a>';
-								if(file_exists('rss-article.xml')) echo '<a href="rss-article.xml" target="_blank"><i class="fas fa-rss-square"></i></a>'
+								if($settings->getFacebook()) echo '<a href="'.$settings->getFacebook().'" target="_blank" rel="nofollow"><i class="fab fa-facebook-square"></i></a>';
+								if($settings->getLinkedin()) echo '<a href="'.$settings->getLinkedin().'" target="_blank" rel="nofollow"><i class="fab fa-linkedin"></i></a>';
+								if($settings->getTwitter()) echo '<a href="'.$settings->getTwitter().'" target="_blank" rel="nofollow"><i class="fab fa-twitter-square"></i></a>';
+								if($settings->getInstagram()) echo '<a href="'.$settings->getInstagram().'" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a>';
+								if(file_exists('rss-article.xml')) echo '<a href="rss-article.xml" target="_blank" rel="nofollow"><i class="fas fa-rss-square"></i></a>'
 							?>
 						</div>
 					</div>

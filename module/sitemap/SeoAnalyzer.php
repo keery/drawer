@@ -34,9 +34,11 @@ class SeoAnalyzer {
         $links = $doc->getElementsByTagName('a');
         if($links->length > 0) {
             foreach ($links as $link) {
+                if($link->getAttribute("rel") == "nofollow") continue;
+
                 $t_url[$link->getAttribute("href")] = $link->getAttribute("href");
                 $t_res = SeoAnalyzer::analyze(URL_SITE.'/'.$link->getAttribute("href"), $t_url);
-                // var_dump($t_res);
+
                 if(!empty($t_res)) {
                     foreach ($t_res as $res) {
                         $t_url[$res] = $res;
