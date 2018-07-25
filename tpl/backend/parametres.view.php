@@ -72,7 +72,6 @@
     </div>
   </section>
   <div class="text-right text-center-xs col-xs-12">
-      <a href="<?php echo path('articles'); ?>" class="button btn-validate">Retour à la liste</a>
       <?php echo $form->input('submit', ['class' => 'button btn-validate']); ?>
   </div>
   <?php $form->form_bottom(); ?>
